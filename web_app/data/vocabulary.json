@@ -1,0 +1,4781 @@
+[
+  {
+    "id": "vocab_1",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "気候",
+    "kana": "きこう",
+    "display": "気候",
+    "meaning": "khí hậu"
+  },
+  {
+    "id": "vocab_2",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "",
+    "kana": "コーナー",
+    "display": "コーナー",
+    "meaning": "góc, khu vực"
+  },
+  {
+    "id": "vocab_3",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "温帯",
+    "kana": "おんたい",
+    "display": "温帯",
+    "meaning": "ôn đới"
+  },
+  {
+    "id": "vocab_4",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "南北",
+    "kana": "なんぼく",
+    "display": "南北",
+    "meaning": "Nam Bắc"
+  },
+  {
+    "id": "vocab_5",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "島",
+    "kana": "しま",
+    "display": "島",
+    "meaning": "đảo"
+  },
+  {
+    "id": "vocab_6",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "位置する",
+    "kana": "いちする",
+    "display": "位置する",
+    "meaning": "nằm ở vị trí"
+  },
+  {
+    "id": "vocab_7",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "地形",
+    "kana": "ちけい",
+    "display": "地形",
+    "meaning": "địa hình"
+  },
+  {
+    "id": "vocab_8",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "山林",
+    "kana": "さんりん",
+    "display": "山林",
+    "meaning": "rừng rậm"
+  },
+  {
+    "id": "vocab_9",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "蒸し暑い",
+    "kana": "むしあつい",
+    "display": "蒸し暑い",
+    "meaning": "nóng ẩm, oi bức"
+  },
+  {
+    "id": "vocab_10",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "太平洋側",
+    "kana": "たいへいようがわ",
+    "display": "太平洋側",
+    "meaning": "phía Thái Bình Dương"
+  },
+  {
+    "id": "vocab_11",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "",
+    "kana": "ペンション",
+    "display": "ペンション",
+    "meaning": "nhà ở"
+  },
+  {
+    "id": "vocab_12",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "割合",
+    "kana": "わりあい",
+    "display": "割合",
+    "meaning": "tỉ lệ"
+  },
+  {
+    "id": "vocab_13",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "例年",
+    "kana": "れいねん",
+    "display": "例年",
+    "meaning": "mọi năm"
+  },
+  {
+    "id": "vocab_14",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "連なる",
+    "kana": "つらなる",
+    "display": "連なる",
+    "meaning": "nối tiếp, trải dài"
+  },
+  {
+    "id": "vocab_15",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "恵まれる",
+    "kana": "めぐまれる",
+    "display": "恵まれる",
+    "meaning": "được ban tặng, ưu đãi"
+  },
+  {
+    "id": "vocab_16",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "展望台",
+    "kana": "てんぼうだい",
+    "display": "展望台",
+    "meaning": "đài quan sát"
+  },
+  {
+    "id": "vocab_17",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "美しい",
+    "kana": "うつくしい",
+    "display": "美しい",
+    "meaning": "đẹp"
+  },
+  {
+    "id": "vocab_18",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "平野",
+    "kana": "へいや",
+    "display": "平野",
+    "meaning": "đồng bằng"
+  },
+  {
+    "id": "vocab_19",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "庭",
+    "kana": "にわ",
+    "display": "庭",
+    "meaning": "vườn"
+  },
+  {
+    "id": "vocab_20",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "家庭",
+    "kana": "かてい",
+    "display": "家庭",
+    "meaning": "gia đình"
+  },
+  {
+    "id": "vocab_21",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "石垣",
+    "kana": "いしがき",
+    "display": "石垣",
+    "meaning": "tường đá"
+  },
+  {
+    "id": "vocab_22",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "名園",
+    "kana": "めいえん",
+    "display": "名園",
+    "meaning": "danh lam thắng cảnh"
+  },
+  {
+    "id": "vocab_23",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "囲む",
+    "kana": "かこむ",
+    "display": "囲む",
+    "meaning": "bao quanh"
+  },
+  {
+    "id": "vocab_24",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "複雑",
+    "kana": "ふくざつ",
+    "display": "複雑",
+    "meaning": "phức tạp"
+  },
+  {
+    "id": "vocab_25",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "地域",
+    "kana": "ちいき",
+    "display": "地域",
+    "meaning": "khu vực, vùng"
+  },
+  {
+    "id": "vocab_26",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "乾燥する",
+    "kana": "かんそうする",
+    "display": "乾燥する",
+    "meaning": "hanh, khô"
+  },
+  {
+    "id": "vocab_27",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "乾く",
+    "kana": "かわく",
+    "display": "乾く",
+    "meaning": "khô (tự động từ)"
+  },
+  {
+    "id": "vocab_28",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "曇り",
+    "kana": "くもり",
+    "display": "曇り",
+    "meaning": "trời nhiều mây"
+  },
+  {
+    "id": "vocab_29",
+    "lesson": "第 6 課",
+    "part": "Part 1",
+    "kanji": "平均",
+    "kana": "へいきん",
+    "display": "平均",
+    "meaning": "trung bình"
+  },
+  {
+    "id": "vocab_30",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "音声",
+    "kana": "おんせい",
+    "display": "音声",
+    "meaning": "âm thanh"
+  },
+  {
+    "id": "vocab_31",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "瓦",
+    "kana": "かわら",
+    "display": "瓦",
+    "meaning": "ngói"
+  },
+  {
+    "id": "vocab_32",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "軒",
+    "kana": "のき",
+    "display": "軒",
+    "meaning": "mái hiên"
+  },
+  {
+    "id": "vocab_33",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "塀",
+    "kana": "へい",
+    "display": "塀",
+    "meaning": "rào"
+  },
+  {
+    "id": "vocab_34",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "石",
+    "kana": "いし",
+    "display": "石",
+    "meaning": "đá"
+  },
+  {
+    "id": "vocab_35",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "日差し",
+    "kana": "ひざし",
+    "display": "日差し",
+    "meaning": "ánh nắng"
+  },
+  {
+    "id": "vocab_36",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "固める",
+    "kana": "かためる",
+    "display": "固める",
+    "meaning": "làm cứng, củng cố"
+  },
+  {
+    "id": "vocab_37",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "鉄筋",
+    "kana": "てっきん",
+    "display": "鉄筋",
+    "meaning": "cốt thép"
+  },
+  {
+    "id": "vocab_38",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "筋肉",
+    "kana": "きんにく",
+    "display": "筋肉",
+    "meaning": "cơ bắp"
+  },
+  {
+    "id": "vocab_39",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "気象",
+    "kana": "きしょう",
+    "display": "気象",
+    "meaning": "khí tượng"
+  },
+  {
+    "id": "vocab_40",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "小論文",
+    "kana": "しょうろんぶん",
+    "display": "小論文",
+    "meaning": "tiểu luận"
+  },
+  {
+    "id": "vocab_41",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "畳む - 畳み",
+    "kana": "たたむ - たたみ",
+    "display": "畳む - 畳み",
+    "meaning": "gấp, xếp"
+  },
+  {
+    "id": "vocab_42",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "現金",
+    "kana": "げんきん",
+    "display": "現金",
+    "meaning": "tiền mặt"
+  },
+  {
+    "id": "vocab_43",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "現代",
+    "kana": "げんだい",
+    "display": "現代",
+    "meaning": "hiện đại"
+  },
+  {
+    "id": "vocab_44",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "電子マネー",
+    "kana": "でんしマネー",
+    "display": "電子マネー",
+    "meaning": "tiền điện tử"
+  },
+  {
+    "id": "vocab_45",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "",
+    "kana": "セメント",
+    "display": "セメント",
+    "meaning": "xi măng"
+  },
+  {
+    "id": "vocab_46",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "",
+    "kana": "コンクリート",
+    "display": "コンクリート",
+    "meaning": "bê tông"
+  },
+  {
+    "id": "vocab_47",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "",
+    "kana": "フローリング",
+    "display": "フローリング",
+    "meaning": "sàn gỗ"
+  },
+  {
+    "id": "vocab_48",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "",
+    "kana": "しっくり",
+    "display": "しっくり",
+    "meaning": "phù hợp"
+  },
+  {
+    "id": "vocab_49",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "屋根",
+    "kana": "やね",
+    "display": "屋根",
+    "meaning": "mái nhà"
+  },
+  {
+    "id": "vocab_50",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "床",
+    "kana": "ゆか",
+    "display": "床",
+    "meaning": "sàn nhà"
+  },
+  {
+    "id": "vocab_51",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "柱",
+    "kana": "はしら",
+    "display": "柱",
+    "meaning": "cột"
+  },
+  {
+    "id": "vocab_52",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "天井",
+    "kana": "てんじょう",
+    "display": "天井",
+    "meaning": "trần nhà"
+  },
+  {
+    "id": "vocab_53",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "壁",
+    "kana": "かべ",
+    "display": "壁",
+    "meaning": "tường"
+  },
+  {
+    "id": "vocab_54",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "金属",
+    "kana": "きんぞく",
+    "display": "金属",
+    "meaning": "kim loại"
+  },
+  {
+    "id": "vocab_55",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "光",
+    "kana": "ひかり",
+    "display": "光",
+    "meaning": "ánh sáng"
+  },
+  {
+    "id": "vocab_56",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "備える",
+    "kana": "そなえる",
+    "display": "備える",
+    "meaning": "trang bị, dự bị"
+  },
+  {
+    "id": "vocab_57",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "加える",
+    "kana": "くわえる",
+    "display": "加える",
+    "meaning": "thêm vào"
+  },
+  {
+    "id": "vocab_58",
+    "lesson": "第 6 課",
+    "part": "Part 2",
+    "kanji": "工夫",
+    "kana": "くふう",
+    "display": "工夫",
+    "meaning": "sáng kiến, cải tiến"
+  },
+  {
+    "id": "vocab_59",
+    "lesson": "第 6 課",
+    "part": "Part 3",
+    "kanji": "体調",
+    "kana": "たいちょう",
+    "display": "体調",
+    "meaning": "tình trạng cơ thể"
+  },
+  {
+    "id": "vocab_60",
+    "lesson": "第 6 課",
+    "part": "Part 3",
+    "kanji": "調子",
+    "kana": "ちょうし",
+    "display": "調子",
+    "meaning": "tình trạng, phong độ"
+  },
+  {
+    "id": "vocab_61",
+    "lesson": "第 6 課",
+    "part": "Part 3",
+    "kanji": "調査",
+    "kana": "ちょうさ",
+    "display": "調査",
+    "meaning": "điều tra"
+  },
+  {
+    "id": "vocab_62",
+    "lesson": "第 6 課",
+    "part": "Part 3",
+    "kanji": "和菓子",
+    "kana": "わがし",
+    "display": "和菓子",
+    "meaning": "bánh ngọt kiểu Nhật"
+  },
+  {
+    "id": "vocab_63",
+    "lesson": "第 6 課",
+    "part": "Part 3",
+    "kanji": "崩す",
+    "kana": "くずす",
+    "display": "崩す",
+    "meaning": "phá hủy"
+  },
+  {
+    "id": "vocab_64",
+    "lesson": "第 6 課",
+    "part": "Part 3",
+    "kanji": "港",
+    "kana": "みなと",
+    "display": "港",
+    "meaning": "cảng"
+  },
+  {
+    "id": "vocab_65",
+    "lesson": "第 6 課",
+    "part": "Part 3",
+    "kanji": "空港",
+    "kana": "くうこう",
+    "display": "空港",
+    "meaning": "sân bay"
+  },
+  {
+    "id": "vocab_66",
+    "lesson": "第 6 課",
+    "part": "Part 3",
+    "kanji": "栄える",
+    "kana": "さかえる",
+    "display": "栄える",
+    "meaning": "hưng thịnh, phồn vinh"
+  },
+  {
+    "id": "vocab_67",
+    "lesson": "第 6 課",
+    "part": "Part 3",
+    "kanji": "栄養",
+    "kana": "えいよう",
+    "display": "栄養",
+    "meaning": "dinh dưỡng"
+  },
+  {
+    "id": "vocab_68",
+    "lesson": "第 6 課",
+    "part": "Part 3",
+    "kanji": "食欲",
+    "kana": "しょくよく",
+    "display": "食欲",
+    "meaning": "sự thèm ăn"
+  },
+  {
+    "id": "vocab_69",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "現在",
+    "kana": "げんざい",
+    "display": "現在",
+    "meaning": "hiện tại"
+  },
+  {
+    "id": "vocab_70",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "人口",
+    "kana": "じんこう",
+    "display": "人口",
+    "meaning": "dân số"
+  },
+  {
+    "id": "vocab_71",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "都市",
+    "kana": "とし",
+    "display": "都市",
+    "meaning": "đô thị"
+  },
+  {
+    "id": "vocab_72",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "都会",
+    "kana": "とかい",
+    "display": "都会",
+    "meaning": "thành thị"
+  },
+  {
+    "id": "vocab_73",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "県庁",
+    "kana": "けんちょう",
+    "display": "県庁",
+    "meaning": "cơ quan hành chính tỉnh"
+  },
+  {
+    "id": "vocab_74",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "周辺",
+    "kana": "しゅうへん",
+    "display": "周辺",
+    "meaning": "vùng xung quanh"
+  },
+  {
+    "id": "vocab_75",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "地区",
+    "kana": "ちく",
+    "display": "地区",
+    "meaning": "khu vực, địa bàn"
+  },
+  {
+    "id": "vocab_76",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "商業",
+    "kana": "しょうぎょう",
+    "display": "商業",
+    "meaning": "thương nghiệp"
+  },
+  {
+    "id": "vocab_77",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "砂浜",
+    "kana": "すなはま",
+    "display": "砂浜",
+    "meaning": "bãi cát"
+  },
+  {
+    "id": "vocab_78",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "～年代",
+    "kana": "～ねんだい",
+    "display": "～年代",
+    "meaning": "những năm ~"
+  },
+  {
+    "id": "vocab_79",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "中華街",
+    "kana": "ちゅうかがい",
+    "display": "中華街",
+    "meaning": "China Town"
+  },
+  {
+    "id": "vocab_80",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "商店街",
+    "kana": "しょうてんがい",
+    "display": "商店街",
+    "meaning": "khu phố mua sắm"
+  },
+  {
+    "id": "vocab_81",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "訪れる",
+    "kana": "おとずれる",
+    "display": "訪れる",
+    "meaning": "ghé thăm (địa điểm)"
+  },
+  {
+    "id": "vocab_82",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "訪問する",
+    "kana": "ほうもんする",
+    "display": "訪問する",
+    "meaning": "thăm hỏi (người, nơi chốn)"
+  },
+  {
+    "id": "vocab_83",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "延びる",
+    "kana": "のびる",
+    "display": "延びる",
+    "meaning": "kéo dài ra"
+  },
+  {
+    "id": "vocab_84",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "伸びる",
+    "kana": "のびる",
+    "display": "伸びる",
+    "meaning": "dài ra (chiều cao, năng lực)"
+  },
+  {
+    "id": "vocab_85",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "名づける",
+    "kana": "なづける",
+    "display": "名づける",
+    "meaning": "đặt tên"
+  },
+  {
+    "id": "vocab_86",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "村",
+    "kana": "むら",
+    "display": "村",
+    "meaning": "ngôi làng"
+  },
+  {
+    "id": "vocab_87",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "農村",
+    "kana": "のうそん",
+    "display": "農村",
+    "meaning": "nông thôn"
+  },
+  {
+    "id": "vocab_88",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "埋める－掘る",
+    "kana": "うめる－ほる",
+    "display": "埋める－掘る",
+    "meaning": "chôn lấp - đào"
+  },
+  {
+    "id": "vocab_89",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "埋め立てる",
+    "kana": "うめたてる",
+    "display": "埋め立てる",
+    "meaning": "san lấp"
+  },
+  {
+    "id": "vocab_90",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "浜",
+    "kana": "はま",
+    "display": "浜",
+    "meaning": "bãi, đồi"
+  },
+  {
+    "id": "vocab_91",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "地名",
+    "kana": "ちめい",
+    "display": "地名",
+    "meaning": "địa danh"
+  },
+  {
+    "id": "vocab_92",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "風景 - 景色",
+    "kana": "ふうけい - けしき",
+    "display": "風景 - 景色",
+    "meaning": "phong cảnh"
+  },
+  {
+    "id": "vocab_93",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "光景",
+    "kana": "こうけい",
+    "display": "光景",
+    "meaning": "quang cảnh (1 khoảnh khắc lọt vào tầm mắt)"
+  },
+  {
+    "id": "vocab_94",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "纏まる－纏める",
+    "kana": "まとまる－まとめる",
+    "display": "纏まる－纏める",
+    "meaning": "được gom lại - tóm tắt, thu xếp"
+  },
+  {
+    "id": "vocab_95",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "地方",
+    "kana": "ちほう",
+    "display": "地方",
+    "meaning": "địa phương"
+  },
+  {
+    "id": "vocab_96",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "名産品",
+    "kana": "めいさんひん",
+    "display": "名産品",
+    "meaning": "đặc sản"
+  },
+  {
+    "id": "vocab_97",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "頑固",
+    "kana": "がんこ",
+    "display": "頑固",
+    "meaning": "bảo thủ, ngoan cố"
+  },
+  {
+    "id": "vocab_98",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "職人",
+    "kana": "しょくにん",
+    "display": "職人",
+    "meaning": "nghệ nhân"
+  },
+  {
+    "id": "vocab_99",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "海洋",
+    "kana": "かいよう",
+    "display": "海洋",
+    "meaning": "đại dương"
+  },
+  {
+    "id": "vocab_100",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "生物",
+    "kana": "せいぶつ",
+    "display": "生物",
+    "meaning": "sinh vật"
+  },
+  {
+    "id": "vocab_101",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "化石",
+    "kana": "かせき",
+    "display": "化石",
+    "meaning": "hóa thạch"
+  },
+  {
+    "id": "vocab_102",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "辺り",
+    "kana": "あたり",
+    "display": "辺り",
+    "meaning": "vùng lân cận"
+  },
+  {
+    "id": "vocab_103",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "産業",
+    "kana": "さんぎょう",
+    "display": "産業",
+    "meaning": "ngành công nghiệp, sản xuất"
+  },
+  {
+    "id": "vocab_104",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "盛ん",
+    "kana": "さかん",
+    "display": "盛ん",
+    "meaning": "thịnh hành, thịnh vượng"
+  },
+  {
+    "id": "vocab_105",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "企業",
+    "kana": "きぎょう",
+    "display": "企業",
+    "meaning": "doanh nghiệp"
+  },
+  {
+    "id": "vocab_106",
+    "lesson": "第 6 課",
+    "part": "Part 4",
+    "kanji": "発展",
+    "kana": "はってん",
+    "display": "発展",
+    "meaning": "phát triển"
+  },
+  {
+    "id": "vocab_107",
+    "lesson": "第 6 課",
+    "part": "Part 5",
+    "kanji": "特産物",
+    "kana": "とくさんぶつ",
+    "display": "特産物",
+    "meaning": "đặc sản"
+  },
+  {
+    "id": "vocab_108",
+    "lesson": "第 6 課",
+    "part": "Part 5",
+    "kanji": "空っ風",
+    "kana": "からっかぜ",
+    "display": "空っ風",
+    "meaning": "gió khô"
+  },
+  {
+    "id": "vocab_109",
+    "lesson": "第 6 課",
+    "part": "Part 5",
+    "kanji": "吹く",
+    "kana": "ふく",
+    "display": "吹く",
+    "meaning": "(gió) thổi"
+  },
+  {
+    "id": "vocab_110",
+    "lesson": "第 6 課",
+    "part": "Part 5",
+    "kanji": "湿る",
+    "kana": "しめる",
+    "display": "湿る",
+    "meaning": "trở nên ẩm ướt"
+  },
+  {
+    "id": "vocab_111",
+    "lesson": "第 6 課",
+    "part": "Part 5",
+    "kanji": "湿気",
+    "kana": "しっけい",
+    "display": "湿気",
+    "meaning": "hơi ẩm"
+  },
+  {
+    "id": "vocab_112",
+    "lesson": "第 6 課",
+    "part": "Part 5",
+    "kanji": "風力",
+    "kana": "ふうりょく",
+    "display": "風力",
+    "meaning": "sức gió"
+  },
+  {
+    "id": "vocab_113",
+    "lesson": "第 6 課",
+    "part": "Part 5",
+    "kanji": "凧揚げ",
+    "kana": "たこあげ",
+    "display": "凧揚げ",
+    "meaning": "việc thả diều"
+  },
+  {
+    "id": "vocab_114",
+    "lesson": "第 6 課",
+    "part": "Part 5",
+    "kanji": "揚げる",
+    "kana": "あげる",
+    "display": "揚げる",
+    "meaning": "thả (diều), chiên, rán"
+  },
+  {
+    "id": "vocab_115",
+    "lesson": "第 6 課",
+    "part": "Part 5",
+    "kanji": "思い浮かべる",
+    "kana": "おもいうかべる",
+    "display": "思い浮かべる",
+    "meaning": "liên tưởng đến, nhớ lại"
+  },
+  {
+    "id": "vocab_116",
+    "lesson": "第 6 課",
+    "part": "Part 5",
+    "kanji": "越える－超える",
+    "kana": "こえる",
+    "display": "越える－超える",
+    "meaning": "vượt qua (địa điểm, giới hạn)"
+  },
+  {
+    "id": "vocab_117",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "快適",
+    "kana": "かいてき",
+    "display": "快適",
+    "meaning": "dễ chịu, thoải mái"
+  },
+  {
+    "id": "vocab_118",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "梅雨",
+    "kana": "つゆ",
+    "display": "梅雨",
+    "meaning": "mùa mưa"
+  },
+  {
+    "id": "vocab_119",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "焼ける",
+    "kana": "やける",
+    "display": "焼ける",
+    "meaning": "bị nướng, bị cháy"
+  },
+  {
+    "id": "vocab_120",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "太陽",
+    "kana": "たいよう",
+    "display": "太陽",
+    "meaning": "mặt trời"
+  },
+  {
+    "id": "vocab_121",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "(が) 普及する",
+    "kana": "ふきゅうする",
+    "display": "(が) 普及する",
+    "meaning": "phổ biến, được sử dụng rộng rãi"
+  },
+  {
+    "id": "vocab_122",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "魔除け",
+    "kana": "まよけ",
+    "display": "魔除け",
+    "meaning": "bùa chú trừ tà"
+  },
+  {
+    "id": "vocab_123",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "打ち水 - 水をまく",
+    "kana": "うちみず - みずをまく",
+    "display": "打ち水 - 水をまく",
+    "meaning": "tưới nước"
+  },
+  {
+    "id": "vocab_124",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "地面",
+    "kana": "じめん",
+    "display": "地面",
+    "meaning": "mặt đất"
+  },
+  {
+    "id": "vocab_125",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "蒸発する",
+    "kana": "じょうはつする",
+    "display": "蒸発する",
+    "meaning": "bay hơi, bốc hơi"
+  },
+  {
+    "id": "vocab_126",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "奪う",
+    "kana": "うばう",
+    "display": "奪う",
+    "meaning": "cướp đi, đoạt lấy"
+  },
+  {
+    "id": "vocab_127",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "近年",
+    "kana": "きんねん",
+    "display": "近年",
+    "meaning": "những năm gần đây"
+  },
+  {
+    "id": "vocab_128",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "作戦",
+    "kana": "さくせん",
+    "display": "作戦",
+    "meaning": "tác chiến, chiến lược"
+  },
+  {
+    "id": "vocab_129",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "開催する",
+    "kana": "かいさいする",
+    "display": "開催する",
+    "meaning": "tổ chức (sự kiện, hội nghị)"
+  },
+  {
+    "id": "vocab_130",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "水道水",
+    "kana": "すいどうすい",
+    "display": "水道水",
+    "meaning": "nước máy"
+  },
+  {
+    "id": "vocab_131",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "残り湯",
+    "kana": "のこりゆ",
+    "display": "残り湯",
+    "meaning": "nước nóng còn lại trong bồn tắm sau khi dùng"
+  },
+  {
+    "id": "vocab_132",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "雨水",
+    "kana": "あまみず",
+    "display": "雨水",
+    "meaning": "nước mưa"
+  },
+  {
+    "id": "vocab_133",
+    "lesson": "第 6 課",
+    "part": "知って楽しむ",
+    "kanji": "降水量",
+    "kana": "こうすいりょう",
+    "display": "降水量",
+    "meaning": "lượng mưa"
+  },
+  {
+    "id": "vocab_134",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "体験談",
+    "kana": "たいけんだん",
+    "display": "体験談",
+    "meaning": "câu chuyện trải nghiệm"
+  },
+  {
+    "id": "vocab_135",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "相談",
+    "kana": "そうだん",
+    "display": "相談",
+    "meaning": "thảo luận, trao đổi"
+  },
+  {
+    "id": "vocab_136",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "海岸",
+    "kana": "かいがん",
+    "display": "海岸",
+    "meaning": "bờ biển"
+  },
+  {
+    "id": "vocab_137",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "年代",
+    "kana": "ねんだい",
+    "display": "年代",
+    "meaning": "niên đại"
+  },
+  {
+    "id": "vocab_138",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "要る",
+    "kana": "いる",
+    "display": "要る",
+    "meaning": "cần"
+  },
+  {
+    "id": "vocab_139",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "～以外",
+    "kana": "～いがい",
+    "display": "～以外",
+    "meaning": "ngoài… ra"
+  },
+  {
+    "id": "vocab_140",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "景気",
+    "kana": "けいき",
+    "display": "景気",
+    "meaning": "tình hình kinh tế"
+  },
+  {
+    "id": "vocab_141",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "都心",
+    "kana": "としん",
+    "display": "都心",
+    "meaning": "trung tâm thành phố"
+  },
+  {
+    "id": "vocab_142",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "努力",
+    "kana": "どりょく",
+    "display": "努力",
+    "meaning": "nỗ lực"
+  },
+  {
+    "id": "vocab_143",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "当然",
+    "kana": "とうぜん",
+    "display": "当然",
+    "meaning": "đương nhiên"
+  },
+  {
+    "id": "vocab_144",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "数",
+    "kana": "かず",
+    "display": "数",
+    "meaning": "con số"
+  },
+  {
+    "id": "vocab_145",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "人数",
+    "kana": "にんずう",
+    "display": "人数",
+    "meaning": "số người"
+  },
+  {
+    "id": "vocab_146",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "数学",
+    "kana": "すうがく",
+    "display": "数学",
+    "meaning": "toán học"
+  },
+  {
+    "id": "vocab_147",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "お互い - 相互",
+    "kana": "おたがい - そうご",
+    "display": "お互い - 相互",
+    "meaning": "lẫn nhau - tương hỗ, qua lại"
+  },
+  {
+    "id": "vocab_148",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "掛け声",
+    "kana": "かけごえ",
+    "display": "掛け声",
+    "meaning": "lời kêu gọi, cổ vũ"
+  },
+  {
+    "id": "vocab_149",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "瞬間",
+    "kana": "しゅんかん",
+    "display": "瞬間",
+    "meaning": "khoảnh khắc"
+  },
+  {
+    "id": "vocab_150",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "意外",
+    "kana": "いがい",
+    "display": "意外",
+    "meaning": "ngoài dự tính"
+  },
+  {
+    "id": "vocab_151",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "出会う",
+    "kana": "であう",
+    "display": "出会う",
+    "meaning": "gặp gỡ (tình cờ)"
+  },
+  {
+    "id": "vocab_152",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "",
+    "kana": "ハイタッチする",
+    "display": "ハイタッチする",
+    "meaning": "đập tay"
+  },
+  {
+    "id": "vocab_153",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "",
+    "kana": "シュートする",
+    "display": "シュートする",
+    "meaning": "sút bóng"
+  },
+  {
+    "id": "vocab_154",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "慣れる",
+    "kana": "なれる",
+    "display": "慣れる",
+    "meaning": "làm quen, quen với"
+  },
+  {
+    "id": "vocab_155",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "習慣",
+    "kana": "しゅうかん",
+    "display": "習慣",
+    "meaning": "thói quen, tập quán"
+  },
+  {
+    "id": "vocab_156",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "掃除",
+    "kana": "そうじ",
+    "display": "掃除",
+    "meaning": "dọn dẹp, vệ sinh"
+  },
+  {
+    "id": "vocab_157",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "（を）誘う",
+    "kana": "（を）さそう",
+    "display": "（を）誘う",
+    "meaning": "mời, rủ rê (ai đó)"
+  },
+  {
+    "id": "vocab_158",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "最初",
+    "kana": "さいしょ",
+    "display": "最初",
+    "meaning": "đầu tiên"
+  },
+  {
+    "id": "vocab_159",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "参加",
+    "kana": "さんか",
+    "display": "参加",
+    "meaning": "tham gia"
+  },
+  {
+    "id": "vocab_160",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "失礼",
+    "kana": "しつれい",
+    "display": "失礼",
+    "meaning": "thất lễ, xin lỗi (khi làm phiền)"
+  },
+  {
+    "id": "vocab_161",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "驚く",
+    "kana": "おどろく",
+    "display": "驚く",
+    "meaning": "giật mình, ngạc nhiên"
+  },
+  {
+    "id": "vocab_162",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "拾う - 捨てる",
+    "kana": "ひろう - すてる",
+    "display": "拾う - 捨てる",
+    "meaning": "nhặt lên - vứt bỏ"
+  },
+  {
+    "id": "vocab_163",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "選手",
+    "kana": "せんしゅ",
+    "display": "選手",
+    "meaning": "tuyển thủ"
+  },
+  {
+    "id": "vocab_164",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "選択",
+    "kana": "せんたく",
+    "display": "選択",
+    "meaning": "lựa chọn"
+  },
+  {
+    "id": "vocab_165",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "必要",
+    "kana": "ひつよう",
+    "display": "必要",
+    "meaning": "cần thiết"
+  },
+  {
+    "id": "vocab_166",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "予想",
+    "kana": "よそう",
+    "display": "予想",
+    "meaning": "dự đoán"
+  },
+  {
+    "id": "vocab_167",
+    "lesson": "第 7 課",
+    "part": "Part 1",
+    "kanji": "期待",
+    "kana": "きたい",
+    "display": "期待",
+    "meaning": "kì vọng"
+  },
+  {
+    "id": "vocab_168",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "出店する",
+    "kana": "しゅってんする",
+    "display": "出店する",
+    "meaning": "mở cửa hàng"
+  },
+  {
+    "id": "vocab_169",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "中古品",
+    "kana": "ちゅうこひん",
+    "display": "中古品",
+    "meaning": "đồ cũ, hàng qua sử dụng"
+  },
+  {
+    "id": "vocab_170",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "介助犬",
+    "kana": "かいじょけん",
+    "display": "介助犬",
+    "meaning": "chó trợ giúp (cho ng khuyết tật)"
+  },
+  {
+    "id": "vocab_171",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "育成する",
+    "kana": "いくせいする",
+    "display": "育成する",
+    "meaning": "nuôi dưỡng, đào tạo"
+  },
+  {
+    "id": "vocab_172",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "寄付する",
+    "kana": "きふする",
+    "display": "寄付する",
+    "meaning": "quyên góp, tặng cho"
+  },
+  {
+    "id": "vocab_173",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "寄る － 寄せる",
+    "kana": "よる － よせる",
+    "display": "寄る － 寄せる",
+    "meaning": "ghé qua - tiếp cận"
+  },
+  {
+    "id": "vocab_174",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "売り上げ",
+    "kana": "うりあげ",
+    "display": "売り上げ",
+    "meaning": "doanh thu"
+  },
+  {
+    "id": "vocab_175",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "今頃",
+    "kana": "いまごろ",
+    "display": "今頃",
+    "meaning": "bây giờ, hiện nay"
+  },
+  {
+    "id": "vocab_176",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "苦しむ",
+    "kana": "くるしむ",
+    "display": "苦しむ",
+    "meaning": "đau đớn, khổ sở"
+  },
+  {
+    "id": "vocab_177",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "偶然",
+    "kana": "ぐうぜん ( = たまたま)",
+    "display": "偶然",
+    "meaning": "tình cờ, ngẫu nhiên"
+  },
+  {
+    "id": "vocab_178",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "寄付金",
+    "kana": "きふきん",
+    "display": "寄付金",
+    "meaning": "tiền ủng hộ"
+  },
+  {
+    "id": "vocab_179",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "受ける",
+    "kana": "うける",
+    "display": "受ける",
+    "meaning": "nhận, dự thi"
+  },
+  {
+    "id": "vocab_180",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "誘う",
+    "kana": "さそう",
+    "display": "誘う",
+    "meaning": "mời, rủ"
+  },
+  {
+    "id": "vocab_181",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "延期",
+    "kana": "えんき",
+    "display": "延期",
+    "meaning": "trì hoãn"
+  },
+  {
+    "id": "vocab_182",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "興味",
+    "kana": "きょうみ",
+    "display": "興味",
+    "meaning": "hứng thú"
+  },
+  {
+    "id": "vocab_183",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "団体",
+    "kana": "だんたい",
+    "display": "団体",
+    "meaning": "đoàn thể"
+  },
+  {
+    "id": "vocab_184",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "学園祭",
+    "kana": "がくえんさい",
+    "display": "学園祭",
+    "meaning": "lễ hội trường học"
+  },
+  {
+    "id": "vocab_185",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "全て",
+    "kana": "すべて",
+    "display": "全て",
+    "meaning": "toàn bộ"
+  },
+  {
+    "id": "vocab_186",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "割引",
+    "kana": "わりびき",
+    "display": "割引",
+    "meaning": "giảm giá"
+  },
+  {
+    "id": "vocab_187",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "入場券",
+    "kana": "にゅうじょうけん",
+    "display": "入場券",
+    "meaning": "vé vào cửa"
+  },
+  {
+    "id": "vocab_188",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "",
+    "kana": "しかも",
+    "display": "しかも",
+    "meaning": "ngoài ra"
+  },
+  {
+    "id": "vocab_189",
+    "lesson": "第 7 課",
+    "part": "Part 2",
+    "kanji": "評判",
+    "kana": "ひょうばん",
+    "display": "評判",
+    "meaning": "bình luận"
+  },
+  {
+    "id": "vocab_190",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "世代",
+    "kana": "せだい",
+    "display": "世代",
+    "meaning": "thế hệ"
+  },
+  {
+    "id": "vocab_191",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "定年",
+    "kana": "ていねん",
+    "display": "定年",
+    "meaning": "tuổi nghỉ hưu"
+  },
+  {
+    "id": "vocab_192",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "就職－退職",
+    "kana": "しゅうしょく - たいしょく",
+    "display": "就職－退職",
+    "meaning": "tìm việc - nghỉ việc"
+  },
+  {
+    "id": "vocab_193",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "定年退職",
+    "kana": "ていねんたいしょく",
+    "display": "定年退職",
+    "meaning": "nghỉ hưu theo chế độ"
+  },
+  {
+    "id": "vocab_194",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "",
+    "kana": "うらやましい",
+    "display": "うらやましい",
+    "meaning": "ghen tị, ngưỡng mộ"
+  },
+  {
+    "id": "vocab_195",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "人見知りする",
+    "kana": "ひとみしりする",
+    "display": "人見知りする",
+    "meaning": "nhút nhát, e thẹn"
+  },
+  {
+    "id": "vocab_196",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "男同士",
+    "kana": "おとこどうし",
+    "display": "男同士",
+    "meaning": "giữa những ng đàn ông vs nhau"
+  },
+  {
+    "id": "vocab_197",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "素晴らしい",
+    "kana": "すばらしい",
+    "display": "素晴らしい",
+    "meaning": "tuyệt vời"
+  },
+  {
+    "id": "vocab_198",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "月日",
+    "kana": "つきひ",
+    "display": "月日",
+    "meaning": "ngày tháng"
+  },
+  {
+    "id": "vocab_199",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "夢中",
+    "kana": "むちゅう",
+    "display": "夢中",
+    "meaning": "say sưa, miệt mài"
+  },
+  {
+    "id": "vocab_200",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "慣れる",
+    "kana": "なれる",
+    "display": "慣れる",
+    "meaning": "quen với"
+  },
+  {
+    "id": "vocab_201",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "習慣",
+    "kana": "しゅうかん",
+    "display": "習慣",
+    "meaning": "tập quán"
+  },
+  {
+    "id": "vocab_202",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "頑張る",
+    "kana": "がんばる",
+    "display": "頑張る",
+    "meaning": "cố gắng, nỗ lực"
+  },
+  {
+    "id": "vocab_203",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "緊張する",
+    "kana": "きんちょうする",
+    "display": "緊張する",
+    "meaning": "căng thẳng"
+  },
+  {
+    "id": "vocab_204",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "偉い－偉大",
+    "kana": "えらい - いだい",
+    "display": "偉い－偉大",
+    "meaning": "vĩ đại (giỏi giang - to lớn)"
+  },
+  {
+    "id": "vocab_205",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "準備",
+    "kana": "じゅんび",
+    "display": "準備",
+    "meaning": "chuẩn bị"
+  },
+  {
+    "id": "vocab_206",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "休憩",
+    "kana": "きゅうけい",
+    "display": "休憩",
+    "meaning": "nghỉ giải lao"
+  },
+  {
+    "id": "vocab_207",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "健康",
+    "kana": "けんこう",
+    "display": "健康",
+    "meaning": "sức khỏe"
+  },
+  {
+    "id": "vocab_208",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "相談",
+    "kana": "そうだん",
+    "display": "相談",
+    "meaning": "thảo luận, bàn bạc"
+  },
+  {
+    "id": "vocab_209",
+    "lesson": "第 7 課",
+    "part": "Part 3",
+    "kanji": "僕－俺",
+    "kana": "ぼく - おれ",
+    "display": "僕－俺",
+    "meaning": "tôi (cách xưng hô của nam giới)"
+  },
+  {
+    "id": "vocab_210",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "迎える",
+    "kana": "むかえる",
+    "display": "迎える",
+    "meaning": "đón"
+  },
+  {
+    "id": "vocab_211",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "感動する",
+    "kana": "かんどうする",
+    "display": "感動する",
+    "meaning": "cảm động"
+  },
+  {
+    "id": "vocab_212",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "若々しい",
+    "kana": "わかわかしい",
+    "display": "若々しい",
+    "meaning": "trẻ trung"
+  },
+  {
+    "id": "vocab_213",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "若者",
+    "kana": "わかもの",
+    "display": "若者",
+    "meaning": "người trẻ tuổi"
+  },
+  {
+    "id": "vocab_214",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "持ち上げる",
+    "kana": "もちあげる",
+    "display": "持ち上げる",
+    "meaning": "nhấc lên, nâng lên"
+  },
+  {
+    "id": "vocab_215",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "孫",
+    "kana": "まご",
+    "display": "孫",
+    "meaning": "cháu (nội, ngoại)"
+  },
+  {
+    "id": "vocab_216",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "気象庁",
+    "kana": "きしょうちょう",
+    "display": "気象庁",
+    "meaning": "cục khí tượng"
+  },
+  {
+    "id": "vocab_217",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "暖冬",
+    "kana": "だんとう",
+    "display": "暖冬",
+    "meaning": "mùa đông ấm áp"
+  },
+  {
+    "id": "vocab_218",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "期待する",
+    "kana": "きたいする",
+    "display": "期待する",
+    "meaning": "kì vọng, mong đợi"
+  },
+  {
+    "id": "vocab_219",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "親孝行する",
+    "kana": "おやこうこうする",
+    "display": "親孝行する",
+    "meaning": "báo hiếu"
+  },
+  {
+    "id": "vocab_220",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "立派",
+    "kana": "りっぱ",
+    "display": "立派",
+    "meaning": "tuyệt vời, hoành tráng"
+  },
+  {
+    "id": "vocab_221",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "混む",
+    "kana": "こむ",
+    "display": "混む",
+    "meaning": "đông đúc"
+  },
+  {
+    "id": "vocab_222",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "予想",
+    "kana": "よそう",
+    "display": "予想",
+    "meaning": "dự đoán"
+  },
+  {
+    "id": "vocab_223",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "涙",
+    "kana": "なみだ",
+    "display": "涙",
+    "meaning": "nước mắt"
+  },
+  {
+    "id": "vocab_224",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "親しい",
+    "kana": "したしい",
+    "display": "親しい",
+    "meaning": "thân thiết, gần gũi"
+  },
+  {
+    "id": "vocab_225",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "悲しい",
+    "kana": "かなしい",
+    "display": "悲しい",
+    "meaning": "buồn bã"
+  },
+  {
+    "id": "vocab_226",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "囲む",
+    "kana": "かこむ",
+    "display": "囲む",
+    "meaning": "bao quanh, vây quanh"
+  },
+  {
+    "id": "vocab_227",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "驚く",
+    "kana": "おどろく",
+    "display": "驚く",
+    "meaning": "ngạc nhiên"
+  },
+  {
+    "id": "vocab_228",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "運ぶ",
+    "kana": "はこぶ",
+    "display": "運ぶ",
+    "meaning": "vận chuyển"
+  },
+  {
+    "id": "vocab_229",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "描く",
+    "kana": "かく／えがく",
+    "display": "描く",
+    "meaning": "vẽ, miêu tả"
+  },
+  {
+    "id": "vocab_230",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "板",
+    "kana": "いた",
+    "display": "板",
+    "meaning": "cái phản"
+  },
+  {
+    "id": "vocab_231",
+    "lesson": "第 7 課",
+    "part": "Part 4",
+    "kanji": "気を取る",
+    "kana": "きをとる",
+    "display": "気を取る",
+    "meaning": "tò mò"
+  },
+  {
+    "id": "vocab_232",
+    "lesson": "第 7 課",
+    "part": "知って楽しむ",
+    "kanji": "出会う - 知り合う",
+    "kana": "であう - しりあう",
+    "display": "出会う - 知り合う",
+    "meaning": "gặp gỡ (tình cờ) - quen biết (ai)"
+  },
+  {
+    "id": "vocab_233",
+    "lesson": "第 7 課",
+    "part": "知って楽しむ",
+    "kanji": "緊張する",
+    "kana": "きんちょうする",
+    "display": "緊張する",
+    "meaning": "căng thẳng"
+  },
+  {
+    "id": "vocab_234",
+    "lesson": "第 7 課",
+    "part": "知って楽しむ",
+    "kanji": "体験する",
+    "kana": "たいけんする",
+    "display": "体験する",
+    "meaning": "trải nghiệm"
+  },
+  {
+    "id": "vocab_235",
+    "lesson": "第 7 課",
+    "part": "知って楽しむ",
+    "kanji": "話しかける",
+    "kana": "はなしかける",
+    "display": "話しかける",
+    "meaning": "bắt chuyện"
+  },
+  {
+    "id": "vocab_236",
+    "lesson": "第 7 課",
+    "part": "知って楽しむ",
+    "kanji": "触れる - 触る",
+    "kana": "ふれる - さわる",
+    "display": "触れる - 触る",
+    "meaning": "tiếp xúc - chạm vào"
+  },
+  {
+    "id": "vocab_237",
+    "lesson": "第 7 課",
+    "part": "知って楽しむ",
+    "kanji": "驚く",
+    "kana": "おどろく",
+    "display": "驚く",
+    "meaning": "giật mình, ngạc nhiên"
+  },
+  {
+    "id": "vocab_238",
+    "lesson": "第 7 課",
+    "part": "知って楽しむ",
+    "kanji": "実感",
+    "kana": "じっかん",
+    "display": "実感",
+    "meaning": "cảm nhận thực tế"
+  },
+  {
+    "id": "vocab_239",
+    "lesson": "第 7 課",
+    "part": "知って楽しむ",
+    "kanji": "見つめ直す",
+    "kana": "みつめなおす",
+    "display": "見つめ直す",
+    "meaning": "xem xét, rà soát lại"
+  },
+  {
+    "id": "vocab_240",
+    "lesson": "第 7 課",
+    "part": "知って楽しむ",
+    "kanji": "視野が広がる",
+    "kana": "しやがひろがる",
+    "display": "視野が広がる",
+    "meaning": "mở rộng tầm nhìn"
+  },
+  {
+    "id": "vocab_241",
+    "lesson": "第 7 課",
+    "part": "知って楽しむ",
+    "kanji": "貴重",
+    "kana": "きちょう",
+    "display": "貴重",
+    "meaning": "quý giá"
+  },
+  {
+    "id": "vocab_242",
+    "lesson": "第 7 課",
+    "part": "知って楽しむ",
+    "kanji": "新鮮",
+    "kana": "しんせん",
+    "display": "新鮮",
+    "meaning": "tươi, mới"
+  },
+  {
+    "id": "vocab_243",
+    "lesson": "第 7 課",
+    "part": "知って楽しむ",
+    "kanji": "充実する",
+    "kana": "じゅうじつする",
+    "display": "充実する",
+    "meaning": "sung túc, trọn vẹn"
+  },
+  {
+    "id": "vocab_244",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "許可",
+    "kana": "きょか",
+    "display": "許可",
+    "meaning": "sự cho phép, giấy phép"
+  },
+  {
+    "id": "vocab_245",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "許す",
+    "kana": "ゆるす",
+    "display": "許す",
+    "meaning": "tha thứ, cho phép"
+  },
+  {
+    "id": "vocab_246",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "同僚",
+    "kana": "どうりょう",
+    "display": "同僚",
+    "meaning": "đồng nghiệp"
+  },
+  {
+    "id": "vocab_247",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "迷惑",
+    "kana": "めいわく",
+    "display": "迷惑",
+    "meaning": "phiền hà"
+  },
+  {
+    "id": "vocab_248",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "回収する",
+    "kana": "かいしゅうする",
+    "display": "回収する",
+    "meaning": "thu hồi, thu gom"
+  },
+  {
+    "id": "vocab_249",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "置き場",
+    "kana": "おきば",
+    "display": "置き場",
+    "meaning": "nơi để đồ"
+  },
+  {
+    "id": "vocab_250",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "色違い",
+    "kana": "いろちがい",
+    "display": "色違い",
+    "meaning": "khác màu"
+  },
+  {
+    "id": "vocab_251",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "申し訳",
+    "kana": "もうしわけ",
+    "display": "申し訳",
+    "meaning": "lời xin lỗi, lí do (trang trọng)"
+  },
+  {
+    "id": "vocab_252",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "朝礼",
+    "kana": "ちょうれい",
+    "display": "朝礼",
+    "meaning": "họp buổi sáng"
+  },
+  {
+    "id": "vocab_253",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "一時的",
+    "kana": "いちじてき",
+    "display": "一時的",
+    "meaning": "tạm thời, nhất thời"
+  },
+  {
+    "id": "vocab_254",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "帰国する",
+    "kana": "きこくする",
+    "display": "帰国する",
+    "meaning": "về nước"
+  },
+  {
+    "id": "vocab_255",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "冷蔵庫",
+    "kana": "れいぞうこ",
+    "display": "冷蔵庫",
+    "meaning": "tủ lạnh"
+  },
+  {
+    "id": "vocab_256",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "邪魔",
+    "kana": "じゃま",
+    "display": "邪魔",
+    "meaning": "sự cản trở, làm phiền"
+  },
+  {
+    "id": "vocab_257",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "丁寧",
+    "kana": "ていねい",
+    "display": "丁寧",
+    "meaning": "lịch sự, cẩn thận"
+  },
+  {
+    "id": "vocab_258",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "出張する",
+    "kana": "しゅっちょうする",
+    "display": "出張する",
+    "meaning": "đi công tác"
+  },
+  {
+    "id": "vocab_259",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "携帯",
+    "kana": "けいたい",
+    "display": "携帯",
+    "meaning": "điện thoại di động"
+  },
+  {
+    "id": "vocab_260",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "同意",
+    "kana": "どうい",
+    "display": "同意",
+    "meaning": "đồng ý"
+  },
+  {
+    "id": "vocab_261",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "賛成する",
+    "kana": "さんせいする",
+    "display": "賛成する",
+    "meaning": "tán thành, ủng hộ"
+  },
+  {
+    "id": "vocab_262",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "賞味期限",
+    "kana": "しょうみきげん",
+    "display": "賞味期限",
+    "meaning": "hạn sử dụng"
+  },
+  {
+    "id": "vocab_263",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "定期券",
+    "kana": "ていきけん",
+    "display": "定期券",
+    "meaning": "vé tháng (tàu, xe bus,...)"
+  },
+  {
+    "id": "vocab_264",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "期待する",
+    "kana": "きたいする",
+    "display": "期待する",
+    "meaning": "kì vọng, mong đợi"
+  },
+  {
+    "id": "vocab_265",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "若者",
+    "kana": "わかもの",
+    "display": "若者",
+    "meaning": "người trẻ, giới trẻ"
+  },
+  {
+    "id": "vocab_266",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "早退する",
+    "kana": "そうたいする",
+    "display": "早退する",
+    "meaning": "về sớm"
+  },
+  {
+    "id": "vocab_267",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "努める",
+    "kana": "つとめる",
+    "display": "努める",
+    "meaning": "nỗ lực, cố gắng"
+  },
+  {
+    "id": "vocab_268",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "直接",
+    "kana": "ちょくせつ",
+    "display": "直接",
+    "meaning": "trực tiếp"
+  },
+  {
+    "id": "vocab_269",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "得意",
+    "kana": "とくい",
+    "display": "得意",
+    "meaning": "sở trường, đắc ý"
+  },
+  {
+    "id": "vocab_270",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "親しい",
+    "kana": "したしい",
+    "display": "親しい",
+    "meaning": "thân thiết, gần gũi"
+  },
+  {
+    "id": "vocab_271",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "相手",
+    "kana": "あいて",
+    "display": "相手",
+    "meaning": "đối phương"
+  },
+  {
+    "id": "vocab_272",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "発展する",
+    "kana": "はってんする",
+    "display": "発展する",
+    "meaning": "phát triển"
+  },
+  {
+    "id": "vocab_273",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "趣味",
+    "kana": "しゅみ",
+    "display": "趣味",
+    "meaning": "sở thích"
+  },
+  {
+    "id": "vocab_274",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "同年代",
+    "kana": "どうねんだい",
+    "display": "同年代",
+    "meaning": "cùng trang lứa"
+  },
+  {
+    "id": "vocab_275",
+    "lesson": "第 8 課",
+    "part": "Part 1",
+    "kanji": "最初",
+    "kana": "さいしょ",
+    "display": "最初",
+    "meaning": "đầu tiên"
+  },
+  {
+    "id": "vocab_276",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "伝わる",
+    "kana": "つたわる",
+    "display": "伝わる",
+    "meaning": "được truyền đến"
+  },
+  {
+    "id": "vocab_277",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "縦",
+    "kana": "たて",
+    "display": "縦",
+    "meaning": "chiều dọc"
+  },
+  {
+    "id": "vocab_278",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "細長い",
+    "kana": "ほそながい",
+    "display": "細長い",
+    "meaning": "thon dài, mảnh khảnh"
+  },
+  {
+    "id": "vocab_279",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "堅い",
+    "kana": "かたい",
+    "display": "堅い",
+    "meaning": "cứng, kiên định (tính cách)"
+  },
+  {
+    "id": "vocab_280",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "贈り物",
+    "kana": "おくりもの",
+    "display": "贈り物",
+    "meaning": "quà tặng"
+  },
+  {
+    "id": "vocab_281",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "気が利く",
+    "kana": "きがきく",
+    "display": "気が利く",
+    "meaning": "tinh tế"
+  },
+  {
+    "id": "vocab_282",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "機械",
+    "kana": "きかい",
+    "display": "機械",
+    "meaning": "máy móc"
+  },
+  {
+    "id": "vocab_283",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "印刷する",
+    "kana": "いんさつする",
+    "display": "印刷する",
+    "meaning": "in ấn"
+  },
+  {
+    "id": "vocab_284",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "済む",
+    "kana": "すむ",
+    "display": "済む",
+    "meaning": "kết thúc"
+  },
+  {
+    "id": "vocab_285",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "済ませる",
+    "kana": "すませる",
+    "display": "済ませる",
+    "meaning": "làm cho xong, hoàn thành"
+  },
+  {
+    "id": "vocab_286",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "近況",
+    "kana": "きんきょう",
+    "display": "近況",
+    "meaning": "tình hình gần đây"
+  },
+  {
+    "id": "vocab_287",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "相変わらず",
+    "kana": "あいかわらず",
+    "display": "相変わらず",
+    "meaning": "như mọi khi, vẫn thế"
+  },
+  {
+    "id": "vocab_288",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "幸せ",
+    "kana": "しあわせ",
+    "display": "幸せ",
+    "meaning": "hạnh phúc"
+  },
+  {
+    "id": "vocab_289",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "出産する",
+    "kana": "しゅっさんする",
+    "display": "出産する",
+    "meaning": "sinh sản"
+  },
+  {
+    "id": "vocab_290",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "添える",
+    "kana": "そえる",
+    "display": "添える",
+    "meaning": "thêm vào, đính kèm"
+  },
+  {
+    "id": "vocab_291",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "気に入る",
+    "kana": "きにいる",
+    "display": "気に入る",
+    "meaning": "yêu thích, ưng ý"
+  },
+  {
+    "id": "vocab_292",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "経済",
+    "kana": "けいざい",
+    "display": "経済",
+    "meaning": "kinh tế"
+  },
+  {
+    "id": "vocab_293",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "状況",
+    "kana": "じょうきょう",
+    "display": "状況",
+    "meaning": "tình hình, trạng thái"
+  },
+  {
+    "id": "vocab_294",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "相互",
+    "kana": "そうご",
+    "display": "相互",
+    "meaning": "tương hỗ"
+  },
+  {
+    "id": "vocab_295",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "硬い",
+    "kana": "かたい",
+    "display": "硬い",
+    "meaning": "cứng (tchat vật lí)"
+  },
+  {
+    "id": "vocab_296",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "固い",
+    "kana": "かたい",
+    "display": "固い",
+    "meaning": "cứng (cố chấp, ngoan cố)"
+  },
+  {
+    "id": "vocab_297",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "添付する",
+    "kana": "てんぷする",
+    "display": "添付する",
+    "meaning": "đính kèm (file, tài liệu)"
+  },
+  {
+    "id": "vocab_298",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "機会",
+    "kana": "きかい",
+    "display": "機会",
+    "meaning": "cơ hội"
+  },
+  {
+    "id": "vocab_299",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "横",
+    "kana": "よこ",
+    "display": "横",
+    "meaning": "chiều ngang, bên cạnh"
+  },
+  {
+    "id": "vocab_300",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "直接",
+    "kana": "ちょくせつ",
+    "display": "直接",
+    "meaning": "trực tiếp"
+  },
+  {
+    "id": "vocab_301",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "横断",
+    "kana": "おうだん",
+    "display": "横断",
+    "meaning": "băng qua (đường)"
+  },
+  {
+    "id": "vocab_302",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "渡る",
+    "kana": "わたる",
+    "display": "渡る",
+    "meaning": "băng qua (cầu, sông)"
+  },
+  {
+    "id": "vocab_303",
+    "lesson": "第 8 課",
+    "part": "Part 2",
+    "kanji": "一筆箋",
+    "kana": "いっぴつせん",
+    "display": "一筆箋",
+    "meaning": "giấy dọc (viết thư)"
+  },
+  {
+    "id": "vocab_304",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "愚痴",
+    "kana": "ぐち",
+    "display": "愚痴",
+    "meaning": "than vãn, phàn nàn"
+  },
+  {
+    "id": "vocab_305",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "追加する",
+    "kana": "ついかする",
+    "display": "追加する",
+    "meaning": "thêm vào, bổ sung"
+  },
+  {
+    "id": "vocab_306",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "加える",
+    "kana": "くわえる",
+    "display": "加える",
+    "meaning": "thêm vào, gia tăng"
+  },
+  {
+    "id": "vocab_307",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "渋滞する",
+    "kana": "じゅうたいする",
+    "display": "渋滞する",
+    "meaning": "tắc nghẽn (giao thông)"
+  },
+  {
+    "id": "vocab_308",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "壊す",
+    "kana": "こわす",
+    "display": "壊す",
+    "meaning": "làm hỏng, phá hủy"
+  },
+  {
+    "id": "vocab_309",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "割れる",
+    "kana": "われる",
+    "display": "割れる",
+    "meaning": "nứt, vỡ"
+  },
+  {
+    "id": "vocab_310",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "倒す",
+    "kana": "たおす",
+    "display": "倒す",
+    "meaning": "lật đổ, quật ngã"
+  },
+  {
+    "id": "vocab_311",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "汚れる",
+    "kana": "よごれる",
+    "display": "汚れる",
+    "meaning": "bị bẩn"
+  },
+  {
+    "id": "vocab_312",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "落ち込む",
+    "kana": "おちこむ",
+    "display": "落ち込む",
+    "meaning": "buồn bã, suy sụp"
+  },
+  {
+    "id": "vocab_313",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "間違い",
+    "kana": "まちがい",
+    "display": "間違い",
+    "meaning": "sai sót, nhầm lẫn"
+  },
+  {
+    "id": "vocab_314",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "言葉遣い",
+    "kana": "ことばづかい",
+    "display": "言葉遣い",
+    "meaning": "cách dùng từ"
+  },
+  {
+    "id": "vocab_315",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "割る",
+    "kana": "わる",
+    "display": "割る",
+    "meaning": "làm vỡ"
+  },
+  {
+    "id": "vocab_316",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "久しぶり",
+    "kana": "ひさしぶり",
+    "display": "久しぶり",
+    "meaning": "đã lâu 0 gặp"
+  },
+  {
+    "id": "vocab_317",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "生食べ物",
+    "kana": "なまたべもの",
+    "display": "生食べ物",
+    "meaning": "đồ ăn sống"
+  },
+  {
+    "id": "vocab_318",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "生かす",
+    "kana": "いかす",
+    "display": "生かす",
+    "meaning": "tận dụng"
+  },
+  {
+    "id": "vocab_319",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "生きる",
+    "kana": "いきる",
+    "display": "生きる",
+    "meaning": "sống"
+  },
+  {
+    "id": "vocab_320",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "状況",
+    "kana": "じょうきょう",
+    "display": "状況",
+    "meaning": "tình hình, tình huống"
+  },
+  {
+    "id": "vocab_321",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "お礼",
+    "kana": "おれい",
+    "display": "お礼",
+    "meaning": "sự cảm ơn"
+  },
+  {
+    "id": "vocab_322",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "お祝い - 祝う",
+    "kana": "おいわい - いわう",
+    "display": "お祝い - 祝う",
+    "meaning": "quà mừng - chúc mừng"
+  },
+  {
+    "id": "vocab_323",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "横断する",
+    "kana": "おうだんする",
+    "display": "横断する",
+    "meaning": "băng qua (đường)"
+  },
+  {
+    "id": "vocab_324",
+    "lesson": "第 8 課",
+    "part": "Part 3",
+    "kanji": "添付する",
+    "kana": "てんぷする",
+    "display": "添付する",
+    "meaning": "đính kèm (file, tài liệu)"
+  },
+  {
+    "id": "vocab_325",
+    "lesson": "第 8 課",
+    "part": "Part 4",
+    "kanji": "倒す - 倒れる",
+    "kana": "たおす - たおれる",
+    "display": "倒す - 倒れる",
+    "meaning": "làm đổ, quật ngã - đổ, ngã"
+  },
+  {
+    "id": "vocab_326",
+    "lesson": "第 8 課",
+    "part": "Part 4",
+    "kanji": "汚す -  汚れる - 汚い",
+    "kana": "よごす - よごれる - きたない",
+    "display": "汚す -  汚れる - 汚い",
+    "meaning": "vấy bẩn - bị bẩn - bẩn"
+  },
+  {
+    "id": "vocab_327",
+    "lesson": "第 8 課",
+    "part": "Part 4",
+    "kanji": "本気",
+    "kana": "ほんき",
+    "display": "本気",
+    "meaning": "đúng đắn, chân thực"
+  },
+  {
+    "id": "vocab_328",
+    "lesson": "第 8 課",
+    "part": "Part 4",
+    "kanji": "",
+    "kana": "わざわざ",
+    "display": "わざわざ",
+    "meaning": "cố tình"
+  },
+  {
+    "id": "vocab_329",
+    "lesson": "第 8 課",
+    "part": "Part 4",
+    "kanji": "",
+    "kana": "わざと",
+    "display": "わざと",
+    "meaning": "1 cách cố tình (tiêu cực)"
+  },
+  {
+    "id": "vocab_330",
+    "lesson": "第 8 課",
+    "part": "Part 4",
+    "kanji": "",
+    "kana": "ショック",
+    "display": "ショック",
+    "meaning": "shock, bất ngờ"
+  },
+  {
+    "id": "vocab_331",
+    "lesson": "第 8 課",
+    "part": "Part 4",
+    "kanji": "受ける",
+    "kana": "うける",
+    "display": "受ける",
+    "meaning": "tiếp nhận, tham dự"
+  },
+  {
+    "id": "vocab_332",
+    "lesson": "第 8 課",
+    "part": "Part 4",
+    "kanji": "後悔する",
+    "kana": "こうかいする",
+    "display": "後悔する",
+    "meaning": "hối hận"
+  },
+  {
+    "id": "vocab_333",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "価値",
+    "kana": "かち",
+    "display": "価値",
+    "meaning": "giá trị"
+  },
+  {
+    "id": "vocab_334",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "高価",
+    "kana": "こうか",
+    "display": "高価",
+    "meaning": "đắt giá, giá cao"
+  },
+  {
+    "id": "vocab_335",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "贈る",
+    "kana": "おくる",
+    "display": "贈る",
+    "meaning": "tặng, biếu"
+  },
+  {
+    "id": "vocab_336",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "渋滞する",
+    "kana": "じゅうたいする",
+    "display": "渋滞する",
+    "meaning": "tắc nghẽn, kẹt xe"
+  },
+  {
+    "id": "vocab_337",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "包装する",
+    "kana": "ほうそうする",
+    "display": "包装する",
+    "meaning": "đóng gói"
+  },
+  {
+    "id": "vocab_338",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "装置する",
+    "kana": "そうちする",
+    "display": "装置する",
+    "meaning": "lắp đặt (thiết bị)"
+  },
+  {
+    "id": "vocab_339",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "服装",
+    "kana": "ふくそう",
+    "display": "服装",
+    "meaning": "trang phục"
+  },
+  {
+    "id": "vocab_340",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "喜ぶ",
+    "kana": "よろこぶ",
+    "display": "喜ぶ",
+    "meaning": "vui mừng, hân hoan"
+  },
+  {
+    "id": "vocab_341",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "包装紙",
+    "kana": "ほうそうし",
+    "display": "包装紙",
+    "meaning": "giấy gói quà"
+  },
+  {
+    "id": "vocab_342",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "解答用紙",
+    "kana": "かいとうようし",
+    "display": "解答用紙",
+    "meaning": "tờ giấy trả lời"
+  },
+  {
+    "id": "vocab_343",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "貴族",
+    "kana": "きぞく",
+    "display": "貴族",
+    "meaning": "quý tộc"
+  },
+  {
+    "id": "vocab_344",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "貴重",
+    "kana": "きちょう",
+    "display": "貴重",
+    "meaning": "quý báu"
+  },
+  {
+    "id": "vocab_345",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "任せる",
+    "kana": "まかせる",
+    "display": "任せる",
+    "meaning": "giao phó, phó mặc"
+  },
+  {
+    "id": "vocab_346",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "責任",
+    "kana": "せきにん",
+    "display": "責任",
+    "meaning": "trách nhiệm"
+  },
+  {
+    "id": "vocab_347",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "責任感",
+    "kana": "せきにんかん",
+    "display": "責任感",
+    "meaning": "tinh thần trách nhiệm"
+  },
+  {
+    "id": "vocab_348",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "無責任",
+    "kana": "むせきにん",
+    "display": "無責任",
+    "meaning": "vô trách nhiệm"
+  },
+  {
+    "id": "vocab_349",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "含む",
+    "kana": "ふくむ",
+    "display": "含む",
+    "meaning": "bao gồm, chứa đựng"
+  },
+  {
+    "id": "vocab_350",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "袋",
+    "kana": "ふくろ",
+    "display": "袋",
+    "meaning": "túi, bao"
+  },
+  {
+    "id": "vocab_351",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "手袋",
+    "kana": "てぶくろ",
+    "display": "手袋",
+    "meaning": "găng tay"
+  },
+  {
+    "id": "vocab_352",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "包む",
+    "kana": "つつむ",
+    "display": "包む",
+    "meaning": "bao bọc, gói"
+  },
+  {
+    "id": "vocab_353",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "小包",
+    "kana": "こづつみ",
+    "display": "小包",
+    "meaning": "bưu kiện nhỏ, gói hàng nhỏ"
+  },
+  {
+    "id": "vocab_354",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "添付する",
+    "kana": "てんぷする",
+    "display": "添付する",
+    "meaning": "đính kèm (tài liệu, file)"
+  },
+  {
+    "id": "vocab_355",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "箱",
+    "kana": "はこ",
+    "display": "箱",
+    "meaning": "hộp, thùng"
+  },
+  {
+    "id": "vocab_356",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "捨てる",
+    "kana": "すてる",
+    "display": "捨てる",
+    "meaning": "vứt, bỏ"
+  },
+  {
+    "id": "vocab_357",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "拾う",
+    "kana": "ひろう",
+    "display": "拾う",
+    "meaning": "lượm, nhặt"
+  },
+  {
+    "id": "vocab_358",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "記録",
+    "kana": "きろく",
+    "display": "記録",
+    "meaning": "kỉ lục, ghi chép"
+  },
+  {
+    "id": "vocab_359",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "様子",
+    "kana": "ようす",
+    "display": "様子",
+    "meaning": "trạng thái, dáng vẻ"
+  },
+  {
+    "id": "vocab_360",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "抱く",
+    "kana": "だく",
+    "display": "抱く",
+    "meaning": "ôm"
+  },
+  {
+    "id": "vocab_361",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "抱える",
+    "kana": "かかえる",
+    "display": "抱える",
+    "meaning": "ôm, vướng phải (vấn đề)"
+  },
+  {
+    "id": "vocab_362",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "後悔する",
+    "kana": "こうかいする",
+    "display": "後悔する",
+    "meaning": "hối hận"
+  },
+  {
+    "id": "vocab_363",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "緊張する",
+    "kana": "きんちょうする",
+    "display": "緊張する",
+    "meaning": "căng thẳng"
+  },
+  {
+    "id": "vocab_364",
+    "lesson": "第 8 課",
+    "part": "知って楽しむ",
+    "kanji": "相違",
+    "kana": "そうい",
+    "display": "相違",
+    "meaning": "khác biệt"
+  },
+  {
+    "id": "vocab_365",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "詩",
+    "kana": "し",
+    "display": "詩",
+    "meaning": "bài thơ"
+  },
+  {
+    "id": "vocab_366",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "載せる",
+    "kana": "のせる",
+    "display": "載せる",
+    "meaning": "đăng lên, chất lên, đưa lên"
+  },
+  {
+    "id": "vocab_367",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "小鳥",
+    "kana": "ことり",
+    "display": "小鳥",
+    "meaning": "con chim nhỏ"
+  },
+  {
+    "id": "vocab_368",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "鈴",
+    "kana": "すず",
+    "display": "鈴",
+    "meaning": "cái chuông"
+  },
+  {
+    "id": "vocab_369",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "両手",
+    "kana": "りょうて",
+    "display": "両手",
+    "meaning": "2 tay"
+  },
+  {
+    "id": "vocab_370",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "広げる",
+    "kana": "ひろげる",
+    "display": "広げる",
+    "meaning": "mở rộng"
+  },
+  {
+    "id": "vocab_371",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "空",
+    "kana": "そら／から",
+    "display": "空",
+    "meaning": "bầu trời / khoảng trống"
+  },
+  {
+    "id": "vocab_372",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "空く",
+    "kana": "すく／あく",
+    "display": "空く",
+    "meaning": "đói / trống"
+  },
+  {
+    "id": "vocab_373",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "地べた",
+    "kana": "じべた",
+    "display": "地べた",
+    "meaning": "mặt đất"
+  },
+  {
+    "id": "vocab_374",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "唄",
+    "kana": "うた",
+    "display": "唄",
+    "meaning": "bài hát"
+  },
+  {
+    "id": "vocab_375",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "揺する",
+    "kana": "ゆする",
+    "display": "揺する",
+    "meaning": "rung, lắc"
+  },
+  {
+    "id": "vocab_376",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "動揺",
+    "kana": "どうよう",
+    "display": "動揺",
+    "meaning": "dao động"
+  },
+  {
+    "id": "vocab_377",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "暮らす",
+    "kana": "くらす",
+    "display": "暮らす",
+    "meaning": "sinh sống"
+  },
+  {
+    "id": "vocab_378",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "励ます",
+    "kana": "はげます",
+    "display": "励ます",
+    "meaning": "động viên, khích lệ"
+  },
+  {
+    "id": "vocab_379",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "時代",
+    "kana": "じだい",
+    "display": "時代",
+    "meaning": "thời đại"
+  },
+  {
+    "id": "vocab_380",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "生きる",
+    "kana": "いきる",
+    "display": "生きる",
+    "meaning": "sống, tồn tại"
+  },
+  {
+    "id": "vocab_381",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "個性",
+    "kana": "こせい",
+    "display": "個性",
+    "meaning": "cá tính"
+  },
+  {
+    "id": "vocab_382",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "認める",
+    "kana": "みとめる",
+    "display": "認める",
+    "meaning": "thừa nhận, cho phép"
+  },
+  {
+    "id": "vocab_383",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "込める",
+    "kana": "こめる",
+    "display": "込める",
+    "meaning": "dồn"
+  },
+  {
+    "id": "vocab_384",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "込む",
+    "kana": "こむ",
+    "display": "込む",
+    "meaning": "đông đúc, chật chội"
+  },
+  {
+    "id": "vocab_385",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "振り込む",
+    "kana": "ふりこむ",
+    "display": "振り込む",
+    "meaning": "chuyển khoản (tiền)"
+  },
+  {
+    "id": "vocab_386",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "飛び込む",
+    "kana": "とびこむ",
+    "display": "飛び込む",
+    "meaning": "nhảy vào, lao vào"
+  },
+  {
+    "id": "vocab_387",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "許す",
+    "kana": "ゆるす",
+    "display": "許す",
+    "meaning": "tha thứ, cho phép"
+  },
+  {
+    "id": "vocab_388",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "許可",
+    "kana": "きょか",
+    "display": "許可",
+    "meaning": "sự cho phép"
+  },
+  {
+    "id": "vocab_389",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "消費する",
+    "kana": "しょうひする",
+    "display": "消費する",
+    "meaning": "tiêu thụ, tiêu dùng"
+  },
+  {
+    "id": "vocab_390",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "消費者",
+    "kana": "しょうひしゃ",
+    "display": "消費者",
+    "meaning": "người tiêu dùng"
+  },
+  {
+    "id": "vocab_391",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "開発する",
+    "kana": "かいはつする",
+    "display": "開発する",
+    "meaning": "khai phá"
+  },
+  {
+    "id": "vocab_392",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "実話",
+    "kana": "じつわ",
+    "display": "実話",
+    "meaning": "câu chuyện có thật"
+  },
+  {
+    "id": "vocab_393",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "感想",
+    "kana": "かんそう",
+    "display": "感想",
+    "meaning": "cảm tưởng, cảm nghĩ"
+  },
+  {
+    "id": "vocab_394",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "述べる",
+    "kana": "のべる",
+    "display": "述べる",
+    "meaning": "bày tỏ, nói ra"
+  },
+  {
+    "id": "vocab_395",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "印象",
+    "kana": "いんしょう",
+    "display": "印象",
+    "meaning": "ấn tượng"
+  },
+  {
+    "id": "vocab_396",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "",
+    "kana": "ちっとも",
+    "display": "ちっとも",
+    "meaning": "không… chút nào"
+  },
+  {
+    "id": "vocab_397",
+    "lesson": "第 9 課",
+    "part": "Part 1",
+    "kanji": "柿",
+    "kana": "かき",
+    "display": "柿",
+    "meaning": "quả hồng"
+  },
+  {
+    "id": "vocab_398",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "革製",
+    "kana": "かわせい",
+    "display": "革製",
+    "meaning": "đồ làm bằng da"
+  },
+  {
+    "id": "vocab_399",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "製品",
+    "kana": "せいひん",
+    "display": "製品",
+    "meaning": "sản phẩm"
+  },
+  {
+    "id": "vocab_400",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "文字",
+    "kana": "もじ",
+    "display": "文字",
+    "meaning": "chữ cái"
+  },
+  {
+    "id": "vocab_401",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "数える",
+    "kana": "かぞえる",
+    "display": "数える",
+    "meaning": "đếm"
+  },
+  {
+    "id": "vocab_402",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "遠足",
+    "kana": "えんそく",
+    "display": "遠足",
+    "meaning": "đi chơi xa"
+  },
+  {
+    "id": "vocab_403",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "作家",
+    "kana": "さっか",
+    "display": "作家",
+    "meaning": "tác giả"
+  },
+  {
+    "id": "vocab_404",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "かけ間違い",
+    "kana": "かけまちがい",
+    "display": "かけ間違い",
+    "meaning": "gọi (điện thoại) nhầm số"
+  },
+  {
+    "id": "vocab_405",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "",
+    "kana": "いったい",
+    "display": "いったい",
+    "meaning": "rốt cuộc là"
+  },
+  {
+    "id": "vocab_406",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "",
+    "kana": "フリーダイヤル",
+    "display": "フリーダイヤル",
+    "meaning": "số đt gọi miễn phí"
+  },
+  {
+    "id": "vocab_407",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "",
+    "kana": "コマーシャル",
+    "display": "コマーシャル",
+    "meaning": "quảng cáo, thương mại"
+  },
+  {
+    "id": "vocab_408",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "",
+    "kana": "イメージする",
+    "display": "イメージする",
+    "meaning": "tưởng tượng"
+  },
+  {
+    "id": "vocab_409",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "製造する",
+    "kana": "せいぞうする",
+    "display": "製造する",
+    "meaning": "chế tạo"
+  },
+  {
+    "id": "vocab_410",
+    "lesson": "第 9 課",
+    "part": "Part 2",
+    "kanji": "励ます",
+    "kana": "はげます",
+    "display": "励ます",
+    "meaning": "động viên, khích lệ"
+  },
+  {
+    "id": "vocab_411",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "漫画",
+    "kana": "まんが",
+    "display": "漫画",
+    "meaning": "truyện tranh"
+  },
+  {
+    "id": "vocab_412",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "4コマ漫画",
+    "kana": "よんこままんが",
+    "display": "4コマ漫画",
+    "meaning": "truyện tranh 4 khung"
+  },
+  {
+    "id": "vocab_413",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "",
+    "kana": "せりふ",
+    "display": "せりふ",
+    "meaning": "lời thoại"
+  },
+  {
+    "id": "vocab_414",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "登場する",
+    "kana": "とうじょうする",
+    "display": "登場する",
+    "meaning": "xuất hiện, ra mắt"
+  },
+  {
+    "id": "vocab_415",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "人物",
+    "kana": "じんぶつ",
+    "display": "人物",
+    "meaning": "nhân vật, con người"
+  },
+  {
+    "id": "vocab_416",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "登場人物",
+    "kana": "とうじょうじんぶつ",
+    "display": "登場人物",
+    "meaning": "nhân vật (trong tác phẩm)"
+  },
+  {
+    "id": "vocab_417",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "梯子",
+    "kana": "はしご",
+    "display": "梯子",
+    "meaning": "cái thang"
+  },
+  {
+    "id": "vocab_418",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "駄目",
+    "kana": "だめ",
+    "display": "駄目",
+    "meaning": "không được, vô ích"
+  },
+  {
+    "id": "vocab_419",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "黙る",
+    "kana": "だまる",
+    "display": "黙る",
+    "meaning": "im lặng"
+  },
+  {
+    "id": "vocab_420",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "",
+    "kana": "しょんぼり",
+    "display": "しょんぼり",
+    "meaning": "thẫn thờ, ủ rũ"
+  },
+  {
+    "id": "vocab_421",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "",
+    "kana": "はっと (する)",
+    "display": "はっと (する)",
+    "meaning": "giật mình, sửng sốt"
+  },
+  {
+    "id": "vocab_422",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "",
+    "kana": "ほっと (する)",
+    "display": "ほっと (する)",
+    "meaning": "thở phào nhẹ nhõm"
+  },
+  {
+    "id": "vocab_423",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "",
+    "kana": "どきどき (する)",
+    "display": "どきどき (する)",
+    "meaning": "tim đập thình thịch"
+  },
+  {
+    "id": "vocab_424",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "",
+    "kana": "わくわく (する)",
+    "display": "わくわく (する)",
+    "meaning": "háo hức"
+  },
+  {
+    "id": "vocab_425",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "",
+    "kana": "はらはら (する)",
+    "display": "はらはら (する)",
+    "meaning": "hồi hộp, thấp thỏm"
+  },
+  {
+    "id": "vocab_426",
+    "lesson": "第 9 課",
+    "part": "Part 3",
+    "kanji": "",
+    "kana": "いらいら (する)",
+    "display": "いらいら (する)",
+    "meaning": "sốt ruột"
+  },
+  {
+    "id": "vocab_427",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "勘違い",
+    "kana": "かんちがい",
+    "display": "勘違い",
+    "meaning": "hiểu lầm"
+  },
+  {
+    "id": "vocab_428",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "顔が広い",
+    "kana": "かおがひろい",
+    "display": "顔が広い",
+    "meaning": "quan hệ rộng"
+  },
+  {
+    "id": "vocab_429",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "顔が大きい",
+    "kana": "かおがおおきい",
+    "display": "顔が大きい",
+    "meaning": "uy tín, máu mặt"
+  },
+  {
+    "id": "vocab_430",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "顔から火が出る",
+    "kana": "かおからひがでる",
+    "display": "顔から火が出る",
+    "meaning": "giận đỏ mặt"
+  },
+  {
+    "id": "vocab_431",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "表現",
+    "kana": "ひょうげん",
+    "display": "表現",
+    "meaning": "biểu hiện"
+  },
+  {
+    "id": "vocab_432",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "必死な",
+    "kana": "ひっしな",
+    "display": "必死な",
+    "meaning": "quyết tâm, liều mạng"
+  },
+  {
+    "id": "vocab_433",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "優勝する",
+    "kana": "ゆうしょうする",
+    "display": "優勝する",
+    "meaning": "vô địch, chiến thắng"
+  },
+  {
+    "id": "vocab_434",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "飛び上がる",
+    "kana": "とびあがる",
+    "display": "飛び上がる",
+    "meaning": "nhảy cẫng lên"
+  },
+  {
+    "id": "vocab_435",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "飛び出す",
+    "kana": "とびだす",
+    "display": "飛び出す",
+    "meaning": "lao ra, phi ra"
+  },
+  {
+    "id": "vocab_436",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "飛び込む",
+    "kana": "とびこむ",
+    "display": "飛び込む",
+    "meaning": "nhảy vào, lao vào"
+  },
+  {
+    "id": "vocab_437",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "もう少しで",
+    "kana": "もうすこしで",
+    "display": "もう少しで",
+    "meaning": "suýt nữa thì…"
+  },
+  {
+    "id": "vocab_438",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "",
+    "kana": "ほっぺた",
+    "display": "ほっぺた",
+    "meaning": "cái má"
+  },
+  {
+    "id": "vocab_439",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "緊張する",
+    "kana": "きんちょうする",
+    "display": "緊張する",
+    "meaning": "căng thẳng"
+  },
+  {
+    "id": "vocab_440",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "照れくさい",
+    "kana": "てれくさい",
+    "display": "照れくさい",
+    "meaning": "lúng túng, bẽn lẽn"
+  },
+  {
+    "id": "vocab_441",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "焦る",
+    "kana": "あせる",
+    "display": "焦る",
+    "meaning": "cuống cuồng, hấp tấp"
+  },
+  {
+    "id": "vocab_442",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "焦げる",
+    "kana": "こげる",
+    "display": "焦げる",
+    "meaning": "cháy, khét"
+  },
+  {
+    "id": "vocab_443",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "恥ずかしい",
+    "kana": "はずかしい",
+    "display": "恥ずかしい",
+    "meaning": "xấu hổ, ngại ngùng"
+  },
+  {
+    "id": "vocab_444",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "照れる",
+    "kana": "てれる",
+    "display": "照れる",
+    "meaning": "lúng túng, bẽn lẽn"
+  },
+  {
+    "id": "vocab_445",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "悔しい",
+    "kana": "くやしい",
+    "display": "悔しい",
+    "meaning": "đáng tiếc, cay cú"
+  },
+  {
+    "id": "vocab_446",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "",
+    "kana": "もどかしい",
+    "display": "もどかしい",
+    "meaning": "bứt rứt (vì việc 0 như ý)"
+  },
+  {
+    "id": "vocab_447",
+    "lesson": "第 9 課",
+    "part": "Part 4",
+    "kanji": "",
+    "kana": "ためらう",
+    "display": "ためらう",
+    "meaning": "do dự, ngần ngại"
+  },
+  {
+    "id": "vocab_448",
+    "lesson": "第 9 課",
+    "part": "Part 5",
+    "kanji": "疑問",
+    "kana": "ぎもん",
+    "display": "疑問",
+    "meaning": "nghi vấn"
+  },
+  {
+    "id": "vocab_449",
+    "lesson": "第 9 課",
+    "part": "Part 5",
+    "kanji": "疑う",
+    "kana": "うたがう",
+    "display": "疑う",
+    "meaning": "nghi ngờ"
+  },
+  {
+    "id": "vocab_450",
+    "lesson": "第 9 課",
+    "part": "Part 5",
+    "kanji": "女子高生",
+    "kana": "じょしこうせい",
+    "display": "女子高生",
+    "meaning": "nữ sinh cấp 3"
+  },
+  {
+    "id": "vocab_451",
+    "lesson": "第 9 課",
+    "part": "Part 5",
+    "kanji": "目上",
+    "kana": "めうえ",
+    "display": "目上",
+    "meaning": "người bề trên, hơn tuổi"
+  },
+  {
+    "id": "vocab_452",
+    "lesson": "第 9 課",
+    "part": "Part 5",
+    "kanji": "上司",
+    "kana": "じょうし",
+    "display": "上司",
+    "meaning": "cấp trên, sếp"
+  },
+  {
+    "id": "vocab_453",
+    "lesson": "第 9 課",
+    "part": "Part 5",
+    "kanji": "目下",
+    "kana": "めした",
+    "display": "目下",
+    "meaning": "người bề dưới, kém tuổi"
+  },
+  {
+    "id": "vocab_454",
+    "lesson": "第 9 課",
+    "part": "Part 5",
+    "kanji": "部下",
+    "kana": "ぶか",
+    "display": "部下",
+    "meaning": "cấp dưới"
+  },
+  {
+    "id": "vocab_455",
+    "lesson": "第 9 課",
+    "part": "Part 5",
+    "kanji": "若者",
+    "kana": "わかもの",
+    "display": "若者",
+    "meaning": "giới trẻ"
+  },
+  {
+    "id": "vocab_456",
+    "lesson": "第 9 課",
+    "part": "Part 5",
+    "kanji": "若い",
+    "kana": "わかい",
+    "display": "若い",
+    "meaning": "trẻ trung"
+  },
+  {
+    "id": "vocab_457",
+    "lesson": "第 9 課",
+    "part": "Part 5",
+    "kanji": "我慢",
+    "kana": "がまん",
+    "display": "我慢",
+    "meaning": "chịu đựng, nhẫn nại"
+  },
+  {
+    "id": "vocab_458",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "世界自然遺産",
+    "kana": "せかいしぜんいさん",
+    "display": "世界自然遺産",
+    "meaning": "di sản tự nhiên thế giới"
+  },
+  {
+    "id": "vocab_459",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "～発",
+    "kana": "～はつ",
+    "display": "～発",
+    "meaning": "xuất phát từ ~"
+  },
+  {
+    "id": "vocab_460",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "絵の具",
+    "kana": "えのぐ",
+    "display": "絵の具",
+    "meaning": "màu vẽ"
+  },
+  {
+    "id": "vocab_461",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "一気に",
+    "kana": "いっきに",
+    "display": "一気に",
+    "meaning": "1 mạch, 1 hơi"
+  },
+  {
+    "id": "vocab_462",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "流れ落ちる",
+    "kana": "ながれおちる",
+    "display": "流れ落ちる",
+    "meaning": "chảy xuống, tuôn ra"
+  },
+  {
+    "id": "vocab_463",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "迫力満点",
+    "kana": "はくりょくまんてん",
+    "display": "迫力満点",
+    "meaning": "chẳng có gì để chê"
+  },
+  {
+    "id": "vocab_464",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "",
+    "kana": "ごうごう",
+    "display": "ごうごう",
+    "meaning": "ào ào, ầm ầm (tiếng nước chảy, gió thổi mạnh)"
+  },
+  {
+    "id": "vocab_465",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "姿",
+    "kana": "すがた",
+    "display": "姿",
+    "meaning": "hình dáng"
+  },
+  {
+    "id": "vocab_466",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "",
+    "kana": "トンネル",
+    "display": "トンネル",
+    "meaning": "đường hầm"
+  },
+  {
+    "id": "vocab_467",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "滝",
+    "kana": "たき",
+    "display": "滝",
+    "meaning": "thác nước"
+  },
+  {
+    "id": "vocab_468",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "世紀",
+    "kana": "せいき",
+    "display": "世紀",
+    "meaning": "thế kỉ"
+  },
+  {
+    "id": "vocab_469",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "代表する",
+    "kana": "だいひょうする",
+    "display": "代表する",
+    "meaning": "đại diện cho"
+  },
+  {
+    "id": "vocab_470",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "(に) 誇り",
+    "kana": "(に) ほこり",
+    "display": "(に) 誇り",
+    "meaning": "niềm tự hào"
+  },
+  {
+    "id": "vocab_471",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "戦争",
+    "kana": "せんそう",
+    "display": "戦争",
+    "meaning": "chiến tranh"
+  },
+  {
+    "id": "vocab_472",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "天守閣",
+    "kana": "てんしゅかく",
+    "display": "天守閣",
+    "meaning": "tháp canh (trong lâu đài)"
+  },
+  {
+    "id": "vocab_473",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "再び",
+    "kana": "ふたたび",
+    "display": "再び",
+    "meaning": "lại, 1 lần nữa"
+  },
+  {
+    "id": "vocab_474",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "列車",
+    "kana": "れっしゃ",
+    "display": "列車",
+    "meaning": "tàu hỏa"
+  },
+  {
+    "id": "vocab_475",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "発車する",
+    "kana": "はっしゃする",
+    "display": "発車する",
+    "meaning": "(xe) khởi hành"
+  },
+  {
+    "id": "vocab_476",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "樹齢",
+    "kana": "じゅれい",
+    "display": "樹齢",
+    "meaning": "cây cổ thụ"
+  },
+  {
+    "id": "vocab_477",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "幸",
+    "kana": "さち",
+    "display": "幸",
+    "meaning": "may mắn, tài nguyên"
+  },
+  {
+    "id": "vocab_478",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "幸せ",
+    "kana": "しあわせ",
+    "display": "幸せ",
+    "meaning": "hạnh phúc"
+  },
+  {
+    "id": "vocab_479",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "往復",
+    "kana": "おうふく",
+    "display": "往復",
+    "meaning": "khứ hồi"
+  },
+  {
+    "id": "vocab_480",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "神秘的",
+    "kana": "しんぴてき",
+    "display": "神秘的",
+    "meaning": "thần bí, huyền bí"
+  },
+  {
+    "id": "vocab_481",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "森",
+    "kana": "もり",
+    "display": "森",
+    "meaning": "rừng"
+  },
+  {
+    "id": "vocab_482",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "森林",
+    "kana": "しんりん",
+    "display": "森林",
+    "meaning": "rừng rậm"
+  },
+  {
+    "id": "vocab_483",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "味",
+    "kana": "あじ",
+    "display": "味",
+    "meaning": "hương vị"
+  },
+  {
+    "id": "vocab_484",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "積もる",
+    "kana": "つもる",
+    "display": "積もる",
+    "meaning": "tích tụ, chất đống"
+  },
+  {
+    "id": "vocab_485",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "国宝",
+    "kana": "こくほう",
+    "display": "国宝",
+    "meaning": "quốc bảo"
+  },
+  {
+    "id": "vocab_486",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "指定",
+    "kana": "してい",
+    "display": "指定",
+    "meaning": "chỉ định"
+  },
+  {
+    "id": "vocab_487",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "彫る",
+    "kana": "ほる",
+    "display": "彫る",
+    "meaning": "khắc"
+  },
+  {
+    "id": "vocab_488",
+    "lesson": "第 10 課",
+    "part": "Part 1",
+    "kanji": "彫刻する",
+    "kana": "ちょうこくする",
+    "display": "彫刻する",
+    "meaning": "điêu khắc, chạm trổ"
+  },
+  {
+    "id": "vocab_489",
+    "lesson": "第 10 課",
+    "part": "Part 3",
+    "kanji": "平和",
+    "kana": "へいわ",
+    "display": "平和",
+    "meaning": "hòa bình"
+  },
+  {
+    "id": "vocab_490",
+    "lesson": "第 10 課",
+    "part": "Part 3",
+    "kanji": "奥",
+    "kana": "おく",
+    "display": "奥",
+    "meaning": "bên trong, phía sâu"
+  },
+  {
+    "id": "vocab_491",
+    "lesson": "第 10 課",
+    "part": "Part 3",
+    "kanji": "着払い",
+    "kana": "ちゃくばらい",
+    "display": "着払い",
+    "meaning": "thanh toán khi nhận hàng (COD)"
+  },
+  {
+    "id": "vocab_492",
+    "lesson": "第 10 課",
+    "part": "Part 3",
+    "kanji": "先払い",
+    "kana": "さきばらい",
+    "display": "先払い",
+    "meaning": "thanh toán trước"
+  },
+  {
+    "id": "vocab_493",
+    "lesson": "第 10 課",
+    "part": "Part 3",
+    "kanji": "宅配便",
+    "kana": "たくはいびん",
+    "display": "宅配便",
+    "meaning": "giao hàng tận nhà"
+  },
+  {
+    "id": "vocab_494",
+    "lesson": "第 10 課",
+    "part": "Part 3",
+    "kanji": "請求",
+    "kana": "せいきゅう",
+    "display": "請求",
+    "meaning": "thỉnh cầu, yêu cầu"
+  },
+  {
+    "id": "vocab_495",
+    "lesson": "第 10 課",
+    "part": "Part 3",
+    "kanji": "洗面台",
+    "kana": "せんめんだい",
+    "display": "洗面台",
+    "meaning": "bồn rửa mặt"
+  },
+  {
+    "id": "vocab_496",
+    "lesson": "第 10 課",
+    "part": "Part 3",
+    "kanji": "満点",
+    "kana": "まんてん",
+    "display": "満点",
+    "meaning": "điểm tối đa"
+  },
+  {
+    "id": "vocab_497",
+    "lesson": "第 10 課",
+    "part": "Part 3",
+    "kanji": "落ちる",
+    "kana": "おちる",
+    "display": "落ちる",
+    "meaning": "rơi, rụng"
+  },
+  {
+    "id": "vocab_498",
+    "lesson": "第 10 課",
+    "part": "Part 3",
+    "kanji": "刻む",
+    "kana": "きざむ",
+    "display": "刻む",
+    "meaning": "khắc, thái (rau quả)"
+  },
+  {
+    "id": "vocab_499",
+    "lesson": "第 10 課",
+    "part": "Part 3",
+    "kanji": "胸",
+    "kana": "むね",
+    "display": "胸",
+    "meaning": "ngực"
+  },
+  {
+    "id": "vocab_500",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "座る",
+    "kana": "すわる",
+    "display": "座る",
+    "meaning": "ngồi"
+  },
+  {
+    "id": "vocab_501",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "座席",
+    "kana": "ざせき",
+    "display": "座席",
+    "meaning": "chỗ ngồi"
+  },
+  {
+    "id": "vocab_502",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "鉄道",
+    "kana": "てつどう",
+    "display": "鉄道",
+    "meaning": "đường sắt"
+  },
+  {
+    "id": "vocab_503",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "販売する",
+    "kana": "はんばいする",
+    "display": "販売する",
+    "meaning": "bán hàng"
+  },
+  {
+    "id": "vocab_504",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "売買する",
+    "kana": "ばいばいする",
+    "display": "売買する",
+    "meaning": "mua bán"
+  },
+  {
+    "id": "vocab_505",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "停車",
+    "kana": "ていしゃ",
+    "display": "停車",
+    "meaning": "dừng xe, dừng tàu"
+  },
+  {
+    "id": "vocab_506",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "停電",
+    "kana": "ていでん",
+    "display": "停電",
+    "meaning": "mất điện"
+  },
+  {
+    "id": "vocab_507",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "時刻",
+    "kana": "じこく",
+    "display": "時刻",
+    "meaning": "thời khắc"
+  },
+  {
+    "id": "vocab_508",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "遅刻する",
+    "kana": "ちこくする",
+    "display": "遅刻する",
+    "meaning": "muộn, trễ giờ"
+  },
+  {
+    "id": "vocab_509",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "彫刻する",
+    "kana": "ちょうこくする",
+    "display": "彫刻する",
+    "meaning": "chạm trổ, điêu khắc"
+  },
+  {
+    "id": "vocab_510",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "禁煙",
+    "kana": "きんえん",
+    "display": "禁煙",
+    "meaning": "cấm hút thuốc"
+  },
+  {
+    "id": "vocab_511",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "禁止",
+    "kana": "きんし",
+    "display": "禁止",
+    "meaning": "cấm"
+  },
+  {
+    "id": "vocab_512",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "喫煙",
+    "kana": "きつえん",
+    "display": "喫煙",
+    "meaning": "hút thuốc"
+  },
+  {
+    "id": "vocab_513",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "通話",
+    "kana": "つうわ",
+    "display": "通話",
+    "meaning": "gọi điện thoại"
+  },
+  {
+    "id": "vocab_514",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "通勤",
+    "kana": "つうきん",
+    "display": "通勤",
+    "meaning": "đi làm"
+  },
+  {
+    "id": "vocab_515",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "満席",
+    "kana": "まんせき",
+    "display": "満席",
+    "meaning": "hết chỗ, kín chỗ"
+  },
+  {
+    "id": "vocab_516",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "満足",
+    "kana": "まんぞく",
+    "display": "満足",
+    "meaning": "thỏa mãn, hài lòng"
+  },
+  {
+    "id": "vocab_517",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "不満",
+    "kana": "ふまん",
+    "display": "不満",
+    "meaning": "bất mãn, 0 hài lòng"
+  },
+  {
+    "id": "vocab_518",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "了承する",
+    "kana": "りょうしょうする",
+    "display": "了承する",
+    "meaning": "thừa nhận, chấp nhận"
+  },
+  {
+    "id": "vocab_519",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "承知する",
+    "kana": "しょうちする",
+    "display": "承知する",
+    "meaning": "đồng ý, hiểu rõ"
+  },
+  {
+    "id": "vocab_520",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "終了",
+    "kana": "しゅうりょう",
+    "display": "終了",
+    "meaning": "kết thúc"
+  },
+  {
+    "id": "vocab_521",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "車両",
+    "kana": "しゃりょう",
+    "display": "車両",
+    "meaning": "toa xe"
+  },
+  {
+    "id": "vocab_522",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "内回り",
+    "kana": "うちまわり",
+    "display": "内回り",
+    "meaning": "vòng trong (tàu điện)"
+  },
+  {
+    "id": "vocab_523",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "見合わせる",
+    "kana": "みあわせる",
+    "display": "見合わせる",
+    "meaning": "tạm dừng (tàu xe)"
+  },
+  {
+    "id": "vocab_524",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "尋ねる",
+    "kana": "たずねる",
+    "display": "尋ねる",
+    "meaning": "thăm hỏi"
+  },
+  {
+    "id": "vocab_525",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "～番線",
+    "kana": "～ばんせん",
+    "display": "～番線",
+    "meaning": "tuyến số ~"
+  },
+  {
+    "id": "vocab_526",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "煙",
+    "kana": "けむり",
+    "display": "煙",
+    "meaning": "khói"
+  },
+  {
+    "id": "vocab_527",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "感想",
+    "kana": "かんそう",
+    "display": "感想",
+    "meaning": "cảm tưởng"
+  },
+  {
+    "id": "vocab_528",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "述べる",
+    "kana": "のべる",
+    "display": "述べる",
+    "meaning": "phát biểu, bày tỏ"
+  },
+  {
+    "id": "vocab_529",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "印象",
+    "kana": "いんしょう",
+    "display": "印象",
+    "meaning": "ấn tượng"
+  },
+  {
+    "id": "vocab_530",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "",
+    "kana": "ちっとも",
+    "display": "ちっとも",
+    "meaning": "1 chút cũng không…"
+  },
+  {
+    "id": "vocab_531",
+    "lesson": "第 10 課",
+    "part": "Part 4",
+    "kanji": "柿",
+    "kana": "かき",
+    "display": "柿",
+    "meaning": "quả hồng"
+  }
+]

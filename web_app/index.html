@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JPD326 日本語速習マスター - Học Tiếng Nhật Cấp Tốc</title>
+  <meta name="description" content="Ứng dụng ôn tập và học siêu tốc Từ vựng, Hán tự, Ngữ pháp và 337 Slide môn JPD326 Tiếng Nhật Trung Cấp Dekiru Nihongo">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Header Navigation -->
+    <header class="app-header">
+      <div class="logo-section" id="btn-logo-home">
+        <div class="logo-icon">速</div>
+        <div class="logo-text">
+          <div style="display: flex; align-items: center; gap: 0.4rem;">
+            <h1>JPD326 速習マスター</h1>
+            <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 0.05rem 0.35rem;">BÀI 6-10</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="nav-tabs" id="main-nav-tabs">
+        <button class="nav-tab-btn active" data-tab="dashboard" id="nav-tab-dashboard">
+          Tổng quan
+        </button>
+        <button class="nav-tab-btn" data-tab="flashcards" id="nav-tab-flashcards">
+          Thẻ SRS
+        </button>
+        <button class="nav-tab-btn" data-tab="vocab" id="nav-tab-vocab">
+          Từ vựng <span class="nav-badge">531</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="kanji" id="nav-tab-kanji">
+          Hán tự <span class="nav-badge">73</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="grammar" id="nav-tab-grammar">
+          Ngữ pháp <span class="nav-badge">69</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="slides" id="nav-tab-slides">
+          337 Slide
+        </button>
+        <button class="nav-tab-btn" data-tab="quiz" id="nav-tab-quiz">
+          Speed Quiz
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <button class="search-trigger-btn" id="btn-open-search" title="Tìm kiếm tức thì (Ctrl+K)">
+          <span>Tra cứu</span>
+          <span class="kbd-shortcut">Ctrl K</span>
+        </button>
+        <button class="icon-btn" id="btn-toggle-theme" title="Chuyển chế độ Sáng / Tối">Sáng</button>
+        <button class="icon-btn active" id="btn-toggle-sound" title="Bật/Tắt âm thanh hiệu ứng">Bật âm</button>
+        <button class="icon-btn" id="btn-reset-data" title="Đặt lại tiến độ học tập">Đặt lại</button>
+      </div>
+    </header>
+
+    <!-- Main Content Panels -->
+    <main class="app-main">
+
+      <!-- ==================================================================
+           TAB 1: DASHBOARD
+           ================================================================== -->
+      <section class="tab-panel active" id="tab-dashboard">
+        <!-- Hero Overview -->
+        <div class="dashboard-hero">
+          <div class="hero-content">
+            <div class="hero-title-group">
+              <h2>Ôn Luyện Siêu Tốc <span>JPD326</span></h2>
+              <p class="hero-description">
+                Hệ thống học cấp tốc tích hợp thuật toán lặp lại ngắt quãng (SRS), phát âm giọng bản xứ tự động, 3D Flashcard và kho dữ liệu hoàn chỉnh 531 từ vựng, 73 Hán tự, 69 điểm ngữ pháp cùng 337 slide bài giảng.
+              </p>
+            </div>
+            <div class="hero-stats-row">
+              <div class="stat-box">
+                <div class="stat-value" id="dash-streak-val" style="color: var(--accent-amber);">1 Ngày</div>
+                <div class="stat-label">Streak Ngày</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value" id="dash-learned-val" style="color: var(--accent-emerald);">0 / 604</div>
+                <div class="stat-label">Đã Thuộc</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value" id="dash-reviews-val" style="color: var(--accent-cyan);">0</div>
+                <div class="stat-label">Lượt Ôn Tập</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value" id="dash-mastery-val" style="color: var(--accent-indigo);">0%</div>
+                <div class="stat-label">Tỷ Lệ Nhớ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Launch Cards -->
+        <div class="quick-action-grid">
+          <div class="action-card" id="dash-action-quiz">
+            <div>
+              <div class="action-card-header">
+                <span class="badge badge-cyan">Đấu trường</span>
+              </div>
+              <h3>Speed Quiz 1 Phút</h3>
+              <p>Luyện phản xạ nhanh với câu hỏi trắc nghiệm đếm ngược 10 giây và combo điểm số.</p>
+            </div>
+            <div class="action-card-footer">
+              <span>Bắt đầu thi đấu</span>
+            </div>
+          </div>
+
+          <div class="action-card" id="dash-action-flashcards">
+            <div>
+              <div class="action-card-header">
+                <span class="badge badge-purple">SRS thông minh</span>
+              </div>
+              <h3>Học Thẻ Nhớ 3D</h3>
+              <p>Học từ vựng và hán tự với chế độ lật thẻ 3D, hỗ trợ phím tắt và chế độ tự động chạy rảnh tay.</p>
+            </div>
+            <div class="action-card-footer">
+              <span>Mở bộ thẻ</span>
+            </div>
+          </div>
+
+          <div class="action-card" id="dash-action-slides">
+            <div>
+              <div class="action-card-header">
+                <span class="badge badge-purple">4 Bài PPTX</span>
+              </div>
+              <h3>Duyệt 337 Slide</h3>
+              <p>Xem toàn bộ slide bài giảng 6, 7, 8, 9 với hình ảnh trích xuất nguyên bản và văn bản rõ nét.</p>
+            </div>
+            <div class="action-card-footer">
+              <span>Xem bài giảng</span>
+            </div>
+          </div>
+
+          <div class="action-card" id="dash-action-kanji">
+            <div>
+              <div class="action-card-header">
+                <span class="badge badge-sakura">73 Chữ Hán</span>
+              </div>
+              <h3>73 Hán Tự Trọng Tâm</h3>
+              <p>Nắm trọn âm Hán-Việt, âm On, âm Kun và các từ vựng ghép thực tế kèm nghĩa tiếng Việt.</p>
+            </div>
+            <div class="action-card-footer">
+              <span>Luyện Hán tự</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lessons Overview Section -->
+        <div class="section-heading-bar">
+          <h3>Danh Sách Các Bài Học (Dekiru Nihongo Chukyu)</h3>
+          <span style="color: var(--text-muted); font-size: 0.88rem;">Khóa học JPD326 FA26</span>
+        </div>
+        <div class="lessons-grid" id="dash-lessons-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           TAB 2: FLASHCARD SRS
+           ================================================================== -->
+      <section class="tab-panel" id="tab-flashcards">
+        <div class="flashcard-arena">
+          <!-- Toolbar -->
+          <div class="flashcard-toolbar">
+            <div class="card-counter" id="fc-counter">Thẻ 1 / 531</div>
+            <div class="flashcard-options">
+              <button class="btn btn-secondary btn-sm" id="fc-shuffle-btn" title="Trộn thẻ ngẫu nhiên">Trộn thẻ</button>
+              <button class="icon-btn btn-sm active" id="btn-fc-autopronounce" title="Tự động phát âm khi lật">Tự động đọc</button>
+              <button class="btn btn-secondary btn-sm" id="btn-fc-autoplay">Chạy tự động (Hands-free)</button>
+            </div>
+          </div>
+
+          <!-- 3D Card Stage -->
+          <div class="flashcard-stage" id="flashcard-stage">
+            <div class="flashcard-inner" id="flashcard-inner">
+              <div class="card-face card-front" id="card-front">
+                <!-- Front Content rendered via JS -->
+              </div>
+              <div class="card-face card-back" id="card-back">
+                <!-- Back Content rendered via JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Spaced Repetition Ratings -->
+          <div class="flashcard-ratings">
+            <button class="rating-btn again" data-rating="1">
+              <span class="rating-title">Chưa thuộc</span>
+              <span class="rating-key">[Phím 1]</span>
+            </button>
+            <button class="rating-btn hard" data-rating="2">
+              <span class="rating-title">Khó nhớ</span>
+              <span class="rating-key">[Phím 2]</span>
+            </button>
+            <button class="rating-btn good" data-rating="3">
+              <span class="rating-title">Đã nhớ</span>
+              <span class="rating-key">[Phím 3]</span>
+            </button>
+            <button class="rating-btn easy" data-rating="4">
+              <span class="rating-title">Quá dễ</span>
+              <span class="rating-key">[Phím 4]</span>
+            </button>
+          </div>
+
+          <!-- Navigation controls -->
+          <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+            <button class="btn btn-secondary" id="fc-prev-btn">Thẻ trước</button>
+            <button class="btn btn-secondary" id="fc-next-btn">Thẻ tiếp</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           TAB 3: VOCABULARY LIST
+           ================================================================== -->
+      <section class="tab-panel" id="tab-vocab">
+        <div class="section-heading-bar">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <h3>Toàn Bộ Từ Vựng JPD326</h3>
+            <span class="badge badge-amber" id="vocab-count-badge">531 từ</span>
+          </div>
+          <button class="btn btn-amber btn-sm" id="btn-fc-vocab" style="background: var(--grad-amber); color: #000;">
+            Học Flashcard Mục Này
+          </button>
+        </div>
+
+        <!-- Filter bar & search -->
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+          <div class="filter-bar" id="vocab-filter-bar" style="margin-bottom: 0;"></div>
+          <div style="min-width: 260px;">
+            <input type="text" id="vocab-search-input" placeholder="Tìm theo Kanji, Kana hoặc tiếng Việt..." 
+                   style="width: 100%; background: var(--bg-card); border: 1px solid var(--border-subtle); color: #FFF; padding: 0.5rem 1rem; border-radius: 10px; outline: none;">
+          </div>
+        </div>
+
+        <!-- Vocabulary Table -->
+        <div class="vocab-table-container">
+          <table class="vocab-table">
+            <thead>
+              <tr>
+                <th style="width: 50px;">Lưu</th>
+                <th style="min-width: 160px;">Tiếng Nhật (Kanji/Kana)</th>
+                <th>Ý Nghĩa Tiếng Việt</th>
+                <th style="width: 160px;">Bài Học</th>
+                <th style="width: 70px; text-align: center;">Nghe</th>
+              </tr>
+            </thead>
+            <tbody id="vocab-table-body">
+              <!-- Populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           TAB 4: KANJI GRID
+           ================================================================== -->
+      <section class="tab-panel" id="tab-kanji">
+        <div class="section-heading-bar">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <h3>73 Hán Tự Trọng Tâm (Bài 6 - 10)</h3>
+            <span class="badge badge-sakura">73 Kanji</span>
+          </div>
+          <button class="btn btn-sakura btn-sm" id="btn-fc-kanji">
+            Học Flashcard Hán Tự
+          </button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+          <div class="filter-bar" id="kanji-filter-bar" style="margin-bottom: 0;"></div>
+          <div style="min-width: 260px;">
+            <input type="text" id="kanji-search-input" placeholder="Tìm theo chữ Hán, Hán-Việt, âm On/Kun..." 
+                   style="width: 100%; background: var(--bg-card); border: 1px solid var(--border-subtle); color: #FFF; padding: 0.5rem 1rem; border-radius: 10px; outline: none;">
+          </div>
+        </div>
+
+        <div class="kanji-grid" id="kanji-grid-root">
+          <!-- Populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           TAB 5: GRAMMAR ACCORDION
+           ================================================================== -->
+      <section class="tab-panel" id="tab-grammar">
+        <div class="section-heading-bar">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <h3>Toàn Bộ Cấu Trúc Ngữ Pháp (69 Mẫu)</h3>
+            <span class="badge badge-emerald">69 Mẫu câu</span>
+          </div>
+          <button class="btn btn-emerald btn-sm" id="btn-fc-grammar">
+            Học Flashcard Ngữ Pháp
+          </button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+          <div class="filter-bar" id="grammar-filter-bar" style="margin-bottom: 0;"></div>
+          <div style="min-width: 260px;">
+            <input type="text" id="grammar-search-input" placeholder="Tìm theo cấu trúc hoặc ý nghĩa..." 
+                   style="width: 100%; background: var(--bg-card); border: 1px solid var(--border-subtle); color: #FFF; padding: 0.5rem 1rem; border-radius: 10px; outline: none;">
+          </div>
+        </div>
+
+        <div class="grammar-list" id="grammar-list-root">
+          <!-- Populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           TAB 6: SLIDE MASTER VIEWER
+           ================================================================== -->
+      <section class="tab-panel" id="tab-slides">
+        <div class="slide-viewer-layout">
+          <!-- Slide Navigation & Deck Bar -->
+          <div class="slide-controls-bar">
+            <div class="slide-deck-tabs" id="slide-deck-tabs">
+              <!-- Rendered via JS -->
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+              <input type="text" id="slide-search-input" placeholder="Tìm chữ trong slide..." 
+                     style="background: var(--bg-elevated); border: 1px solid var(--border-subtle); color: #FFF; padding: 0.4rem 0.8rem; border-radius: 8px; font-size: 0.85rem; outline: none;">
+              <span id="slide-deck-title" style="font-size: 0.9rem; color: var(--accent-purple); font-weight: 700;"></span>
+            </div>
+          </div>
+
+          <!-- Slide Presentation Display Frame -->
+          <div class="slide-display-frame" id="slide-display-frame">
+            <!-- Slide Content rendered via JS -->
+          </div>
+
+          <!-- Dock Controls & Navigation -->
+          <div class="slide-nav-dock">
+            <button class="btn btn-secondary" id="slide-prev-btn">Trang trước</button>
+            <span id="slide-number-tag" style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-secondary); padding: 0 1rem;"></span>
+            <button class="btn btn-primary" id="slide-next-btn">Trang tiếp</button>
+          </div>
+
+          <!-- Thumbnails Strip -->
+          <div class="slide-thumbs-strip" id="slide-thumbs-strip">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           TAB 7: SPEED QUIZ ARENA
+           ================================================================== -->
+      <!-- ==================================================================
+           TAB 7: SPEED QUIZ ARENA
+           ================================================================== -->
+      <section class="tab-panel" id="tab-quiz">
+        <div class="quiz-arena-container">
+          <!-- Config View -->
+          <div class="quiz-config-card" id="quiz-config-view">
+            <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: #FFF;">Đấu Trường Speed Quiz</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+              Thử thách phản xạ từ vựng, hán tự và ngữ pháp với đồng hồ đếm ngược 10s cho mỗi câu hỏi.
+            </p>
+
+            <div class="quiz-config-section">
+              <div class="quiz-config-label">Chọn chế độ thi đấu:</div>
+              <div class="mode-select-grid">
+                <button class="mode-btn active" data-mode="vocab_jp_vn">
+                  <div class="mode-title">Từ Vựng (Nhật - Việt)</div>
+                  <div class="mode-desc">Nhìn chữ Nhật, đoán nghĩa tiếng Việt</div>
+                </button>
+                <button class="mode-btn" data-mode="vocab_vn_jp">
+                  <div class="mode-title">Từ Vựng (Việt - Nhật)</div>
+                  <div class="mode-desc">Nhìn nghĩa tiếng Việt, chọn từ tiếng Nhật</div>
+                </button>
+                <button class="mode-btn" data-mode="kanji_hanviet">
+                  <div class="mode-title">Hán Tự (Kanji - Hán Việt)</div>
+                  <div class="mode-desc">Nhận diện chữ Hán & đoán âm Hán-Việt</div>
+                </button>
+                <button class="mode-btn" data-mode="grammar_formula">
+                  <div class="mode-title">Ngữ Pháp Mẫu Câu</div>
+                  <div class="mode-desc">Chọn cấu trúc công thức đúng cho mẫu câu</div>
+                </button>
+                <button class="mode-btn" data-mode="mixed_blitz">
+                  <div class="mode-title">Thử Thách Hỗn Hợp</div>
+                  <div class="mode-desc">Tổng hợp ngẫu nhiên cả từ vựng & hán tự</div>
+                </button>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" id="btn-start-quiz" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+              Bắt Đầu Thi Đấu Ngay
+            </button>
+          </div>
+
+          <!-- Active Question View -->
+          <div class="quiz-active-card" id="quiz-play-view" style="display: none;">
+            <div class="quiz-progress-row">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span class="badge badge-cyan" id="quiz-hint-tag">Bài 6</span>
+                <span class="badge badge-sakura" id="quiz-combo-badge" style="display: none;">Combo x2</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary);" id="quiz-q-num">1 / 15</span>
+                <span style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: var(--accent-amber);" id="quiz-score-val">0 pts</span>
+              </div>
+            </div>
+
+            <!-- Timer Countdown Bar -->
+            <div class="quiz-timer-bar-wrap">
+              <div class="quiz-timer-fill" id="quiz-timer-fill"></div>
+            </div>
+
+            <!-- Question Prompt -->
+            <div class="quiz-question-box">
+              <div class="quiz-prompt-big" id="quiz-prompt-text">気候</div>
+              <div class="quiz-prompt-sub" id="quiz-prompt-sub">きこう</div>
+            </div>
+
+            <!-- Options (1-4) -->
+            <div class="quiz-options-grid" id="quiz-options-grid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Results View -->
+          <div class="quiz-config-card" id="quiz-result-view" style="display: none; text-align: center; align-items: center;">
+            <h3 style="font-size: 2rem; color: #FFF; margin-bottom: 0.5rem;">Hoàn Thành Thử Thách!</h3>
+            <div class="stat-value" id="final-score-val" style="color: var(--accent-amber); font-size: 3rem; margin: 0.5rem 0;">0 Điểm</div>
+            <div id="final-max-combo" style="color: var(--accent-sakura); font-weight: 700; margin-bottom: 1.5rem;">Max Combo: x0</div>
+            <button class="btn btn-primary" id="btn-quiz-retry">Chơi lại thử thách khác</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ====================================================================
+         MODALS
+         ==================================================================== -->
+    <!-- Kanji Deep Inspector Modal -->
+    <div class="modal-overlay" id="kanji-detail-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="badge badge-sakura" id="modal-kanji-lesson">第 6 課</span>
+            <h3 id="modal-kanji-hanviet" style="font-size: 1.3rem; color: #FDA4AF;">HÌNH</h3>
+          </div>
+          <button class="icon-btn btn-sm" id="kanji-modal-close">Đóng</button>
+        </div>
+        <div class="modal-body">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 1.5rem;">
+            <div id="modal-kanji-char" style="font-family: var(--font-jp); font-size: 5rem; font-weight: 900; color: #FFF; text-shadow: 0 0 30px rgba(244, 63, 94, 0.4);">
+              形
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+              <div class="badge badge-purple" style="font-size: 1rem; padding: 0.4rem 0.8rem;">
+                音 (On): <strong id="modal-kanji-on" style="margin-left: 0.3rem;">ケイ</strong>
+              </div>
+              <div class="badge badge-cyan" style="font-size: 1rem; padding: 0.4rem 0.8rem;">
+                訓 (Kun): <strong id="modal-kanji-kun" style="margin-left: 0.3rem;">かたち</strong>
+              </div>
+              <button class="btn btn-secondary btn-sm" id="btn-modal-speak-kanji">Nghe phát âm</button>
+            </div>
+          </div>
+
+          <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;">
+            Từ ghép ví dụ & Nghĩa tiếng Việt:
+          </div>
+          <div id="modal-kanji-compounds" style="display: flex; flex-direction: column; gap: 0.5rem; max-height: 240px; overflow-y: auto;">
+            <!-- Compounds rendered dynamically -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Omnisearch Modal (Ctrl + K) -->
+    <div class="modal-overlay" id="search-modal">
+      <div class="modal-content search-modal-box">
+        <div class="modal-header" style="border: none; padding-bottom: 0;">
+          <h3 style="font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+            Tra cứu nhanh JPD326
+          </h3>
+          <button class="icon-btn btn-sm" id="btn-close-search">Đóng</button>
+        </div>
+        <div class="modal-body">
+          <div class="search-input-wrap">
+            <input type="text" id="global-search-input" placeholder="Tìm theo Kanji, Kana, Hán-Việt, tiếng Việt hoặc slide..." autocomplete="off">
+            <span class="kbd-shortcut">ESC để đóng</span>
+          </div>
+          <div class="search-results-list" id="search-results-list">
+            <!-- Results rendered dynamically -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="data/app_data.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/flashcard.js"></script>
+  <script src="js/slide_viewer.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

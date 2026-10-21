@@ -1,0 +1,1345 @@
+/* ==========================================================================
+   NIHONGO SPEED MASTER - JPD326
+   Component Specific Styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DASHBOARD OVERVIEW
+   -------------------------------------------------------------------------- */
+.dashboard-hero {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 2.25rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard-hero::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-title-group h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title-group h2 span {
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 600px;
+}
+
+.hero-stats-row {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.stat-box {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1rem 1.4rem;
+  min-width: 140px;
+  text-align: center;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #FFF;
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+/* Quick Action Cards */
+.quick-action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.action-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 1.75rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-normal);
+}
+
+.action-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-indigo);
+  box-shadow: var(--shadow-glow);
+}
+
+.action-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.action-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.action-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.action-card p {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.action-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+}
+
+/* Lesson Cards Grid */
+.section-heading-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.section-heading-bar h3 {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.lesson-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.4rem;
+  transition: all var(--transition-normal);
+}
+
+.lesson-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.lesson-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-tag {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.12);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.lesson-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-counts {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.lesson-counts span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--grad-primary);
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. FLASHCARD SRS ENGINE (3D FLIP)
+   -------------------------------------------------------------------------- */
+.flashcard-arena {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flashcard-toolbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+}
+
+.card-counter {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.card-counter strong {
+  color: #FFF;
+}
+
+.flashcard-options {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.flashcard-stage {
+  width: 100%;
+  height: 420px;
+  perspective: 1200px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.flashcard-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+}
+
+.flashcard-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 24px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--border-subtle);
+}
+
+.card-front {
+  background: linear-gradient(145deg, #161F33 0%, #0D1322 100%);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.card-back {
+  background: linear-gradient(145deg, #131E2F 0%, #0B111E 100%);
+  transform: rotateY(180deg);
+  border-color: rgba(6, 182, 212, 0.35);
+}
+
+.card-badge-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.card-kanji-big {
+  font-family: var(--font-jp);
+  font-size: 5rem;
+  font-weight: 900;
+  color: #FFF;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-kana-sub {
+  font-family: var(--font-jp);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--accent-cyan);
+  margin-bottom: 0.5rem;
+}
+
+.card-hanviet-tag {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FDA4AF;
+  letter-spacing: 0.05em;
+  background: rgba(244, 63, 94, 0.15);
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.card-flip-prompt {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Back of Card */
+.card-meaning-big {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFF;
+  margin-bottom: 1rem;
+}
+
+.card-extra-details {
+  width: 100%;
+  max-height: 180px;
+  overflow-y: auto;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid var(--border-subtle);
+  font-size: 0.92rem;
+}
+
+.detail-line {
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
+.detail-label {
+  font-weight: 700;
+  color: var(--accent-cyan);
+  margin-right: 0.4rem;
+}
+
+/* Rating Controls */
+.flashcard-ratings {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.rating-btn {
+  flex: 1;
+  max-width: 140px;
+  padding: 0.75rem 0.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: #FFF;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-body);
+  transition: all var(--transition-fast);
+}
+
+.rating-btn:hover {
+  transform: translateY(-2px);
+}
+
+.rating-btn.again:hover {
+  border-color: #EF4444;
+  background: rgba(239, 68, 68, 0.15);
+}
+.rating-btn.hard:hover {
+  border-color: #F59E0B;
+  background: rgba(245, 158, 11, 0.15);
+}
+.rating-btn.good:hover {
+  border-color: #10B981;
+  background: rgba(16, 185, 129, 0.15);
+}
+.rating-btn.easy:hover {
+  border-color: #06B6D4;
+  background: rgba(6, 182, 212, 0.15);
+}
+
+.rating-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.rating-key {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* --------------------------------------------------------------------------
+   3. KANJI MASTER GRID & CARDS
+   -------------------------------------------------------------------------- */
+.kanji-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.kanji-card-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.kanji-card-item:hover {
+  border-color: var(--accent-sakura);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sakura);
+}
+
+.kanji-char-preview {
+  font-family: var(--font-jp);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #FFF;
+  line-height: 1.1;
+  margin: 0.5rem 0;
+}
+
+.kanji-hanviet-badge {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #FDA4AF;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.kanji-readings-snippet {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.kanji-readings-snippet strong {
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   4. VOCABULARY TABLE / CARD LIST
+   -------------------------------------------------------------------------- */
+.vocab-table-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.vocab-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.vocab-table th {
+  background: rgba(15, 23, 42, 0.95);
+  padding: 1rem 1.25rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.vocab-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+.vocab-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.vocab-word-jp {
+  font-family: var(--font-jp);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFF;
+}
+
+.vocab-kana-sub {
+  font-family: var(--font-jp);
+  font-size: 0.88rem;
+  color: var(--accent-cyan);
+}
+
+.vocab-meaning-txt {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   5. GRAMMAR ACCORDION & CARDS
+   -------------------------------------------------------------------------- */
+.grammar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.grammar-item-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all var(--transition-normal);
+}
+
+.grammar-item-card:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.grammar-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.grammar-title-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFF;
+}
+
+.grammar-formula-badge {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #6EE7B7;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.grammar-point-box {
+  background: rgba(15, 23, 42, 0.6);
+  border-left: 3px solid var(--accent-amber);
+  border-radius: 0 8px 8px 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: #FDE68A;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.grammar-examples-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.grammar-example-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+.grammar-example-row span {
+  font-family: var(--font-jp);
+  color: #F1F5F9;
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   6. SLIDE MASTER VIEWER
+   -------------------------------------------------------------------------- */
+.slide-viewer-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.slide-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 0.75rem 1.25rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.slide-deck-tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.slide-display-frame {
+  background: #0D121F;
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  min-height: 520px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+
+.slide-header-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.75rem;
+}
+
+.slide-number-tag {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--accent-purple);
+  font-weight: 700;
+}
+
+.slide-body-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.slide-body-content.full-text {
+  grid-template-columns: 1fr;
+}
+
+.slide-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.slide-text-heading {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #FFF;
+  line-height: 1.3;
+}
+
+.slide-para-item {
+  font-family: var(--font-jp);
+  font-size: 1.1rem;
+  color: #E2E8F0;
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  border-left: 2px solid var(--accent-purple);
+}
+
+.slide-media-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 440px;
+  overflow-y: auto;
+  align-items: center;
+}
+
+.slide-img-preview {
+  max-width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-md);
+  background: #FFF;
+}
+
+.slide-nav-dock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+/* Slide Thumbnails strip */
+.slide-thumbs-strip {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding: 0.75rem 0.25rem;
+}
+
+.slide-thumb-item {
+  min-width: 70px;
+  height: 50px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.slide-thumb-item:hover {
+  border-color: var(--accent-purple);
+  color: #FFF;
+}
+
+.slide-thumb-item.active {
+  background: var(--accent-purple);
+  border-color: var(--accent-purple);
+  color: #FFF;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(139, 92, 246, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   7. SPEED QUIZ ARENA
+   -------------------------------------------------------------------------- */
+.quiz-arena-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.quiz-config-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 2.25rem;
+  box-shadow: var(--shadow-md);
+}
+
+.quiz-config-section {
+  margin-bottom: 1.5rem;
+}
+
+.quiz-config-label {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.mode-select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.85rem;
+}
+
+.mode-btn {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1rem;
+  color: #FFF;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-align: left;
+  transition: all var(--transition-normal);
+}
+
+.mode-btn:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.1);
+}
+
+.mode-btn.active {
+  border-color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.2);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.3);
+}
+
+.mode-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.mode-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+/* Active Quiz Question Box */
+.quiz-active-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 2.25rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-progress-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.quiz-timer-bar-wrap {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.quiz-timer-fill {
+  height: 100%;
+  background: var(--grad-primary);
+  width: 100%;
+  transition: width 0.1s linear;
+}
+
+.quiz-timer-fill.warning {
+  background: var(--grad-sakura);
+}
+
+.quiz-question-box {
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.quiz-prompt-big {
+  font-family: var(--font-jp);
+  font-size: 3rem;
+  font-weight: 900;
+  color: #FFF;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-prompt-sub {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.quiz-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+.quiz-opt-btn {
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.2rem 1.5rem;
+  color: #FFF;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.quiz-opt-btn:hover:not(:disabled) {
+  border-color: var(--accent-indigo);
+  background: rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+}
+
+.quiz-opt-btn.correct {
+  background: rgba(16, 185, 129, 0.25) !important;
+  border-color: #10B981 !important;
+  color: #A7F3D0 !important;
+  animation: pulseCorrect 0.4s ease;
+}
+
+.quiz-opt-btn.wrong {
+  background: rgba(239, 68, 68, 0.25) !important;
+  border-color: #EF4444 !important;
+  color: #FECACA !important;
+  animation: shakeWrong 0.4s ease;
+}
+
+@keyframes pulseCorrect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shakeWrong {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* --------------------------------------------------------------------------
+   8. GLOBAL SEARCH MODAL
+   -------------------------------------------------------------------------- */
+.search-modal-box {
+  width: 100%;
+  max-width: 680px;
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 0.85rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.search-input-wrap input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FFF;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+}
+
+.search-input-wrap input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-results-list {
+  max-height: 400px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-result-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.search-result-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--accent-indigo);
+}
+
+/* ==========================================================================
+   LIGHT THEME COMPONENT OVERRIDES
+   ========================================================================== */
+[data-theme="light"] .dashboard-hero {
+  background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+  border-color: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.08);
+}
+
+[data-theme="light"] .stat-box {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .stat-value {
+  color: #0F172A;
+}
+
+[data-theme="light"] .action-card {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .action-card:hover {
+  border-color: var(--accent-indigo);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="light"] .action-card h3 {
+  color: #0F172A;
+}
+
+[data-theme="light"] .lesson-card {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .lesson-title {
+  color: #0F172A;
+}
+
+/* Flashcard SRS */
+[data-theme="light"] .flashcard-toolbar {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .card-counter strong {
+  color: #0F172A;
+}
+
+[data-theme="light"] .card-front {
+  background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
+  border-color: rgba(99, 102, 241, 0.25);
+  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.1);
+}
+
+[data-theme="light"] .card-back {
+  background: linear-gradient(145deg, #FFFFFF 0%, #F0FDF4 100%);
+  border-color: rgba(6, 182, 212, 0.35);
+  box-shadow: 0 16px 40px rgba(6, 182, 212, 0.1);
+}
+
+[data-theme="light"] .card-kanji-big {
+  color: #0F172A;
+  text-shadow: none;
+}
+
+[data-theme="light"] .card-meaning-big {
+  color: #0F172A;
+}
+
+[data-theme="light"] .card-extra-details {
+  background: #F1F5F9;
+  border-color: rgba(15, 23, 42, 0.08);
+  color: #1E293B;
+}
+
+[data-theme="light"] .rating-btn {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.1);
+  color: #1E293B;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+/* Kanji Grid */
+[data-theme="light"] .kanji-card-item {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .kanji-card-item:hover {
+  box-shadow: 0 10px 25px rgba(244, 63, 94, 0.2);
+}
+
+[data-theme="light"] .kanji-char-preview {
+  color: #0F172A;
+}
+
+[data-theme="light"] #modal-kanji-char {
+  color: #0F172A !important;
+  text-shadow: none !important;
+}
+
+/* Vocabulary Table */
+[data-theme="light"] .vocab-table-container {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .vocab-table th {
+  background: #F1F5F9;
+  color: #475569;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .vocab-word-jp {
+  color: #0F172A;
+}
+
+[data-theme="light"] .vocab-meaning-txt {
+  color: #1E293B;
+}
+
+[data-theme="light"] .vocab-table tr:hover td {
+  background: #F8FAFC;
+}
+
+/* Grammar List */
+[data-theme="light"] .grammar-item-card {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .grammar-title-text {
+  color: #0F172A;
+}
+
+[data-theme="light"] .grammar-formula-badge {
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+[data-theme="light"] .grammar-point-box {
+  background: #FEF9C3;
+  color: #854D0E;
+  border-left-color: #D97706;
+}
+
+[data-theme="light"] .grammar-example-row {
+  background: #F8FAFC;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .grammar-example-row span {
+  color: #0F172A;
+}
+
+/* Slide Master */
+[data-theme="light"] .slide-controls-bar {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .slide-display-frame {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .slide-header-meta span:nth-child(2) {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .slide-para-item {
+  color: #0F172A;
+  background: #F8FAFC;
+  border-left-color: var(--accent-purple);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-left-width: 3px;
+}
+
+[data-theme="light"] .slide-thumb-item {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.08);
+  color: #475569;
+}
+
+/* Speed Quiz */
+[data-theme="light"] .quiz-config-card {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .quiz-config-card h3 {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .mode-btn {
+  background: #F8FAFC;
+  border-color: rgba(15, 23, 42, 0.08);
+  color: #0F172A;
+}
+
+[data-theme="light"] .quiz-active-card {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .quiz-prompt-big {
+  color: #0F172A;
+}
+
+[data-theme="light"] .quiz-opt-btn {
+  background: #F8FAFC;
+  border-color: rgba(15, 23, 42, 0.08);
+  color: #0F172A;
+}
+
+[data-theme="light"] .quiz-opt-btn:hover:not(:disabled) {
+  background: #EEF2FF;
+  border-color: var(--accent-indigo);
+}
+
+/* Search Modal */
+[data-theme="light"] .search-input-wrap {
+  background: #F1F5F9;
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .search-input-wrap input {
+  color: #0F172A;
+}
+
+[data-theme="light"] .search-result-item {
+  background: #F8FAFC;
+  border-color: rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .search-result-item:hover {
+  background: #EEF2FF;
+  border-color: var(--accent-indigo);
+}
+
+[data-theme="light"] .search-result-item strong {
+  color: #0F172A !important;
+}
+
+/* Inputs in tabs */
+[data-theme="light"] #vocab-search-input,
+[data-theme="light"] #kanji-search-input,
+[data-theme="light"] #grammar-search-input {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+[data-theme="light"] #slide-search-input {
+  background: #F1F5F9 !important;
+  color: #0F172A !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}

@@ -1,0 +1,2860 @@
+[
+  {
+    "id": "kanji_1",
+    "lesson": "第 6 課",
+    "kanji": "形",
+    "han_viet": "HÌNH",
+    "onyomi": "ケイ",
+    "kunyomi": "かたち",
+    "examples_raw": "地形 (ちけい): địa hình\n形成 (けいせい): hình thành\n外形 (がいけい): ngoại hình\n人形 (にんぎょう): búp bê",
+    "compounds": [
+      {
+        "word": "地形",
+        "reading": "ちけい",
+        "meaning": "địa hình"
+      },
+      {
+        "word": "形成",
+        "reading": "けいせい",
+        "meaning": "hình thành"
+      },
+      {
+        "word": "外形",
+        "reading": "がいけい",
+        "meaning": "ngoại hình"
+      },
+      {
+        "word": "人形",
+        "reading": "にんぎょう",
+        "meaning": "búp bê"
+      }
+    ]
+  },
+  {
+    "id": "kanji_2",
+    "lesson": "第 6 課",
+    "kanji": "位",
+    "han_viet": "VỊ",
+    "onyomi": "イ",
+    "kunyomi": "ぐらい",
+    "examples_raw": "位置 (いち): vị trí\n地位 (ちい): địa vị",
+    "compounds": [
+      {
+        "word": "位置",
+        "reading": "いち",
+        "meaning": "vị trí"
+      },
+      {
+        "word": "地位",
+        "reading": "ちい",
+        "meaning": "địa vị"
+      }
+    ]
+  },
+  {
+    "id": "kanji_3",
+    "lesson": "第 6 課",
+    "kanji": "置",
+    "han_viet": "TRÍ",
+    "onyomi": "チ",
+    "kunyomi": "かたち",
+    "examples_raw": "設置 (せっち): bố trí, lắp đặt\n置物 (おきもの): đồ trang trí\n置く (おく): đặt, để",
+    "compounds": [
+      {
+        "word": "設置",
+        "reading": "せっち",
+        "meaning": "bố trí, lắp đặt"
+      },
+      {
+        "word": "置物",
+        "reading": "おきもの",
+        "meaning": "đồ trang trí"
+      },
+      {
+        "word": "置く",
+        "reading": "おく",
+        "meaning": "đặt, để"
+      }
+    ]
+  },
+  {
+    "id": "kanji_4",
+    "lesson": "第 6 課",
+    "kanji": "連",
+    "han_viet": "LIÊN",
+    "onyomi": "レン",
+    "kunyomi": "つ・れる, つら・なる",
+    "examples_raw": "連合 (れんごう): liên hợp\n連結 (れんけつ): liên kết\n連休 (れんきゅう): kì nghỉ dài\n関連 (かんれん): liên quan\n国連 (こくれん): Liên Hợp Quốc\n連れる (つれる): dẫn, dắt\n連なる (つらなる): trải dài, kéo dài",
+    "compounds": [
+      {
+        "word": "連合",
+        "reading": "れんごう",
+        "meaning": "liên hợp"
+      },
+      {
+        "word": "連結",
+        "reading": "れんけつ",
+        "meaning": "liên kết"
+      },
+      {
+        "word": "連休",
+        "reading": "れんきゅう",
+        "meaning": "kì nghỉ dài"
+      },
+      {
+        "word": "関連",
+        "reading": "かんれん",
+        "meaning": "liên quan"
+      },
+      {
+        "word": "国連",
+        "reading": "こくれん",
+        "meaning": "Liên Hợp Quốc"
+      },
+      {
+        "word": "連れる",
+        "reading": "つれる",
+        "meaning": "dẫn, dắt"
+      },
+      {
+        "word": "連なる",
+        "reading": "つらなる",
+        "meaning": "trải dài, kéo dài"
+      }
+    ]
+  },
+  {
+    "id": "kanji_5",
+    "lesson": "第 6 課",
+    "kanji": "固",
+    "han_viet": "CỐ",
+    "onyomi": "コ",
+    "kunyomi": "かた・い, かた・める",
+    "examples_raw": "固定 (こてい): cố định\n固形 (こけい): thể rắn\n固有 (こゆう): cố hữu, vốn có\n確固 (かっこ): chắc chắn, cương quyết\n強固 (きょうこ): củng cố\n固い (かたい): cứng\n固める (かためる): củng cố",
+    "compounds": [
+      {
+        "word": "固定",
+        "reading": "こてい",
+        "meaning": "cố định"
+      },
+      {
+        "word": "固形",
+        "reading": "こけい",
+        "meaning": "thể rắn"
+      },
+      {
+        "word": "固有",
+        "reading": "こゆう",
+        "meaning": "cố hữu, vốn có"
+      },
+      {
+        "word": "確固",
+        "reading": "かっこ",
+        "meaning": "chắc chắn, cương quyết"
+      },
+      {
+        "word": "強固",
+        "reading": "きょうこ",
+        "meaning": "củng cố"
+      },
+      {
+        "word": "固い",
+        "reading": "かたい",
+        "meaning": "cứng"
+      },
+      {
+        "word": "固める",
+        "reading": "かためる",
+        "meaning": "củng cố"
+      }
+    ]
+  },
+  {
+    "id": "kanji_6",
+    "lesson": "第 6 課",
+    "kanji": "展",
+    "han_viet": "TRIỂN",
+    "onyomi": "テン",
+    "kunyomi": "音：テン",
+    "examples_raw": "展開 (てんかい): triển khai\n展示 (てんじ): trưng bày\n発展 (はってん): phát triển\n展覧会 (てんらんかい): buổi triển lãm",
+    "compounds": [
+      {
+        "word": "展開",
+        "reading": "てんかい",
+        "meaning": "triển khai"
+      },
+      {
+        "word": "展示",
+        "reading": "てんじ",
+        "meaning": "trưng bày"
+      },
+      {
+        "word": "発展",
+        "reading": "はってん",
+        "meaning": "phát triển"
+      },
+      {
+        "word": "展覧会",
+        "reading": "てんらんかい",
+        "meaning": "buổi triển lãm"
+      }
+    ]
+  },
+  {
+    "id": "kanji_7",
+    "lesson": "第 6 課",
+    "kanji": "望",
+    "han_viet": "VỌNG",
+    "onyomi": "ボウ",
+    "kunyomi": "のぞ・む",
+    "examples_raw": "展望台 (てんぼうだい): đài quan sát \n願望 (がんぼう): nguyện vọng\n待望 (たいぼう): mong đợi, kì vọng\n望む (のぞむ): kì vọng, ao ước",
+    "compounds": [
+      {
+        "word": "展望台",
+        "reading": "てんぼうだい",
+        "meaning": "đài quan sát"
+      },
+      {
+        "word": "願望",
+        "reading": "がんぼう",
+        "meaning": "nguyện vọng"
+      },
+      {
+        "word": "待望",
+        "reading": "たいぼう",
+        "meaning": "mong đợi, kì vọng"
+      },
+      {
+        "word": "望む",
+        "reading": "のぞむ",
+        "meaning": "kì vọng, ao ước"
+      }
+    ]
+  },
+  {
+    "id": "kanji_8",
+    "lesson": "第 6 課",
+    "kanji": "論",
+    "han_viet": "LUẬN",
+    "onyomi": "ロン",
+    "kunyomi": "音：ロン",
+    "examples_raw": "論文 (ろんぶん): luận văn\n論議 (ろんぎ): nghị luận\n論証 (ろんしょう): luận chứng\n理論 (りろん): lí luận\n立論 (りつろん): lập luận\n世論 (よろん): dư luận\n論理的な考え (ろんりてきなかんがえ): suy nghĩ có logic",
+    "compounds": [
+      {
+        "word": "論文",
+        "reading": "ろんぶん",
+        "meaning": "luận văn"
+      },
+      {
+        "word": "論議",
+        "reading": "ろんぎ",
+        "meaning": "nghị luận"
+      },
+      {
+        "word": "論証",
+        "reading": "ろんしょう",
+        "meaning": "luận chứng"
+      },
+      {
+        "word": "理論",
+        "reading": "りろん",
+        "meaning": "lí luận"
+      },
+      {
+        "word": "立論",
+        "reading": "りつろん",
+        "meaning": "lập luận"
+      },
+      {
+        "word": "世論",
+        "reading": "よろん",
+        "meaning": "dư luận"
+      },
+      {
+        "word": "論理的な考え",
+        "reading": "ろんりてきなかんがえ",
+        "meaning": "suy nghĩ có logic"
+      }
+    ]
+  },
+  {
+    "id": "kanji_9",
+    "lesson": "第 6 課",
+    "kanji": "現",
+    "han_viet": "HIỆN",
+    "onyomi": "ゲン",
+    "kunyomi": "あらわ・れる, あらわ・す",
+    "examples_raw": "現代 (げんだい): hiện đại\n現地 (げんち): tại chỗ, thực địa\n現場 (げんば): hiện trường\n表現 (ひょうげん): biểu hiện\n現れる (あらわれる): xuất hiện\n現す (あらわす): thể hiện, làm hiện ra",
+    "compounds": [
+      {
+        "word": "現代",
+        "reading": "げんだい",
+        "meaning": "hiện đại"
+      },
+      {
+        "word": "現地",
+        "reading": "げんち",
+        "meaning": "tại chỗ, thực địa"
+      },
+      {
+        "word": "現場",
+        "reading": "げんば",
+        "meaning": "hiện trường"
+      },
+      {
+        "word": "表現",
+        "reading": "ひょうげん",
+        "meaning": "biểu hiện"
+      },
+      {
+        "word": "現れる",
+        "reading": "あらわれる",
+        "meaning": "xuất hiện"
+      },
+      {
+        "word": "現す",
+        "reading": "あらわす",
+        "meaning": "thể hiện, làm hiện ra"
+      }
+    ]
+  },
+  {
+    "id": "kanji_10",
+    "lesson": "第 6 課",
+    "kanji": "象",
+    "han_viet": "TƯỢNG",
+    "onyomi": "ショウ, ゾウ",
+    "kunyomi": "音：ショウ, ゾウ",
+    "examples_raw": "現象 (げんしょう): hiện tượng  \n気象 (きしょう): khí tượng\n現象 (げんしょう): hiện tượng  \n気象 (きしょう): khí tượng",
+    "compounds": [
+      {
+        "word": "現象",
+        "reading": "げんしょう",
+        "meaning": "hiện tượng"
+      },
+      {
+        "word": "気象",
+        "reading": "きしょう",
+        "meaning": "khí tượng"
+      },
+      {
+        "word": "現象",
+        "reading": "げんしょう",
+        "meaning": "hiện tượng"
+      },
+      {
+        "word": "気象",
+        "reading": "きしょう",
+        "meaning": "khí tượng"
+      }
+    ]
+  },
+  {
+    "id": "kanji_11",
+    "lesson": "第 6 課",
+    "kanji": "在",
+    "han_viet": "TẠI",
+    "onyomi": "ザイ",
+    "kunyomi": "音：ザイ",
+    "examples_raw": "在職 (ざいしょく): tại chức\n在学証明書 (ざいがくしょうめいしょ): giấy chứng nhận đang học\n東京在勤中に (とうきょうざいきんちゅうに): trong thời gian làm việc tại Tokyo\n現在 (げんざい): hiện tại\n日本在留の外国人 (にほんざいりゅうのがいこくじん): người nước ngoài lưu trú tại Nhật Bản\n在～ (ざい～): ở ~",
+    "compounds": [
+      {
+        "word": "在職",
+        "reading": "ざいしょく",
+        "meaning": "tại chức"
+      },
+      {
+        "word": "在学証明書",
+        "reading": "ざいがくしょうめいしょ",
+        "meaning": "giấy chứng nhận đang học"
+      },
+      {
+        "word": "東京在勤中に",
+        "reading": "とうきょうざいきんちゅうに",
+        "meaning": "trong thời gian làm việc tại Tokyo"
+      },
+      {
+        "word": "現在",
+        "reading": "げんざい",
+        "meaning": "hiện tại"
+      },
+      {
+        "word": "日本在留の外国人",
+        "reading": "にほんざいりゅうのがいこくじん",
+        "meaning": "người nước ngoài lưu trú tại Nhật Bản"
+      },
+      {
+        "word": "在～",
+        "reading": "ざい～",
+        "meaning": "ở ~"
+      }
+    ]
+  },
+  {
+    "id": "kanji_12",
+    "lesson": "第 6 課",
+    "kanji": "港",
+    "han_viet": "CẢNG",
+    "onyomi": "コウ",
+    "kunyomi": "みなと",
+    "examples_raw": "海港 (かいこう): hải cảng\n出港 (しゅっこう): xuất cảng\n入港 (にゅうこう): nhập cảng\n空港 (くうこう): sân bay\n帰港 (きこう): quay về cảng\n港 (みなと): bến cảng",
+    "compounds": [
+      {
+        "word": "海港",
+        "reading": "かいこう",
+        "meaning": "hải cảng"
+      },
+      {
+        "word": "出港",
+        "reading": "しゅっこう",
+        "meaning": "xuất cảng"
+      },
+      {
+        "word": "入港",
+        "reading": "にゅうこう",
+        "meaning": "nhập cảng"
+      },
+      {
+        "word": "空港",
+        "reading": "くうこう",
+        "meaning": "sân bay"
+      },
+      {
+        "word": "帰港",
+        "reading": "きこう",
+        "meaning": "quay về cảng"
+      },
+      {
+        "word": "港",
+        "reading": "みなと",
+        "meaning": "bến cảng"
+      }
+    ]
+  },
+  {
+    "id": "kanji_13",
+    "lesson": "第 6 課",
+    "kanji": "訪",
+    "han_viet": "PHỎNG",
+    "onyomi": "ホウ",
+    "kunyomi": "たず・ねる, おとず・れる",
+    "examples_raw": "訪問 (ほうもん): viếng thăm\n訪日 (ほうにち): thăm Nhật Bản\n訪米 (ほうべい): thăm Mỹ\n探訪 (たんぼう): thám hiểm\n来訪 (らいほう): đến thăm\n訪ねる (たずねる): thăm hỏi\n訪れる (おとずれる): ghé thăm",
+    "compounds": [
+      {
+        "word": "訪問",
+        "reading": "ほうもん",
+        "meaning": "viếng thăm"
+      },
+      {
+        "word": "訪日",
+        "reading": "ほうにち",
+        "meaning": "thăm Nhật Bản"
+      },
+      {
+        "word": "訪米",
+        "reading": "ほうべい",
+        "meaning": "thăm Mỹ"
+      },
+      {
+        "word": "探訪",
+        "reading": "たんぼう",
+        "meaning": "thám hiểm"
+      },
+      {
+        "word": "来訪",
+        "reading": "らいほう",
+        "meaning": "đến thăm"
+      },
+      {
+        "word": "訪ねる",
+        "reading": "たずねる",
+        "meaning": "thăm hỏi"
+      },
+      {
+        "word": "訪れる",
+        "reading": "おとずれる",
+        "meaning": "ghé thăm"
+      }
+    ]
+  },
+  {
+    "id": "kanji_14",
+    "lesson": "第 6 課",
+    "kanji": "景",
+    "han_viet": "CẢNH",
+    "onyomi": "ケイ",
+    "kunyomi": "音：ケイ",
+    "examples_raw": "景気 (けいき): tình hình kinh tế\n景品 (けいひん): quà khuyến mãi\n景色 (けしき): phong cảnh  \n風景 (ふうけい): phong cảnh\n遠景 (えんけい): viễn cảnh\n光景 (こうけい): quang cảnh\n景気 (けいき): tình hình kinh tế\n景品 (けいひん): quà khuyến mãi\n景色 (けしき): phong cảnh  \n風景 (ふうけい): phong cảnh\n遠景 (えんけい): viễn cảnh\n光景 (こうけい): quang cảnh",
+    "compounds": [
+      {
+        "word": "景気",
+        "reading": "けいき",
+        "meaning": "tình hình kinh tế"
+      },
+      {
+        "word": "景品",
+        "reading": "けいひん",
+        "meaning": "quà khuyến mãi"
+      },
+      {
+        "word": "景色",
+        "reading": "けしき",
+        "meaning": "phong cảnh"
+      },
+      {
+        "word": "風景",
+        "reading": "ふうけい",
+        "meaning": "phong cảnh"
+      },
+      {
+        "word": "遠景",
+        "reading": "えんけい",
+        "meaning": "viễn cảnh"
+      },
+      {
+        "word": "光景",
+        "reading": "こうけい",
+        "meaning": "quang cảnh"
+      },
+      {
+        "word": "景気",
+        "reading": "けいき",
+        "meaning": "tình hình kinh tế"
+      },
+      {
+        "word": "景品",
+        "reading": "けいひん",
+        "meaning": "quà khuyến mãi"
+      },
+      {
+        "word": "景色",
+        "reading": "けしき",
+        "meaning": "phong cảnh"
+      },
+      {
+        "word": "風景",
+        "reading": "ふうけい",
+        "meaning": "phong cảnh"
+      },
+      {
+        "word": "遠景",
+        "reading": "えんけい",
+        "meaning": "viễn cảnh"
+      },
+      {
+        "word": "光景",
+        "reading": "こうけい",
+        "meaning": "quang cảnh"
+      }
+    ]
+  },
+  {
+    "id": "kanji_15",
+    "lesson": "第 6 課",
+    "kanji": "辺",
+    "han_viet": "BIÊN",
+    "onyomi": "ヘン",
+    "kunyomi": "あた・り",
+    "examples_raw": "駅周辺 (えきしゅうへん): khu vực quanh ga  \n海辺 (うみべ): bờ biển\n山辺 (やまべ): vùng núi\n辺り (あたり): vùng lân cận",
+    "compounds": [
+      {
+        "word": "駅周辺",
+        "reading": "えきしゅうへん",
+        "meaning": "khu vực quanh ga"
+      },
+      {
+        "word": "海辺",
+        "reading": "うみべ",
+        "meaning": "bờ biển"
+      },
+      {
+        "word": "山辺",
+        "reading": "やまべ",
+        "meaning": "vùng núi"
+      },
+      {
+        "word": "辺り",
+        "reading": "あたり",
+        "meaning": "vùng lân cận"
+      }
+    ]
+  },
+  {
+    "id": "kanji_16",
+    "lesson": "第 7 課",
+    "kanji": "談",
+    "han_viet": "ĐÀM",
+    "onyomi": "ダン",
+    "kunyomi": "音：ダン",
+    "examples_raw": "会談 (かいだん): hội đàm\n面談 (めんだん): phỏng vấn, trao đổi trực tiếp\n体験談 (たいけんだん): câu chuyện trải nghiệm\n相談 (そうだん): bàn bạc, thảo luận",
+    "compounds": [
+      {
+        "word": "会談",
+        "reading": "かいだん",
+        "meaning": "hội đàm"
+      },
+      {
+        "word": "面談",
+        "reading": "めんだん",
+        "meaning": "phỏng vấn, trao đổi trực tiếp"
+      },
+      {
+        "word": "体験談",
+        "reading": "たいけんだん",
+        "meaning": "câu chuyện trải nghiệm"
+      },
+      {
+        "word": "相談",
+        "reading": "そうだん",
+        "meaning": "bàn bạc, thảo luận"
+      }
+    ]
+  },
+  {
+    "id": "kanji_17",
+    "lesson": "第 7 課",
+    "kanji": "配",
+    "han_viet": "PHỐI",
+    "onyomi": "ハイ",
+    "kunyomi": "くば・る",
+    "examples_raw": "配置 (はいち): bố trí\n配達 (はいたつ): giao hàng\n心配 (しんぱい): lo lắng\n手配 (てはい): sắp xếp, chuẩn bị\n宅配 (たくはい): giao hàng tận nhà\n配給 (はいきゅう): phân phối\n年配 (ねんぱい): người lớn tuổi\n配る (くばる): phân phát, chia",
+    "compounds": [
+      {
+        "word": "配置",
+        "reading": "はいち",
+        "meaning": "bố trí"
+      },
+      {
+        "word": "配達",
+        "reading": "はいたつ",
+        "meaning": "giao hàng"
+      },
+      {
+        "word": "心配",
+        "reading": "しんぱい",
+        "meaning": "lo lắng"
+      },
+      {
+        "word": "手配",
+        "reading": "てはい",
+        "meaning": "sắp xếp, chuẩn bị"
+      },
+      {
+        "word": "宅配",
+        "reading": "たくはい",
+        "meaning": "giao hàng tận nhà"
+      },
+      {
+        "word": "配給",
+        "reading": "はいきゅう",
+        "meaning": "phân phối"
+      },
+      {
+        "word": "年配",
+        "reading": "ねんぱい",
+        "meaning": "người lớn tuổi"
+      },
+      {
+        "word": "配る",
+        "reading": "くばる",
+        "meaning": "phân phát, chia"
+      }
+    ]
+  },
+  {
+    "id": "kanji_18",
+    "lesson": "第 7 課",
+    "kanji": "努",
+    "han_viet": "NỖ",
+    "onyomi": "ド",
+    "kunyomi": "つと・める",
+    "examples_raw": "努力 (どりょく): nỗ lực\n努める (つとめる): cố gắng, phấn đấu",
+    "compounds": [
+      {
+        "word": "努力",
+        "reading": "どりょく",
+        "meaning": "nỗ lực"
+      },
+      {
+        "word": "努める",
+        "reading": "つとめる",
+        "meaning": "cố gắng, phấn đấu"
+      }
+    ]
+  },
+  {
+    "id": "kanji_19",
+    "lesson": "第 7 課",
+    "kanji": "助",
+    "han_viet": "TRỢ",
+    "onyomi": "ジョ",
+    "kunyomi": "たす・かる, たす・ける",
+    "examples_raw": "助言 (じょげん): lời khuyên\n介助犬 (かいじょけん): chó cứu trợ\n助役 (じょやく): phó, trợ lý\n助かる (たすかる): được cứu, được giúp\n助ける (たすける): giúp đỡ, cứu",
+    "compounds": [
+      {
+        "word": "助言",
+        "reading": "じょげん",
+        "meaning": "lời khuyên"
+      },
+      {
+        "word": "介助犬",
+        "reading": "かいじょけん",
+        "meaning": "chó cứu trợ"
+      },
+      {
+        "word": "助役",
+        "reading": "じょやく",
+        "meaning": "phó, trợ lý"
+      },
+      {
+        "word": "助かる",
+        "reading": "たすかる",
+        "meaning": "được cứu, được giúp"
+      },
+      {
+        "word": "助ける",
+        "reading": "たすける",
+        "meaning": "giúp đỡ, cứu"
+      }
+    ]
+  },
+  {
+    "id": "kanji_20",
+    "lesson": "第 7 課",
+    "kanji": "団",
+    "han_viet": "ĐOÀN",
+    "onyomi": "ダン",
+    "kunyomi": "音：ダン",
+    "examples_raw": "団体 (だんたい): đoàn thể\n団結 (だんけつ): đoàn kết\n団地 (だんち): khu chung cư\n団子 (だんご): bánh dango\n集団 (しゅうだん): tập đoàn, tập thể\n社団 (しゃだん): liên đoàn, hiệp hội\n旅団 (りょだん): lữ đoàn\n団体 (だんたい): đoàn thể\n団結 (だんけつ): đoàn kết\n団地 (だんち): khu chung cư\n団子 (だんご): bánh dango\n集団 (しゅうだん): tập đoàn, tập thể\n社団 (しゃだん): liên đoàn, hiệp hội\n旅団 (りょだん): lữ đoàn",
+    "compounds": [
+      {
+        "word": "団体",
+        "reading": "だんたい",
+        "meaning": "đoàn thể"
+      },
+      {
+        "word": "団結",
+        "reading": "だんけつ",
+        "meaning": "đoàn kết"
+      },
+      {
+        "word": "団地",
+        "reading": "だんち",
+        "meaning": "khu chung cư"
+      },
+      {
+        "word": "団子",
+        "reading": "だんご",
+        "meaning": "bánh dango"
+      },
+      {
+        "word": "集団",
+        "reading": "しゅうだん",
+        "meaning": "tập đoàn, tập thể"
+      },
+      {
+        "word": "社団",
+        "reading": "しゃだん",
+        "meaning": "liên đoàn, hiệp hội"
+      },
+      {
+        "word": "旅団",
+        "reading": "りょだん",
+        "meaning": "lữ đoàn"
+      },
+      {
+        "word": "団体",
+        "reading": "だんたい",
+        "meaning": "đoàn thể"
+      },
+      {
+        "word": "団結",
+        "reading": "だんけつ",
+        "meaning": "đoàn kết"
+      },
+      {
+        "word": "団地",
+        "reading": "だんち",
+        "meaning": "khu chung cư"
+      },
+      {
+        "word": "団子",
+        "reading": "だんご",
+        "meaning": "bánh dango"
+      },
+      {
+        "word": "集団",
+        "reading": "しゅうだん",
+        "meaning": "tập đoàn, tập thể"
+      },
+      {
+        "word": "社団",
+        "reading": "しゃだん",
+        "meaning": "liên đoàn, hiệp hội"
+      },
+      {
+        "word": "旅団",
+        "reading": "りょだん",
+        "meaning": "lữ đoàn"
+      }
+    ]
+  },
+  {
+    "id": "kanji_21",
+    "lesson": "第 7 課",
+    "kanji": "苦",
+    "han_viet": "KHỔ",
+    "onyomi": "ク",
+    "kunyomi": "にが・い, くる・しむ",
+    "examples_raw": "苦情 (くじょう): lời than phiền\n苦痛 (くつう): đau khổ, thống khổ\n苦心 (くしん): lao tâm khổ tứ\n苦手 (にがて): kém, không giỏi\n苦い (にがい): đắng\n苦しむ (くるしむ): đau khổ, khổ sở",
+    "compounds": [
+      {
+        "word": "苦情",
+        "reading": "くじょう",
+        "meaning": "lời than phiền"
+      },
+      {
+        "word": "苦痛",
+        "reading": "くつう",
+        "meaning": "đau khổ, thống khổ"
+      },
+      {
+        "word": "苦心",
+        "reading": "くしん",
+        "meaning": "lao tâm khổ tứ"
+      },
+      {
+        "word": "苦手",
+        "reading": "にがて",
+        "meaning": "kém, không giỏi"
+      },
+      {
+        "word": "苦い",
+        "reading": "にがい",
+        "meaning": "đắng"
+      },
+      {
+        "word": "苦しむ",
+        "reading": "くるしむ",
+        "meaning": "đau khổ, khổ sở"
+      }
+    ]
+  },
+  {
+    "id": "kanji_22",
+    "lesson": "第 7 課",
+    "kanji": "退",
+    "han_viet": "THOÁI",
+    "onyomi": "タイ",
+    "kunyomi": "しりぞ・く, しりぞ・ける",
+    "examples_raw": "退院 (たいいん): xuất viện\n退社 (たいしゃ): tan làm, nghỉ việc\n退去 (たいきょ): rời đi, rút lui\n退職 (たいしょく): nghỉ việc, từ chức\n進退 (しんたい): tiến thoái\n早退 (そうたい): về sớm\n後退 (こうたい): lùi lại, suy thoái",
+    "compounds": [
+      {
+        "word": "退院",
+        "reading": "たいいん",
+        "meaning": "xuất viện"
+      },
+      {
+        "word": "退社",
+        "reading": "たいしゃ",
+        "meaning": "tan làm, nghỉ việc"
+      },
+      {
+        "word": "退去",
+        "reading": "たいきょ",
+        "meaning": "rời đi, rút lui"
+      },
+      {
+        "word": "退職",
+        "reading": "たいしょく",
+        "meaning": "nghỉ việc, từ chức"
+      },
+      {
+        "word": "進退",
+        "reading": "しんたい",
+        "meaning": "tiến thoái"
+      },
+      {
+        "word": "早退",
+        "reading": "そうたい",
+        "meaning": "về sớm"
+      },
+      {
+        "word": "後退",
+        "reading": "こうたい",
+        "meaning": "lùi lại, suy thoái"
+      }
+    ]
+  },
+  {
+    "id": "kanji_23",
+    "lesson": "第 7 課",
+    "kanji": "夢",
+    "han_viet": "MỘNG",
+    "onyomi": "ム",
+    "kunyomi": "ゆめ",
+    "examples_raw": "夢中 (むちゅう): say sưa, miệt mài\n悪夢 (あくむ): ác mộng\n夢 (ゆめ): giấc mơ",
+    "compounds": [
+      {
+        "word": "夢中",
+        "reading": "むちゅう",
+        "meaning": "say sưa, miệt mài"
+      },
+      {
+        "word": "悪夢",
+        "reading": "あくむ",
+        "meaning": "ác mộng"
+      },
+      {
+        "word": "夢",
+        "reading": "ゆめ",
+        "meaning": "giấc mơ"
+      }
+    ]
+  },
+  {
+    "id": "kanji_24",
+    "lesson": "第 7 課",
+    "kanji": "若",
+    "han_viet": "NHƯỢC",
+    "onyomi": "ジャク",
+    "kunyomi": "わか・い",
+    "examples_raw": "若年 (じゃくねん): tuổi trẻ, thanh niên\n若者 (わかもの): giới trẻ, thanh niên\n若い (わかい): trẻ\n若々しい (わかわかしい): trẻ trung",
+    "compounds": [
+      {
+        "word": "若年",
+        "reading": "じゃくねん",
+        "meaning": "tuổi trẻ, thanh niên"
+      },
+      {
+        "word": "若者",
+        "reading": "わかもの",
+        "meaning": "giới trẻ, thanh niên"
+      },
+      {
+        "word": "若い",
+        "reading": "わかい",
+        "meaning": "trẻ"
+      },
+      {
+        "word": "若々しい",
+        "reading": "わかわかしい",
+        "meaning": "trẻ trung"
+      }
+    ]
+  },
+  {
+    "id": "kanji_25",
+    "lesson": "第 7 課",
+    "kanji": "期",
+    "han_viet": "KỲ",
+    "onyomi": "キ",
+    "kunyomi": "音：キ",
+    "examples_raw": "期間 (きかん): thời hạn, kỳ hạn\n期待 (きたい): kỳ vọng, mong đợi\n期限 (きげん): thời hạn\n学期 (がっき): học kỳ\n初期 (しょき): thời kỳ đầu\n時期 (じき): thời kỳ, thời điểm\n定期 (ていき): định kỳ\n期間 (きかん): thời hạn, kỳ hạn\n期待 (きたい): kỳ vọng, mong đợi\n期限 (きげん): thời hạn\n学期 (がっき): học kỳ\n初期 (しょき): thời kỳ đầu\n時期 (じき): thời kỳ, thời điểm\n定期 (ていき): định kỳ",
+    "compounds": [
+      {
+        "word": "期間",
+        "reading": "きかん",
+        "meaning": "thời hạn, kỳ hạn"
+      },
+      {
+        "word": "期待",
+        "reading": "きたい",
+        "meaning": "kỳ vọng, mong đợi"
+      },
+      {
+        "word": "期限",
+        "reading": "きげん",
+        "meaning": "thời hạn"
+      },
+      {
+        "word": "学期",
+        "reading": "がっき",
+        "meaning": "học kỳ"
+      },
+      {
+        "word": "初期",
+        "reading": "しょき",
+        "meaning": "thời kỳ đầu"
+      },
+      {
+        "word": "時期",
+        "reading": "じき",
+        "meaning": "thời kỳ, thời điểm"
+      },
+      {
+        "word": "定期",
+        "reading": "ていき",
+        "meaning": "định kỳ"
+      },
+      {
+        "word": "期間",
+        "reading": "きかん",
+        "meaning": "thời hạn, kỳ hạn"
+      },
+      {
+        "word": "期待",
+        "reading": "きたい",
+        "meaning": "kỳ vọng, mong đợi"
+      },
+      {
+        "word": "期限",
+        "reading": "きげん",
+        "meaning": "thời hạn"
+      },
+      {
+        "word": "学期",
+        "reading": "がっき",
+        "meaning": "học kỳ"
+      },
+      {
+        "word": "初期",
+        "reading": "しょき",
+        "meaning": "thời kỳ đầu"
+      },
+      {
+        "word": "時期",
+        "reading": "じき",
+        "meaning": "thời kỳ, thời điểm"
+      },
+      {
+        "word": "定期",
+        "reading": "ていき",
+        "meaning": "định kỳ"
+      }
+    ]
+  },
+  {
+    "id": "kanji_26",
+    "lesson": "第 7 課",
+    "kanji": "反",
+    "han_viet": "PHẢN",
+    "onyomi": "ハン",
+    "kunyomi": "そ・らす",
+    "examples_raw": "反動 (はんどう): phản động, phản ứng\n反証 (はんしょう): phản chứng\n反対 (はんたい): phản đối, trái lại",
+    "compounds": [
+      {
+        "word": "反動",
+        "reading": "はんどう",
+        "meaning": "phản động, phản ứng"
+      },
+      {
+        "word": "反証",
+        "reading": "はんしょう",
+        "meaning": "phản chứng"
+      },
+      {
+        "word": "反対",
+        "reading": "はんたい",
+        "meaning": "phản đối, trái lại"
+      }
+    ]
+  },
+  {
+    "id": "kanji_27",
+    "lesson": "第 7 課",
+    "kanji": "対",
+    "han_viet": "ĐỐI",
+    "onyomi": "タイ",
+    "kunyomi": "音：タイ",
+    "examples_raw": "対談 (たいだん): đối đàm, trò chuyện\n対面 (たいめん): đối diện, gặp mặt\n対立 (たいりつ): đối lập\n絶対 (ぜったい): tuyệt đối\n対応 (たいおう): đối ứng, ứng phó\n対い (つい): đôi, cặp\n対談 (たいだん): đối đàm, trò chuyện\n対面 (たいめん): đối diện, gặp mặt\n対立 (たいりつ): đối lập\n絶対 (ぜったい): tuyệt đối\n対応 (たいおう): đối ứng, ứng phó\n対い (つい): đôi, cặp",
+    "compounds": [
+      {
+        "word": "対談",
+        "reading": "たいだん",
+        "meaning": "đối đàm, trò chuyện"
+      },
+      {
+        "word": "対面",
+        "reading": "たいめん",
+        "meaning": "đối diện, gặp mặt"
+      },
+      {
+        "word": "対立",
+        "reading": "たいりつ",
+        "meaning": "đối lập"
+      },
+      {
+        "word": "絶対",
+        "reading": "ぜったい",
+        "meaning": "tuyệt đối"
+      },
+      {
+        "word": "対応",
+        "reading": "たいおう",
+        "meaning": "đối ứng, ứng phó"
+      },
+      {
+        "word": "対い",
+        "reading": "つい",
+        "meaning": "đôi, cặp"
+      },
+      {
+        "word": "対談",
+        "reading": "たいだん",
+        "meaning": "đối đàm, trò chuyện"
+      },
+      {
+        "word": "対面",
+        "reading": "たいめん",
+        "meaning": "đối diện, gặp mặt"
+      },
+      {
+        "word": "対立",
+        "reading": "たいりつ",
+        "meaning": "đối lập"
+      },
+      {
+        "word": "絶対",
+        "reading": "ぜったい",
+        "meaning": "tuyệt đối"
+      },
+      {
+        "word": "対応",
+        "reading": "たいおう",
+        "meaning": "đối ứng, ứng phó"
+      },
+      {
+        "word": "対い",
+        "reading": "つい",
+        "meaning": "đôi, cặp"
+      }
+    ]
+  },
+  {
+    "id": "kanji_28",
+    "lesson": "第 7 課",
+    "kanji": "賛",
+    "han_viet": "TÁN",
+    "onyomi": "サン",
+    "kunyomi": "音：サン",
+    "examples_raw": "賛成 (さんせい): tán thành\n賛美 (さんび): tán dương, ca tụng\n賛助 (さんじょ): trợ giúp\n賛意 (さんい): sự đồng ý, tán thành\n協賛 (きょうさん): hợp tác tài trợ\n賛成 (さんせい): tán thành\n賛美 (さんび): tán dương, ca tụng\n賛助 (さんじょ): trợ giúp\n賛意 (さんい): sự đồng ý, tán thành\n協賛 (きょうさん): hợp tác tài trợ",
+    "compounds": [
+      {
+        "word": "賛成",
+        "reading": "さんせい",
+        "meaning": "tán thành"
+      },
+      {
+        "word": "賛美",
+        "reading": "さんび",
+        "meaning": "tán dương, ca tụng"
+      },
+      {
+        "word": "賛助",
+        "reading": "さんじょ",
+        "meaning": "trợ giúp"
+      },
+      {
+        "word": "賛意",
+        "reading": "さんい",
+        "meaning": "sự đồng ý, tán thành"
+      },
+      {
+        "word": "協賛",
+        "reading": "きょうさん",
+        "meaning": "hợp tác tài trợ"
+      },
+      {
+        "word": "賛成",
+        "reading": "さんせい",
+        "meaning": "tán thành"
+      },
+      {
+        "word": "賛美",
+        "reading": "さんび",
+        "meaning": "tán dương, ca tụng"
+      },
+      {
+        "word": "賛助",
+        "reading": "さんじょ",
+        "meaning": "trợ giúp"
+      },
+      {
+        "word": "賛意",
+        "reading": "さんい",
+        "meaning": "sự đồng ý, tán thành"
+      },
+      {
+        "word": "協賛",
+        "reading": "きょうさん",
+        "meaning": "hợp tác tài trợ"
+      }
+    ]
+  },
+  {
+    "id": "kanji_29",
+    "lesson": "第 8 課",
+    "kanji": "許",
+    "han_viet": "HỨA",
+    "onyomi": "キョ",
+    "kunyomi": "ゆる・す",
+    "examples_raw": "許可 (きょか): cho phép  \n特許 (とっきょ): bằng sáng chế, đặc quyền",
+    "compounds": [
+      {
+        "word": "許可",
+        "reading": "きょか",
+        "meaning": "cho phép"
+      },
+      {
+        "word": "特許",
+        "reading": "とっきょ",
+        "meaning": "bằng sáng chế, đặc quyền"
+      }
+    ]
+  },
+  {
+    "id": "kanji_30",
+    "lesson": "第 8 課",
+    "kanji": "収",
+    "han_viet": "THU",
+    "onyomi": "シュウ",
+    "kunyomi": "おさ・まる, おさ・める",
+    "examples_raw": "収入 (しゅうにゅう): thu nhập  \n買収 (ばいしゅう): mua lại, thâu tóm  \n回収 (かいしゅう): thu hồi  \n収集 (しゅうしゅう): thu thập\n収税 (しゅうぜい): thu thuế  \n年収 (ねんしゅう): thu nhập hàng năm",
+    "compounds": [
+      {
+        "word": "収入",
+        "reading": "しゅうにゅう",
+        "meaning": "thu nhập"
+      },
+      {
+        "word": "買収",
+        "reading": "ばいしゅう",
+        "meaning": "mua lại, thâu tóm"
+      },
+      {
+        "word": "回収",
+        "reading": "かいしゅう",
+        "meaning": "thu hồi"
+      },
+      {
+        "word": "収集",
+        "reading": "しゅうしゅう",
+        "meaning": "thu thập"
+      },
+      {
+        "word": "収税",
+        "reading": "しゅうぜい",
+        "meaning": "thu thuế"
+      },
+      {
+        "word": "年収",
+        "reading": "ねんしゅう",
+        "meaning": "thu nhập hàng năm"
+      }
+    ]
+  },
+  {
+    "id": "kanji_31",
+    "lesson": "第 8 課",
+    "kanji": "礼",
+    "han_viet": "LỄ",
+    "onyomi": "レイ",
+    "kunyomi": "音：レイ",
+    "examples_raw": "礼金 (れいきん): tiền mừng  \n朝礼 (ちょうれい): lễ chào cờ, họp buổi sáng \n返礼 (へんれい): đáp lễ  \n礼式 (れいしき): nghi thức  \n礼服 (れいふく): lễ phục  \n礼法 (れいほう): lễ nghi, phép tắc  \n無礼 (ぶれい): vô lễ\n礼金 (れいきん): tiền mừng  \n朝礼 (ちょうれい): lễ chào cờ, họp buổi sáng \n返礼 (へんれい): đáp lễ  \n礼式 (れいしき): nghi thức  \n礼服 (れいふく): lễ phục  \n礼法 (れいほう): lễ nghi, phép tắc  \n無礼 (ぶれい): vô lễ",
+    "compounds": [
+      {
+        "word": "礼金",
+        "reading": "れいきん",
+        "meaning": "tiền mừng"
+      },
+      {
+        "word": "朝礼",
+        "reading": "ちょうれい",
+        "meaning": "lễ chào cờ, họp buổi sáng"
+      },
+      {
+        "word": "返礼",
+        "reading": "へんれい",
+        "meaning": "đáp lễ"
+      },
+      {
+        "word": "礼式",
+        "reading": "れいしき",
+        "meaning": "nghi thức"
+      },
+      {
+        "word": "礼服",
+        "reading": "れいふく",
+        "meaning": "lễ phục"
+      },
+      {
+        "word": "礼法",
+        "reading": "れいほう",
+        "meaning": "lễ nghi, phép tắc"
+      },
+      {
+        "word": "無礼",
+        "reading": "ぶれい",
+        "meaning": "vô lễ"
+      },
+      {
+        "word": "礼金",
+        "reading": "れいきん",
+        "meaning": "tiền mừng"
+      },
+      {
+        "word": "朝礼",
+        "reading": "ちょうれい",
+        "meaning": "lễ chào cờ, họp buổi sáng"
+      },
+      {
+        "word": "返礼",
+        "reading": "へんれい",
+        "meaning": "đáp lễ"
+      },
+      {
+        "word": "礼式",
+        "reading": "れいしき",
+        "meaning": "nghi thức"
+      },
+      {
+        "word": "礼服",
+        "reading": "れいふく",
+        "meaning": "lễ phục"
+      },
+      {
+        "word": "礼法",
+        "reading": "れいほう",
+        "meaning": "lễ nghi, phép tắc"
+      },
+      {
+        "word": "無礼",
+        "reading": "ぶれい",
+        "meaning": "vô lễ"
+      }
+    ]
+  },
+  {
+    "id": "kanji_32",
+    "lesson": "第 8 課",
+    "kanji": "細",
+    "han_viet": "TẾ",
+    "onyomi": "サイ",
+    "kunyomi": "ほそ・い, こま・かい",
+    "examples_raw": "細工 (さいく): chế tác, đồ thủ công  \n明細 (めいさい): chi tiết, rành mạch  \n細部 (さいぶ): chi tiết nhỏ\n細長い (ほそながい): thon dài",
+    "compounds": [
+      {
+        "word": "細工",
+        "reading": "さいく",
+        "meaning": "chế tác, đồ thủ công"
+      },
+      {
+        "word": "明細",
+        "reading": "めいさい",
+        "meaning": "chi tiết, rành mạch"
+      },
+      {
+        "word": "細部",
+        "reading": "さいぶ",
+        "meaning": "chi tiết nhỏ"
+      },
+      {
+        "word": "細長い",
+        "reading": "ほそながい",
+        "meaning": "thon dài"
+      }
+    ]
+  },
+  {
+    "id": "kanji_33",
+    "lesson": "第 8 課",
+    "kanji": "汚",
+    "han_viet": "Ô",
+    "onyomi": "オ",
+    "kunyomi": "よご・れる, よご・す, きたな・い",
+    "examples_raw": "汚職 (おしょく): tham nhũng  \n汚水 (おすい): nước thải  \n汚名 (おめい): ô danh, tiếng xấu  \n汚染 (おせん): ô nhiễm\n汚れる (よごれる): bị bẩn\n汚す (よごす): vấy bẩn\n汚い (きたない): dơ, bẩn",
+    "compounds": [
+      {
+        "word": "汚職",
+        "reading": "おしょく",
+        "meaning": "tham nhũng"
+      },
+      {
+        "word": "汚水",
+        "reading": "おすい",
+        "meaning": "nước thải"
+      },
+      {
+        "word": "汚名",
+        "reading": "おめい",
+        "meaning": "ô danh, tiếng xấu"
+      },
+      {
+        "word": "汚染",
+        "reading": "おせん",
+        "meaning": "ô nhiễm"
+      },
+      {
+        "word": "汚れる",
+        "reading": "よごれる",
+        "meaning": "bị bẩn"
+      },
+      {
+        "word": "汚す",
+        "reading": "よごす",
+        "meaning": "vấy bẩn"
+      },
+      {
+        "word": "汚い",
+        "reading": "きたない",
+        "meaning": "dơ, bẩn"
+      }
+    ]
+  },
+  {
+    "id": "kanji_34",
+    "lesson": "第 8 課",
+    "kanji": "倒",
+    "han_viet": "ĐẢO",
+    "onyomi": "トウ",
+    "kunyomi": "たお・れる, たお・す",
+    "examples_raw": "倒産 (とうさん): phá sản  \n到着 (とうちゃく): đến nơi\n倒れる (たおれる): đổ, ngã\n倒す (たおす): lật đổ, quật ngã",
+    "compounds": [
+      {
+        "word": "倒産",
+        "reading": "とうさん",
+        "meaning": "phá sản"
+      },
+      {
+        "word": "到着",
+        "reading": "とうちゃく",
+        "meaning": "đến nơi"
+      },
+      {
+        "word": "倒れる",
+        "reading": "たおれる",
+        "meaning": "đổ, ngã"
+      },
+      {
+        "word": "倒す",
+        "reading": "たおす",
+        "meaning": "lật đổ, quật ngã"
+      }
+    ]
+  },
+  {
+    "id": "kanji_35",
+    "lesson": "第 8 課",
+    "kanji": "破",
+    "han_viet": "PHÁ",
+    "onyomi": "ハ",
+    "kunyomi": "やぶ・れる, やぶ・る",
+    "examples_raw": "破産 (はさん): phá sản  \n破線 (はせん): đường nét đứt \n 論破 (ろんぱ): bác bỏ quan điểm\n破れる (やぶれる): rách\n破る (やぶる): xé",
+    "compounds": [
+      {
+        "word": "破産",
+        "reading": "はさん",
+        "meaning": "phá sản"
+      },
+      {
+        "word": "破線",
+        "reading": "はせん",
+        "meaning": "đường nét đứt"
+      },
+      {
+        "word": "論破",
+        "reading": "ろんぱ",
+        "meaning": "bác bỏ quan điểm"
+      },
+      {
+        "word": "破れる",
+        "reading": "やぶれる",
+        "meaning": "rách"
+      },
+      {
+        "word": "破る",
+        "reading": "やぶる",
+        "meaning": "xé"
+      }
+    ]
+  },
+  {
+    "id": "kanji_36",
+    "lesson": "第 8 課",
+    "kanji": "壊",
+    "han_viet": "HOẠI",
+    "onyomi": "カイ",
+    "kunyomi": "こわ・れる, こわ・す",
+    "examples_raw": "破壊 (はかい): phá hoại, hủy diệt  \n半壊 (はんかい): sập một nửa  \n全壊 (ぜんかい): sập hoàn toàn\n壊れる (こわれる): bị hư hại\n壊す (こわす): phá hủy",
+    "compounds": [
+      {
+        "word": "破壊",
+        "reading": "はかい",
+        "meaning": "phá hoại, hủy diệt"
+      },
+      {
+        "word": "半壊",
+        "reading": "はんかい",
+        "meaning": "sập một nửa"
+      },
+      {
+        "word": "全壊",
+        "reading": "ぜんかい",
+        "meaning": "sập hoàn toàn"
+      },
+      {
+        "word": "壊れる",
+        "reading": "こわれる",
+        "meaning": "bị hư hại"
+      },
+      {
+        "word": "壊す",
+        "reading": "こわす",
+        "meaning": "phá hủy"
+      }
+    ]
+  },
+  {
+    "id": "kanji_37",
+    "lesson": "第 8 課",
+    "kanji": "横",
+    "han_viet": "HOÀNH",
+    "onyomi": "オウ",
+    "kunyomi": "よこ",
+    "examples_raw": "横着 (おうちゃく): lười biếng, trơ trẽn\n横顔 (よこがお): mặt nhìn nghiêng  \n横書き (よこがき): viết ngang  \n横長 (よこなが): dài theo chiều ngang",
+    "compounds": [
+      {
+        "word": "横着",
+        "reading": "おうちゃく",
+        "meaning": "lười biếng, trơ trẽn"
+      },
+      {
+        "word": "横顔",
+        "reading": "よこがお",
+        "meaning": "mặt nhìn nghiêng"
+      },
+      {
+        "word": "横書き",
+        "reading": "よこがき",
+        "meaning": "viết ngang"
+      },
+      {
+        "word": "横長",
+        "reading": "よこなが",
+        "meaning": "dài theo chiều ngang"
+      }
+    ]
+  },
+  {
+    "id": "kanji_38",
+    "lesson": "第 8 課",
+    "kanji": "縦",
+    "han_viet": "TUNG",
+    "onyomi": "ジュウ",
+    "kunyomi": "たて",
+    "examples_raw": "縦列 (じゅうれつ): hàng dọc \n縦線 (じゅうせん): đường dọc\n縦書 (たてがき): viết dọc",
+    "compounds": [
+      {
+        "word": "縦列",
+        "reading": "じゅうれつ",
+        "meaning": "hàng dọc"
+      },
+      {
+        "word": "縦線",
+        "reading": "じゅうせん",
+        "meaning": "đường dọc"
+      },
+      {
+        "word": "縦書",
+        "reading": "たてがき",
+        "meaning": "viết dọc"
+      }
+    ]
+  },
+  {
+    "id": "kanji_39",
+    "lesson": "第 8 課",
+    "kanji": "印",
+    "han_viet": "ẤN",
+    "onyomi": "イン",
+    "kunyomi": "しるし",
+    "examples_raw": "印画 (いんが): bản in ảnh  \n印象 (いんしょう): ấn tượng\n印 (しるし): con dấu",
+    "compounds": [
+      {
+        "word": "印画",
+        "reading": "いんが",
+        "meaning": "bản in ảnh"
+      },
+      {
+        "word": "印象",
+        "reading": "いんしょう",
+        "meaning": "ấn tượng"
+      },
+      {
+        "word": "印",
+        "reading": "しるし",
+        "meaning": "con dấu"
+      }
+    ]
+  },
+  {
+    "id": "kanji_40",
+    "lesson": "第 8 課",
+    "kanji": "刷",
+    "han_viet": "LOÁT",
+    "onyomi": "サツ",
+    "kunyomi": "す・る",
+    "examples_raw": "刷新 (さっしん): đổi mới, cải cách  \n印刷 (いんさつ): in ấn",
+    "compounds": [
+      {
+        "word": "刷新",
+        "reading": "さっしん",
+        "meaning": "đổi mới, cải cách"
+      },
+      {
+        "word": "印刷",
+        "reading": "いんさつ",
+        "meaning": "in ấn"
+      }
+    ]
+  },
+  {
+    "id": "kanji_41",
+    "lesson": "第 8 課",
+    "kanji": "類",
+    "han_viet": "LOẠI",
+    "onyomi": "ルイ",
+    "kunyomi": "音：ルイ",
+    "examples_raw": "類似 (るいじ): tương tự  \n同類 (どうるい): đồng loại, cùng loại  \n人類 (じんるい): nhân loại \n親類 (しんるい): họ hàng  \n書類 (しょるい): tài liệu, giấy tờ\n類似 (るいじ): tương tự  \n同類 (どうるい): đồng loại, cùng loại  \n人類 (じんるい): nhân loại \n親類 (しんるい): họ hàng  \n書類 (しょるい): tài liệu, giấy tờ",
+    "compounds": [
+      {
+        "word": "類似",
+        "reading": "るいじ",
+        "meaning": "tương tự"
+      },
+      {
+        "word": "同類",
+        "reading": "どうるい",
+        "meaning": "đồng loại, cùng loại"
+      },
+      {
+        "word": "人類",
+        "reading": "じんるい",
+        "meaning": "nhân loại"
+      },
+      {
+        "word": "親類",
+        "reading": "しんるい",
+        "meaning": "họ hàng"
+      },
+      {
+        "word": "書類",
+        "reading": "しょるい",
+        "meaning": "tài liệu, giấy tờ"
+      },
+      {
+        "word": "類似",
+        "reading": "るいじ",
+        "meaning": "tương tự"
+      },
+      {
+        "word": "同類",
+        "reading": "どうるい",
+        "meaning": "đồng loại, cùng loại"
+      },
+      {
+        "word": "人類",
+        "reading": "じんるい",
+        "meaning": "nhân loại"
+      },
+      {
+        "word": "親類",
+        "reading": "しんるい",
+        "meaning": "họ hàng"
+      },
+      {
+        "word": "書類",
+        "reading": "しょるい",
+        "meaning": "tài liệu, giấy tờ"
+      }
+    ]
+  },
+  {
+    "id": "kanji_42",
+    "lesson": "第 9 課",
+    "kanji": "暮",
+    "han_viet": "MỘ",
+    "onyomi": "ボ",
+    "kunyomi": "く・れる, く・らす",
+    "examples_raw": "暮秋 (ぼしゅう): cuối thu  \n暮色 (ぼしょく): cảnh sắc chiều tà, ánh hoàng hôn\n日暮れ (ひぐれ): chiều tối, hoàng hôn  \n一人暮らし (ひとりぐらし): sống một mình",
+    "compounds": [
+      {
+        "word": "暮秋",
+        "reading": "ぼしゅう",
+        "meaning": "cuối thu"
+      },
+      {
+        "word": "暮色",
+        "reading": "ぼしょく",
+        "meaning": "cảnh sắc chiều tà, ánh hoàng hôn"
+      },
+      {
+        "word": "日暮れ",
+        "reading": "ひぐれ",
+        "meaning": "chiều tối, hoàng hôn"
+      },
+      {
+        "word": "一人暮らし",
+        "reading": "ひとりぐらし",
+        "meaning": "sống một mình"
+      }
+    ]
+  },
+  {
+    "id": "kanji_43",
+    "lesson": "第 9 課",
+    "kanji": "個",
+    "han_viet": "CÁ",
+    "onyomi": "コ",
+    "kunyomi": "音：コ",
+    "examples_raw": "個別 (こべつ): cá biệt, riêng biệt  \n個人 (こじん): cá nhân  \n個体 (こたい): cá thể\n個性 (こせい): cá tính  \n個室 (こしつ): phòng riêng  \n個展 (こてん): triển lãm cá nhân",
+    "compounds": [
+      {
+        "word": "個別",
+        "reading": "こべつ",
+        "meaning": "cá biệt, riêng biệt"
+      },
+      {
+        "word": "個人",
+        "reading": "こじん",
+        "meaning": "cá nhân"
+      },
+      {
+        "word": "個体",
+        "reading": "こたい",
+        "meaning": "cá thể"
+      },
+      {
+        "word": "個性",
+        "reading": "こせい",
+        "meaning": "cá tính"
+      },
+      {
+        "word": "個室",
+        "reading": "こしつ",
+        "meaning": "phòng riêng"
+      },
+      {
+        "word": "個展",
+        "reading": "こてん",
+        "meaning": "triển lãm cá nhân"
+      }
+    ]
+  },
+  {
+    "id": "kanji_44",
+    "lesson": "第 9 課",
+    "kanji": "疑",
+    "han_viet": "NGHI",
+    "onyomi": "ギ",
+    "kunyomi": "うたが・う, うたがわ・しい",
+    "examples_raw": "疑問 (ぎもん): nghi vấn, thắc mắc  \n半信半疑 (はんしんはんぎ): bán tín bán nghi",
+    "compounds": [
+      {
+        "word": "疑問",
+        "reading": "ぎもん",
+        "meaning": "nghi vấn, thắc mắc"
+      },
+      {
+        "word": "半信半疑",
+        "reading": "はんしんはんぎ",
+        "meaning": "bán tín bán nghi"
+      }
+    ]
+  },
+  {
+    "id": "kanji_45",
+    "lesson": "第 9 課",
+    "kanji": "平",
+    "han_viet": "BÌNH",
+    "onyomi": "ヘイ",
+    "kunyomi": "ひら・たい",
+    "examples_raw": "水平 (すいへい): phương ngang\n水平線 (すいへいせん): đường chân trời\n平日 (へいじつ): ngày thường  \n平価 (へいか): bình giá, mệnh giá",
+    "compounds": [
+      {
+        "word": "水平",
+        "reading": "すいへい",
+        "meaning": "phương ngang"
+      },
+      {
+        "word": "水平線",
+        "reading": "すいへいせん",
+        "meaning": "đường chân trời"
+      },
+      {
+        "word": "平日",
+        "reading": "へいじつ",
+        "meaning": "ngày thường"
+      },
+      {
+        "word": "平価",
+        "reading": "へいか",
+        "meaning": "bình giá, mệnh giá"
+      }
+    ]
+  },
+  {
+    "id": "kanji_46",
+    "lesson": "第 9 課",
+    "kanji": "等",
+    "han_viet": "ĐẲNG",
+    "onyomi": "トウ",
+    "kunyomi": "など, ひと・しい",
+    "examples_raw": "平等 (びょうどう): bình đẳng  \n等分 (とうぶん): chia đều",
+    "compounds": [
+      {
+        "word": "平等",
+        "reading": "びょうどう",
+        "meaning": "bình đẳng"
+      },
+      {
+        "word": "等分",
+        "reading": "とうぶん",
+        "meaning": "chia đều"
+      }
+    ]
+  },
+  {
+    "id": "kanji_47",
+    "lesson": "第 9 課",
+    "kanji": "誤",
+    "han_viet": "NGỘ",
+    "onyomi": "ゴ",
+    "kunyomi": "あやま・る",
+    "examples_raw": "誤解 (ごかい): hiểu lầm \n 誤読 (ごどく): đọc sai  \n正誤 (せいご): đúng sai  \n誤信 (ごしん): tin sai, ngộ nhận",
+    "compounds": [
+      {
+        "word": "誤解",
+        "reading": "ごかい",
+        "meaning": "hiểu lầm"
+      },
+      {
+        "word": "誤読",
+        "reading": "ごどく",
+        "meaning": "đọc sai"
+      },
+      {
+        "word": "正誤",
+        "reading": "せいご",
+        "meaning": "đúng sai"
+      },
+      {
+        "word": "誤信",
+        "reading": "ごしん",
+        "meaning": "tin sai, ngộ nhận"
+      }
+    ]
+  },
+  {
+    "id": "kanji_48",
+    "lesson": "第 9 課",
+    "kanji": "笑",
+    "han_viet": "TIẾU",
+    "onyomi": "ショウ",
+    "kunyomi": "わら・う, え・む",
+    "examples_raw": "苦笑 (くしょう): cười gượng, cười trừ\n笑い話 (わらいばなし): chuyện cười  \n笑顔 (えがお): khuôn mặt tươi cười  \n笑い声 (わらいごえ): tiếng cười  \n可笑しい (おかしい): buồn cười, kỳ lạ",
+    "compounds": [
+      {
+        "word": "苦笑",
+        "reading": "くしょう",
+        "meaning": "cười gượng, cười trừ"
+      },
+      {
+        "word": "笑い話",
+        "reading": "わらいばなし",
+        "meaning": "chuyện cười"
+      },
+      {
+        "word": "笑顔",
+        "reading": "えがお",
+        "meaning": "khuôn mặt tươi cười"
+      },
+      {
+        "word": "笑い声",
+        "reading": "わらいごえ",
+        "meaning": "tiếng cười"
+      },
+      {
+        "word": "可笑しい",
+        "reading": "おかしい",
+        "meaning": "buồn cười, kỳ lạ"
+      }
+    ]
+  },
+  {
+    "id": "kanji_49",
+    "lesson": "第 9 課",
+    "kanji": "訳",
+    "han_viet": "DỊCH",
+    "onyomi": "ヤク",
+    "kunyomi": "わけ, やく・す",
+    "examples_raw": "訳者 (やくしゃ): người dịch  \n訳解 (やっかい): dịch và giải thích  \n訳書 (やくしょ): sách dịch  \n訳名 (やくめい): tên dịch  \n通訳 (つうやく): thông dịch  \n直訳 (ちょくやく): dịch sát nghĩa  \n翻訳 (ほんやく): biên dịch",
+    "compounds": [
+      {
+        "word": "訳者",
+        "reading": "やくしゃ",
+        "meaning": "người dịch"
+      },
+      {
+        "word": "訳解",
+        "reading": "やっかい",
+        "meaning": "dịch và giải thích"
+      },
+      {
+        "word": "訳書",
+        "reading": "やくしょ",
+        "meaning": "sách dịch"
+      },
+      {
+        "word": "訳名",
+        "reading": "やくめい",
+        "meaning": "tên dịch"
+      },
+      {
+        "word": "通訳",
+        "reading": "つうやく",
+        "meaning": "thông dịch"
+      },
+      {
+        "word": "直訳",
+        "reading": "ちょくやく",
+        "meaning": "dịch sát nghĩa"
+      },
+      {
+        "word": "翻訳",
+        "reading": "ほんやく",
+        "meaning": "biên dịch"
+      }
+    ]
+  },
+  {
+    "id": "kanji_50",
+    "lesson": "第 9 課",
+    "kanji": "捨",
+    "han_viet": "SÁ",
+    "onyomi": "シャ",
+    "kunyomi": "す・てる",
+    "examples_raw": "四捨五入 (ししゃごにゅう): làm tròn số (bỏ 4 lấy 5)\n捨子 (すてご): con rơi, trẻ mồ côi",
+    "compounds": [
+      {
+        "word": "四捨五入",
+        "reading": "ししゃごにゅう",
+        "meaning": "làm tròn số (bỏ 4 lấy 5)"
+      },
+      {
+        "word": "捨子",
+        "reading": "すてご",
+        "meaning": "con rơi, trẻ mồ côi"
+      }
+    ]
+  },
+  {
+    "id": "kanji_51",
+    "lesson": "第 9 課",
+    "kanji": "詩",
+    "han_viet": "THI",
+    "onyomi": "シ",
+    "kunyomi": "音：シ",
+    "examples_raw": "詩人 (しじん): nhà thơ  \n詩歌 (しか): thi ca  \n詩集 (ししゅう): tập thơ\n詩人 (しじん): nhà thơ  \n詩歌 (しか): thi ca  \n詩集 (ししゅう): tập thơ",
+    "compounds": [
+      {
+        "word": "詩人",
+        "reading": "しじん",
+        "meaning": "nhà thơ"
+      },
+      {
+        "word": "詩歌",
+        "reading": "しか",
+        "meaning": "thi ca"
+      },
+      {
+        "word": "詩集",
+        "reading": "ししゅう",
+        "meaning": "tập thơ"
+      },
+      {
+        "word": "詩人",
+        "reading": "しじん",
+        "meaning": "nhà thơ"
+      },
+      {
+        "word": "詩歌",
+        "reading": "しか",
+        "meaning": "thi ca"
+      },
+      {
+        "word": "詩集",
+        "reading": "ししゅう",
+        "meaning": "tập thơ"
+      }
+    ]
+  },
+  {
+    "id": "kanji_52",
+    "lesson": "第 9 課",
+    "kanji": "想",
+    "han_viet": "TƯỞNG",
+    "onyomi": "ソウ",
+    "kunyomi": "音：ソウ",
+    "examples_raw": "想定 (そうてい): giả định  \n想見 (そうけん): tưởng tượng\n予想 (よそう): dự đoán\n思想 (しそう): tư tưởng  \n理想 (りそう): lý tưởng  \n空想 (くうそう): không tưởng, ảo tưởng",
+    "compounds": [
+      {
+        "word": "想定",
+        "reading": "そうてい",
+        "meaning": "giả định"
+      },
+      {
+        "word": "想見",
+        "reading": "そうけん",
+        "meaning": "tưởng tượng"
+      },
+      {
+        "word": "予想",
+        "reading": "よそう",
+        "meaning": "dự đoán"
+      },
+      {
+        "word": "思想",
+        "reading": "しそう",
+        "meaning": "tư tưởng"
+      },
+      {
+        "word": "理想",
+        "reading": "りそう",
+        "meaning": "lý tưởng"
+      },
+      {
+        "word": "空想",
+        "reading": "くうそう",
+        "meaning": "không tưởng, ảo tưởng"
+      }
+    ]
+  },
+  {
+    "id": "kanji_53",
+    "lesson": "第 9 課",
+    "kanji": "最",
+    "han_viet": "TỐI",
+    "onyomi": "サイ",
+    "kunyomi": "もっと・も",
+    "examples_raw": "最高 (さいこう): cao nhất\n最低 (さいてい): thấp nhất\n最多 (さいた): nhiều nhất  \n最少 (さいしょう): ít nhất  \n最近 (さいきん): gần đây  \n最初 (さいしょ): đầu tiên  \n最後 (さいご): cuối cùng",
+    "compounds": [
+      {
+        "word": "最高",
+        "reading": "さいこう",
+        "meaning": "cao nhất"
+      },
+      {
+        "word": "最低",
+        "reading": "さいてい",
+        "meaning": "thấp nhất"
+      },
+      {
+        "word": "最多",
+        "reading": "さいた",
+        "meaning": "nhiều nhất"
+      },
+      {
+        "word": "最少",
+        "reading": "さいしょう",
+        "meaning": "ít nhất"
+      },
+      {
+        "word": "最近",
+        "reading": "さいきん",
+        "meaning": "gần đây"
+      },
+      {
+        "word": "最初",
+        "reading": "さいしょ",
+        "meaning": "đầu tiên"
+      },
+      {
+        "word": "最後",
+        "reading": "さいご",
+        "meaning": "cuối cùng"
+      }
+    ]
+  },
+  {
+    "id": "kanji_54",
+    "lesson": "第 9 課",
+    "kanji": "浴",
+    "han_viet": "DỤC",
+    "onyomi": "ヨク",
+    "kunyomi": "あ・びる",
+    "examples_raw": "浴室 (よくしつ): phòng tắm  \n浴場 (よくじょう): nhà tắm công cộng\n浴びる (あびる): tắm",
+    "compounds": [
+      {
+        "word": "浴室",
+        "reading": "よくしつ",
+        "meaning": "phòng tắm"
+      },
+      {
+        "word": "浴場",
+        "reading": "よくじょう",
+        "meaning": "nhà tắm công cộng"
+      },
+      {
+        "word": "浴びる",
+        "reading": "あびる",
+        "meaning": "tắm"
+      }
+    ]
+  },
+  {
+    "id": "kanji_55",
+    "lesson": "第 9 課",
+    "kanji": "衣",
+    "han_viet": "Y",
+    "onyomi": "イ",
+    "kunyomi": "音：イ",
+    "examples_raw": "衣服 (いふく): y phục, quần áo  \n衣類 (いるい): loại quần áo  \n衣料 (いりょう): đồ may mặc  \n衣食住 (いしょくじゅう): nhu cầu ăn mặc ở  \n浴衣 (ゆかた): áo Yukata\n衣服 (いふく): y phục, quần áo  \n衣類 (いるい): loại quần áo  \n衣料 (いりょう): đồ may mặc  \n衣食住 (いしょくじゅう): nhu cầu ăn mặc ở  \n浴衣 (ゆかた): áo Yukata",
+    "compounds": [
+      {
+        "word": "衣服",
+        "reading": "いふく",
+        "meaning": "y phục, quần áo"
+      },
+      {
+        "word": "衣類",
+        "reading": "いるい",
+        "meaning": "loại quần áo"
+      },
+      {
+        "word": "衣料",
+        "reading": "いりょう",
+        "meaning": "đồ may mặc"
+      },
+      {
+        "word": "衣食住",
+        "reading": "いしょくじゅう",
+        "meaning": "nhu cầu ăn mặc ở"
+      },
+      {
+        "word": "浴衣",
+        "reading": "ゆかた",
+        "meaning": "áo Yukata"
+      },
+      {
+        "word": "衣服",
+        "reading": "いふく",
+        "meaning": "y phục, quần áo"
+      },
+      {
+        "word": "衣類",
+        "reading": "いるい",
+        "meaning": "loại quần áo"
+      },
+      {
+        "word": "衣料",
+        "reading": "いりょう",
+        "meaning": "đồ may mặc"
+      },
+      {
+        "word": "衣食住",
+        "reading": "いしょくじゅう",
+        "meaning": "nhu cầu ăn mặc ở"
+      },
+      {
+        "word": "浴衣",
+        "reading": "ゆかた",
+        "meaning": "áo Yukata"
+      }
+    ]
+  },
+  {
+    "id": "kanji_56",
+    "lesson": "第 9 課",
+    "kanji": "曲",
+    "han_viet": "KHÚC",
+    "onyomi": "キョク",
+    "kunyomi": "ま・がる, ま・げる",
+    "examples_raw": "曲線 (きょくせん): đường cong \n曲面 (きょくめん): mặt cong  \n歌曲 (かきょく): ca khúc  \n作曲 (さっきょく): sáng tác nhạc\n曲がる (まがる): cong, lệch\n曲げる (まげる): bẻ cong, uốn cong",
+    "compounds": [
+      {
+        "word": "曲線",
+        "reading": "きょくせん",
+        "meaning": "đường cong"
+      },
+      {
+        "word": "曲面",
+        "reading": "きょくめん",
+        "meaning": "mặt cong"
+      },
+      {
+        "word": "歌曲",
+        "reading": "かきょく",
+        "meaning": "ca khúc"
+      },
+      {
+        "word": "作曲",
+        "reading": "さっきょく",
+        "meaning": "sáng tác nhạc"
+      },
+      {
+        "word": "曲がる",
+        "reading": "まがる",
+        "meaning": "cong, lệch"
+      },
+      {
+        "word": "曲げる",
+        "reading": "まげる",
+        "meaning": "bẻ cong, uốn cong"
+      }
+    ]
+  },
+  {
+    "id": "kanji_57",
+    "lesson": "第 9 課",
+    "kanji": "失",
+    "han_viet": "THẤT",
+    "onyomi": "シツ",
+    "kunyomi": "うしな・う",
+    "examples_raw": "失業 (しつぎょう): thất nghiệp  \n失礼 (しつれい): thất lễ  \n失言 (しつげん): lỡ lời  \n失望 (しつぼう): thất vọng  \n過失 (かしつ): sơ suất, lỗi lầm  \n得失 (とくしつ): được mất  \n流失 (りゅうしつ): bị cuốn trôi",
+    "compounds": [
+      {
+        "word": "失業",
+        "reading": "しつぎょう",
+        "meaning": "thất nghiệp"
+      },
+      {
+        "word": "失礼",
+        "reading": "しつれい",
+        "meaning": "thất lễ"
+      },
+      {
+        "word": "失言",
+        "reading": "しつげん",
+        "meaning": "lỡ lời"
+      },
+      {
+        "word": "失望",
+        "reading": "しつぼう",
+        "meaning": "thất vọng"
+      },
+      {
+        "word": "過失",
+        "reading": "かしつ",
+        "meaning": "sơ suất, lỗi lầm"
+      },
+      {
+        "word": "得失",
+        "reading": "とくしつ",
+        "meaning": "được mất"
+      },
+      {
+        "word": "流失",
+        "reading": "りゅうしつ",
+        "meaning": "bị cuốn trôi"
+      }
+    ]
+  },
+  {
+    "id": "kanji_58",
+    "lesson": "第 10 課",
+    "kanji": "然",
+    "han_viet": "NHIÊN",
+    "onyomi": "ゼン",
+    "kunyomi": "しか・し",
+    "examples_raw": "当然 (とうぜん): đương nhiên  \n自然 (しぜん): tự nhiên  \n全然 (ぜんぜん): hoàn toàn  \n偶然 (ぐうぜん): ngẫu nhiên  \n突然 (とつぜん): đột nhiên",
+    "compounds": [
+      {
+        "word": "当然",
+        "reading": "とうぜん",
+        "meaning": "đương nhiên"
+      },
+      {
+        "word": "自然",
+        "reading": "しぜん",
+        "meaning": "tự nhiên"
+      },
+      {
+        "word": "全然",
+        "reading": "ぜんぜん",
+        "meaning": "hoàn toàn"
+      },
+      {
+        "word": "偶然",
+        "reading": "ぐうぜん",
+        "meaning": "ngẫu nhiên"
+      },
+      {
+        "word": "突然",
+        "reading": "とつぜん",
+        "meaning": "đột nhiên"
+      }
+    ]
+  },
+  {
+    "id": "kanji_59",
+    "lesson": "第 10 課",
+    "kanji": "姿",
+    "han_viet": "TƯ",
+    "onyomi": "シ",
+    "kunyomi": "すがた",
+    "examples_raw": "姿勢 (しせい): tư thế\n姿 (すがた): bóng dáng, dáng vẻ  \n立ち姿 (たちすがた): dáng đứng  \n寝姿 (ねすがた): dáng ngủ",
+    "compounds": [
+      {
+        "word": "姿勢",
+        "reading": "しせい",
+        "meaning": "tư thế"
+      },
+      {
+        "word": "姿",
+        "reading": "すがた",
+        "meaning": "bóng dáng, dáng vẻ"
+      },
+      {
+        "word": "立ち姿",
+        "reading": "たちすがた",
+        "meaning": "dáng đứng"
+      },
+      {
+        "word": "寝姿",
+        "reading": "ねすがた",
+        "meaning": "dáng ngủ"
+      }
+    ]
+  },
+  {
+    "id": "kanji_60",
+    "lesson": "第 10 課",
+    "kanji": "神",
+    "han_viet": "THẦN",
+    "onyomi": "シン",
+    "kunyomi": "かみ",
+    "examples_raw": "神道 (しんとう): Thần đạo  \n神意 (しんい): ý trời, thần ý  \n神社 (じんじゃ): đền thờ Thần đạo  \n天神 (てんじん): thiên thần  \n心神 (しんしん): đời sống tâm linh\n神様 (かみさま): thần linh, vị thần  \n死神 (しにがみ): tử thần  \n女神 (めがみ): nữ thần",
+    "compounds": [
+      {
+        "word": "神道",
+        "reading": "しんとう",
+        "meaning": "Thần đạo"
+      },
+      {
+        "word": "神意",
+        "reading": "しんい",
+        "meaning": "ý trời, thần ý"
+      },
+      {
+        "word": "神社",
+        "reading": "じんじゃ",
+        "meaning": "đền thờ Thần đạo"
+      },
+      {
+        "word": "天神",
+        "reading": "てんじん",
+        "meaning": "thiên thần"
+      },
+      {
+        "word": "心神",
+        "reading": "しんしん",
+        "meaning": "đời sống tâm linh"
+      },
+      {
+        "word": "神様",
+        "reading": "かみさま",
+        "meaning": "thần linh, vị thần"
+      },
+      {
+        "word": "死神",
+        "reading": "しにがみ",
+        "meaning": "tử thần"
+      },
+      {
+        "word": "女神",
+        "reading": "めがみ",
+        "meaning": "nữ thần"
+      }
+    ]
+  },
+  {
+    "id": "kanji_61",
+    "lesson": "第 10 課",
+    "kanji": "積",
+    "han_viet": "TÍCH",
+    "onyomi": "セキ",
+    "kunyomi": "つ・む, つ・もる",
+    "examples_raw": "積雪 (せきせつ): tuyết đọng  \n集積 (しゅうせき): tích lũy  \n積算 (せきさん): tính toán, tổng cộng  \n面積 (めんせき): diện tích  \n体積 (たいせき): thể tích  \n積極的 (せっきょくてき): tích cực\n積む (つむ): chồng chất, xếp chồng\n積もる (つもる): chất đống, tích tụ",
+    "compounds": [
+      {
+        "word": "積雪",
+        "reading": "せきせつ",
+        "meaning": "tuyết đọng"
+      },
+      {
+        "word": "集積",
+        "reading": "しゅうせき",
+        "meaning": "tích lũy"
+      },
+      {
+        "word": "積算",
+        "reading": "せきさん",
+        "meaning": "tính toán, tổng cộng"
+      },
+      {
+        "word": "面積",
+        "reading": "めんせき",
+        "meaning": "diện tích"
+      },
+      {
+        "word": "体積",
+        "reading": "たいせき",
+        "meaning": "thể tích"
+      },
+      {
+        "word": "積極的",
+        "reading": "せっきょくてき",
+        "meaning": "tích cực"
+      },
+      {
+        "word": "積む",
+        "reading": "つむ",
+        "meaning": "chồng chất, xếp chồng"
+      },
+      {
+        "word": "積もる",
+        "reading": "つもる",
+        "meaning": "chất đống, tích tụ"
+      }
+    ]
+  },
+  {
+    "id": "kanji_62",
+    "lesson": "第 10 課",
+    "kanji": "材",
+    "han_viet": "TÀI",
+    "onyomi": "ザイ",
+    "kunyomi": "音：ザイ",
+    "examples_raw": "材料 (ざいりょう): nguyên/vật liệu  \n材質 (ざいしつ): chất liệu\n人材 (じんざい): nhân tài  \n教材 (きょうざい): giáo trình",
+    "compounds": [
+      {
+        "word": "材料",
+        "reading": "ざいりょう",
+        "meaning": "nguyên/vật liệu"
+      },
+      {
+        "word": "材質",
+        "reading": "ざいしつ",
+        "meaning": "chất liệu"
+      },
+      {
+        "word": "人材",
+        "reading": "じんざい",
+        "meaning": "nhân tài"
+      },
+      {
+        "word": "教材",
+        "reading": "きょうざい",
+        "meaning": "giáo trình"
+      }
+    ]
+  },
+  {
+    "id": "kanji_63",
+    "lesson": "第 10 課",
+    "kanji": "満",
+    "han_viet": "MÃN",
+    "onyomi": "マン",
+    "kunyomi": "み・ちる, み・たす",
+    "examples_raw": "満足 (まんぞく): thỏa mãn, hài lòng  \n未満 (みまん): chưa đủ, dưới mức  \n満員 (まんいん): kín chỗ, đầy người  \n満開 (まんかい): nở rộ  \n満点 (まんてん): điểm tối đa  \n不満 (ふまん): bất mãn\n満ちる (みちる): đầy\n満たす (みたす): lấp đầy",
+    "compounds": [
+      {
+        "word": "満足",
+        "reading": "まんぞく",
+        "meaning": "thỏa mãn, hài lòng"
+      },
+      {
+        "word": "未満",
+        "reading": "みまん",
+        "meaning": "chưa đủ, dưới mức"
+      },
+      {
+        "word": "満員",
+        "reading": "まんいん",
+        "meaning": "kín chỗ, đầy người"
+      },
+      {
+        "word": "満開",
+        "reading": "まんかい",
+        "meaning": "nở rộ"
+      },
+      {
+        "word": "満点",
+        "reading": "まんてん",
+        "meaning": "điểm tối đa"
+      },
+      {
+        "word": "不満",
+        "reading": "ふまん",
+        "meaning": "bất mãn"
+      },
+      {
+        "word": "満ちる",
+        "reading": "みちる",
+        "meaning": "đầy"
+      },
+      {
+        "word": "満たす",
+        "reading": "みたす",
+        "meaning": "lấp đầy"
+      }
+    ]
+  },
+  {
+    "id": "kanji_64",
+    "lesson": "第 10 課",
+    "kanji": "戦",
+    "han_viet": "CHIẾN",
+    "onyomi": "セン",
+    "kunyomi": "たたか・う",
+    "examples_raw": "戦術 (せんじゅつ): chiến thuật  \n戦後 (せんご): thời kì hậu chiến\n内戦 (ないせん): nội chiến  \n戦略 (せんりゃく): chiến lược  \n決勝戦 (けっしょうせん): trận chung kết\n戦う (たたかう ): chiến đấu",
+    "compounds": [
+      {
+        "word": "戦術",
+        "reading": "せんじゅつ",
+        "meaning": "chiến thuật"
+      },
+      {
+        "word": "戦後",
+        "reading": "せんご",
+        "meaning": "thời kì hậu chiến"
+      },
+      {
+        "word": "内戦",
+        "reading": "ないせん",
+        "meaning": "nội chiến"
+      },
+      {
+        "word": "戦略",
+        "reading": "せんりゃく",
+        "meaning": "chiến lược"
+      },
+      {
+        "word": "決勝戦",
+        "reading": "けっしょうせん",
+        "meaning": "trận chung kết"
+      },
+      {
+        "word": "戦う",
+        "reading": "たたかう",
+        "meaning": "chiến đấu"
+      }
+    ]
+  },
+  {
+    "id": "kanji_65",
+    "lesson": "第 10 課",
+    "kanji": "争",
+    "han_viet": "TRANH",
+    "onyomi": "ソウ",
+    "kunyomi": "あらそ・う",
+    "examples_raw": "争論 (そうろん): tranh luận  \n内争 (ないそう): tranh chấp nội bộ  \n戦争 (せんそう): chiến tranh  \n競争 (きょうそう): cạnh tranh",
+    "compounds": [
+      {
+        "word": "争論",
+        "reading": "そうろん",
+        "meaning": "tranh luận"
+      },
+      {
+        "word": "内争",
+        "reading": "ないそう",
+        "meaning": "tranh chấp nội bộ"
+      },
+      {
+        "word": "戦争",
+        "reading": "せんそう",
+        "meaning": "chiến tranh"
+      },
+      {
+        "word": "競争",
+        "reading": "きょうそう",
+        "meaning": "cạnh tranh"
+      }
+    ]
+  },
+  {
+    "id": "kanji_66",
+    "lesson": "第 10 課",
+    "kanji": "再",
+    "han_viet": "TÁI",
+    "onyomi": "サイ",
+    "kunyomi": "ふたた・び",
+    "examples_raw": "再度 (さいど): lần nữa  \n再生 (さいせい): tái sinh, tái tạo\n再建 (さいけん): tái thiết, xây dựng lại  \n再出 (さいしゅつ): xuất hiện lại  \n再利用 (さいりよう): tái sử dụng  \n再発 (さいはつ): tái phát\n再び (ふたたび): lại, 1 lần nữa",
+    "compounds": [
+      {
+        "word": "再度",
+        "reading": "さいど",
+        "meaning": "lần nữa"
+      },
+      {
+        "word": "再生",
+        "reading": "さいせい",
+        "meaning": "tái sinh, tái tạo"
+      },
+      {
+        "word": "再建",
+        "reading": "さいけん",
+        "meaning": "tái thiết, xây dựng lại"
+      },
+      {
+        "word": "再出",
+        "reading": "さいしゅつ",
+        "meaning": "xuất hiện lại"
+      },
+      {
+        "word": "再利用",
+        "reading": "さいりよう",
+        "meaning": "tái sử dụng"
+      },
+      {
+        "word": "再発",
+        "reading": "さいはつ",
+        "meaning": "tái phát"
+      },
+      {
+        "word": "再び",
+        "reading": "ふたたび",
+        "meaning": "lại, 1 lần nữa"
+      }
+    ]
+  },
+  {
+    "id": "kanji_67",
+    "lesson": "第 10 課",
+    "kanji": "列",
+    "han_viet": "LIỆT",
+    "onyomi": "レツ",
+    "kunyomi": "音：レツ",
+    "examples_raw": "列車 (れっしゃ): xe lửa, tàu hỏa  \n行列 (ぎょうれつ): xếp hàng, đoàn người\n列車 (れっしゃ): xe lửa, tàu hỏa  \n行列 (ぎょうれつ): xếp hàng, đoàn người",
+    "compounds": [
+      {
+        "word": "列車",
+        "reading": "れっしゃ",
+        "meaning": "xe lửa, tàu hỏa"
+      },
+      {
+        "word": "行列",
+        "reading": "ぎょうれつ",
+        "meaning": "xếp hàng, đoàn người"
+      },
+      {
+        "word": "列車",
+        "reading": "れっしゃ",
+        "meaning": "xe lửa, tàu hỏa"
+      },
+      {
+        "word": "行列",
+        "reading": "ぎょうれつ",
+        "meaning": "xếp hàng, đoàn người"
+      }
+    ]
+  },
+  {
+    "id": "kanji_68",
+    "lesson": "第 10 課",
+    "kanji": "座",
+    "han_viet": "TỌA",
+    "onyomi": "ザ",
+    "kunyomi": "すわ・る",
+    "examples_raw": "座席 (ざせき): chỗ ngồi  \n口座 (こうざ): tài khoản  \n正座 (せいざ): ngồi kiểu Nhật\n座る (すわる): ngồi",
+    "compounds": [
+      {
+        "word": "座席",
+        "reading": "ざせき",
+        "meaning": "chỗ ngồi"
+      },
+      {
+        "word": "口座",
+        "reading": "こうざ",
+        "meaning": "tài khoản"
+      },
+      {
+        "word": "正座",
+        "reading": "せいざ",
+        "meaning": "ngồi kiểu Nhật"
+      },
+      {
+        "word": "座る",
+        "reading": "すわる",
+        "meaning": "ngồi"
+      }
+    ]
+  },
+  {
+    "id": "kanji_69",
+    "lesson": "第 10 課",
+    "kanji": "鉄",
+    "han_viet": "THIẾT",
+    "onyomi": "テツ",
+    "kunyomi": "音：テツ",
+    "examples_raw": "鉄道 (てつどう): đường sắt  \n国鉄 (こくてつ): đường sắt quốc gia  \n私鉄 (してつ): đường sắt tư nhân\n鉄道 (てつどう): đường sắt  \n国鉄 (こくてつ): đường sắt quốc gia  \n私鉄 (してつ): đường sắt tư nhân",
+    "compounds": [
+      {
+        "word": "鉄道",
+        "reading": "てつどう",
+        "meaning": "đường sắt"
+      },
+      {
+        "word": "国鉄",
+        "reading": "こくてつ",
+        "meaning": "đường sắt quốc gia"
+      },
+      {
+        "word": "私鉄",
+        "reading": "してつ",
+        "meaning": "đường sắt tư nhân"
+      },
+      {
+        "word": "鉄道",
+        "reading": "てつどう",
+        "meaning": "đường sắt"
+      },
+      {
+        "word": "国鉄",
+        "reading": "こくてつ",
+        "meaning": "đường sắt quốc gia"
+      },
+      {
+        "word": "私鉄",
+        "reading": "してつ",
+        "meaning": "đường sắt tư nhân"
+      }
+    ]
+  },
+  {
+    "id": "kanji_70",
+    "lesson": "第 10 課",
+    "kanji": "刻",
+    "han_viet": "KHẮC",
+    "onyomi": "コク",
+    "kunyomi": "音：コク",
+    "examples_raw": "遅刻 (ちこく): đến muộn, trễ giờ  \n時刻 (じこく): thời gian, thời khắc  \n彫刻 (ちょうこく): điêu khắc\n遅刻 (ちこく): đến muộn, trễ giờ  \n時刻 (じこく): thời gian, thời khắc  \n彫刻 (ちょうこく): điêu khắc",
+    "compounds": [
+      {
+        "word": "遅刻",
+        "reading": "ちこく",
+        "meaning": "đến muộn, trễ giờ"
+      },
+      {
+        "word": "時刻",
+        "reading": "じこく",
+        "meaning": "thời gian, thời khắc"
+      },
+      {
+        "word": "彫刻",
+        "reading": "ちょうこく",
+        "meaning": "điêu khắc"
+      },
+      {
+        "word": "遅刻",
+        "reading": "ちこく",
+        "meaning": "đến muộn, trễ giờ"
+      },
+      {
+        "word": "時刻",
+        "reading": "じこく",
+        "meaning": "thời gian, thời khắc"
+      },
+      {
+        "word": "彫刻",
+        "reading": "ちょうこく",
+        "meaning": "điêu khắc"
+      }
+    ]
+  },
+  {
+    "id": "kanji_71",
+    "lesson": "第 10 課",
+    "kanji": "岸",
+    "han_viet": "NGẠN",
+    "onyomi": "ガン",
+    "kunyomi": "きし",
+    "examples_raw": "海岸 (かいがん): bờ biển  \n両岸 (りょうがん): hai bờ\n岸辺 (きしべ): ven bờ  \n岸 (きし): bờ",
+    "compounds": [
+      {
+        "word": "海岸",
+        "reading": "かいがん",
+        "meaning": "bờ biển"
+      },
+      {
+        "word": "両岸",
+        "reading": "りょうがん",
+        "meaning": "hai bờ"
+      },
+      {
+        "word": "岸辺",
+        "reading": "きしべ",
+        "meaning": "ven bờ"
+      },
+      {
+        "word": "岸",
+        "reading": "きし",
+        "meaning": "bờ"
+      }
+    ]
+  },
+  {
+    "id": "kanji_72",
+    "lesson": "第 10 課",
+    "kanji": "製",
+    "han_viet": "CHẾ",
+    "onyomi": "セイ",
+    "kunyomi": "音：セイ",
+    "examples_raw": "製品 (せいひん): sản phẩm  \n製作 (せいさく): chế tác, sản xuất\n～製 (～せい): hàng sản xuất tại ~  \n製造 (せいぞう): chế tạo, sản xuất",
+    "compounds": [
+      {
+        "word": "製品",
+        "reading": "せいひん",
+        "meaning": "sản phẩm"
+      },
+      {
+        "word": "製作",
+        "reading": "せいさく",
+        "meaning": "chế tác, sản xuất"
+      },
+      {
+        "word": "～製",
+        "reading": "～せい",
+        "meaning": "hàng sản xuất tại ~"
+      },
+      {
+        "word": "製造",
+        "reading": "せいぞう",
+        "meaning": "chế tạo, sản xuất"
+      }
+    ]
+  },
+  {
+    "id": "kanji_73",
+    "lesson": "第 10 課",
+    "kanji": "造",
+    "han_viet": "TẠO",
+    "onyomi": "ゾウ",
+    "kunyomi": "つく・る",
+    "examples_raw": "製造 (せいぞう): chế tạo, sản xuất  \n造形 (ぞうけい): tạo hình  \n造林 (ぞうりん): trồng rừng  \n造反 (ぞうはん): tạo phản, phản nghịch",
+    "compounds": [
+      {
+        "word": "製造",
+        "reading": "せいぞう",
+        "meaning": "chế tạo, sản xuất"
+      },
+      {
+        "word": "造形",
+        "reading": "ぞうけい",
+        "meaning": "tạo hình"
+      },
+      {
+        "word": "造林",
+        "reading": "ぞうりん",
+        "meaning": "trồng rừng"
+      },
+      {
+        "word": "造反",
+        "reading": "ぞうはん",
+        "meaning": "tạo phản, phản nghịch"
+      }
+    ]
+  }
+]

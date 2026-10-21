@@ -1,0 +1,799 @@
+[
+  {
+    "id": "grammar_1",
+    "lesson": "第 6 課",
+    "title": "1. Được bao quanh bởi N:",
+    "formula": "N + に囲まれている",
+    "points": "",
+    "examples": [
+      "例:   \t1. 日本は南北に長い島(しま)で、周りを海に囲まれている。",
+      "2. 花と緑に囲まれた地佐那ペンションが並んでいます。"
+    ]
+  },
+  {
+    "id": "grammar_2",
+    "lesson": "第 6 課",
+    "title": "2. Chiếm…:",
+    "formula": "N + を占める",
+    "points": "",
+    "examples": [
+      "例:   \t1. 日本は山林が国土の約3分の2を占めている。",
+      "2. この会社で外国人が占める割合は40％です。"
+    ]
+  },
+  {
+    "id": "grammar_3",
+    "lesson": "第 6 課",
+    "title": "3. Thường, hay…:",
+    "formula": "Vます / N + がち",
+    "points": "ポイント: Diễn tả 1 sự việc dễ xảy ra, thường hay xảy ra nhiều lần hay xu hướng thường như thế. Thường là những hành vi không tốt, không nên.",
+    "examples": [
+      "例:   \t1. 日本海側は冬は曇りがちの日が続き、大雪が降りやすい。",
+      "2. 雪が降ると、電車が遅れがちだ。"
+    ]
+  },
+  {
+    "id": "grammar_4",
+    "lesson": "第 6 課",
+    "title": "4. So với…:",
+    "formula": "Vる / N + に比べ (て)",
+    "points": "ポイント: Dùng trong mẫu câu so sánh",
+    "examples": [
+      "例:   \t1. 北海度に比べて沖縄では1年の平均気温が15度も高い年があります。",
+      "2. 今年の夏は例年に比べて、暑くなるでしょう。"
+    ]
+  },
+  {
+    "id": "grammar_5",
+    "lesson": "第 6 課",
+    "title": "5. Phòng khi, để chuẩn bị cho…:",
+    "formula": "N + に備えて",
+    "points": "",
+    "examples": [
+      "例:   \t1. 大雨に備えて、最初の気象情報に気を付けています。",
+      "2. 大学受験に備えて、「小論文の書き方」という本で勉強します。"
+    ]
+  },
+  {
+    "id": "grammar_6",
+    "lesson": "第 6 課",
+    "title": "6. Thay cho…:",
+    "formula": "N + に代わって",
+    "points": "ポイント: Sử dụng khi “làm việc khác, sử dụng cái khác,…” thay cho 1 người / vật vốn có trách nhiệm thực hiện",
+    "examples": [
+      "例:  \t1. 最近の家は畳に代わって、フローリングの部屋あ増えてきた。",
+      "2. 現金に代わり、電子マネーが使われるようになった。"
+    ]
+  },
+  {
+    "id": "grammar_7",
+    "lesson": "第 6 課",
+    "title": "7. Theo như, giống như…:",
+    "formula": "N + のような + N\nN + のように～ V / 文",
+    "points": "ポイント: Dùng để bắt đầu 1 lời giải thích",
+    "examples": [
+      "例:   \t1. 京都のような歴史のある町に住んでみたいです。",
+      "2. 私はケーキや和菓子のように甘い食べ物が大好きです。"
+    ]
+  },
+  {
+    "id": "grammar_8",
+    "lesson": "第 6 課",
+    "title": "8. Với tư cách là…:",
+    "formula": "N + として",
+    "points": "ポイント: Mẫu câu dùng để nói về tư cách, lập trường, vai trò của người nào đó, hay thể loại, loại hình của sự vật / sự việc gì đó",
+    "examples": [
+      "例:   \t1. 彼はたった一人の医者としてこの島で働いています。",
+      "2. 北海道小樽市は、明治時代に港町として栄えていました。"
+    ]
+  },
+  {
+    "id": "grammar_9",
+    "lesson": "第 6 課",
+    "title": "9. ～に限る:",
+    "formula": "~ N + に限り (chỉ trong giới hạn)\n~ N + に限って (đúng vào N ~)\n~ 普通形 + に限る (là nhất (ý kiến chủ quan))",
+    "points": "ポイント: Diễn tả 1 giới hạn, rằng quyền lợi được nói đến ở phía sau chỉ dành riêng cho 1 (hoặc 1 nhóm)  đối tượng nhất định.",
+    "examples": [
+      "例:   \t1. この券をご持参のお客様に限り、200円割引いたします。",
+      "2. 傘を持っていない日に限って、雨が降る。",
+      "3. A: 一緒にご飯食べに行こうよ。鍋はどう？",
+      "B: いいね。冬は鍋に限るね。"
+    ]
+  },
+  {
+    "id": "grammar_10",
+    "lesson": "第 6 課",
+    "title": "10. Tập trung vào, chủ yếu…:",
+    "formula": "N + ～ を中心に(して)\n        ～ を中心として",
+    "points": "ポイント: Dùng khi muốn thể hiện phạm vi của hoạt động, hiện tượng, trạng thái có trung tâm là người, sự việc nào",
+    "examples": [
+      "例:   \t1. 横浜はみなとみらい21地区を中心に商業地区が広がっています。",
+      "2. 私のクラスはパクさんを中心として、よくまとまっています。"
+    ]
+  },
+  {
+    "id": "grammar_11",
+    "lesson": "第 6 課",
+    "title": "11. Tiêu biểu như là, trước tiên…:",
+    "formula": "N + ～ をはじめ (として)            \n       ～ をはじめとする + N",
+    "points": "ポイント: Dùng khi muốn thể hiện phạm vi của hoạt động, hiện tượng, trạng thái có trung tâm là người, sự việc nào",
+    "examples": [
+      "例:\t1. 横浜には中華街をはじめ、山下公園など多くの人が訪れる場所がある。",
+      "2. このお店ではこの地方の名産品をはじめとする様々なお土産品が売られている。"
+    ]
+  },
+  {
+    "id": "grammar_12",
+    "lesson": "第 6 課",
+    "title": "12. Thông qua…, trong suốt…:",
+    "formula": "N + ～を通して・通じて",
+    "points": "ポイント: Diễn tả ý thông qua phương tiện/trung gian N (người hoặc vật) để thực hiện việc gì đó, hoặc trong suốt khoảng thời gian N",
+    "examples": [
+      "例:   \t1. この地域は1年を通してたくさんの人でにぎわっています。",
+      "2. 子供たちはスポーツを通じて、色々なことを学ぶことができます。"
+    ]
+  },
+  {
+    "id": "grammar_13",
+    "lesson": "第 6 課",
+    "title": "13. Xuất phát từ việc…, vì / bởi…:",
+    "formula": "V 普通形・Aい             \t       \t+ ことから\nAな・N ( + である・だった )",
+    "points": "ポイント: Diễn tả ý nguyên cớ, căn cứ phán đoán (vì người nói biết rõ tính cách, tính chất,…) hoặc lí do khách quan của sự việc. Dùng trong văn viết, mang sắc thái trang trọng. Thường đi kèm với 「と呼ばれている・と言われている・とわかる」",
+    "examples": [
+      "例:   \t1. 横に砂浜が長く伸びていたことから、横浜村と呼ばれていました。",
+      "2. 海洋生物の化石が発見されたことから、この辺りは昔、海だったと考えられる。"
+    ]
+  },
+  {
+    "id": "grammar_14",
+    "lesson": "第 6 課",
+    "title": "14. Nếu nói về, nhắc đến, lại nói đến ~ thì…:",
+    "formula": "N / 普通形 + といえば (～というと・といったら)",
+    "points": "ポイント: Dùng để nhắc đến một điều nổi bật, tiêu biểu, hoặc liên tưởng tới từ chủ đề (N) mà người nói nghe được từ người đối diện.",
+    "examples": [
+      "例:   \t1. 横浜といえば、中華街が有名です。",
+      "2. 冬のスポーツというと、スキーを思い浮かべます。"
+    ]
+  },
+  {
+    "id": "grammar_15",
+    "lesson": "第 7 課",
+    "title": "1. Không phải lúc để…:",
+    "formula": "",
+    "points": "N / V辞書形 + どころではない・どころじゃない\nポイント: Cho biết hiện có việc khác cấp bách, quan trọng, khó khăn... hơn nên không có thời gian, tâm sức... cho việc đang được đề cập.",
+    "examples": [
+      "例:   \t1. 日本に来たばかりのころは生活に慣れるのに一所懸命でボランティアどころはありま",
+      "せんでした。",
+      "2. 工場で火事があり、仕事どころではなかった。"
+    ]
+  },
+  {
+    "id": "grammar_16",
+    "lesson": "第 7 課",
+    "title": "2. ～たところ:",
+    "formula": "",
+    "points": "Vた + ところ\nポイント: Diễn tả đang làm gì thì phát hiện 1 điều gì đó (chủ thể không nhận thức được)",
+    "examples": [
+      "例:   \t1. ボランティアに参加してみたところ、とても楽しくてあっという間に時間が経ちまし",
+      "た。",
+      "2. 初めて見た料理なので、おいしいかどうか心配だった。でも、食べてみたところ、と",
+      "てもおいしかった。",
+      "Vた + ところが: Nhưng mà…",
+      "例: 教室に入ってみたところが、学生は一人も来ていなかった。",
+      "ところで: Sẵn đây, nhân tiện… (Dùng để chuyển chủ đề)",
+      "例: 明日、試験でしょ。頑張ってね。ところで、来週の月曜日は空いてる？"
+    ]
+  },
+  {
+    "id": "grammar_17",
+    "lesson": "第 7 課",
+    "title": "3. Được quyết định / quy định…:",
+    "formula": "",
+    "points": "Vる・ない　　 + ことになった\nAい／Nという\nポイント: Diễn tả một quyết định được đưa ra, nhưng không phải do bản thân người thi hành tự muốn mà do người khác hoặc tổ chức định đoạt.",
+    "examples": [
+      "例:   \t1. 私は年配の女性と中学生と3人で一緒にゴミ拾いをすることになった。",
+      "2. 景気が悪いので、社員旅行はしないことになった。残念だ。"
+    ]
+  },
+  {
+    "id": "grammar_18",
+    "lesson": "第 7 課",
+    "title": "4. Chừng nào / Cho đến khi…:",
+    "formula": "",
+    "points": "Vる・ない\nAな・である　＋   限り・限りは\nNである\nポイント: Diễn tả chừng nào còn trong trạng thái như ở vế trước, thì trạng thái ở vế sau vẫn sẽ tiếp diễn.",
+    "examples": [
+      "例:   \t1. 東京の都心に住んでいる限りは、車は必要ないだろう。",
+      "2. プロの選手である限り、努力するのは当然だ。",
+      "ない限り: Nếu A ko xảy ra thì B cũng ko thể xảy ra",
+      "例:   \t1. この人数では、残業しない限り仕事は終わらない。",
+      "2. 魚は新鮮でない限りは、刺身(さしみ)にはできない。"
+    ]
+  },
+  {
+    "id": "grammar_19",
+    "lesson": "第 7 課",
+    "title": "5. ～かなと思って:",
+    "formula": "",
+    "points": "ポイント: Cấu trúc mời rủ 1 cách ngại ngần, khách khí",
+    "examples": [
+      "例:   \tA: ケーキ作ってみたんだけど、Bさん、食べるかなと思って。これ。",
+      "B: え、うれしい。ありがとう。"
+    ]
+  },
+  {
+    "id": "grammar_20",
+    "lesson": "第 7 課",
+    "title": "6. Vậy mà… / Thế mà…:",
+    "formula": "",
+    "points": "普通形\nA な だ である ＋ にしては\nN だ (である)\nポイント: Diễn tả một sự thật trái với tưởng tượng, dự đoán",
+    "examples": [
+      "例:\t1. 例年の今頃はもっと寒い。今日は11月にしては暖かい。",
+      "2. 中古品にしてはいいものがあるって評判なんです。"
+    ]
+  },
+  {
+    "id": "grammar_21",
+    "lesson": "第 7 課",
+    "title": "7. Cứ mỗi…:",
+    "formula": "",
+    "points": "(N) + 数量詞 + につき、数量詞\nポイント: Cho biết số lượng ứng với mỗi một đối tượng N",
+    "examples": [
+      "例:   \t1. ピザお買い上げ2枚につき次回サービス券1枚差し上げます。",
+      "2. しまなみ水族館の団体入場券は、1人につき１００円の割引があるそうだ。"
+    ]
+  },
+  {
+    "id": "grammar_22",
+    "lesson": "第 7 課",
+    "title": "8. ものだ:",
+    "formula": "",
+    "points": "Vるものだ (chân lí, đương nhiên)\nVたものだ (thói quen trong quá khứ)\nVたいものだ (mong muốn dù có khó khăn)\nポイント: Diễn tả cảm xúc ngạc nhiên hoặc cảm thán trước 1 sự việc",
+    "examples": [
+      "例:   \t1. 人に助けてもらったときは、お礼を言うものだ。",
+      "2. 子供のころは、よく外で遊んだものだ。",
+      "3. できたら、あなたの切手のコレクションを見たいものだ。",
+      "V る／A い／A な ＋ もんだ・ものだ",
+      "例:   \t1. A: 北海道の知床って自然が素晴らしいところらしいよ。",
+      "B: へえ、いつか行ってみたいもんだね。",
+      "2. 月日の経つのは早いものだ。この間お正月だと思ったら、もう販年たってしまった。"
+    ]
+  },
+  {
+    "id": "grammar_23",
+    "lesson": "第 7 課",
+    "title": "9. Mặc dù, ngay cả khi…:",
+    "formula": "",
+    "points": "V ます／A い／A な／N ＋ ながら (も)\nポイント: Diễn tả ý tuy vế trước là vậy, thực tế ở vế sau lại trái ngược với những gì có thể mong đợi, hình dung ra từ vế trước. Cấu trúc này nhấn mạnh nội dung ở vế sau. 2 vế có cùng chủ ngữ.",
+    "examples": [
+      "例:   \t1. 健康に良くない走りながらも、ついたばこを吸ってしまう。",
+      "2. 楽しみにしていた旅行だが、残念ながら病気で行けなくなってしまった。"
+    ]
+  },
+  {
+    "id": "grammar_24",
+    "lesson": "第 7 課",
+    "title": "10. Hễ… là luôn…:",
+    "formula": "",
+    "points": "Vる ＋ につけ (て)\nポイント: Diễn tả ý nghĩa hễ làm gì là vế sau luôn xảy ra, vế sau thường đi với cảm xúc hoặc 見る、考える、思う、…",
+    "examples": [
+      "例:   \t1. この音楽を聞くにつけ、子供のころを思い出す。",
+      "2. 母からの手紙を読むにつけて、頑張らなければと思う。"
+    ]
+  },
+  {
+    "id": "grammar_25",
+    "lesson": "第 7 課",
+    "title": "11. Ngay cả, thậm chí…:",
+    "formula": "",
+    "points": "N (+助詞) ＋ さえ\nポイント: Dùng để nhấn mạnh điều gì đó là dĩ nhiên (mạnh hơn でも)",
+    "examples": [
+      "例:   \t1. 夢中になっておしゃべりしていたら、食事することさえ忘れていた。",
+      "2. 大学を辞めることを両親にさえ相談しないで決めた。"
+    ]
+  },
+  {
+    "id": "grammar_26",
+    "lesson": "第 7 課",
+    "title": "12. Trái với…:",
+    "formula": "",
+    "points": "N＋ ~に反し (て) ／～に反する／に反した\nポイント: Cho biết điều diễn ra ở vế sau trái ngược, tương phản với dự đoán, kỳ vọng",
+    "examples": [
+      "例:   \t1. 今年は気象庁の予想に反して、暖冬になった。",
+      "2. 親の期待に反することばかりしてきたので、これからは親孝行したい。"
+    ]
+  },
+  {
+    "id": "grammar_27",
+    "lesson": "第 7 課",
+    "title": "13. Tranh thủ trong lúc…, Trong khi…:",
+    "formula": "",
+    "points": "Vる・Vない\nAい・な  \t　+ うちに、～\nN の\nポイント: Diễn tả ý nhân lúc một trạng thái còn đang tiếp diễn, vẫn chưa thay đổi, thì tranh thủ thực hiện một hành động nào đó.\nポイント: Vế sau là 1 sự việc không thể điều khiển được, vô thức thay đổi về trạng thái (Không bao hàm ý chí của người nói)",
+    "examples": [
+      "例:   \t1. 祖父が元気なうちに、家族みんなで旅行したいと思っています。",
+      "2. 夜は寒くなるから、昼のうちに洗濯をしておこう。",
+      "V る・V ている + うちに、～",
+      "例:   \t1. ピアノを練習しているうちに、上手になりました。",
+      "2. 本を読んでいるうちに、眠くなります。"
+    ]
+  },
+  {
+    "id": "grammar_28",
+    "lesson": "第 7 課",
+    "title": "14. Từ… rồi, ngay cả… thì:",
+    "formula": "",
+    "points": "N + からして\nポイント: Dùng để đưa ra 1 ví dụ tiêu biểu làm dẫn chứng và từ đó kết luận những cái khác là đương nhiên.",
+    "examples": [
+      "例:   \t1. この本はタイトルからして難しいそうだ。",
+      "2. A: この旅館は歴史があるそうだよ。",
+      "B: なるほど。玄関からして立派だね。"
+    ]
+  },
+  {
+    "id": "grammar_29",
+    "lesson": "第 8 課",
+    "title": "1. Về việc…:",
+    "formula": "",
+    "points": "N + のことなんですが\nポイント: Dùng để mở đầu câu chuyện, trình bày về 1 sự việc nào đó",
+    "examples": [
+      "例:   \t1. A: あのう、明日のシフトのことなんですが、田中さんが変わってくれることになた。",
+      "B: そうですか。わかりました。"
+    ]
+  },
+  {
+    "id": "grammar_30",
+    "lesson": "第 8 課",
+    "title": "2. A: パーティーの会費のことなんだけど…",
+    "formula": "",
+    "points": "B: あ、1人2000円になったらしいよ。",
+    "examples": []
+  },
+  {
+    "id": "grammar_31",
+    "lesson": "第 8 課",
+    "title": "2. Cho phép tôi…:",
+    "formula": "",
+    "points": "V + (さ) せていただけませんか\nポイント: Diễn tả một lời đề nghị hay yêu cầu ai đó làm gì giúp mình",
+    "examples": [
+      "例:   \t1. A:  すみません、頭が痛いので早く帰らせていただけませんか。",
+      "B: 大丈夫ですか。わかりました。気をつけて帰ってくださいね。",
+      "2. A: あさっての回収日まで古い冷蔵庫をゴミ置き場に置かせていただけませんか。",
+      "B: じゃあ、邪魔にならないように置いといてくださいね。"
+    ]
+  },
+  {
+    "id": "grammar_32",
+    "lesson": "第 8 課",
+    "title": "3. Vì…:",
+    "formula": "",
+    "points": "普通形（A な / N な）＋ ものですから\nポイント: Dùng để diễn tả lí do (thường là khách quan, bất khả kháng) để phân trần, biện bạch... Vế sau không được biểu thị ý chí, yêu cầu, mệnh lệnh... của người nói.",
+    "examples": [
+      "例: A: この茶色のカバン、色違いがありますか。",
+      "B: あ、黒があったんですが。ちょうど売れてしまったものですから… 申し訳ありません。"
+    ]
+  },
+  {
+    "id": "grammar_33",
+    "lesson": "第 8 課",
+    "title": "4. Thay cho…:",
+    "formula": "",
+    "points": "N + の代わりに・に代わって\nポイント: Sử dụng khi “làm việc khác, sử dụng cái khác,…” thay cho 1 người / vật vốn có trách nhiệm thực hiện",
+    "examples": [
+      "例:   \t1. 出張中の部長の代わりに課長が朝礼でスピーチをした。",
+      "2. A: 今日、山本さんに代わってAさんがレジ係をしてください。",
+      "B: はい、わかりました。"
+    ]
+  },
+  {
+    "id": "grammar_34",
+    "lesson": "第 8 課",
+    "title": "5. Nhờ vào… (Thanks to):",
+    "formula": "",
+    "points": "V 普通形・A い + ～おかげで\nA な・N の\nポイント: Diễn tả lý do của sự việc, thường đi với kết quả tốt và mang hàm ý biết ơn, còn khi đi với kết quả xấu thì có hàm ý mỉa mai.",
+    "examples": [
+      "例:   \t1. 田中さんのおかげで仕事がうまくいきました。",
+      "2. 山田さんが地図を書いてくれたおかげで迷わず会場へ行けた。"
+    ]
+  },
+  {
+    "id": "grammar_35",
+    "lesson": "第 8 課",
+    "title": "6. Tại… (Due to):",
+    "formula": "",
+    "points": "V普通形・Aい + ～せいで\nAな・Nの\nポイント: Diễn tả lý do của sự việc, thường đi với kết quả xấu",
+    "examples": [
+      "例:   \t渋滞のせいで、帰宅が予定よりも3時間も遅くなってしまった。",
+      "せいか: Không biết có phải do ~ hay không",
+      "例:   \t暑いせいか、食欲がない。",
+      "せいだ: … là do ~",
+      "例:   \t目が悪くなったのはテレビを見すぎたせいだ。"
+    ]
+  },
+  {
+    "id": "grammar_36",
+    "lesson": "第 8 課",
+    "title": "7. Dù, thế mà…:",
+    "formula": "",
+    "points": "V普通形・Aい + くせに\nAな・Nの\nポイント: Diễn tả một sự việc, kết quả xảy ra trái với suy nghĩ, suy đoán của người nói và thường là tiêu cực, thể hiện thái độ tức giận, quở trách, khinh miệt của người nói về vật hoặc người được đề cập.",
+    "examples": [
+      "例:   \t1. お兄ちゃん、自分では何もしないくせに、人にはやれやれっていうんだから嫌になっちゃう。",
+      "2. 自分で全部やるって言ったくせに、途中でやめて帰っちゃうなんて。"
+    ]
+  },
+  {
+    "id": "grammar_37",
+    "lesson": "第 8 課",
+    "title": "8. Chắc chắn là…:",
+    "formula": "",
+    "points": "V 普通形・Aい\nAな・Nの + にきまっている\nポイント: Dùng để diễn tả suy đoán chắc chắn của người nói về một sự việc nào đó. Dựa trên cảm tính, mang tính chủ quan.",
+    "examples": [
+      "例:   \t1. A: 田中さん、遅刻？ どうしたんだろう。",
+      "B: 二日酔いにきまってるよ。昨日、たくさんお酒を飲んでたから。",
+      "2. A: そんなに無理をしたら、体を壊すにきまってる。休んだほうがいいよ。",
+      "B: うん、ありがとう。"
+    ]
+  },
+  {
+    "id": "grammar_38",
+    "lesson": "第 8 課",
+    "title": "9. Thể sai khiến:",
+    "formula": "",
+    "points": "ポイント: Đi cùng với động từ chỉ cảm xúc (驚く、笑う、怒る、泣く、喜ぶ、悲しむ、安心する、困る、楽しむ、びっくりする、…), mang ý nghĩa “Làm ai đó cảm thấy thế nào”",
+    "examples": [
+      "例:   \t1. お客さんの目の前でお皿を割って驚かせてしまった。",
+      "2. 彼は恋人を喜ばせるために、サプライズパーティーの準備した。"
+    ]
+  },
+  {
+    "id": "grammar_39",
+    "lesson": "第 8 課",
+    "title": "10. ~ことはない:",
+    "formula": "",
+    "points": "V る + ことはない\nポイント: “Không cần thiết phải…”, dùng để nói với người nghe rằng không nhất thiết phải thực hiện một hành động nào đó, không thực hiện hành động đó thì vẫn chấp nhận được.\nポイント: “Không phải là không…”, dùng để phủ định 1 phần ý kiến trước đó, hoặc tỏ ý điều gì đó không hẳn là không thể, nhưng có lý do khiến người nói không muốn thực hiện",
+    "examples": [
+      "例:   \t1. できなくても、がっかりすることはないよ。これから覚えればいいから。",
+      "2. A: 旅行に行くのにスーツケースを買わなくちゃ。",
+      "B: わざわざ買うことはないよ。私のを貸してあげるから。",
+      "V ない + ことはない",
+      "例:   \t1. 納豆は食べないことはないですが、あまり好きではありません。",
+      "2. 車を運転できないことはないんですが、ほとんどしません。"
+    ]
+  },
+  {
+    "id": "grammar_40",
+    "lesson": "第 8 課",
+    "title": "11. Cứ nhắc đến… thì…:",
+    "formula": "",
+    "points": "V る・N の + ～ことになると／～こととなると\nポイント: Diễn tả ý cứ đề cập tới một đề tài nào đó thì người nói lại có thái độ hoặc thay đổi bất thường",
+    "examples": [
+      "例:   \t1. 母は食事のマナーのことになるとうるさい。",
+      "2. 佐藤さんは好きな料理のこととなると話が止まらなくなる。"
+    ]
+  },
+  {
+    "id": "grammar_41",
+    "lesson": "第 8 課",
+    "title": "12. Đối với, đứng trên lập trường…:",
+    "formula": "",
+    "points": "N + ～にしたら・にすれば・にすると\n～にしてみたら・にしてみれば\nポイント: Diễn tả suy nghĩ, quan điểm của người đó khi đứng trên lập trường của họ. Không dùng để nói về lập trường của chính người nói.",
+    "examples": [
+      "例: \t1. 日本人にすれば簡単なあいさつでも、外国人にしてみたらとても難しいかもしれない。",
+      "2. A: うちの母親、口うるさくて嫌になっちゃうよ。",
+      "B: でも、お母さんにしてみればAさんのことが心配なんじゃないの。"
+    ]
+  },
+  {
+    "id": "grammar_42",
+    "lesson": "第 8 課",
+    "title": "13. Cứ mỗi lần…:",
+    "formula": "",
+    "points": "V る・Nの + ～たびに\nポイント: Dùng để nhắc đến một sự việc thường xảy ra mỗi khi có một tình huống cụ thể nào đó. Không dùng để nói về các hiện tượng tự nhiên xảy ra hằng ngày.",
+    "examples": [
+      "例:   \t1. 彼女は恋人から電話がかかってくるたびに笑顔になる。",
+      "2. この地域は台風のたびに大きな被害が出る。"
+    ]
+  },
+  {
+    "id": "grammar_43",
+    "lesson": "第 8 課",
+    "title": "14. Giá như, ước gì…:",
+    "formula": "",
+    "points": "V・Aい・Aな・N条件形／たら + ～たのに\nポイント: Dùng để thể hiện sự tiếc nuối, bất mãn hoặc chỉ trích của người nói về một việc đã làm hoặc đã không làm trong quá khứ.",
+    "examples": [
+      "例:   \t1. もっと優しい話し方をすればよかったのに、なんであんなに冷たい言い方をしてしまったんだろう。",
+      "2. すぐタクシーで行ったら間に合ったのに、バスに乗ったから遅れてしまった。"
+    ]
+  },
+  {
+    "id": "grammar_44",
+    "lesson": "第 9 課",
+    "title": "1. Khó…:",
+    "formula": "",
+    "points": "Vます + がたい\nポイント: Diễn tả việc khó thực hiện được do rào cản về mặt tinh thần và cảm xúc. Thường đi cùng 「信じる、許す、理解する、受け入れる、創造する、。。。」, không dùng để diễn tả khó khăn về năng lực.",
+    "examples": [
+      "例:   \t1. この詩に出会った時の感動は忘れがたいものです。",
+      "2. ペットを捨てるなんて、許しがたいことだ。"
+    ]
+  },
+  {
+    "id": "grammar_45",
+    "lesson": "第 9 課",
+    "title": "2. Như, theo như…:",
+    "formula": "",
+    "points": "V普通形／Nの + ように",
+    "examples": [
+      "例:   \t1. どうして眠あと同じようにできないのだろうと悩んでいました。",
+      "2. 来月から、ごみ回収日は以下のように変わります。"
+    ]
+  },
+  {
+    "id": "grammar_46",
+    "lesson": "第 9 課",
+    "title": "3. Cùng với, đồng thời…:",
+    "formula": "",
+    "points": "V辞書形／N + とともに\nポイント: Cho biết trạng thái của vế trước thay đổi, trạng thái của vế sau cũng thay đổi theo. Sự thay đổi của hai trạng thái này là cùng chiều; hoặc cho biết vế trước và vế sau đồng thời xảy ra. Hai vế có vị thế ngang nhau và không nhất thiết có quan hệ nhân quả.\n- Theo sau danh từ hoặc động từ thể hiện sự thay đổi, gần nghĩa với 「につれて、と同時に、…」, mang nghĩa là cùng với, đồng thời,…\n- Theo sau danh từ chỉ người hoặc cơ quan, tổ chức, gần nghĩa với 「一緒に」, mang nghĩa là cùng với",
+    "examples": [
+      "例:   \t1. 時間がたつとともに、私の悩みも消えていきました。",
+      "2. インターネットの普及とともに、情報が簡単に手に入るようになった。"
+    ]
+  },
+  {
+    "id": "grammar_47",
+    "lesson": "第 9 課",
+    "title": "4. Dựa trên, lấy cảm hứng từ…:",
+    "formula": "",
+    "points": "N + をもとに（して）／した\nN + をもとにした + N\nポイント: Diễn tả ý lấy thứ gì đó làm căn cứ, nguồn tư liệu, gợi ý... trừu tượng chứ không phải vật chất cụ thể. Vế sau thường là câu động từ thể hiện ý tạo ra cái mới.",
+    "examples": [
+      "例:   \t1. この詩は彼女の経験をもとにして書かれているように感じました。",
+      "2. 消費者の意見をもとに、新しい商品の開発が行われる。"
+    ]
+  },
+  {
+    "id": "grammar_48",
+    "lesson": "第 9 課",
+    "title": "5. Có lẽ…, có phải không…:",
+    "formula": "",
+    "points": "V普通形・Aい・Aな・N+ ～でしょう／だろう",
+    "examples": [
+      "例:   \t1. A: 来週の水曜日、遠足だね。Bさんも行くでしょう？",
+      "B: うん。楽しみだね。",
+      "2. A: 明日の飲み会、7時からでしょう？",
+      "B: あ、7時からじゃなくて、6時半からだよ。"
+    ]
+  },
+  {
+    "id": "grammar_49",
+    "lesson": "第 9 課",
+    "title": "6. …nhỉ:",
+    "formula": "",
+    "points": "V・Aい・Aな・N過去形 + っけ\nポイント: Xác nhận chuyện mình không nhớ với người khác, nói với chính mình, sử dụng với thì quá khứ.",
+    "examples": [
+      "例:   \tA: 今日、宿題あったっけ？",
+      "B: ううん、今日はないよ。"
+    ]
+  },
+  {
+    "id": "grammar_50",
+    "lesson": "第 9 課",
+    "title": "7. Thảo nào, hèn chi, lý do là vì, tấi nhiên, vậy nên, nói cách khác…:",
+    "formula": "",
+    "points": "V普通形・Aい・Aな・N + (という) わけだ\nポイント: Sử dụng khi đưa ra một kết luận gì đó là đương nhiên từ tình thế hoặc từ thực tế để đưa ra một lý giải, giải thích nào đó. Vì có lý do nên muốn nói như thế là đương nhiên.",
+    "examples": [
+      "例:   \tA: あ、今日、さくら市の花火大会があるんだって。",
+      "B: ああ、それで、浴衣を着た人がたくさん歩いているわけだ。"
+    ]
+  },
+  {
+    "id": "grammar_51",
+    "lesson": "第 9 課",
+    "title": "8. Tuyệt đối không…:",
+    "formula": "",
+    "points": "Vます + っこない\nポイント: Dùng để phủ định một cách dứt khoát, mạnh mẽ rằng tuyệt đối không có khả năng xảy ra một việc nào đó, không thể nào có chuyện đó (theo ý kiến chủ quan của người nói)",
+    "examples": [
+      "例:   \tA: ねえ、この曲、歌える？",
+      "B: わあ、音が高いね。ダメダメ、僕には歌えっ来ないよ。"
+    ]
+  },
+  {
+    "id": "grammar_52",
+    "lesson": "第 9 課",
+    "title": "9. Thì là vì…:",
+    "formula": "",
+    "points": "普通形 + ～もん・んだもん\nAな・Nな + んだもん\nポイント: Dùng để giải thích nguyên nhân, lý do mà người nói cho là chính đáng, kèm theo thái độ không vui vẻ, khó chịu, thất vọng...",
+    "examples": [
+      "例:   \tA: あれ、なんでニンジン残してるの？",
+      "B: だって、嫌いなんだもん。"
+    ]
+  },
+  {
+    "id": "grammar_53",
+    "lesson": "第 9 課",
+    "title": "10. Đến mức…:",
+    "formula": "",
+    "points": "普通形 / N + ～ほど・くらい・ぐらい\nポイント: Dùng để diễn đạt một động tác hay trạng thái có mức độ cỡ bao nhiêu đó, thông qua cách nói ẩn dụ hay một ví dụ cụ thể.",
+    "examples": [
+      "例:   \t1. 考えなければならないことが山ほどある。",
+      "2. スピーチ大会で優勝して、飛び上がりたいくらいうれしかった。"
+    ]
+  },
+  {
+    "id": "grammar_54",
+    "lesson": "第 9 課",
+    "title": "11. Suýt chút nữa thì…:",
+    "formula": "",
+    "points": "V る・ない + ～ところだった\nポイント: Dùng để diễn tả một sự việc (tốt hoặc xấu) suýt nữa đã xảy ra. Bao hàm cảm xúc của người nói trước sự việc (thất vọng, tức giận, tiếc nuối, nhẹ nhõm...).",
+    "examples": [
+      "例:   \t1. 急に子供がちびだしてきて、もうちょっとで事故になるところでした。",
+      "2. 電車が遅れて、もう少しで集合時間に間に合わないところだった。"
+    ]
+  },
+  {
+    "id": "grammar_55",
+    "lesson": "第 9 課",
+    "title": "12. …chịu không nổi:",
+    "formula": "",
+    "points": "～て + たまらない\nポイント: Diễn tả cảm xúc mạnh đến mức không kiềm chế được.",
+    "examples": [
+      "例:   \t1. 国にいる恋人に会いたくてたまらない。",
+      "2. 祖母が入院したと聞いて、心配でたまらない。"
+    ]
+  },
+  {
+    "id": "grammar_56",
+    "lesson": "第 9 課",
+    "title": "13. Không hẳn là…:",
+    "formula": "",
+    "points": "普通形／Aな・である／Nの・である + ～わけではない／じゃない\n普通形／Aなだ／Nだ + というわけではない／じゃない\nポイント: Dùng để phủ nhận một phần nhận định (có thể có) của người nghe, rằng sự việc không ở mức độ cao hay trầm trọng như họ nghĩ.",
+    "examples": [
+      "例:   \t1. A: 遠慮しないで、もっと食べてください。",
+      "B: 遠慮しているわけじゃないんですが、もうおなかがいっぱいなんです。",
+      "2. 若い人がみんな若者言葉を使うというわけではない。"
+    ]
+  },
+  {
+    "id": "grammar_57",
+    "lesson": "第 9 課",
+    "title": "14. Cỡ như, ít ra thì…:",
+    "formula": "",
+    "points": "普通形 / Aな / N + ～くらい・ぐらい\nポイント: Diễn tả mức độ tối thiểu, hoặc diễn tả mức độ thấp, mang ý mỉa mai (cỡ ấy, chỉ cỡ,…)",
+    "examples": [
+      "例:   \t1. A: メール、見た？",
+      "B: ごめん！忙しくて、メールのチェックしてなかった。",
+      "A: え？忙しくても、メールをチェックする時間くらいはあるだろう？",
+      "2. A: ああ、暑い、暑い。エアコン、つけよう。",
+      "B: でも、今28度だよ。ちょっと暑いくらい我慢しようよ。"
+    ]
+  },
+  {
+    "id": "grammar_58",
+    "lesson": "第 10 課",
+    "title": "1. Nói đến, nhắc đến…:",
+    "formula": "",
+    "points": "N + と言ったら・といえば・というと\nポイント: Dùng để nhắc đến một điều nổi bật, tiêu biểu, hoặc liên tưởng tới từ chủ đề (N) mà người nói nghe được từ người đối diện.",
+    "examples": [
+      "例:   \t1. 屋久島の自然の豊かさと言ったら、ほかに比べるものがないほどです。",
+      "2. 山の頂上から見た朝日の美しさと言ったら、忘れられません。"
+    ]
+  },
+  {
+    "id": "grammar_59",
+    "lesson": "第 10 課",
+    "title": "2. Không thể nào…:",
+    "formula": "",
+    "points": "とても ＋ V可能形 / できない\nポイント: Diễn tả phán đoán có ý chủ quan, dù dốc sức làm theo cách nào đi nữa cũng vô ích, không thể làm được.",
+    "examples": [
+      "例:   \t1. こんなにたくさん雪が積もると、とても外には出られません。",
+      "2. 500ページもある本は1日ではとても読めない。"
+    ]
+  },
+  {
+    "id": "grammar_60",
+    "lesson": "第 10 課",
+    "title": "3. Không chỉ… mà còn…:",
+    "formula": "",
+    "points": "N1 + はもちろん／はもとより + N2\nポイント: Diễn tả ý: N1 là hiển nhiên, là rõ ràng rồi, nhưng ngoài ra còn có N2",
+    "examples": [
+      "例:   \t1. この豆はおやつにはもちろん、ビールのおつまみにもぴったりです。",
+      "2. 私の故郷は、電機はもとより、水道も通っていない。"
+    ]
+  },
+  {
+    "id": "grammar_61",
+    "lesson": "第 10 課",
+    "title": "4. Tôi xin phép được…:",
+    "formula": "",
+    "points": "V（さ）せ ＋ ていただきます",
+    "examples": [
+      "例:   \t1. では、Aグループの発表をさせていただきます。",
+      "2. 本日は会社旅行につき、休ませていただきます。"
+    ]
+  },
+  {
+    "id": "grammar_62",
+    "lesson": "第 10 課",
+    "title": "5. Khiêm nhường ngữ:",
+    "formula": "",
+    "points": "ご ＋ N ＋ いたします\nお ＋ V ます ＋ いたします",
+    "examples": [
+      "例:   \t1. 先輩の田中さんをご紹介いたします。",
+      "2. 上り列車をお待ちのお客様にお知らせいたします。"
+    ]
+  },
+  {
+    "id": "grammar_63",
+    "lesson": "第 10 課",
+    "title": "6. Cứ ngỡ là, tưởng là…:",
+    "formula": "",
+    "points": "V た・ている／Aい／Aな／Nの ＋ つもりだ\nポイント: Diễn tả ý: người nói đang cho rằng, đang tưởng rằng sự việc là như vậy, trong khi thực tế thì không phải vậy, hoặc người khác thì không nghĩ vậy.",
+    "examples": [
+      "例:   \t1. あっ！宿題が入っていない。今朝カバンに入れたつもりだったんだけど。",
+      "2. まだまだ若いつもりでいたが、思ったように速く走れない。"
+    ]
+  },
+  {
+    "id": "grammar_64",
+    "lesson": "第 10 課",
+    "title": "7. Cảm thấy như là, dường như…:",
+    "formula": "",
+    "points": "V 普通形／Aな／Nの ＋ ように思う\nポイント: Dùng để nói một cách khiêm tốn ý kiến khi đối phương có thể có ý kiến khác mình, hoặc khi đưa ra nội dung khó chấp nhận cho đối phương.",
+    "examples": [
+      "例:   \t1. 今月の請求金額、ちょっと違うように思うんですが、確認してもらえませんか。",
+      "2. A: 山田さん、いる？",
+      "B: あれ？さっきまでここにいたように思うけど。"
+    ]
+  },
+  {
+    "id": "grammar_65",
+    "lesson": "第 10 課",
+    "title": "8. ～ております:",
+    "formula": "",
+    "points": "ポイント: Khiêm nhường ngữ của ～ています",
+    "examples": [
+      "例:   \t1. またのご来店をお待ちしております。",
+      "2. 渋谷駅での車両故障のため、山手線内周りはただ今、運動を見合わせております。"
+    ]
+  },
+  {
+    "id": "grammar_66",
+    "lesson": "第 10 課",
+    "title": "9. Khó mà, không thể…:",
+    "formula": "",
+    "points": "V ます＋ かねます\nポイント: Diễn tả ý dù muốn làm, dù gắng sức làm thì cũng khó, không thể làm được. Đây là cách nói kiểu cách, trang trọng với mục đích từ chối khéo.",
+    "examples": [
+      "例:   \t1. こちらに電話をいただいても、ツアー当日のバスの出発時間の変更は到しかねます。",
+      "2. 年末、旅行に行きたいと思っているが、どこへ行くか決めかねている。"
+    ]
+  },
+  {
+    "id": "grammar_67",
+    "lesson": "第 10 課",
+    "title": "10. Thật là…:",
+    "formula": "",
+    "points": "V た／Aい／Aな＋ ことに（は）\nポイント: Diễn đạt cảm nghĩ của người nói về một sự việc được trình bày sau đó, đi sau một tính từ hoặc động từ biểu thị tình cảm, cảm xúc",
+    "examples": [
+      "例:   \t1. 驚いたことに、旅行先で10年ぶりに中学のクラスメイトと再会した。",
+      "2. 大学に合格できた。さらにうれしいことには、奨学金もらえることになった。"
+    ]
+  },
+  {
+    "id": "grammar_68",
+    "lesson": "第 10 課",
+    "title": "11. Quả nhiên là, hèn chi…:",
+    "formula": "",
+    "points": "普通形＋だけあって\nAな・である／Nである＋だけあって\nポイント: Dùng khi sự việc có một kết quả đúng như người nói đã dự đoán, căn cứ vào những hiểu biết của mình hoặc vào cách suy nghĩ thông thường của xã hội (thường đi cùng さすが)",
+    "examples": [
+      "例:   \t1. 彼は車が好きなだけあって、車についてよく知っている。",
+      "2. このワインはさすが高いだけのことはある。香りも味も素晴らしい。"
+    ]
+  },
+  {
+    "id": "grammar_69",
+    "lesson": "第 10 課",
+    "title": "12. Nhân tiện, tiện thể,,,:",
+    "formula": "",
+    "points": "V る・た／Nの＋ついでに\nポイント: Diễn tả ý khi thực hiện một hành động thì nhân tiện thực hiện thêm một hành động khác",
+    "examples": [
+      "例:   \t1. 駅前のスーパーへ行くついでに、たばこを買ってきてくれませんか。",
+      "2. 出張のついでに、高校の時の友達に会いに行った。"
+    ]
+  }
+]
