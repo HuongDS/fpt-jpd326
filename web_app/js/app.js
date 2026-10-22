@@ -243,14 +243,47 @@ class App {
       });
     }
 
-    // "Luyện Flashcard Hán Tự" button
+    // Kanji Flashcard buttons
     const fcKanjiBtn = document.getElementById('btn-fc-kanji');
     if (fcKanjiBtn) {
       fcKanjiBtn.addEventListener('click', () => {
         const filtered = this.kanjiLessonFilter === 'all'
           ? this.data.kanji
           : this.data.kanji.filter(k => k.lesson === this.kanjiLessonFilter);
-        window.flashcardEngine.loadDeck(filtered, 'kanji');
+        window.flashcardEngine.loadDeck(filtered, 'kanji', 'all');
+        this.switchTab('flashcards');
+      });
+    }
+
+    const fcKanjiOnBtn = document.getElementById('btn-fc-kanji-on');
+    if (fcKanjiOnBtn) {
+      fcKanjiOnBtn.addEventListener('click', () => {
+        const filtered = this.kanjiLessonFilter === 'all'
+          ? this.data.kanji
+          : this.data.kanji.filter(k => k.lesson === this.kanjiLessonFilter);
+        window.flashcardEngine.loadDeck(filtered, 'kanji', 'on');
+        this.switchTab('flashcards');
+      });
+    }
+
+    const fcKanjiKunBtn = document.getElementById('btn-fc-kanji-kun');
+    if (fcKanjiKunBtn) {
+      fcKanjiKunBtn.addEventListener('click', () => {
+        const filtered = this.kanjiLessonFilter === 'all'
+          ? this.data.kanji
+          : this.data.kanji.filter(k => k.lesson === this.kanjiLessonFilter);
+        window.flashcardEngine.loadDeck(filtered, 'kanji', 'kun');
+        this.switchTab('flashcards');
+      });
+    }
+
+    const fcKanjiCpBtn = document.getElementById('btn-fc-kanji-compounds');
+    if (fcKanjiCpBtn) {
+      fcKanjiCpBtn.addEventListener('click', () => {
+        const filtered = this.kanjiLessonFilter === 'all'
+          ? this.data.kanji
+          : this.data.kanji.filter(k => k.lesson === this.kanjiLessonFilter);
+        window.flashcardEngine.loadDeck(filtered, 'kanji', 'compound');
         this.switchTab('flashcards');
       });
     }
@@ -353,6 +386,17 @@ class App {
     const speakBtn = document.getElementById('btn-modal-speak-kanji');
     if (speakBtn) {
       speakBtn.onclick = () => window.soundEngine.speakJapanese(k.kunyomi || k.onyomi || k.kanji);
+    }
+
+    // Study this Kanji specifically (On, Kun, and Compounds individual flashcards)
+    const studyKanjiBtn = document.getElementById('btn-modal-study-kanji');
+    if (studyKanjiBtn) {
+      studyKanjiBtn.onclick = () => {
+        this.closeKanjiModal();
+        window.flashcardEngine.loadDeck([k], 'kanji', 'all');
+        this.switchTab('flashcards');
+        this.showToast(`Luyện các thẻ riêng của chữ ${k.kanji} (${k.han_viet})`, 'info');
+      };
     }
 
     const compoundsList = document.getElementById('modal-kanji-compounds');

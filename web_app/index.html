@@ -140,10 +140,10 @@
           <div class="action-card" id="dash-action-kanji">
             <div>
               <div class="action-card-header">
-                <span class="badge badge-sakura">73 Chữ Hán</span>
+                <span class="badge badge-sakura">73 Chữ Hán • 536 Thẻ</span>
               </div>
               <h3>73 Hán Tự Trọng Tâm</h3>
-              <p>Nắm trọn âm Hán-Việt, âm On, âm Kun và các từ vựng ghép thực tế kèm nghĩa tiếng Việt.</p>
+              <p>Luyện riêng từng thẻ cho âm On, âm Kun và các từ ghép thực tế kèm nghĩa tiếng Việt.</p>
             </div>
             <div class="action-card-footer">
               <span>Luyện Hán tự</span>
@@ -165,6 +165,16 @@
            TAB 2: FLASHCARD SRS
            ================================================================== -->
       <section class="tab-panel" id="tab-flashcards">
+        <!-- Deck Switcher Chips -->
+        <div class="filter-bar" id="fc-deck-selector" style="justify-content: center; margin-bottom: 1.25rem;">
+          <button class="filter-chip active" data-deck="vocab">Từ vựng (531)</button>
+          <button class="filter-chip" data-deck="kanji-all">Hán tự: Tất cả (536)</button>
+          <button class="filter-chip" data-deck="kanji-on">Hán tự: Âm On (73)</button>
+          <button class="filter-chip" data-deck="kanji-kun">Hán tự: Âm Kun (52)</button>
+          <button class="filter-chip" data-deck="kanji-compounds">Hán tự: Từ ghép (411)</button>
+          <button class="filter-chip" data-deck="grammar">Ngữ pháp (69)</button>
+        </div>
+
         <div class="flashcard-arena">
           <!-- Toolbar -->
           <div class="flashcard-toolbar">
@@ -265,11 +275,22 @@
         <div class="section-heading-bar">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
             <h3>73 Hán Tự Trọng Tâm (Bài 6 - 10)</h3>
-            <span class="badge badge-sakura">73 Kanji</span>
+            <span class="badge badge-sakura">73 Kanji • 536 Thẻ Flashcard</span>
           </div>
-          <button class="btn btn-sakura btn-sm" id="btn-fc-kanji">
-            Học Flashcard Hán Tự
-          </button>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="btn btn-sakura btn-sm" id="btn-fc-kanji">
+              Luyện Tất Cả Thẻ Hán Tự
+            </button>
+            <button class="btn btn-secondary btn-sm" id="btn-fc-kanji-on">
+              Luyện Riêng Âm On
+            </button>
+            <button class="btn btn-secondary btn-sm" id="btn-fc-kanji-kun">
+              Luyện Riêng Âm Kun
+            </button>
+            <button class="btn btn-secondary btn-sm" id="btn-fc-kanji-compounds">
+              Luyện Riêng Từ Ghép
+            </button>
+          </div>
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
@@ -461,7 +482,10 @@
               <div class="badge badge-cyan" style="font-size: 1rem; padding: 0.4rem 0.8rem;">
                 訓 (Kun): <strong id="modal-kanji-kun" style="margin-left: 0.3rem;">かたち</strong>
               </div>
-              <button class="btn btn-secondary btn-sm" id="btn-modal-speak-kanji">Nghe phát âm</button>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem;">
+                <button class="btn btn-secondary btn-sm" id="btn-modal-speak-kanji">Nghe phát âm</button>
+                <button class="btn btn-sakura btn-sm" id="btn-modal-study-kanji">Học Flashcard Chữ Này</button>
+              </div>
             </div>
           </div>
 

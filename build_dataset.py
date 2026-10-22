@@ -37,6 +37,12 @@ def parse_kanji():
             
             onyomi = r1[1].replace('音：', '').replace('音:', '').strip() if len(r1) > 1 else ''
             kunyomi = r1[2].replace('訓：', '').replace('訓:', '').strip() if len(r1) > 2 else ''
+
+            # Clean Kunyomi: fix typo in 置 and detect kanji without Kunyomi
+            if kanji_char == '置':
+                kunyomi = 'おく'
+            elif kunyomi.startswith('音') or kunyomi == onyomi or kunyomi.replace('音：', '').strip() == onyomi:
+                kunyomi = ''
             
             examples_on = r2[1] if len(r2) > 1 else ''
             examples_kun = r2[2] if len(r2) > 2 else ''

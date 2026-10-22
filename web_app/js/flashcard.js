@@ -1,6 +1,6 @@
 /**
  * Flashcard SRS Engine
- * Handles 3D Card flips, SRS queues, auto-pronunciation, and hands-free study mode.
+ * Handles 3D Card flips, SRS queues, auto-pronunciation, granular Kanji cards, and hands-free study mode.
  */
 
 class FlashcardEngine {
@@ -12,6 +12,7 @@ class FlashcardEngine {
     this.isAutoPlaying = false;
     this.autoPlayTimer = null;
     this.category = 'vocab'; // 'vocab' | 'kanji' | 'grammar'
+    this.kanjiSubType = 'all'; // 'all' | 'on' | 'kun' | 'compound'
 
     this.cardInner = document.getElementById('flashcard-inner');
     this.cardFront = document.getElementById('card-front');
@@ -21,6 +22,52 @@ class FlashcardEngine {
     this.autoPronounceBtn = document.getElementById('btn-fc-autopronounce');
 
     this.initEvents();
+    this.initDeckSelector();
+  }
+
+  initDeckSelector() {
+    const container = document.getElementById('fc-deck-selector');
+    if (!container) return;
+
+    container.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const deckKey = chip.dataset.deck;
+        if (deckKey === 'vocab') {
+          this.loadDeck(window.APP_DATA.vocabulary, 'vocab');
+        } else if (deckKey === 'kanji-all') {
+          this.loadDeck(window.APP_DATA.kanji, 'kanji', 'all');
+        } else if (deckKey === 'kanji-on') {
+          this.loadDeck(window.APP_DATA.kanji, 'kanji', 'on');
+        } else if (deckKey === 'kanji-kun') {
+          this.loadDeck(window.APP_DATA.kanji, 'kanji', 'kun');
+        } else if (deckKey === 'kanji-compounds') {
+          this.loadDeck(window.APP_DATA.kanji, 'kanji', 'compound');
+        } else if (deckKey === 'grammar') {
+          this.loadDeck(window.APP_DATA.grammar, 'grammar');
+        }
+      });
+    });
+  }
+
+  updateDeckSelectorChips() {
+    const container = document.getElementById('fc-deck-selector');
+    if (!container) return;
+
+    let targetKey = 'vocab';
+    if (this.category === 'vocab') {
+      targetKey = 'vocab';
+    } else if (this.category === 'grammar') {
+      targetKey = 'grammar';
+    } else if (this.category === 'kanji') {
+      if (this.kanjiSubType === 'on') targetKey = 'kanji-on';
+      else if (this.kanjiSubType === 'kun') targetKey = 'kanji-kun';
+      else if (this.kanjiSubType === 'compound') targetKey = 'kanji-compounds';
+      else targetKey = 'kanji-all';
+    }
+
+    container.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.classList.toggle('active', chip.dataset.deck === targetKey);
+    });
   }
 
   initEvents() {
@@ -100,11 +147,86 @@ class FlashcardEngine {
     });
   }
 
-  loadDeck(deck, category = 'vocab') {
-    this.deck = deck || [];
+  buildKanjiDeck(kanjiList, subType = 'all') {
+    const cards = [];
+    (kanjiList || []).forEach(k => {
+      // 1. Âm On Card
+      if ((subType === 'all' || subType === 'on') && k.onyomi && k.onyomi.trim() && k.onyomi !== '—') {
+        cards.push({
+          id: `${k.id}_on`,
+          rawKanjiId: k.id,
+          category: 'kanji',
+          subType: 'on',
+          lesson: k.lesson,
+          kanji: k.kanji,
+          han_viet: k.han_viet,
+          onyomi: k.onyomi,
+          kunyomi: k.kunyomi,
+          compounds: k.compounds || [],
+          examples_raw: k.examples_raw || '',
+          speakText: k.onyomi
+        });
+      }
+
+      // 2. Âm Kun Card (only if kunyomi exists and not '—')
+      if ((subType === 'all' || subType === 'kun') && k.kunyomi && k.kunyomi.trim() && k.kunyomi !== '—') {
+        cards.push({
+          id: `${k.id}_kun`,
+          rawKanjiId: k.id,
+          category: 'kanji',
+          subType: 'kun',
+          lesson: k.lesson,
+          kanji: k.kanji,
+          han_viet: k.han_viet,
+          onyomi: k.onyomi,
+          kunyomi: k.kunyomi,
+          compounds: k.compounds || [],
+          examples_raw: k.examples_raw || '',
+          speakText: k.kunyomi
+        });
+      }
+
+      // 3. Compounds Cards (Each compound has its own separate flashcard)
+      if (subType === 'all' || subType === 'compound') {
+        if (k.compounds && k.compounds.length > 0) {
+          k.compounds.forEach((c, idx) => {
+            cards.push({
+              id: `${k.id}_cp_${idx}`,
+              rawKanjiId: k.id,
+              category: 'kanji',
+              subType: 'compound',
+              lesson: k.lesson,
+              parentKanji: k.kanji,
+              parentHanViet: k.han_viet,
+              word: c.word,
+              reading: c.reading || '',
+              meaning: c.meaning || '',
+              speakText: c.reading || c.word
+            });
+          });
+        }
+      }
+    });
+    return cards;
+  }
+
+  loadDeck(deck, category = 'vocab', kanjiSubType = 'all') {
     this.category = category;
+    this.kanjiSubType = kanjiSubType;
+
+    if (category === 'kanji') {
+      if (deck && deck.length > 0 && deck[0].subType) {
+        this.deck = deck;
+      } else {
+        this.deck = this.buildKanjiDeck(deck || [], kanjiSubType);
+      }
+    } else {
+      this.deck = deck || [];
+    }
+
     this.currentIndex = 0;
     this.isFlipped = false;
+    this.updateDeckSelectorChips();
     this.renderCard();
   }
 
@@ -137,9 +259,15 @@ class FlashcardEngine {
     if (this.category === 'vocab') {
       window.soundEngine.speakJapanese(item.kana || item.display);
     } else if (this.category === 'kanji') {
-      // Speak kunyomi or onyomi
-      const textToSpeak = item.kunyomi || item.onyomi || item.kanji;
-      window.soundEngine.speakJapanese(textToSpeak);
+      if (item.subType === 'on') {
+        window.soundEngine.speakJapanese(item.onyomi);
+      } else if (item.subType === 'kun') {
+        window.soundEngine.speakJapanese(item.kunyomi);
+      } else if (item.subType === 'compound') {
+        window.soundEngine.speakJapanese(item.reading || item.word);
+      } else {
+        window.soundEngine.speakJapanese(item.speakText || item.kunyomi || item.onyomi || item.kanji);
+      }
     } else if (this.category === 'grammar') {
       const textToSpeak = item.formula || item.title;
       window.soundEngine.speakJapanese(textToSpeak);
@@ -189,6 +317,9 @@ class FlashcardEngine {
           <div class="card-main-content">
             <h3 style="color: var(--text-muted);">Không tìm thấy thẻ nào theo bộ lọc này</h3>
           </div>`;
+      }
+      if (this.cardBack) {
+        this.cardBack.innerHTML = '';
       }
       return;
     }
@@ -250,7 +381,219 @@ class FlashcardEngine {
   }
 
   renderKanjiCard(item, isFav, isLearned) {
-    // Front Face
+    if (item.subType === 'on') {
+      this.renderKanjiOnCard(item, isFav, isLearned);
+    } else if (item.subType === 'kun') {
+      this.renderKanjiKunCard(item, isFav, isLearned);
+    } else if (item.subType === 'compound') {
+      this.renderKanjiCompoundCard(item, isFav, isLearned);
+    } else {
+      this.renderLegacyKanjiCard(item, isFav, isLearned);
+    }
+  }
+
+  // 1. Thẻ học riêng Âm On
+  renderKanjiOnCard(item, isFav, isLearned) {
+    // Front Face (Chỉ hiện chữ Hán, âm Hán-Việt, tuyệt đối không hiện âm On)
+    this.cardFront.innerHTML = `
+      <div class="card-badge-row">
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <span class="badge badge-sakura">${item.lesson}</span>
+          <span class="badge badge-purple">Âm On (音読み)</span>
+        </div>
+        <div style="display: flex; gap: 0.5rem;" class="no-flip">
+          ${isLearned ? '<span class="badge badge-emerald">Đã thuộc</span>' : ''}
+          <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
+            ${isFav ? 'Đã lưu' : 'Lưu'}
+          </button>
+        </div>
+      </div>
+      <div class="card-main-content">
+        <div class="card-kanji-big" style="color: var(--accent-rose); font-size: 4rem;">${item.kanji}</div>
+        <div class="card-hanviet-tag">Hán-Việt: ${item.han_viet}</div>
+        <div style="margin-top: 1rem; font-size: 1.05rem; font-weight: 600; color: var(--text-secondary);">
+          Âm On của chữ Hán này là gì?
+        </div>
+      </div>
+      <div class="card-flip-prompt">
+        <span>Nhấn [Space] hoặc nhấp thẻ để xem âm On</span>
+      </div>
+    `;
+
+    // Back Face (Hiện Katakana âm On và các từ ghép sử dụng âm On này)
+    const compoundsList = item.compounds && item.compounds.length > 0
+      ? item.compounds.slice(0, 3).map(c => `
+          <div class="detail-line">
+            <span class="detail-label">${c.word} (${c.reading}):</span>
+            <span>${c.meaning}</span>
+          </div>
+        `).join('')
+      : (item.examples_raw ? `<div class="detail-line">${item.examples_raw}</div>` : '');
+
+    this.cardBack.innerHTML = `
+      <div class="card-badge-row">
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <span class="badge badge-sakura">${item.lesson} • ${item.han_viet}</span>
+          <span class="badge badge-purple">Âm On</span>
+        </div>
+        <button class="icon-btn no-flip tts-btn">Phát âm</button>
+      </div>
+      <div class="card-main-content" style="align-items: stretch; text-align: left;">
+        <div style="text-align: center; margin-bottom: 0.75rem;">
+          <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.25rem;">Âm On (Katakana):</div>
+          <div style="font-size: 2.6rem; font-weight: 800; color: var(--accent-purple); font-family: var(--font-jp);">
+            ${item.onyomi}
+          </div>
+          <div style="font-size: 1rem; color: var(--text-secondary); margin-top: 0.25rem;">
+            Chữ gốc: <strong style="color: var(--text-primary);">${item.kanji}</strong> (${item.han_viet})
+          </div>
+        </div>
+
+        ${compoundsList ? `
+          <div class="card-extra-details">
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase;">Ví dụ từ ghép sử dụng âm này:</div>
+            ${compoundsList}
+          </div>
+        ` : ''}
+      </div>
+      <div class="card-flip-prompt">
+        <span>Đánh giá độ nhớ để xếp lịch ôn tập</span>
+      </div>
+    `;
+
+    this.attachCardActions(item);
+  }
+
+  // 2. Thẻ học riêng Âm Kun
+  renderKanjiKunCard(item, isFav, isLearned) {
+    // Front Face (Chỉ hiện chữ Hán, âm Hán-Việt, tuyệt đối không hiện âm Kun)
+    this.cardFront.innerHTML = `
+      <div class="card-badge-row">
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <span class="badge badge-sakura">${item.lesson}</span>
+          <span class="badge badge-cyan">Âm Kun (訓読み)</span>
+        </div>
+        <div style="display: flex; gap: 0.5rem;" class="no-flip">
+          ${isLearned ? '<span class="badge badge-emerald">Đã thuộc</span>' : ''}
+          <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
+            ${isFav ? 'Đã lưu' : 'Lưu'}
+          </button>
+        </div>
+      </div>
+      <div class="card-main-content">
+        <div class="card-kanji-big" style="color: var(--accent-cyan); font-size: 4rem;">${item.kanji}</div>
+        <div class="card-hanviet-tag">Hán-Việt: ${item.han_viet}</div>
+        <div style="margin-top: 1rem; font-size: 1.05rem; font-weight: 600; color: var(--text-secondary);">
+          Âm Kun của chữ Hán này là gì?
+        </div>
+      </div>
+      <div class="card-flip-prompt">
+        <span>Nhấn [Space] hoặc nhấp thẻ để xem âm Kun</span>
+      </div>
+    `;
+
+    // Back Face (Hiện Hiragana âm Kun và ngữ cảnh sử dụng)
+    const kunCompound = item.compounds ? item.compounds.find(c => c.reading && c.reading.includes(item.kunyomi.replace(/[-.]/g, ''))) : null;
+
+    this.cardBack.innerHTML = `
+      <div class="card-badge-row">
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <span class="badge badge-sakura">${item.lesson} • ${item.han_viet}</span>
+          <span class="badge badge-cyan">Âm Kun</span>
+        </div>
+        <button class="icon-btn no-flip tts-btn">Phát âm</button>
+      </div>
+      <div class="card-main-content" style="align-items: stretch; text-align: left;">
+        <div style="text-align: center; margin-bottom: 0.75rem;">
+          <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.25rem;">Âm Kun (Hiragana):</div>
+          <div style="font-size: 2.6rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-jp);">
+            ${item.kunyomi}
+          </div>
+          <div style="font-size: 1rem; color: var(--text-secondary); margin-top: 0.25rem;">
+            Chữ gốc: <strong style="color: var(--text-primary);">${item.kanji}</strong> (${item.han_viet})
+          </div>
+        </div>
+
+        ${kunCompound ? `
+          <div class="card-extra-details">
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase;">Ví dụ từ ghép thuần Nhật liên quan:</div>
+            <div class="detail-line">
+              <span class="detail-label">${kunCompound.word} (${kunCompound.reading}):</span>
+              <span>${kunCompound.meaning}</span>
+            </div>
+          </div>
+        ` : ''}
+      </div>
+      <div class="card-flip-prompt">
+        <span>Đánh giá độ nhớ để xếp lịch ôn tập</span>
+      </div>
+    `;
+
+    this.attachCardActions(item);
+  }
+
+  // 3. Thẻ học riêng từng Từ Liên Quan (Từ Ghép)
+  renderKanjiCompoundCard(item, isFav, isLearned) {
+    // Front Face (Chỉ hiện chữ Hán từ ghép và gốc Kanji, không hiện cách đọc hay nghĩa)
+    this.cardFront.innerHTML = `
+      <div class="card-badge-row">
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <span class="badge badge-sakura">${item.lesson}</span>
+          <span class="badge badge-amber">Từ Ghép Hán Tự</span>
+        </div>
+        <div style="display: flex; gap: 0.5rem;" class="no-flip">
+          ${isLearned ? '<span class="badge badge-emerald">Đã thuộc</span>' : ''}
+          <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
+            ${isFav ? 'Đã lưu' : 'Lưu'}
+          </button>
+        </div>
+      </div>
+      <div class="card-main-content">
+        <div class="card-kanji-big" style="font-size: 3.2rem; color: var(--text-primary); font-weight: 800; letter-spacing: 0.05em;">
+          ${item.word}
+        </div>
+        <div class="badge badge-indigo" style="font-size: 0.95rem; padding: 0.35rem 0.8rem; margin-top: 0.75rem;">
+          Gốc Hán Tự: ${item.parentKanji} (${item.parentHanViet})
+        </div>
+        <div style="margin-top: 1rem; font-size: 1rem; color: var(--text-secondary);">
+          Từ này phát âm là gì và mang ý nghĩa gì?
+        </div>
+      </div>
+      <div class="card-flip-prompt">
+        <span>Nhấn [Space] hoặc nhấp thẻ để xem cách đọc & nghĩa</span>
+      </div>
+    `;
+
+    // Back Face (Hiện cách đọc Hiragana, nghĩa tiếng Việt, chữ Hán và phát âm)
+    this.cardBack.innerHTML = `
+      <div class="card-badge-row">
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <span class="badge badge-sakura">${item.parentKanji} (${item.parentHanViet})</span>
+          <span class="badge badge-cyan">${item.lesson}</span>
+        </div>
+        <button class="icon-btn no-flip tts-btn">Phát âm</button>
+      </div>
+      <div class="card-main-content">
+        <div class="card-kana-sub" style="font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); margin-bottom: 0.5rem; font-family: var(--font-jp);">
+          ${item.reading || item.word}
+        </div>
+        <div class="card-meaning-big" style="font-size: 1.6rem; margin-bottom: 0.75rem;">
+          ${item.meaning}
+        </div>
+        <div class="badge badge-sakura" style="font-size: 1rem; padding: 0.4rem 0.9rem;">
+          Chữ Hán: ${item.word} • Gốc: ${item.parentKanji} (${item.parentHanViet})
+        </div>
+      </div>
+      <div class="card-flip-prompt">
+        <span>Đánh giá độ nhớ để xếp lịch ôn tập</span>
+      </div>
+    `;
+
+    this.attachCardActions(item);
+  }
+
+  renderLegacyKanjiCard(item, isFav, isLearned) {
+    // Fallback if needed
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
         <span class="badge badge-sakura">${item.lesson}</span>
@@ -270,7 +613,6 @@ class FlashcardEngine {
       </div>
     `;
 
-    // Back Face
     const compoundsHtml = item.compounds && item.compounds.length > 0
       ? item.compounds.slice(0, 4).map(c => `
           <div class="detail-line">

@@ -59,7 +59,7 @@ window.APP_DATA = {
       "kanji": "置",
       "han_viet": "TRÍ",
       "onyomi": "チ",
-      "kunyomi": "かたち",
+      "kunyomi": "おく",
       "examples_raw": "設置 (せっち): bố trí, lắp đặt\n置物 (おきもの): đồ trang trí\n置く (おく): đặt, để",
       "compounds": [
         {
@@ -177,7 +177,7 @@ window.APP_DATA = {
       "kanji": "展",
       "han_viet": "TRIỂN",
       "onyomi": "テン",
-      "kunyomi": "音：テン",
+      "kunyomi": "",
       "examples_raw": "展開 (てんかい): triển khai\n展示 (てんじ): trưng bày\n発展 (はってん): phát triển\n展覧会 (てんらんかい): buổi triển lãm",
       "compounds": [
         {
@@ -239,7 +239,7 @@ window.APP_DATA = {
       "kanji": "論",
       "han_viet": "LUẬN",
       "onyomi": "ロン",
-      "kunyomi": "音：ロン",
+      "kunyomi": "",
       "examples_raw": "論文 (ろんぶん): luận văn\n論議 (ろんぎ): nghị luận\n論証 (ろんしょう): luận chứng\n理論 (りろん): lí luận\n立論 (りつろん): lập luận\n世論 (よろん): dư luận\n論理的な考え (ろんりてきなかんがえ): suy nghĩ có logic",
       "compounds": [
         {
@@ -326,7 +326,7 @@ window.APP_DATA = {
       "kanji": "象",
       "han_viet": "TƯỢNG",
       "onyomi": "ショウ, ゾウ",
-      "kunyomi": "音：ショウ, ゾウ",
+      "kunyomi": "",
       "examples_raw": "現象 (げんしょう): hiện tượng  \n気象 (きしょう): khí tượng\n現象 (げんしょう): hiện tượng  \n気象 (きしょう): khí tượng",
       "compounds": [
         {
@@ -357,7 +357,7 @@ window.APP_DATA = {
       "kanji": "在",
       "han_viet": "TẠI",
       "onyomi": "ザイ",
-      "kunyomi": "音：ザイ",
+      "kunyomi": "",
       "examples_raw": "在職 (ざいしょく): tại chức\n在学証明書 (ざいがくしょうめいしょ): giấy chứng nhận đang học\n東京在勤中に (とうきょうざいきんちゅうに): trong thời gian làm việc tại Tokyo\n現在 (げんざい): hiện tại\n日本在留の外国人 (にほんざいりゅうのがいこくじん): người nước ngoài lưu trú tại Nhật Bản\n在～ (ざい～): ở ~",
       "compounds": [
         {
@@ -485,7 +485,7 @@ window.APP_DATA = {
       "kanji": "景",
       "han_viet": "CẢNH",
       "onyomi": "ケイ",
-      "kunyomi": "音：ケイ",
+      "kunyomi": "",
       "examples_raw": "景気 (けいき): tình hình kinh tế\n景品 (けいひん): quà khuyến mãi\n景色 (けしき): phong cảnh  \n風景 (ふうけい): phong cảnh\n遠景 (えんけい): viễn cảnh\n光景 (こうけい): quang cảnh\n景気 (けいき): tình hình kinh tế\n景品 (けいひん): quà khuyến mãi\n景色 (けしき): phong cảnh  \n風景 (ふうけい): phong cảnh\n遠景 (えんけい): viễn cảnh\n光景 (こうけい): quang cảnh",
       "compounds": [
         {
@@ -587,7 +587,7 @@ window.APP_DATA = {
       "kanji": "談",
       "han_viet": "ĐÀM",
       "onyomi": "ダン",
-      "kunyomi": "音：ダン",
+      "kunyomi": "",
       "examples_raw": "会談 (かいだん): hội đàm\n面談 (めんだん): phỏng vấn, trao đổi trực tiếp\n体験談 (たいけんだん): câu chuyện trải nghiệm\n相談 (そうだん): bàn bạc, thảo luận",
       "compounds": [
         {
@@ -726,7 +726,7 @@ window.APP_DATA = {
       "kanji": "団",
       "han_viet": "ĐOÀN",
       "onyomi": "ダン",
-      "kunyomi": "音：ダン",
+      "kunyomi": "",
       "examples_raw": "団体 (だんたい): đoàn thể\n団結 (だんけつ): đoàn kết\n団地 (だんち): khu chung cư\n団子 (だんご): bánh dango\n集団 (しゅうだん): tập đoàn, tập thể\n社団 (しゃだん): liên đoàn, hiệp hội\n旅団 (りょだん): lữ đoàn\n団体 (だんたい): đoàn thể\n団結 (だんけつ): đoàn kết\n団地 (だんち): khu chung cư\n団子 (だんご): bánh dango\n集団 (しゅうだん): tập đoàn, tập thể\n社団 (しゃだん): liên đoàn, hiệp hội\n旅団 (りょだん): lữ đoàn",
       "compounds": [
         {
@@ -951,7 +951,7 @@ window.APP_DATA = {
       "kanji": "期",
       "han_viet": "KỲ",
       "onyomi": "キ",
-      "kunyomi": "音：キ",
+      "kunyomi": "",
       "examples_raw": "期間 (きかん): thời hạn, kỳ hạn\n期待 (きたい): kỳ vọng, mong đợi\n期限 (きげん): thời hạn\n学期 (がっき): học kỳ\n初期 (しょき): thời kỳ đầu\n時期 (じき): thời kỳ, thời điểm\n定期 (ていき): định kỳ\n期間 (きかん): thời hạn, kỳ hạn\n期待 (きたい): kỳ vọng, mong đợi\n期限 (きげん): thời hạn\n学期 (がっき): học kỳ\n初期 (しょき): thời kỳ đầu\n時期 (じき): thời kỳ, thời điểm\n定期 (ていき): định kỳ",
       "compounds": [
         {
@@ -1058,7 +1058,7 @@ window.APP_DATA = {
       "kanji": "対",
       "han_viet": "ĐỐI",
       "onyomi": "タイ",
-      "kunyomi": "音：タイ",
+      "kunyomi": "",
       "examples_raw": "対談 (たいだん): đối đàm, trò chuyện\n対面 (たいめん): đối diện, gặp mặt\n対立 (たいりつ): đối lập\n絶対 (ぜったい): tuyệt đối\n対応 (たいおう): đối ứng, ứng phó\n対い (つい): đôi, cặp\n対談 (たいだん): đối đàm, trò chuyện\n対面 (たいめん): đối diện, gặp mặt\n対立 (たいりつ): đối lập\n絶対 (ぜったい): tuyệt đối\n対応 (たいおう): đối ứng, ứng phó\n対い (つい): đôi, cặp",
       "compounds": [
         {
@@ -1129,7 +1129,7 @@ window.APP_DATA = {
       "kanji": "賛",
       "han_viet": "TÁN",
       "onyomi": "サン",
-      "kunyomi": "音：サン",
+      "kunyomi": "",
       "examples_raw": "賛成 (さんせい): tán thành\n賛美 (さんび): tán dương, ca tụng\n賛助 (さんじょ): trợ giúp\n賛意 (さんい): sự đồng ý, tán thành\n協賛 (きょうさん): hợp tác tài trợ\n賛成 (さんせい): tán thành\n賛美 (さんび): tán dương, ca tụng\n賛助 (さんじょ): trợ giúp\n賛意 (さんい): sự đồng ý, tán thành\n協賛 (きょうさん): hợp tác tài trợ",
       "compounds": [
         {
@@ -1252,7 +1252,7 @@ window.APP_DATA = {
       "kanji": "礼",
       "han_viet": "LỄ",
       "onyomi": "レイ",
-      "kunyomi": "音：レイ",
+      "kunyomi": "",
       "examples_raw": "礼金 (れいきん): tiền mừng  \n朝礼 (ちょうれい): lễ chào cờ, họp buổi sáng \n返礼 (へんれい): đáp lễ  \n礼式 (れいしき): nghi thức  \n礼服 (れいふく): lễ phục  \n礼法 (れいほう): lễ nghi, phép tắc  \n無礼 (ぶれい): vô lễ\n礼金 (れいきん): tiền mừng  \n朝礼 (ちょうれい): lễ chào cờ, họp buổi sáng \n返礼 (へんれい): đáp lễ  \n礼式 (れいしき): nghi thức  \n礼服 (れいふく): lễ phục  \n礼法 (れいほう): lễ nghi, phép tắc  \n無礼 (ぶれい): vô lễ",
       "compounds": [
         {
@@ -1617,7 +1617,7 @@ window.APP_DATA = {
       "kanji": "類",
       "han_viet": "LOẠI",
       "onyomi": "ルイ",
-      "kunyomi": "音：ルイ",
+      "kunyomi": "",
       "examples_raw": "類似 (るいじ): tương tự  \n同類 (どうるい): đồng loại, cùng loại  \n人類 (じんるい): nhân loại \n親類 (しんるい): họ hàng  \n書類 (しょるい): tài liệu, giấy tờ\n類似 (るいじ): tương tự  \n同類 (どうるい): đồng loại, cùng loại  \n人類 (じんるい): nhân loại \n親類 (しんるい): họ hàng  \n書類 (しょるい): tài liệu, giấy tờ",
       "compounds": [
         {
@@ -1709,7 +1709,7 @@ window.APP_DATA = {
       "kanji": "個",
       "han_viet": "CÁ",
       "onyomi": "コ",
-      "kunyomi": "音：コ",
+      "kunyomi": "",
       "examples_raw": "個別 (こべつ): cá biệt, riêng biệt  \n個人 (こじん): cá nhân  \n個体 (こたい): cá thể\n個性 (こせい): cá tính  \n個室 (こしつ): phòng riêng  \n個展 (こてん): triển lãm cá nhân",
       "compounds": [
         {
@@ -1957,7 +1957,7 @@ window.APP_DATA = {
       "kanji": "詩",
       "han_viet": "THI",
       "onyomi": "シ",
-      "kunyomi": "音：シ",
+      "kunyomi": "",
       "examples_raw": "詩人 (しじん): nhà thơ  \n詩歌 (しか): thi ca  \n詩集 (ししゅう): tập thơ\n詩人 (しじん): nhà thơ  \n詩歌 (しか): thi ca  \n詩集 (ししゅう): tập thơ",
       "compounds": [
         {
@@ -1998,7 +1998,7 @@ window.APP_DATA = {
       "kanji": "想",
       "han_viet": "TƯỞNG",
       "onyomi": "ソウ",
-      "kunyomi": "音：ソウ",
+      "kunyomi": "",
       "examples_raw": "想定 (そうてい): giả định  \n想見 (そうけん): tưởng tượng\n予想 (よそう): dự đoán\n思想 (しそう): tư tưởng  \n理想 (りそう): lý tưởng  \n空想 (くうそう): không tưởng, ảo tưởng",
       "compounds": [
         {
@@ -2111,7 +2111,7 @@ window.APP_DATA = {
       "kanji": "衣",
       "han_viet": "Y",
       "onyomi": "イ",
-      "kunyomi": "音：イ",
+      "kunyomi": "",
       "examples_raw": "衣服 (いふく): y phục, quần áo  \n衣類 (いるい): loại quần áo  \n衣料 (いりょう): đồ may mặc  \n衣食住 (いしょくじゅう): nhu cầu ăn mặc ở  \n浴衣 (ゆかた): áo Yukata\n衣服 (いふく): y phục, quần áo  \n衣類 (いるい): loại quần áo  \n衣料 (いりょう): đồ may mặc  \n衣食住 (いしょくじゅう): nhu cầu ăn mặc ở  \n浴衣 (ゆかた): áo Yukata",
       "compounds": [
         {
@@ -2428,7 +2428,7 @@ window.APP_DATA = {
       "kanji": "材",
       "han_viet": "TÀI",
       "onyomi": "ザイ",
-      "kunyomi": "音：ザイ",
+      "kunyomi": "",
       "examples_raw": "材料 (ざいりょう): nguyên/vật liệu  \n材質 (ざいしつ): chất liệu\n人材 (じんざい): nhân tài  \n教材 (きょうざい): giáo trình",
       "compounds": [
         {
@@ -2628,7 +2628,7 @@ window.APP_DATA = {
       "kanji": "列",
       "han_viet": "LIỆT",
       "onyomi": "レツ",
-      "kunyomi": "音：レツ",
+      "kunyomi": "",
       "examples_raw": "列車 (れっしゃ): xe lửa, tàu hỏa  \n行列 (ぎょうれつ): xếp hàng, đoàn người\n列車 (れっしゃ): xe lửa, tàu hỏa  \n行列 (ぎょうれつ): xếp hàng, đoàn người",
       "compounds": [
         {
@@ -2690,7 +2690,7 @@ window.APP_DATA = {
       "kanji": "鉄",
       "han_viet": "THIẾT",
       "onyomi": "テツ",
-      "kunyomi": "音：テツ",
+      "kunyomi": "",
       "examples_raw": "鉄道 (てつどう): đường sắt  \n国鉄 (こくてつ): đường sắt quốc gia  \n私鉄 (してつ): đường sắt tư nhân\n鉄道 (てつどう): đường sắt  \n国鉄 (こくてつ): đường sắt quốc gia  \n私鉄 (してつ): đường sắt tư nhân",
       "compounds": [
         {
@@ -2731,7 +2731,7 @@ window.APP_DATA = {
       "kanji": "刻",
       "han_viet": "KHẮC",
       "onyomi": "コク",
-      "kunyomi": "音：コク",
+      "kunyomi": "",
       "examples_raw": "遅刻 (ちこく): đến muộn, trễ giờ  \n時刻 (じこく): thời gian, thời khắc  \n彫刻 (ちょうこく): điêu khắc\n遅刻 (ちこく): đến muộn, trễ giờ  \n時刻 (じこく): thời gian, thời khắc  \n彫刻 (ちょうこく): điêu khắc",
       "compounds": [
         {
@@ -2803,7 +2803,7 @@ window.APP_DATA = {
       "kanji": "製",
       "han_viet": "CHẾ",
       "onyomi": "セイ",
-      "kunyomi": "音：セイ",
+      "kunyomi": "",
       "examples_raw": "製品 (せいひん): sản phẩm  \n製作 (せいさく): chế tác, sản xuất\n～製 (～せい): hàng sản xuất tại ~  \n製造 (せいぞう): chế tạo, sản xuất",
       "compounds": [
         {
