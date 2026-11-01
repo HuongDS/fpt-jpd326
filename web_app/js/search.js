@@ -1,6 +1,6 @@
 /**
  * Global Omnisearch Engine
- * Instant keyboard-driven lookup across Kanji, Vocabulary, Grammar, and Slides.
+ * Instant keyboard-driven lookup across Kanji, Vocabulary, and Grammar.
  */
 
 class OmniSearch {
@@ -119,24 +119,6 @@ class OmniSearch {
       }
     });
 
-    // Search Slides
-    data.slides.forEach((deck, deckIdx) => {
-      deck.slides.forEach((s, slideIdx) => {
-        const textMatch = s.text_content.some(t => t.toLowerCase().includes(q));
-        if (textMatch || (s.title && s.title.toLowerCase().includes(q))) {
-          matches.push({
-            type: 'slide',
-            badge: 'Slide',
-            badgeClass: 'badge-purple',
-            title: `${deck.lesson} - Slide ${s.slide_number}: ${s.title || 'Nội dung'}`,
-            sub: s.text_content.slice(0, 2).join(' | '),
-            deckIdx,
-            slideIdx
-          });
-        }
-      });
-    });
-
     if (matches.length === 0) {
       this.resultsList.innerHTML = `
         <div style="padding: 1.5rem; text-align: center; color: var(--text-muted);">
@@ -171,12 +153,7 @@ class OmniSearch {
 
   selectResult(match) {
     this.close();
-    if (match.type === 'slide') {
-      window.app.switchTab('slides');
-      if (window.slideViewer) {
-        window.slideViewer.jumpToSlide(match.deckIdx, match.slideIdx);
-      }
-    } else if (match.type === 'vocab') {
+    if (match.type === 'vocab') {
       window.app.switchTab('vocab');
       // Highlight in vocab list or switch to it
       window.soundEngine.speakJapanese(match.raw.kana || match.raw.display);

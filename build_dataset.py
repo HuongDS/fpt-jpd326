@@ -189,114 +189,11 @@ def parse_grammar():
     print(f"Parsed {len(grammar_list)} Grammar points.")
     return grammar_list
 
-def parse_slides():
-    slide_dir = os.path.join(ROOT_DIR, 'slide')
-    slide_files = [
-        ('第 6 課', '第6課ー地図を広げる.pptx', '地図を広げる'),
-        ('第 7 課', '第7課ー世代を超えた交流 .pptx', '世代を超えた交流'),
-        ('第 8 課', '第8課ー世代を超えた交流.pptx', '気持ちを伝える'),
-        ('第 9 課', '第9課 言葉を楽しむ.pptx', '言葉を楽しむ')
-    ]
-    all_slide_data = []
-
-    for lesson_name, file_name, topic in slide_files:
-        pptx_path = os.path.join(slide_dir, file_name)
-        if not os.path.exists(pptx_path):
-            print(f"Warning: {file_name} does not exist!")
-            continue
-
-        lesson_slug = lesson_name.replace(' ', '_')
-        lesson_img_dir = os.path.join(SLIDES_IMG_DIR, lesson_slug)
-        os.makedirs(lesson_img_dir, exist_ok=True)
-
-        with zipfile.ZipFile(pptx_path, 'r') as z:
-            # 1. Read presentation rels to map rId -> target slide
-            rels_xml = z.read('ppt/_rels/presentation.xml.rels')
-            r_tree = ET.fromstring(rels_xml)
-            rel_map = {node.attrib['Id']: node.attrib['Target'] for node in r_tree}
-
-            # 2. Read presentation.xml to get canonical slide order
-            pres_xml = z.read('ppt/presentation.xml')
-            p_tree = ET.fromstring(pres_xml)
-            ordered_slide_targets = []
-            for elem in p_tree.iter():
-                if elem.tag.endswith('sldId'):
-                    r_id = elem.attrib.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id')
-                    if r_id in rel_map:
-                        target = rel_map[r_id]
-                        if not target.startswith('ppt/'):
-                            target = 'ppt/' + target
-                        ordered_slide_targets.append(target)
-
-            lesson_slides = []
-            for s_idx, slide_file in enumerate(ordered_slide_targets):
-                slide_num = s_idx + 1
-                if slide_file not in z.namelist():
-                    continue
-
-                # Parse slide xml
-                s_xml = z.read(slide_file)
-                s_tree = ET.fromstring(s_xml)
-                
-                # Extract text lines by paragraphs
-                paragraphs = []
-                for p_elem in s_tree.iter():
-                    if p_elem.tag.endswith('}p'):
-                        txt = ''.join(t.text for t in p_elem.iter() if t.tag.endswith('}t') and t.text)
-                        txt = txt.strip()
-                        if txt:
-                            paragraphs.append(txt)
-
-                # Extract relationships for images
-                base_name = os.path.basename(slide_file)
-                slide_rel_path = f'ppt/slides/_rels/{base_name}.rels'
-                slide_images = []
-                
-                if slide_rel_path in z.namelist():
-                    rel_tree = ET.fromstring(z.read(slide_rel_path))
-                    img_idx = 1
-                    for r in rel_tree:
-                        if 'image' in r.attrib.get('Type', ''):
-                            target_img = r.attrib['Target'].replace('../', 'ppt/')
-                            if target_img in z.namelist():
-                                ext = os.path.splitext(target_img)[1] or '.png'
-                                out_img_name = f'slide_{slide_num}_img_{img_idx}{ext}'
-                                out_img_path = os.path.join(lesson_img_dir, out_img_name)
-                                
-                                # Write image file if not already extracted
-                                if not os.path.exists(out_img_path):
-                                    with open(out_img_path, 'wb') as img_out:
-                                        img_out.write(z.read(target_img))
-                                
-                                rel_web_path = f'assets/slides/{lesson_slug}/{out_img_name}'
-                                slide_images.append(rel_web_path)
-                                img_idx += 1
-
-                slide_title = paragraphs[0] if paragraphs else f"Slide {slide_num}"
-                lesson_slides.append({
-                    'slide_number': slide_num,
-                    'title': slide_title,
-                    'text_content': paragraphs,
-                    'images': slide_images
-                })
-
-            all_slide_data.append({
-                'lesson': lesson_name,
-                'topic': topic,
-                'file_name': file_name,
-                'total_slides': len(lesson_slides),
-                'slides': lesson_slides
-            })
-            print(f"Extracted {len(lesson_slides)} slides for {lesson_name} ({topic})")
-
-    return all_slide_data
-
 def main():
     print("=== Starting Complete Dataset Extraction ===")
     kanji = parse_kanji()
     vocab = parse_vocab()
     grammar = parse_grammar()
-    slides = parse_slides()
 
     # Save individual JSON files
     with open(os.path.join(DATA_DIR, 'kanji.json'), 'w', encoding='utf-8') as f:
@@ -308,16 +205,12 @@ def main():
     with open(os.path.join(DATA_DIR, 'grammar.json'), 'w', encoding='utf-8') as f:
         json.dump(grammar, f, ensure_ascii=False, indent=2)
 
-    with open(os.path.join(DATA_DIR, 'slides.json'), 'w', encoding='utf-8') as f:
-        json.dump(slides, f, ensure_ascii=False, indent=2)
-
     # Save combined JS file so that index.html can load data via script tag
     # without any CORS restrictions if opened directly as file://
     combined_data = {
         'kanji': kanji,
         'vocabulary': vocab,
-        'grammar': grammar,
-        'slides': slides
+        'grammar': grammar
     }
     
     js_content = f"// Auto-generated data for Nihongo Speed Master\nwindow.APP_DATA = {json.dumps(combined_data, ensure_ascii=False, indent=2)};\n"
@@ -328,8 +221,6 @@ def main():
     print(f"Kanji count: {len(kanji)}")
     print(f"Vocabulary count: {len(vocab)}")
     print(f"Grammar count: {len(grammar)}")
-    total_slides = sum(s['total_slides'] for s in slides)
-    print(f"Total Slides extracted: {total_slides}")
 
 if __name__ == '__main__':
     main()

@@ -7,8 +7,7 @@ const STORAGE_KEYS = {
   LEARNED: 'jpd326_learned_items',
   FAVORITES: 'jpd326_favorites',
   SRS_DATA: 'jpd326_srs_records',
-  STATS: 'jpd326_user_stats',
-  SLIDE_BOOKMARKS: 'jpd326_slide_bookmarks'
+  STATS: 'jpd326_user_stats'
 };
 
 class StorageManager {

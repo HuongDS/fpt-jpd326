@@ -5,7 +5,7 @@
 
 class App {
   constructor() {
-    this.data = window.APP_DATA || { kanji: [], vocabulary: [], grammar: [], slides: [] };
+    this.data = window.APP_DATA || { kanji: [], vocabulary: [], grammar: [] };
     this.currentTab = 'dashboard';
     this.kanjiLessonFilter = 'all';
     this.vocabLessonFilter = 'all';
@@ -24,7 +24,6 @@ class App {
 
     // Initialize Subsystems
     window.flashcardEngine = new FlashcardEngine();
-    window.slideViewer = new SlideViewer();
     window.quizEngine = new QuizEngine();
     window.omniSearch = new OmniSearch();
 
@@ -106,8 +105,6 @@ class App {
       this.updateDashboardStats();
     } else if (tabId === 'flashcards') {
       window.flashcardEngine.renderCard();
-    } else if (tabId === 'slides') {
-      window.slideViewer.renderCurrentSlide();
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -122,7 +119,6 @@ class App {
     const totalVocab = this.data.vocabulary.length;
     const totalKanji = this.data.kanji.length;
     const totalGrammar = this.data.grammar.length;
-    const totalSlides = this.data.slides.reduce((acc, d) => acc + d.total_slides, 0);
 
     const learnedVocab = window.storageManager.getLearnedCount('vocab_');
     const learnedKanji = window.storageManager.getLearnedCount('kanji_');
@@ -159,8 +155,6 @@ class App {
       const vCount = this.data.vocabulary.filter(v => v.lesson === lesson).length;
       const kCount = this.data.kanji.filter(k => k.lesson === lesson).length;
       const gCount = this.data.grammar.filter(g => g.lesson === lesson).length;
-      const sDeck = this.data.slides.find(s => s.lesson === lesson);
-      const sCount = sDeck ? sDeck.total_slides : 0;
 
       return `
         <div class="lesson-card" data-lesson="${lesson}">
@@ -173,12 +167,11 @@ class App {
             <span>${vCount} Từ</span>
             <span>${kCount} Hán tự</span>
             <span>${gCount} Ngữ pháp</span>
-            ${sCount ? `<span>${sCount} Slide</span>` : ''}
           </div>
           <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
             <button class="btn btn-secondary btn-sm btn-lesson-vocab" data-lesson="${lesson}">Học từ</button>
             <button class="btn btn-secondary btn-sm btn-lesson-kanji" data-lesson="${lesson}">Hán tự</button>
-            ${sCount ? `<button class="btn btn-purple btn-sm btn-lesson-slide" data-lesson="${lesson}">Slide</button>` : ''}
+            <button class="btn btn-secondary btn-sm btn-lesson-grammar" data-lesson="${lesson}">Ngữ pháp</button>
           </div>
         </div>
       `;
@@ -200,14 +193,11 @@ class App {
       });
     });
 
-    grid.querySelectorAll('.btn-lesson-slide').forEach(btn => {
+    grid.querySelectorAll('.btn-lesson-grammar').forEach(btn => {
       btn.addEventListener('click', () => {
         const lesson = btn.dataset.lesson;
-        const deckIdx = this.data.slides.findIndex(s => s.lesson === lesson);
-        if (deckIdx >= 0) {
-          window.slideViewer.jumpToSlide(deckIdx, 0);
-          this.switchTab('slides');
-        }
+        this.filterGrammarByLesson(lesson);
+        this.switchTab('grammar');
       });
     });
   }
@@ -218,14 +208,12 @@ class App {
     const actVocab = document.getElementById('dash-action-vocab');
     const actKanji = document.getElementById('dash-action-kanji');
     const actGrammar = document.getElementById('dash-action-grammar');
-    const actSlide = document.getElementById('dash-action-slides');
 
     if (actQuiz) actQuiz.onclick = () => this.switchTab('quiz');
     if (actFc) actFc.onclick = () => this.switchTab('flashcards');
     if (actVocab) actVocab.onclick = () => this.switchTab('vocab');
     if (actKanji) actKanji.onclick = () => this.switchTab('kanji');
     if (actGrammar) actGrammar.onclick = () => this.switchTab('grammar');
-    if (actSlide) actSlide.onclick = () => this.switchTab('slides');
   }
 
   // ------------------------------------------------------------------------
@@ -597,6 +585,12 @@ class App {
         this.renderGrammarList();
       });
     });
+  }
+
+  filterGrammarByLesson(lesson) {
+    this.grammarLessonFilter = lesson;
+    this.renderGrammarFilters();
+    this.renderGrammarList();
   }
 
   renderGrammarList(query = '') {

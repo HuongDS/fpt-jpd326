@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JPD326 日本語速習マスター - Học Tiếng Nhật Cấp Tốc</title>
-  <meta name="description" content="Ứng dụng ôn tập và học siêu tốc Từ vựng, Hán tự, Ngữ pháp và 337 Slide môn JPD326 Tiếng Nhật Trung Cấp Dekiru Nihongo">
+  <meta name="description" content="Ứng dụng ôn tập và học siêu tốc Từ vựng, Hán tự, Ngữ pháp môn JPD326 Tiếng Nhật Trung Cấp Dekiru Nihongo">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
@@ -40,9 +40,6 @@
         <button class="nav-tab-btn" data-tab="grammar" id="nav-tab-grammar">
           Ngữ pháp <span class="nav-badge">69</span>
         </button>
-        <button class="nav-tab-btn" data-tab="slides" id="nav-tab-slides">
-          337 Slide
-        </button>
         <button class="nav-tab-btn" data-tab="quiz" id="nav-tab-quiz">
           Speed Quiz
         </button>
@@ -72,7 +69,7 @@
             <div class="hero-title-group">
               <h2>Ôn Luyện Siêu Tốc <span>JPD326</span></h2>
               <p class="hero-description">
-                Hệ thống học cấp tốc tích hợp thuật toán lặp lại ngắt quãng (SRS), phát âm giọng bản xứ tự động, 3D Flashcard và kho dữ liệu hoàn chỉnh 531 từ vựng, 73 Hán tự, 69 điểm ngữ pháp cùng 337 slide bài giảng.
+                Hệ thống học cấp tốc tích hợp thuật toán lặp lại ngắt quãng (SRS), phát âm giọng bản xứ tự động, 3D Flashcard và kho dữ liệu hoàn chỉnh 531 từ vựng, 73 Hán tự cùng 69 điểm ngữ pháp.
               </p>
             </div>
             <div class="hero-stats-row">
@@ -124,16 +121,16 @@
             </div>
           </div>
 
-          <div class="action-card" id="dash-action-slides">
+          <div class="action-card" id="dash-action-grammar">
             <div>
               <div class="action-card-header">
-                <span class="badge badge-purple">4 Bài PPTX</span>
+                <span class="badge badge-emerald">69 Cấu Trúc</span>
               </div>
-              <h3>Duyệt 337 Slide</h3>
-              <p>Xem toàn bộ slide bài giảng 6, 7, 8, 9 với hình ảnh trích xuất nguyên bản và văn bản rõ nét.</p>
+              <h3>69 Điểm Ngữ Pháp</h3>
+              <p>Nắm trọn công thức, ý nghĩa, điểm lưu ý và các câu ví dụ mẫu của từng bài học.</p>
             </div>
             <div class="action-card-footer">
-              <span>Xem bài giảng</span>
+              <span>Học ngữ pháp</span>
             </div>
           </div>
 
@@ -334,46 +331,7 @@
       </section>
 
       <!-- ==================================================================
-           TAB 6: SLIDE MASTER VIEWER
-           ================================================================== -->
-      <section class="tab-panel" id="tab-slides">
-        <div class="slide-viewer-layout">
-          <!-- Slide Navigation & Deck Bar -->
-          <div class="slide-controls-bar">
-            <div class="slide-deck-tabs" id="slide-deck-tabs">
-              <!-- Rendered via JS -->
-            </div>
-            <div style="display: flex; gap: 0.5rem; align-items: center;">
-              <input type="text" id="slide-search-input" placeholder="Tìm chữ trong slide..." 
-                     style="background: var(--bg-elevated); border: 1px solid var(--border-subtle); color: #FFF; padding: 0.4rem 0.8rem; border-radius: 8px; font-size: 0.85rem; outline: none;">
-              <span id="slide-deck-title" style="font-size: 0.9rem; color: var(--accent-purple); font-weight: 700;"></span>
-            </div>
-          </div>
-
-          <!-- Slide Presentation Display Frame -->
-          <div class="slide-display-frame" id="slide-display-frame">
-            <!-- Slide Content rendered via JS -->
-          </div>
-
-          <!-- Dock Controls & Navigation -->
-          <div class="slide-nav-dock">
-            <button class="btn btn-secondary" id="slide-prev-btn">Trang trước</button>
-            <span id="slide-number-tag" style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-secondary); padding: 0 1rem;"></span>
-            <button class="btn btn-primary" id="slide-next-btn">Trang tiếp</button>
-          </div>
-
-          <!-- Thumbnails Strip -->
-          <div class="slide-thumbs-strip" id="slide-thumbs-strip">
-            <!-- Populated via JS -->
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================================================================
-           TAB 7: SPEED QUIZ ARENA
-           ================================================================== -->
-      <!-- ==================================================================
-           TAB 7: SPEED QUIZ ARENA
+           TAB 6: SPEED QUIZ ARENA
            ================================================================== -->
       <section class="tab-panel" id="tab-quiz">
         <div class="quiz-arena-container">
@@ -510,7 +468,7 @@
         </div>
         <div class="modal-body">
           <div class="search-input-wrap">
-            <input type="text" id="global-search-input" placeholder="Tìm theo Kanji, Kana, Hán-Việt, tiếng Việt hoặc slide..." autocomplete="off">
+            <input type="text" id="global-search-input" placeholder="Tìm theo Kanji, Kana, Hán-Việt hoặc ngữ pháp..." autocomplete="off">
             <span class="kbd-shortcut">ESC để đóng</span>
           </div>
           <div class="search-results-list" id="search-results-list">
@@ -530,7 +488,6 @@
   <script src="js/audio.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/flashcard.js"></script>
-  <script src="js/slide_viewer.js"></script>
   <script src="js/quiz.js"></script>
   <script src="js/search.js"></script>
   <script src="js/app.js"></script>
