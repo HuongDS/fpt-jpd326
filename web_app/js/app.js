@@ -44,6 +44,9 @@ class App {
 
     // Quick Action cards on dashboard
     this.bindDashboardActions();
+
+    // Initial Tab sync & Subbar initialization
+    this.switchTab('dashboard');
   }
 
   initGlobalLessonBar() {
@@ -151,10 +154,84 @@ class App {
   }
 
   initNavigation() {
-    document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+    // 1. Delegated click on any .nav-tab-btn across the whole app
+    document.addEventListener('click', (e) => {
+      const tabBtn = e.target.closest('.nav-tab-btn');
+      if (tabBtn && tabBtn.dataset.tab) {
+        this.switchTab(tabBtn.dataset.tab);
+        this.closeAllDropdowns();
+        this.closeNavMap();
+      }
+    });
+
+    // 2. Dropdown triggers (Kho Kiến Thức & Phòng Luyện Thi)
+    const setupDropdown = (triggerId, dropdownId) => {
+      const trigger = document.getElementById(triggerId);
+      const dropdown = document.getElementById(dropdownId);
+      if (!trigger || !dropdown) return;
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.contains('open');
+        this.closeAllDropdowns();
+        if (!isOpen) {
+          dropdown.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    };
+
+    setupDropdown('btn-group-knowledge', 'nav-dropdown-knowledge');
+    setupDropdown('btn-group-exam', 'nav-dropdown-exam');
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        this.closeAllDropdowns();
+      }
+    });
+
+    // Close on Escape or Toggle on Ctrl+M
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.closeAllDropdowns();
+        this.closeNavMap();
+      }
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'm' || e.key === 'M')) {
+        e.preventDefault();
+        this.toggleNavMap();
+      }
+    });
+
+    // 3. Site Navigation Map Modal (Ctrl + M)
+    const mapTrigger = document.getElementById('btn-open-nav-map');
+    if (mapTrigger) {
+      mapTrigger.addEventListener('click', () => this.toggleNavMap());
+    }
+    const mapCloseBtn = document.getElementById('btn-close-nav-map');
+    if (mapCloseBtn) {
+      mapCloseBtn.addEventListener('click', () => this.closeNavMap());
+    }
+    const mapFooterClose = document.getElementById('btn-footer-close-map');
+    if (mapFooterClose) {
+      mapFooterClose.addEventListener('click', () => this.closeNavMap());
+    }
+    const navMapModal = document.getElementById('nav-map-modal');
+    if (navMapModal) {
+      navMapModal.addEventListener('click', (e) => {
+        if (e.target === navMapModal) this.closeNavMap();
+      });
+    }
+
+    // Nav Map Quick Lesson Jump buttons
+    document.querySelectorAll('.nav-map-lesson-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        const tab = btn.dataset.tab;
-        this.switchTab(tab);
+        const lesson = btn.dataset.jumpLesson;
+        if (lesson) {
+          this.setLesson(lesson);
+          this.closeNavMap();
+          this.switchTab('dashboard');
+        }
       });
     });
 
@@ -200,12 +277,62 @@ class App {
 
   switchTab(tabId) {
     this.currentTab = tabId;
+
+    // Determine category group
+    let group = 'dashboard';
+    if (['vocab', 'kanji', 'grammar', 'flashcards'].includes(tabId)) {
+      group = 'knowledge';
+    } else if (['final-exam', 'speaking', 'oral', 'quiz'].includes(tabId)) {
+      group = 'exam';
+    }
+
+    // Update group triggers in top header
+    const dashBtn = document.getElementById('nav-btn-dashboard');
+    if (dashBtn) dashBtn.classList.toggle('active', group === 'dashboard');
+
+    const knowBtn = document.getElementById('btn-group-knowledge');
+    const knowPill = document.getElementById('nav-knowledge-active-tag');
+    if (knowBtn) knowBtn.classList.toggle('active', group === 'knowledge');
+    if (knowPill) {
+      const knowNames = {
+        'vocab': 'Từ vựng',
+        'kanji': 'Hán tự',
+        'grammar': 'Ngữ pháp',
+        'flashcards': 'Thẻ SRS'
+      };
+      if (group === 'knowledge' && knowNames[tabId]) {
+        knowPill.textContent = knowNames[tabId];
+        knowPill.classList.add('visible');
+      } else {
+        knowPill.classList.remove('visible');
+      }
+    }
+
+    const examBtn = document.getElementById('btn-group-exam');
+    const examPill = document.getElementById('nav-exam-active-tag');
+    if (examBtn) examBtn.classList.toggle('active', group === 'exam');
+    if (examPill) {
+      const examNames = {
+        'final-exam': 'Final',
+        'speaking': 'Speaking',
+        'oral': 'Vấn đáp',
+        'quiz': 'Speed Quiz'
+      };
+      if (group === 'exam' && examNames[tabId]) {
+        examPill.textContent = examNames[tabId];
+        examPill.classList.add('visible');
+      } else {
+        examPill.classList.remove('visible');
+      }
+    }
+
+    // Render Subbar Contextual Pills based on group
+    this.renderSubbarContextPills(tabId, group);
+
+    // Update active class on all matching tab buttons & map items
     document.querySelectorAll('.nav-tab-btn').forEach(btn => {
       const isActive = btn.dataset.tab === tabId;
       btn.classList.toggle('active', isActive);
-      if (isActive) {
-        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
     });
 
     document.querySelectorAll('.tab-panel').forEach(panel => {
@@ -216,10 +343,101 @@ class App {
     if (tabId === 'dashboard') {
       this.renderDashboardLessonView();
     } else if (tabId === 'flashcards') {
-      window.flashcardEngine.renderCard();
+      if (window.flashcardEngine) window.flashcardEngine.renderCard();
     }
 
+    this.closeAllDropdowns();
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  renderSubbarContextPills(currentTab, group) {
+    const container = document.getElementById('subbar-context-pills');
+    if (!container) return;
+
+    if (group === 'knowledge') {
+      const vCount = this.data && this.data.vocabulary ? this.data.vocabulary.length : 531;
+      const kCount = this.data && this.data.kanji ? this.data.kanji.length : 73;
+      const gCount = this.data && this.data.grammar ? this.data.grammar.length : 69;
+
+      container.innerHTML = `
+        <div class="subbar-pills-group">
+          <span class="subbar-group-label">KHO KIẾN THỨC:</span>
+          <button class="subbar-pill nav-tab-btn ${currentTab === 'vocab' ? 'active' : ''}" data-tab="vocab">
+            Từ vựng <span class="nav-badge">${vCount}</span>
+          </button>
+          <button class="subbar-pill nav-tab-btn ${currentTab === 'kanji' ? 'active' : ''}" data-tab="kanji">
+            Hán tự <span class="nav-badge">${kCount}</span>
+          </button>
+          <button class="subbar-pill nav-tab-btn ${currentTab === 'grammar' ? 'active' : ''}" data-tab="grammar">
+            Ngữ pháp <span class="nav-badge">${gCount}</span>
+          </button>
+          <button class="subbar-pill nav-tab-btn ${currentTab === 'flashcards' ? 'active' : ''}" data-tab="flashcards">
+            Thẻ SRS
+          </button>
+        </div>
+      `;
+    } else if (group === 'exam') {
+      container.innerHTML = `
+        <div class="subbar-pills-group">
+          <span class="subbar-group-label">PHÒNG THI:</span>
+          <button class="subbar-pill nav-tab-btn ${currentTab === 'final-exam' ? 'active' : ''}" data-tab="final-exam">
+            Ôn thi Final
+          </button>
+          <button class="subbar-pill nav-tab-btn ${currentTab === 'speaking' ? 'active' : ''}" data-tab="speaking">
+            Luyện Speaking
+          </button>
+          <button class="subbar-pill nav-tab-btn ${currentTab === 'oral' ? 'active' : ''}" data-tab="oral">
+            Ôn Vấn Đáp
+          </button>
+          <button class="subbar-pill nav-tab-btn ${currentTab === 'quiz' ? 'active' : ''}" data-tab="quiz">
+            Speed Quiz
+          </button>
+        </div>
+      `;
+    } else {
+      // Dashboard mode: quick access shortcuts
+      container.innerHTML = `
+        <div class="subbar-pills-group">
+          <span class="subbar-group-label">TRUY CẬP NHANH:</span>
+          <button class="subbar-pill nav-tab-btn" data-tab="final-exam">Thi Final Excel</button>
+          <button class="subbar-pill nav-tab-btn" data-tab="speaking">Thi Speaking</button>
+          <button class="subbar-pill nav-tab-btn" data-tab="oral">Thi Vấn Đáp</button>
+          <button class="subbar-pill nav-tab-btn" data-tab="vocab">Tra Từ Vựng</button>
+          <button class="subbar-pill nav-tab-btn" data-tab="flashcards">Thẻ SRS</button>
+        </div>
+      `;
+    }
+  }
+
+  closeAllDropdowns() {
+    document.querySelectorAll('.nav-dropdown').forEach(dd => dd.classList.remove('open'));
+    document.querySelectorAll('.nav-dropdown-trigger').forEach(trig => trig.setAttribute('aria-expanded', 'false'));
+  }
+
+  openNavMap() {
+    const modal = document.getElementById('nav-map-modal');
+    if (modal) {
+      modal.classList.add('active');
+      if (window.soundEngine) window.soundEngine.playModalOpen();
+    }
+  }
+
+  closeNavMap() {
+    const modal = document.getElementById('nav-map-modal');
+    if (modal && modal.classList.contains('active')) {
+      modal.classList.remove('active');
+      if (window.soundEngine) window.soundEngine.playModalClose();
+    }
+  }
+
+  toggleNavMap() {
+    const modal = document.getElementById('nav-map-modal');
+    if (!modal) return;
+    if (modal.classList.contains('active')) {
+      this.closeNavMap();
+    } else {
+      this.openNavMap();
+    }
   }
 
   initDashboard() {

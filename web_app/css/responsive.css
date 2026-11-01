@@ -49,42 +49,16 @@ html, body {
    -------------------------------------------------------------------------- */
 @media (max-width: 1360px) {
   .app-header {
-    flex-wrap: wrap;
-    padding: 0.5rem 1.25rem 0.35rem;
-    gap: 0.5rem;
+    padding: 0.45rem 1.25rem;
   }
 
-  /* Row 1: Logo on left, Actions on right */
-  .logo-section {
-    order: 1;
-  }
-
-  .header-actions {
-    order: 2;
-    margin-left: auto;
-  }
-
-  /* Row 2: Nav Tabs full width swipeable bar */
-  .nav-tabs {
-    order: 3;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    justify-content: flex-start;
-    padding: 0.3rem 0.25rem;
-    gap: 0.25rem;
-    background: var(--bg-elevated);
-  }
-
-  .nav-tab-btn {
-    flex-shrink: 0;
-    padding: 0.4rem 0.75rem;
+  .nav-group-btn {
+    padding: 0.35rem 0.65rem;
     font-size: 0.8rem;
   }
 
-  /* Global lesson bar sticky offset when header is 2 rows */
-  .global-lesson-bar {
-    position: static;
+  .subbar-inner {
+    gap: 0.5rem;
   }
 
   .app-main {
@@ -291,6 +265,7 @@ html, body {
   .app-header {
     padding: 0.45rem 0.85rem 0.35rem;
     gap: 0.4rem;
+    flex-wrap: wrap;
   }
 
   .logo-text h1 {
@@ -299,6 +274,24 @@ html, body {
 
   .logo-subtitle {
     display: none;
+  }
+
+  .nav-groups {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .nav-group-btn {
+    padding: 0.32rem 0.65rem;
+    font-size: 0.78rem;
+  }
+
+  .nav-dropdown-menu {
+    min-width: 280px;
+    left: 0;
   }
 
   .search-trigger-btn {
@@ -317,28 +310,32 @@ html, body {
     font-size: 0.75rem;
   }
 
-  .nav-tabs {
-    padding: 0.25rem 0.15rem;
-  }
-
-  .nav-tab-btn {
-    padding: 0.35rem 0.65rem;
-    font-size: 0.78rem;
-  }
-
-  /* Global Lesson Bar */
-  .global-lesson-bar {
+  /* App Sub-Bar on Mobile */
+  .app-subbar {
     padding: 0.35rem 0.85rem;
+    top: 82px;
   }
 
-  .lesson-bar-inner {
+  .subbar-inner {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.3rem;
+    align-items: stretch;
+    gap: 0.4rem;
   }
 
-  .lesson-bar-title {
-    font-size: 0.72rem;
+  .subbar-context-section {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding-bottom: 2px;
+  }
+
+  .subbar-lesson-section {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding-bottom: 2px;
   }
 
   .lesson-bar-chips {
@@ -353,6 +350,11 @@ html, body {
     flex-shrink: 0;
     padding: 0.25rem 0.6rem;
     font-size: 0.76rem;
+  }
+
+  .nav-map-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   /* Main Container */

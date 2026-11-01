@@ -27,34 +27,93 @@
         </div>
       </div>
 
-      <nav class="nav-tabs" id="main-nav-tabs">
-        <button class="nav-tab-btn active" data-tab="dashboard" id="nav-tab-dashboard">
-          Tổng quan
+      <nav class="nav-groups" id="main-nav-groups">
+        <!-- 1. Dashboard -->
+        <button class="nav-group-btn nav-tab-btn active" data-tab="dashboard" id="nav-btn-dashboard" title="Bảng điều khiển & Tổng quan">
+          <span class="nav-text">Tổng quan</span>
         </button>
-        <button class="nav-tab-btn" data-tab="final-exam" id="nav-tab-final-exam">
-          Ôn thi Final
-        </button>
-        <button class="nav-tab-btn" data-tab="speaking" id="nav-tab-speaking">
-          Luyện Speaking
-        </button>
-        <button class="nav-tab-btn" data-tab="oral" id="nav-tab-oral">
-          Ôn Vấn Đáp
-        </button>
-        <button class="nav-tab-btn" data-tab="flashcards" id="nav-tab-flashcards">
-          Thẻ SRS
-        </button>
-        <button class="nav-tab-btn" data-tab="vocab" id="nav-tab-vocab">
-          Từ vựng <span class="nav-badge">531</span>
-        </button>
-        <button class="nav-tab-btn" data-tab="kanji" id="nav-tab-kanji">
-          Hán tự <span class="nav-badge">73</span>
-        </button>
-        <button class="nav-tab-btn" data-tab="grammar" id="nav-tab-grammar">
-          Ngữ pháp <span class="nav-badge">69</span>
-        </button>
-        <button class="nav-tab-btn" data-tab="quiz" id="nav-tab-quiz">
-          Speed Quiz
-        </button>
+
+        <!-- 2. Knowledge Dropdown Group -->
+        <div class="nav-dropdown" id="nav-dropdown-knowledge">
+          <button class="nav-group-btn nav-dropdown-trigger" id="btn-group-knowledge" aria-haspopup="true" aria-expanded="false" title="Kho kiến thức bài 6 - 10">
+            <span class="nav-text">Kho Kiến Thức</span>
+            <span class="nav-active-pill" id="nav-knowledge-active-tag"></span>
+            <svg class="dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" id="menu-knowledge">
+            <div class="dropdown-header">KIẾN THỨC BÀI 6 - 10</div>
+            <button class="dropdown-item nav-tab-btn" data-tab="vocab">
+              <div class="dropdown-item-main">
+                <span class="dropdown-item-title">Bảng Từ Vựng</span>
+                <span class="dropdown-item-desc">531 từ vựng trung cấp kèm Hiragana, Hán Việt và dịch nghĩa</span>
+              </div>
+              <span class="dropdown-item-badge">531</span>
+            </button>
+            <button class="dropdown-item nav-tab-btn" data-tab="kanji">
+              <div class="dropdown-item-main">
+                <span class="dropdown-item-title">Bảng Hán Tự</span>
+                <span class="dropdown-item-desc">73 chữ Hán trọng tâm, tra cứu âm On, âm Kun và từ ghép</span>
+              </div>
+              <span class="dropdown-item-badge">73</span>
+            </button>
+            <button class="dropdown-item nav-tab-btn" data-tab="grammar">
+              <div class="dropdown-item-main">
+                <span class="dropdown-item-title">Bảng Ngữ Pháp</span>
+                <span class="dropdown-item-desc">69 mẫu ngữ pháp Dekiru Nihongo kèm ví dụ và ngữ cảnh</span>
+              </div>
+              <span class="dropdown-item-badge">69</span>
+            </button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item nav-tab-btn" data-tab="flashcards">
+              <div class="dropdown-item-main">
+                <span class="dropdown-item-title">Thẻ Ghi Nhớ SRS</span>
+                <span class="dropdown-item-desc">Luyện thẻ flashcard lặp lại ngắt quãng thông minh</span>
+              </div>
+              <span class="dropdown-item-tag">SRS Deck</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Exam & Practice Dropdown Group -->
+        <div class="nav-dropdown" id="nav-dropdown-exam">
+          <button class="nav-group-btn nav-dropdown-trigger" id="btn-group-exam" aria-haspopup="true" aria-expanded="false" title="Các hình thức ôn thi JPD326">
+            <span class="nav-text">Phòng Luyện Thi</span>
+            <span class="nav-active-pill" id="nav-exam-active-tag"></span>
+            <svg class="dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" id="menu-exam">
+            <div class="dropdown-header">CÁC HÌNH THỨC THI JPD326</div>
+            <button class="dropdown-item nav-tab-btn" data-tab="final-exam">
+              <div class="dropdown-item-main">
+                <span class="dropdown-item-title">Ôn Thi Final (Excel Mode)</span>
+                <span class="dropdown-item-desc">Bảng điền Kanji & Furigana như đề thi, nộp bài báo lỗi đỏ</span>
+              </div>
+              <span class="dropdown-item-tag">Excel Mode</span>
+            </button>
+            <button class="dropdown-item nav-tab-btn" data-tab="speaking">
+              <div class="dropdown-item-main">
+                <span class="dropdown-item-title">Luyện Thi Speaking</span>
+                <span class="dropdown-item-desc">6 tình huống hội thoại phân vai A-B, nạp file B, nhập thoại A</span>
+              </div>
+              <span class="dropdown-item-tag">6 Tình huống</span>
+            </button>
+            <button class="dropdown-item nav-tab-btn" data-tab="oral">
+              <div class="dropdown-item-main">
+                <span class="dropdown-item-title">Ôn Thi Vấn Đáp</span>
+                <span class="dropdown-item-desc">10 câu hỏi phỏng vấn JPD326, dàn ý cấu trúc & bốc thăm 60s</span>
+              </div>
+              <span class="dropdown-item-tag">10 Câu hỏi</span>
+            </button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item nav-tab-btn" data-tab="quiz">
+              <div class="dropdown-item-main">
+                <span class="dropdown-item-title">Speed Quiz Trắc Nghiệm</span>
+                <span class="dropdown-item-desc">Kiểm tra phản xạ chọn đáp án đúng với đồng hồ đếm ngược</span>
+              </div>
+              <span class="dropdown-item-tag">Tính giờ</span>
+            </button>
+          </div>
+        </div>
       </nav>
 
       <div class="header-actions">
@@ -62,23 +121,32 @@
           <span>Tra cứu</span>
           <span class="kbd-shortcut">Ctrl K</span>
         </button>
+        <button class="icon-btn" id="btn-open-nav-map" title="Sơ đồ quản lý toàn bộ nội dung (Ctrl+M)">Sơ đồ</button>
         <button class="icon-btn" id="btn-toggle-theme" title="Chuyển chế độ Sáng / Tối">Sáng</button>
         <button class="icon-btn active" id="btn-toggle-sound" title="Bật/Tắt âm thanh hiệu ứng">Bật âm</button>
         <button class="icon-btn" id="btn-reset-data" title="Đặt lại tiến độ học tập">Đặt lại</button>
       </div>
     </header>
 
-    <!-- Global Lesson Program Bar (Chia chương trình học theo bài 6, 7, 8, 9, 10) -->
-    <div class="global-lesson-bar">
-      <div class="lesson-bar-inner">
-        <span class="lesson-bar-title">Chương trình học:</span>
-        <div class="lesson-bar-chips" id="global-lesson-chips">
-          <button class="filter-chip active" data-lesson="all">Tất cả bài (6 - 10)</button>
-          <button class="filter-chip" data-lesson="第 6 課">Bài 6</button>
-          <button class="filter-chip" data-lesson="第 7 課">Bài 7</button>
-          <button class="filter-chip" data-lesson="第 8 課">Bài 8</button>
-          <button class="filter-chip" data-lesson="第 9 課">Bài 9</button>
-          <button class="filter-chip" data-lesson="第 10 課">Bài 10</button>
+    <!-- App Sub-Bar: Smart Contextual Pills + Global Lesson Filter -->
+    <div class="app-subbar" id="app-subbar">
+      <div class="subbar-inner">
+        <!-- Contextual Quick Tabs (Updates dynamically based on current section) -->
+        <div class="subbar-context-section" id="subbar-context-pills">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <!-- Global Lesson Filter Chips (Chia chương trình học theo bài 6, 7, 8, 9, 10) -->
+        <div class="subbar-lesson-section">
+          <span class="subbar-lesson-label">Bài học:</span>
+          <div class="lesson-bar-chips" id="global-lesson-chips">
+            <button class="filter-chip active" data-lesson="all">Tất cả bài</button>
+            <button class="filter-chip" data-lesson="第 6 課">Bài 6</button>
+            <button class="filter-chip" data-lesson="第 7 課">Bài 7</button>
+            <button class="filter-chip" data-lesson="第 8 課">Bài 8</button>
+            <button class="filter-chip" data-lesson="第 9 課">Bài 9</button>
+            <button class="filter-chip" data-lesson="第 10 課">Bài 10</button>
+          </div>
         </div>
       </div>
     </div>
@@ -908,6 +976,142 @@
         </div>
         <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 0.5rem;">
           <button class="btn btn-secondary btn-sm" id="btn-mock-next-q">Bốc câu khác</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Site Navigation Map Modal (Sơ đồ quản lý toàn bộ hệ thống) -->
+    <div class="modal-overlay" id="nav-map-modal">
+      <div class="modal-content" style="max-width: 900px; width: 95%;">
+        <div class="modal-header">
+          <div>
+            <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; color: var(--text-muted); text-transform: uppercase;">
+              HỆ THỐNG ĐIỀU HƯỚNG TỔNG QUAN
+            </div>
+            <h3 style="margin: 0.2rem 0 0 0; font-size: 1.2rem; color: var(--text-heading);">
+              Sơ Đồ Quản Lý & Lộ Trình Học JPD326
+            </h3>
+          </div>
+          <button class="modal-close-btn" id="btn-close-nav-map" title="Đóng sơ đồ">&times;</button>
+        </div>
+
+        <div class="modal-body" style="padding: 1.25rem;">
+          <div class="nav-map-grid">
+            <!-- Col 1: Kho Kiến Thức -->
+            <div class="nav-map-col">
+              <div class="nav-map-col-title">
+                <span>Kho Kiến Thức</span>
+                <span class="badge" style="font-size: 0.65rem;">Bài 6 - 10</span>
+              </div>
+              <div class="nav-map-list">
+                <div class="nav-map-item nav-tab-btn" data-tab="vocab">
+                  <div class="nav-map-item-header">
+                    <span class="nav-map-item-title">Bảng Từ Vựng</span>
+                    <span class="badge">531 từ</span>
+                  </div>
+                  <p class="nav-map-item-desc">Tra cứu toàn diện từ vựng trung cấp kèm Hiragana, Hán Việt và dịch nghĩa.</p>
+                </div>
+                <div class="nav-map-item nav-tab-btn" data-tab="kanji">
+                  <div class="nav-map-item-header">
+                    <span class="nav-map-item-title">Bảng Hán Tự</span>
+                    <span class="badge">73 chữ</span>
+                  </div>
+                  <p class="nav-map-item-desc">Tra cứu âm On, âm Kun, từ ghép và thứ tự nét viết chuẩn.</p>
+                </div>
+                <div class="nav-map-item nav-tab-btn" data-tab="grammar">
+                  <div class="nav-map-item-header">
+                    <span class="nav-map-item-title">Bảng Ngữ Pháp</span>
+                    <span class="badge">69 mẫu</span>
+                  </div>
+                  <p class="nav-map-item-desc">Các cấu trúc ngữ pháp trọng tâm giáo trình Dekiru Nihongo.</p>
+                </div>
+                <div class="nav-map-item nav-tab-btn" data-tab="flashcards">
+                  <div class="nav-map-item-header">
+                    <span class="nav-map-item-title">Thẻ Ghi Nhớ SRS</span>
+                    <span class="badge">Thuật toán SRS</span>
+                  </div>
+                  <p class="nav-map-item-desc">Luyện thẻ lặp lại ngắt quãng để ghi nhớ sâu từ vựng & chữ Hán.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Col 2: Phòng Luyện Thi -->
+            <div class="nav-map-col">
+              <div class="nav-map-col-title">
+                <span>Phòng Luyện Thi</span>
+                <span class="badge" style="font-size: 0.65rem;">Thi & Phản xạ</span>
+              </div>
+              <div class="nav-map-list">
+                <div class="nav-map-item nav-tab-btn" data-tab="final-exam">
+                  <div class="nav-map-item-header">
+                    <span class="nav-map-item-title">Ôn Thi Final</span>
+                    <span class="badge">Excel Mode</span>
+                  </div>
+                  <p class="nav-map-item-desc">Mô phỏng bảng Excel điền Kanji & Furigana như đề thi, nộp bài báo lỗi đỏ.</p>
+                </div>
+                <div class="nav-map-item nav-tab-btn" data-tab="speaking">
+                  <div class="nav-map-item-header">
+                    <span class="nav-map-item-title">Luyện Thi Speaking</span>
+                    <span class="badge">6 Tình huống</span>
+                  </div>
+                  <p class="nav-map-item-desc">Luyện 6 tình huống hội thoại phân vai A-B, nạp file B, nhập từng câu A.</p>
+                </div>
+                <div class="nav-map-item nav-tab-btn" data-tab="oral">
+                  <div class="nav-map-item-header">
+                    <span class="nav-map-item-title">Ôn Thi Vấn Đáp</span>
+                    <span class="badge">10 Câu hỏi</span>
+                  </div>
+                  <p class="nav-map-item-desc">10 câu hỏi phỏng vấn JPD326, dàn ý cấu trúc điểm và mô phỏng 60 giây.</p>
+                </div>
+                <div class="nav-map-item nav-tab-btn" data-tab="quiz">
+                  <div class="nav-map-item-header">
+                    <span class="nav-map-item-title">Speed Quiz</span>
+                    <span class="badge">Trắc nghiệm</span>
+                  </div>
+                  <p class="nav-map-item-desc">Kiểm tra phản xạ chọn đáp án đúng với đồng hồ đếm ngược từng câu.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Col 3: Phân theo bài học & Tiện ích -->
+            <div class="nav-map-col">
+              <div class="nav-map-col-title">
+                <span>Chọn Bài Học Trọng Tâm</span>
+                <span class="badge" style="font-size: 0.65rem;">5 Bài</span>
+              </div>
+              <div class="nav-map-lessons">
+                <button class="nav-map-lesson-btn" data-jump-lesson="all">
+                  <strong>Tất cả các bài (6 - 10)</strong>
+                  <span>Toàn bộ 531 từ, 73 hán tự, 69 ngữ pháp</span>
+                </button>
+                <button class="nav-map-lesson-btn" data-jump-lesson="第 6 課">
+                  <strong>Bài 6: 地図を広げる</strong>
+                  <span>Khám phá bản đồ & chỉ đường</span>
+                </button>
+                <button class="nav-map-lesson-btn" data-jump-lesson="第 7 課">
+                  <strong>Bài 7: 世代を超えた交流</strong>
+                  <span>Giao lưu kết nối giữa các thế hệ</span>
+                </button>
+                <button class="nav-map-lesson-btn" data-jump-lesson="第 8 課">
+                  <strong>Bài 8: 気持ちを伝える</strong>
+                  <span>Bày tỏ cảm xúc & trao đổi tâm tình</span>
+                </button>
+                <button class="nav-map-lesson-btn" data-jump-lesson="第 9 課">
+                  <strong>Bài 9: 言葉を楽しむ</strong>
+                  <span>Thưởng thức vẻ đẹp ngôn từ tiếng Nhật</span>
+                </button>
+                <button class="nav-map-lesson-btn" data-jump-lesson="第 10 課">
+                  <strong>Bài 10: 自然と人間</strong>
+                  <span>Mối quan hệ con người & thiên nhiên</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.25rem;">
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Mẹo: Bạn có thể nhấn <strong>Ctrl + M</strong> bất cứ lúc nào để mở sơ đồ này.</span>
+          <button class="btn btn-secondary btn-sm" id="btn-footer-close-map">Đóng</button>
         </div>
       </div>
     </div>

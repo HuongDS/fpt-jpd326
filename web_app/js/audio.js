@@ -439,14 +439,20 @@ class SoundEngine {
       }
 
       // 4. Modal close buttons or modal backdrop
-      if (e.target.closest('#kanji-modal-close, #search-modal-close, #btn-close-search, .modal-backdrop')) {
+      if (e.target.closest('#kanji-modal-close, #search-modal-close, #btn-close-search, #btn-close-nav-map, #btn-footer-close-map, .modal-backdrop')) {
         this.playModalClose();
         return;
       }
 
-      // 5. Search trigger button in header
-      if (e.target.closest('#btn-open-search')) {
+      // 5. Search trigger or Nav Map button in header
+      if (e.target.closest('#btn-open-search, #btn-open-nav-map')) {
         this.playModalOpen();
+        return;
+      }
+
+      // 5.1 Dropdown trigger buttons in header
+      if (e.target.closest('.nav-dropdown-trigger')) {
+        this.playChip();
         return;
       }
 
