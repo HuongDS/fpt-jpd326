@@ -124,36 +124,38 @@ def parse_vocab():
     return vocab_list
 
 def parse_grammar():
-    grammar_path = os.path.join(ROOT_DIR, 'ngu_phap', 'toan_bo_ngu_phap.docx')
+    grammar_path = os.path.join(ROOT_DIR, "ngu_phap", "toan_bo_ngu_phap.docx")
     doc = docx.Document(grammar_path)
     current_lesson = '第 6 課'
     grammar_list = []
     curr_grammar = None
-    in_examples = False
+    state = 'title'
 
     for child in doc.element.body:
         tag = child.tag.split('}')[-1]
         if tag == 'p':
             p = docx.text.paragraph.Paragraph(child, doc)
             txt = p.text.strip()
-            if not txt: continue
-            if '第' in txt and '課' in txt and 'TỔNG HỢP' not in txt:
-                current_lesson = txt
+            if not txt:
                 continue
-            
-            # Check for grammar rule title
+            if '第' in txt and '課' in txt and 'TỔNG HỢP' not in txt:
+                current_lesson = txt.strip()
+                continue
+
+            # Check if rule title
             is_rule_title = False
             m = re.match(r'^(\d+)\s*[\.\:](.*)', txt)
             if m:
                 rest = m.group(2).strip()
-                has_vietnamese = bool(re.search(r'[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]', rest, re.I))
-                if has_vietnamese or rest.endswith(':') or rest.endswith('：') or '~' in rest or '…' in rest:
-                    is_rule_title = True
-            
+                # Dialogue lines like "A: Party..." should not be treated as a new rule
+                if not (rest.startswith('A:') or rest.startswith('B:') or rest.startswith('A：') or rest.startswith('B：')):
+                    has_vietnamese = bool(re.search(r'[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]', rest, re.I))
+                    if has_vietnamese or rest.endswith(':') or rest.endswith('：') or '~' in rest or '…' in rest or rest.startswith('～'):
+                        is_rule_title = True
+
             if is_rule_title:
                 if curr_grammar:
                     grammar_list.append(curr_grammar)
-                in_examples = False
                 curr_grammar = {
                     'id': f'grammar_{len(grammar_list)+1}',
                     'lesson': current_lesson,
@@ -162,17 +164,21 @@ def parse_grammar():
                     'points': '',
                     'examples': []
                 }
+                state = 'formula'
             elif curr_grammar:
-                if txt.startswith('ポイント') or 'ポイント:' in txt or 'ポイント：' in txt:
-                    in_examples = False
-                    curr_grammar['points'] = (curr_grammar['points'] + '\n' + txt).strip()
-                elif txt.startswith('例:') or txt.startswith('例：') or txt.startswith('例'):
-                    in_examples = True
+                if txt.startswith('例:') or txt.startswith('例：') or txt.startswith('例'):
+                    state = 'examples'
                     curr_grammar['examples'].append(txt)
-                elif in_examples:
+                elif state == 'examples':
                     curr_grammar['examples'].append(txt)
-                else:
+                elif txt.startswith('ポイント') or 'ポイント:' in txt or 'ポイント：' in txt:
+                    state = 'points'
+                    clean_txt = re.sub(r'^ポイント\s*[\:：]\s*', '', txt)
+                    curr_grammar['points'] = (curr_grammar['points'] + '\n' + clean_txt).strip()
+                elif state == 'points':
                     curr_grammar['points'] = (curr_grammar['points'] + '\n' + txt).strip()
+                else: # state == 'formula'
+                    curr_grammar['formula'] = (curr_grammar['formula'] + '\n' + txt).strip()
 
         elif tag == 'tbl':
             t = docx.table.Table(child, doc)
@@ -185,6 +191,58 @@ def parse_grammar():
 
     if curr_grammar:
         grammar_list.append(curr_grammar)
+
+    # Re-index IDs cleanly
+    for idx, g in enumerate(grammar_list):
+        g['id'] = f'grammar_{idx + 1}'
+
+    # Manual quality enhancements for edge cases
+    manual_adjustments = {
+        '1. Được bao quanh bởi N:': {
+            'points': 'Diễn tả trạng thái một nơi chốn/sự vật được bao bọc hoặc vây quanh bởi danh từ N.'
+        },
+        '2. Chiếm…:': {
+            'points': 'Biểu thị tỷ lệ, phần trăm hoặc vị trí mà đối tượng chiếm giữ trong một tổng thể.'
+        },
+        '5. Phòng khi, để chuẩn bị cho…:': {
+            'points': 'Hành động chuẩn bị trước để đối phó hoặc phòng bị cho tình huống N (thiên tai, kỳ thi, sự cố...).'
+        },
+        '5. ～かなと思って:': {
+            'formula': 'V普通形 + かなと思って',
+            'points': 'Cấu trúc mời rủ một cách ngại ngần, khách khí, thăm dò ý kiến đối phương.'
+        },
+        '8. ものだ:': {
+            'points': 'Diễn tả chân lý tự nhiên (Vる), thói quen trong quá khứ (Vた), hoặc mong muốn tha thiết (Vたい).'
+        },
+        '9. Thể sai khiến:': {
+            'formula': 'V使役形 (～(さ)せる)',
+            'points': 'Đi cùng với động từ chỉ cảm xúc (驚く、笑う、怒る、泣く、喜ぶ、悲しむ、安心する、困る、楽しむ、びっくりする…), mang ý nghĩa: Làm ai đó cảm thấy thế nào.'
+        },
+        '2. Như, theo như…:': {
+            'points': 'Dùng để nêu ví dụ, so sánh hoặc trích dẫn: Theo như…, giống như…'
+        },
+        '5. Có lẽ…, có phải không…:': {
+            'points': 'Dùng để diễn tả suy đoán hoặc hỏi ý kiến nhẹ nhàng: Có lẽ…, có phải không…'
+        },
+        '4. Tôi xin phép được…:': {
+            'points': 'Cách nói khiêm nhường xin phép đối phương để mình được thực hiện hành động: Tôi xin phép được…'
+        },
+        '5. Khiêm nhường ngữ:': {
+            'points': 'Mẫu câu khiêm nhường ngữ trang trọng lịch sự, hạ mình để nâng cao sự tôn kính với đối phương.'
+        },
+        '8. ～ております:': {
+            'formula': 'Vて + おります',
+            'points': 'Khiêm nhường ngữ lịch sự của ～ています.'
+        }
+    }
+
+    for g in grammar_list:
+        for title_key, adj in manual_adjustments.items():
+            if title_key in g['title']:
+                if 'formula' in adj and not g['formula']:
+                    g['formula'] = adj['formula']
+                if 'points' in adj and not g['points']:
+                    g['points'] = adj['points']
 
     print(f"Parsed {len(grammar_list)} Grammar points.")
     return grammar_list

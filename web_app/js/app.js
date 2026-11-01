@@ -357,7 +357,7 @@ class App {
     if (group === 'knowledge') {
       const vCount = this.data && this.data.vocabulary ? this.data.vocabulary.length : 531;
       const kCount = this.data && this.data.kanji ? this.data.kanji.length : 73;
-      const gCount = this.data && this.data.grammar ? this.data.grammar.length : 69;
+      const gCount = this.data && this.data.grammar ? this.data.grammar.length : 68;
 
       container.innerHTML = `
         <div class="subbar-pills-group">
@@ -851,9 +851,9 @@ class App {
               return `
                 <tr data-id="${g.id}">
                   <td class="table-stt">${idx + 1}</td>
-                  <td><strong>${g.title}</strong></td>
-                  <td><code style="font-size: 0.88rem; font-weight: 600;">${g.formula}</code></td>
-                  <td>${g.points || '—'}</td>
+                  <td><strong style="color: var(--text-heading); font-size: 0.92rem;">${g.title}</strong></td>
+                  <td><div class="table-formula-cell">${g.formula || '—'}</div></td>
+                  <td style="font-size: 0.88rem; line-height: 1.55; color: var(--text-secondary); white-space: pre-wrap;">${g.points || '—'}</td>
                   <td style="font-size: 0.88rem;">${examplesHtml}</td>
                 </tr>
               `;
@@ -1556,9 +1556,9 @@ class App {
       return `
         <tr data-id="${g.id}">
           <td class="table-stt">${idx + 1}</td>
-          <td><strong>${g.title}</strong></td>
-          <td><code style="font-size: 0.88rem; font-weight: 600;">${g.formula}</code></td>
-          <td>${g.points || '—'}</td>
+          <td><strong style="color: var(--text-heading); font-size: 0.92rem;">${g.title}</strong></td>
+          <td><div class="table-formula-cell">${g.formula || '—'}</div></td>
+          <td style="font-size: 0.88rem; line-height: 1.55; color: var(--text-secondary); white-space: pre-wrap;">${g.points || '—'}</td>
           <td style="font-size: 0.88rem;">${examplesHtml}</td>
           <td><span class="badge">${g.lesson}</span></td>
         </tr>
@@ -1573,7 +1573,7 @@ class App {
     const lessons = ['all', '第 6 課', '第 7 課', '第 8 課', '第 9 課', '第 10 課'];
     container.innerHTML = lessons.map(l => `
       <button class="filter-chip ${l === this.grammarLessonFilter ? 'active' : ''}" data-lesson="${l}">
-        ${l === 'all' ? 'Tất cả (69 mẫu)' : l}
+        ${l === 'all' ? `Tất cả (${this.data.grammar.length} mẫu)` : l}
       </button>
     `).join('');
 

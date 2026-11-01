@@ -728,6 +728,32 @@
   white-space: pre-wrap;
 }
 
+[data-theme="light"] .grammar-formula-badge {
+  background: #F4F4F5;
+  border-color: #E2E4E9;
+  color: #20232A;
+}
+
+.table-formula-cell {
+  font-family: var(--font-jp);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  white-space: pre-wrap;
+  line-height: 1.5;
+  background: var(--bg-elevated);
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  display: inline-block;
+}
+
+[data-theme="light"] .table-formula-cell {
+  background: #F4F4F5;
+  border-color: #E2E4E9;
+  color: #20232A;
+}
+
 .grammar-point-box {
   background: var(--bg-elevated);
   border-left: 3px solid #2C313A;
