@@ -1068,3 +1068,189 @@
 [data-theme="dark"] #grammar-search-input:focus {
   border-color: #FFFFFF;
 }
+
+/* --------------------------------------------------------------------------
+   VIEW MODE TOGGLE & OVERVIEW TABLES
+   -------------------------------------------------------------------------- */
+.btn-group {
+  display: inline-flex;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.btn-group .btn {
+  border-radius: 0;
+  border: none;
+  border-right: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+}
+
+.btn-group .btn:last-child {
+  border-right: none;
+}
+
+.btn-group .btn.active {
+  background: #18181B;
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .btn-group .btn.active {
+  background: #FFFFFF;
+  color: #09090B;
+}
+
+.table-stt {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-align: center;
+}
+
+.table-kanji-cell {
+  font-family: var(--font-jp);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.table-kana-cell {
+  font-family: var(--font-jp);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.table-compounds-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.84rem;
+}
+
+.table-compound-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.table-compound-word {
+  font-family: var(--font-jp);
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.table-compound-reading {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+
+.table-compound-meaning {
+  color: var(--text-primary);
+}
+
+/* Dashboard Lesson Hub Overview Section */
+.hub-overview-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.hub-overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hub-overview-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 0.25rem;
+}
+
+.hub-overview-subtitle {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+}
+
+.hub-overview-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.hub-overview-toolbar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Print Stylesheet for clean paper / PDF cheat-sheets */
+@media print {
+  .app-header,
+  .global-lesson-bar,
+  .lesson-hub-hero,
+  .hub-overview-header .hub-overview-tabs,
+  .hub-overview-header .hub-overview-toolbar,
+  .filter-bar,
+  .section-heading-bar .btn,
+  .btn-group,
+  .modal-overlay,
+  .toast-container,
+  #btn-logo-home,
+  input,
+  button {
+    display: none !important;
+  }
+
+  body, .app-container, .app-main {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .vocab-table-container,
+  .hub-overview-section {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .vocab-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  .vocab-table th,
+  .vocab-table td {
+    border: 1px solid #999999 !important;
+    color: #000000 !important;
+    padding: 6px 8px !important;
+    font-size: 9pt !important;
+  }
+
+  .vocab-table th {
+    background: #F0F0F0 !important;
+    font-weight: 700 !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+  }
+}

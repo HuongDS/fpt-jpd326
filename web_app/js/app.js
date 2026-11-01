@@ -11,6 +11,9 @@ class App {
     this.kanjiLessonFilter = 'all';
     this.vocabLessonFilter = 'all';
     this.grammarLessonFilter = 'all';
+    this.kanjiViewMode = 'grid'; // 'grid' | 'table'
+    this.grammarViewMode = 'list'; // 'list' | 'table'
+    this.hubOverviewTab = 'vocab'; // 'vocab' | 'kanji' | 'grammar'
 
     this.init();
   }
@@ -70,12 +73,12 @@ class App {
     // Synchronize Kanji tab
     this.kanjiLessonFilter = this.currentLesson;
     this.renderKanjiFilters();
-    this.renderKanjiGrid();
+    this.updateKanjiView();
 
     // Synchronize Grammar tab
     this.grammarLessonFilter = this.currentLesson;
     this.renderGrammarFilters();
-    this.renderGrammarList();
+    this.updateGrammarView();
 
     // Update Dashboard view
     this.renderDashboardLessonView();
@@ -294,6 +297,28 @@ class App {
           </button>
         </div>
       </div>
+
+      <!-- Overview Section with Full Tables for Lesson ${lesson} -->
+      <div class="hub-overview-section" id="hub-overview-section">
+        <div class="hub-overview-header">
+          <div>
+            <div class="hub-overview-title">Bảng Tổng Quan Toàn Bộ Nội Dung ${lesson}</div>
+            <div class="hub-overview-subtitle">Tra cứu toàn bộ ${vInLesson.length} từ vựng, ${kInLesson.length} hán tự và ${gInLesson.length} ngữ pháp dạng bảng chi tiết, có thể in ấn hoặc lưu PDF.</div>
+            <div class="hub-overview-tabs" id="hub-overview-tabs">
+              <button class="filter-chip ${this.hubOverviewTab === 'vocab' ? 'active' : ''}" data-hub-tab="vocab">Bảng Từ Vựng (${vInLesson.length} từ)</button>
+              <button class="filter-chip ${this.hubOverviewTab === 'kanji' ? 'active' : ''}" data-hub-tab="kanji">Bảng Hán Tự (${kInLesson.length} chữ)</button>
+              <button class="filter-chip ${this.hubOverviewTab === 'grammar' ? 'active' : ''}" data-hub-tab="grammar">Bảng Ngữ Pháp (${gInLesson.length} mẫu)</button>
+            </div>
+          </div>
+          <div class="hub-overview-toolbar">
+            <input type="text" id="hub-overview-search" placeholder="Lọc nhanh trong bảng ${lesson}..." style="width: 210px;">
+            <button class="btn btn-secondary btn-sm" id="btn-hub-print" title="In hoặc lưu file PDF bảng nội dung này">In bảng ${lesson}</button>
+          </div>
+        </div>
+        <div class="vocab-table-container" id="hub-overview-table-root">
+          <!-- Populated by renderHubOverviewTable -->
+        </div>
+      </div>
     `;
 
     // Bind action events in Hub
@@ -321,25 +346,262 @@ class App {
     const vBtn = document.getElementById('btn-hub-vocab');
     if (vBtn) {
       vBtn.onclick = () => {
-        this.filterVocabByLesson(lesson);
-        this.switchTab('vocab');
+        this.hubOverviewTab = 'vocab';
+        const tabChips = document.querySelectorAll('#hub-overview-tabs .filter-chip');
+        tabChips.forEach(c => c.classList.toggle('active', c.dataset.hubTab === 'vocab'));
+        this.renderHubOverviewTable(lesson, 'vocab');
+        document.getElementById('hub-overview-section')?.scrollIntoView({ behavior: 'smooth' });
       };
     }
 
     const kBtn = document.getElementById('btn-hub-kanji');
     if (kBtn) {
       kBtn.onclick = () => {
-        this.filterKanjiByLesson(lesson);
-        this.switchTab('kanji');
+        this.hubOverviewTab = 'kanji';
+        const tabChips = document.querySelectorAll('#hub-overview-tabs .filter-chip');
+        tabChips.forEach(c => c.classList.toggle('active', c.dataset.hubTab === 'kanji'));
+        this.renderHubOverviewTable(lesson, 'kanji');
+        document.getElementById('hub-overview-section')?.scrollIntoView({ behavior: 'smooth' });
       };
     }
 
     const gBtn = document.getElementById('btn-hub-grammar');
     if (gBtn) {
       gBtn.onclick = () => {
-        this.filterGrammarByLesson(lesson);
-        this.switchTab('grammar');
+        this.hubOverviewTab = 'grammar';
+        const tabChips = document.querySelectorAll('#hub-overview-tabs .filter-chip');
+        tabChips.forEach(c => c.classList.toggle('active', c.dataset.hubTab === 'grammar'));
+        this.renderHubOverviewTable(lesson, 'grammar');
+        document.getElementById('hub-overview-section')?.scrollIntoView({ behavior: 'smooth' });
       };
+    }
+
+    // Hub Overview sub-tabs
+    const hubTabsContainer = document.getElementById('hub-overview-tabs');
+    if (hubTabsContainer) {
+      hubTabsContainer.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          hubTabsContainer.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          this.hubOverviewTab = chip.dataset.hubTab;
+          const searchInput = document.getElementById('hub-overview-search');
+          const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+          this.renderHubOverviewTable(lesson, this.hubOverviewTab, query);
+        });
+      });
+    }
+
+    // Hub Overview search
+    const hubSearch = document.getElementById('hub-overview-search');
+    if (hubSearch) {
+      hubSearch.addEventListener('input', (e) => {
+        this.renderHubOverviewTable(lesson, this.hubOverviewTab, e.target.value.toLowerCase().trim());
+      });
+    }
+
+    // Hub Print
+    const hubPrintBtn = document.getElementById('btn-hub-print');
+    if (hubPrintBtn) {
+      hubPrintBtn.onclick = () => window.print();
+    }
+
+    // Initial render of the hub overview table
+    this.renderHubOverviewTable(lesson, this.hubOverviewTab || 'vocab');
+  }
+
+  renderHubOverviewTable(lesson, tab = 'vocab', query = '') {
+    const tableRoot = document.getElementById('hub-overview-table-root');
+    if (!tableRoot) return;
+
+    if (tab === 'vocab') {
+      let items = this.data.vocabulary.filter(v => v.lesson === lesson);
+      if (query) {
+        items = items.filter(v => 
+          v.display.toLowerCase().includes(query) || 
+          v.kana.toLowerCase().includes(query) || 
+          v.meaning.toLowerCase().includes(query)
+        );
+      }
+
+      if (items.length === 0) {
+        tableRoot.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 2.5rem;">Không tìm thấy từ vựng nào phù hợp trong ${lesson}.</div>`;
+        return;
+      }
+
+      tableRoot.innerHTML = `
+        <table class="vocab-table">
+          <thead>
+            <tr>
+              <th style="width: 45px; text-align: center;">STT</th>
+              <th style="width: 50px; text-align: center;">Lưu</th>
+              <th style="min-width: 140px;">Chữ Hán / Từ vựng</th>
+              <th style="min-width: 130px;">Cách đọc (Kana)</th>
+              <th>Ý Nghĩa Tiếng Việt</th>
+              <th style="width: 130px;">Loại từ</th>
+              <th style="width: 65px; text-align: center;">Nghe</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${items.map((v, idx) => {
+              const isFav = window.storageManager.isFavorite(v.id);
+              return `
+                <tr data-id="${v.id}">
+                  <td class="table-stt">${idx + 1}</td>
+                  <td style="text-align: center;">
+                    <button class="icon-btn btn-sm btn-vocab-fav ${isFav ? 'active' : ''}" data-id="${v.id}">
+                      ${isFav ? 'Đã lưu' : 'Lưu'}
+                    </button>
+                  </td>
+                  <td><span class="table-kanji-cell">${v.kanji || v.kana}</span></td>
+                  <td><span class="table-kana-cell">${v.kanji ? v.kana : '—'}</span></td>
+                  <td><div class="vocab-meaning-txt">${v.meaning}</div></td>
+                  <td><span class="badge">${v.part}</span></td>
+                  <td style="text-align: center;">
+                    <button class="icon-btn btn-sm btn-speak-vocab" data-text="${v.kana || v.display}">Nghe</button>
+                  </td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      `;
+
+      tableRoot.querySelectorAll('.btn-speak-vocab').forEach(btn => {
+        btn.addEventListener('click', () => window.soundEngine.speakJapanese(btn.dataset.text));
+      });
+      tableRoot.querySelectorAll('.btn-vocab-fav').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          const active = window.storageManager.toggleFavorite(id);
+          btn.classList.toggle('active', active);
+          btn.innerHTML = active ? 'Đã lưu' : 'Lưu';
+          window.soundEngine.playFavorite(active);
+        });
+      });
+
+    } else if (tab === 'kanji') {
+      let items = this.data.kanji.filter(k => k.lesson === lesson);
+      if (query) {
+        items = items.filter(k => 
+          k.kanji.includes(query) || 
+          k.han_viet.toLowerCase().includes(query) || 
+          k.onyomi.toLowerCase().includes(query) || 
+          k.kunyomi.toLowerCase().includes(query) || 
+          k.examples_raw.toLowerCase().includes(query)
+        );
+      }
+
+      if (items.length === 0) {
+        tableRoot.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 2.5rem;">Không tìm thấy Hán tự nào phù hợp trong ${lesson}.</div>`;
+        return;
+      }
+
+      tableRoot.innerHTML = `
+        <table class="vocab-table">
+          <thead>
+            <tr>
+              <th style="width: 45px; text-align: center;">STT</th>
+              <th style="width: 75px; text-align: center;">Hán tự</th>
+              <th style="width: 110px;">Hán Việt</th>
+              <th style="width: 120px;">Âm On</th>
+              <th style="width: 120px;">Âm Kun</th>
+              <th>Từ ghép & Ví dụ tiêu biểu</th>
+              <th style="width: 65px; text-align: center;">Nghe</th>
+              <th style="width: 80px; text-align: center;">Chi tiết</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${items.map((k, idx) => {
+              const compoundsHtml = k.compounds && k.compounds.length > 0
+                ? `<div class="table-compounds-list">` + k.compounds.map(c => `
+                    <div class="table-compound-row">
+                      <span class="table-compound-word">${c.word}</span>
+                      ${c.reading ? `<span class="table-compound-reading">(${c.reading})</span>` : ''}
+                      <span class="table-compound-meaning">: ${c.meaning}</span>
+                    </div>
+                  `).join('') + `</div>`
+                : `<div style="color: var(--text-secondary); font-size: 0.85rem; white-space: pre-wrap;">${k.examples_raw}</div>`;
+
+              return `
+                <tr data-id="${k.id}">
+                  <td class="table-stt">${idx + 1}</td>
+                  <td style="text-align: center;"><span class="table-kanji-cell" style="font-size: 1.4rem;">${k.kanji}</span></td>
+                  <td><strong>${k.han_viet}</strong></td>
+                  <td><span class="badge">${k.onyomi || '—'}</span></td>
+                  <td><span class="badge">${k.kunyomi || '—'}</span></td>
+                  <td>${compoundsHtml}</td>
+                  <td style="text-align: center;">
+                    <button class="icon-btn btn-sm btn-speak-kanji-item" data-text="${k.kunyomi || k.onyomi || k.kanji}">Nghe</button>
+                  </td>
+                  <td style="text-align: center;">
+                    <button class="btn btn-secondary btn-sm btn-detail-kanji-item" data-id="${k.id}">Xem</button>
+                  </td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      `;
+
+      tableRoot.querySelectorAll('.btn-speak-kanji-item').forEach(btn => {
+        btn.addEventListener('click', () => window.soundEngine.speakJapanese(btn.dataset.text));
+      });
+      tableRoot.querySelectorAll('.btn-detail-kanji-item').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = this.data.kanji.find(k => k.id === btn.dataset.id);
+          if (item) this.openKanjiModal(item);
+        });
+      });
+
+    } else if (tab === 'grammar') {
+      let items = this.data.grammar.filter(g => g.lesson === lesson);
+      if (query) {
+        items = items.filter(g => 
+          g.title.toLowerCase().includes(query) || 
+          g.formula.toLowerCase().includes(query) || 
+          (g.points && g.points.toLowerCase().includes(query))
+        );
+      }
+
+      if (items.length === 0) {
+        tableRoot.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 2.5rem;">Không tìm thấy mẫu ngữ pháp nào phù hợp trong ${lesson}.</div>`;
+        return;
+      }
+
+      tableRoot.innerHTML = `
+        <table class="vocab-table">
+          <thead>
+            <tr>
+              <th style="width: 45px; text-align: center;">STT</th>
+              <th style="min-width: 170px;">Mẫu ngữ pháp</th>
+              <th style="min-width: 170px;">Cấu trúc / Công thức</th>
+              <th>Ý nghĩa & Giải thích</th>
+              <th style="min-width: 250px;">Ví dụ minh họa</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${items.map((g, idx) => {
+              const examplesHtml = g.examples && g.examples.length > 0
+                ? g.examples.map(ex => `
+                    <div style="margin-bottom: 0.35rem;">
+                      <span class="jp-font" style="font-weight: 500;">${ex}</span>
+                    </div>
+                  `).join('')
+                : '—';
+
+              return `
+                <tr data-id="${g.id}">
+                  <td class="table-stt">${idx + 1}</td>
+                  <td><strong>${g.title}</strong></td>
+                  <td><code style="font-size: 0.88rem; font-weight: 600;">${g.formula}</code></td>
+                  <td>${g.points || '—'}</td>
+                  <td style="font-size: 0.88rem;">${examplesHtml}</td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      `;
     }
   }
 
@@ -520,13 +782,34 @@ class App {
   // ------------------------------------------------------------------------
   initKanjiView() {
     this.renderKanjiFilters();
-    this.renderKanjiGrid();
+    this.updateKanjiView();
+
+    // View toggle (Grid Cards vs Table)
+    const kToggle = document.getElementById('kanji-view-toggle');
+    if (kToggle) {
+      kToggle.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          kToggle.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          this.kanjiViewMode = btn.dataset.view;
+          const kSearch = document.getElementById('kanji-search-input');
+          const query = kSearch ? kSearch.value.toLowerCase().trim() : '';
+          this.updateKanjiView(query);
+        });
+      });
+    }
+
+    // Print Kanji button
+    const printKanjiBtn = document.getElementById('btn-print-kanji');
+    if (printKanjiBtn) {
+      printKanjiBtn.onclick = () => window.print();
+    }
 
     // Kanji Search input
     const kSearch = document.getElementById('kanji-search-input');
     if (kSearch) {
       kSearch.addEventListener('input', (e) => {
-        this.renderKanjiGrid(e.target.value.toLowerCase().trim());
+        this.updateKanjiView(e.target.value.toLowerCase().trim());
       });
     }
 
@@ -576,6 +859,87 @@ class App {
     if (modalClose) {
       modalClose.addEventListener('click', () => this.closeKanjiModal());
     }
+  }
+
+  updateKanjiView(query = '') {
+    const grid = document.getElementById('kanji-grid-root');
+    const tableContainer = document.getElementById('kanji-table-container');
+    if (this.kanjiViewMode === 'table') {
+      if (grid) grid.style.display = 'none';
+      if (tableContainer) tableContainer.style.display = 'block';
+      this.renderKanjiTable(query);
+    } else {
+      if (grid) grid.style.display = 'grid';
+      if (tableContainer) tableContainer.style.display = 'none';
+      this.renderKanjiGrid(query);
+    }
+  }
+
+  renderKanjiTable(query = '') {
+    const tbody = document.getElementById('kanji-table-body');
+    if (!tbody) return;
+
+    let items = this.data.kanji;
+    if (this.kanjiLessonFilter !== 'all') {
+      items = items.filter(k => k.lesson === this.kanjiLessonFilter);
+    }
+    if (query) {
+      items = items.filter(k => 
+        k.kanji.includes(query) || 
+        k.han_viet.toLowerCase().includes(query) || 
+        k.onyomi.toLowerCase().includes(query) || 
+        k.kunyomi.toLowerCase().includes(query) || 
+        k.examples_raw.toLowerCase().includes(query)
+      );
+    }
+
+    const countBadge = document.getElementById('kanji-count-badge');
+    if (countBadge) countBadge.textContent = `${items.length} Kanji`;
+
+    if (items.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="9" style="text-align: center; color: var(--text-muted); padding: 2.5rem;">Không tìm thấy Hán tự nào phù hợp.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = items.map((k, idx) => {
+      const compoundsHtml = k.compounds && k.compounds.length > 0
+        ? `<div class="table-compounds-list">` + k.compounds.map(c => `
+            <div class="table-compound-row">
+              <span class="table-compound-word">${c.word}</span>
+              ${c.reading ? `<span class="table-compound-reading">(${c.reading})</span>` : ''}
+              <span class="table-compound-meaning">: ${c.meaning}</span>
+            </div>
+          `).join('') + `</div>`
+        : `<div style="color: var(--text-secondary); font-size: 0.85rem; white-space: pre-wrap;">${k.examples_raw}</div>`;
+
+      return `
+        <tr data-id="${k.id}">
+          <td class="table-stt">${idx + 1}</td>
+          <td style="text-align: center;"><span class="table-kanji-cell" style="font-size: 1.4rem;">${k.kanji}</span></td>
+          <td><strong>${k.han_viet}</strong></td>
+          <td><span class="badge">${k.onyomi || '—'}</span></td>
+          <td><span class="badge">${k.kunyomi || '—'}</span></td>
+          <td>${compoundsHtml}</td>
+          <td><span class="badge">${k.lesson}</span></td>
+          <td style="text-align: center;">
+            <button class="icon-btn btn-sm btn-speak-kanji-item" data-text="${k.kunyomi || k.onyomi || k.kanji}">Nghe</button>
+          </td>
+          <td style="text-align: center;">
+            <button class="btn btn-secondary btn-sm btn-detail-kanji-item" data-id="${k.id}">Xem</button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    tbody.querySelectorAll('.btn-speak-kanji-item').forEach(btn => {
+      btn.addEventListener('click', () => window.soundEngine.speakJapanese(btn.dataset.text));
+    });
+    tbody.querySelectorAll('.btn-detail-kanji-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = this.data.kanji.find(k => k.id === btn.dataset.id);
+        if (item) this.openKanjiModal(item);
+      });
+    });
   }
 
   renderKanjiFilters() {
@@ -723,6 +1087,12 @@ class App {
       });
     }
 
+    // Print vocab button
+    const printVocabBtn = document.getElementById('btn-print-vocab');
+    if (printVocabBtn) {
+      printVocabBtn.onclick = () => window.print();
+    }
+
     // "Luyện Flashcard Từ Vựng" button
     const fcVocabBtn = document.getElementById('btn-fc-vocab');
     if (fcVocabBtn) {
@@ -777,23 +1147,25 @@ class App {
     if (countBadge) countBadge.textContent = `${items.length} từ`;
 
     if (items.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 2rem;">Không tìm thấy từ vựng nào phù hợp.</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 2rem;">Không tìm thấy từ vựng nào phù hợp.</td></tr>`;
       return;
     }
 
-    tbody.innerHTML = items.slice(0, 100).map(v => {
+    tbody.innerHTML = items.map((v, idx) => {
       const isFav = window.storageManager.isFavorite(v.id);
-      const isLearned = window.storageManager.isLearned(v.id);
       return `
         <tr data-id="${v.id}">
-          <td style="width: 60px; text-align: center;">
+          <td class="table-stt">${idx + 1}</td>
+          <td style="width: 50px; text-align: center;">
             <button class="icon-btn btn-sm btn-vocab-fav ${isFav ? 'active' : ''}" data-id="${v.id}">
               ${isFav ? 'Đã lưu' : 'Lưu'}
             </button>
           </td>
           <td style="min-width: 140px;">
-            <div class="vocab-word-jp">${v.kanji || v.kana}</div>
-            ${v.kanji ? `<div class="vocab-kana-sub">${v.kana}</div>` : ''}
+            <span class="table-kanji-cell">${v.kanji || v.kana}</span>
+          </td>
+          <td style="min-width: 130px;">
+            <span class="table-kana-cell">${v.kanji ? v.kana : '—'}</span>
           </td>
           <td>
             <div class="vocab-meaning-txt">${v.meaning}</div>
@@ -801,7 +1173,7 @@ class App {
           <td>
             <span class="badge">${v.lesson} • ${v.part}</span>
           </td>
-          <td style="width: 70px; text-align: center;">
+          <td style="width: 65px; text-align: center;">
             <button class="icon-btn btn-sm btn-speak-vocab" data-text="${v.kana || v.display}">Nghe</button>
           </td>
         </tr>
@@ -831,12 +1203,33 @@ class App {
   // ------------------------------------------------------------------------
   initGrammarView() {
     this.renderGrammarFilters();
-    this.renderGrammarList();
+    this.updateGrammarView();
+
+    // View toggle (List Cards vs Table)
+    const gToggle = document.getElementById('grammar-view-toggle');
+    if (gToggle) {
+      gToggle.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          gToggle.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          this.grammarViewMode = btn.dataset.view;
+          const gSearch = document.getElementById('grammar-search-input');
+          const query = gSearch ? gSearch.value.toLowerCase().trim() : '';
+          this.updateGrammarView(query);
+        });
+      });
+    }
+
+    // Print grammar button
+    const printGrammarBtn = document.getElementById('btn-print-grammar');
+    if (printGrammarBtn) {
+      printGrammarBtn.onclick = () => window.print();
+    }
 
     const gSearch = document.getElementById('grammar-search-input');
     if (gSearch) {
       gSearch.addEventListener('input', (e) => {
-        this.renderGrammarList(e.target.value.toLowerCase().trim());
+        this.updateGrammarView(e.target.value.toLowerCase().trim());
       });
     }
 
@@ -848,6 +1241,66 @@ class App {
         this.switchTab('flashcards');
       });
     }
+  }
+
+  updateGrammarView(query = '') {
+    const list = document.getElementById('grammar-list-root');
+    const tableContainer = document.getElementById('grammar-table-container');
+    if (this.grammarViewMode === 'table') {
+      if (list) list.style.display = 'none';
+      if (tableContainer) tableContainer.style.display = 'block';
+      this.renderGrammarTable(query);
+    } else {
+      if (list) list.style.display = 'flex';
+      if (tableContainer) tableContainer.style.display = 'none';
+      this.renderGrammarList(query);
+    }
+  }
+
+  renderGrammarTable(query = '') {
+    const tbody = document.getElementById('grammar-table-body');
+    if (!tbody) return;
+
+    let items = this.data.grammar;
+    if (this.grammarLessonFilter !== 'all') {
+      items = items.filter(g => g.lesson === this.grammarLessonFilter);
+    }
+    if (query) {
+      items = items.filter(g => 
+        g.title.toLowerCase().includes(query) || 
+        g.formula.toLowerCase().includes(query) || 
+        (g.points && g.points.toLowerCase().includes(query))
+      );
+    }
+
+    const countBadge = document.getElementById('grammar-count-badge');
+    if (countBadge) countBadge.textContent = `${items.length} Mẫu câu`;
+
+    if (items.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 2.5rem;">Không tìm thấy mẫu ngữ pháp nào phù hợp.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = items.map((g, idx) => {
+      const examplesHtml = g.examples && g.examples.length > 0
+        ? g.examples.map(ex => `
+            <div style="margin-bottom: 0.35rem;">
+              <span class="jp-font" style="font-weight: 500;">${ex}</span>
+            </div>
+          `).join('')
+        : '—';
+
+      return `
+        <tr data-id="${g.id}">
+          <td class="table-stt">${idx + 1}</td>
+          <td><strong>${g.title}</strong></td>
+          <td><code style="font-size: 0.88rem; font-weight: 600;">${g.formula}</code></td>
+          <td>${g.points || '—'}</td>
+          <td style="font-size: 0.88rem;">${examplesHtml}</td>
+          <td><span class="badge">${g.lesson}</span></td>
+        </tr>
+      `;
+    }).join('');
   }
 
   renderGrammarFilters() {

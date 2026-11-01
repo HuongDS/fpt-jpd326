@@ -264,12 +264,17 @@
       <section class="tab-panel" id="tab-vocab">
         <div class="section-heading-bar">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <h3>Toàn Bộ Từ Vựng JPD326</h3>
+            <h3>Bảng Từ Vựng Chi Tiết JPD326</h3>
             <span class="badge" id="vocab-count-badge">531 từ</span>
           </div>
-          <button class="btn btn-primary btn-sm" id="btn-fc-vocab">
-            Học Flashcard Mục Này
-          </button>
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <button class="btn btn-secondary btn-sm" id="btn-print-vocab" title="In hoặc lưu file PDF toàn bộ danh sách từ vựng">
+              In bảng từ vựng
+            </button>
+            <button class="btn btn-primary btn-sm" id="btn-fc-vocab">
+              Học Flashcard Mục Này
+            </button>
+          </div>
         </div>
 
         <!-- Filter bar & search -->
@@ -282,14 +287,16 @@
 
         <!-- Vocabulary Table -->
         <div class="vocab-table-container">
-          <table class="vocab-table">
+          <table class="vocab-table" id="vocab-main-table">
             <thead>
               <tr>
-                <th style="width: 50px;">Lưu</th>
-                <th style="min-width: 160px;">Tiếng Nhật (Kanji/Kana)</th>
+                <th style="width: 45px; text-align: center;">STT</th>
+                <th style="width: 50px; text-align: center;">Lưu</th>
+                <th style="min-width: 140px;">Chữ Hán / Từ vựng</th>
+                <th style="min-width: 130px;">Cách đọc (Kana)</th>
                 <th>Ý Nghĩa Tiếng Việt</th>
-                <th style="width: 160px;">Bài Học</th>
-                <th style="width: 70px; text-align: center;">Nghe</th>
+                <th style="width: 140px;">Loại từ & Bài</th>
+                <th style="width: 65px; text-align: center;">Nghe</th>
               </tr>
             </thead>
             <tbody id="vocab-table-body">
@@ -306,20 +313,18 @@
         <div class="section-heading-bar">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
             <h3>73 Hán Tự Trọng Tâm (Bài 6 - 10)</h3>
-            <span class="badge">73 Kanji • 536 Thẻ Flashcard</span>
+            <span class="badge" id="kanji-count-badge">73 Kanji</span>
           </div>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+            <div class="btn-group" id="kanji-view-toggle">
+              <button class="btn btn-sm active" data-view="grid">Dạng thẻ lưới</button>
+              <button class="btn btn-sm" data-view="table">Dạng bảng</button>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="btn-print-kanji" title="In hoặc lưu file PDF danh sách Hán tự">
+              In bảng Hán tự
+            </button>
             <button class="btn btn-primary btn-sm" id="btn-fc-kanji">
-              Luyện Tất Cả Thẻ Hán Tự
-            </button>
-            <button class="btn btn-secondary btn-sm" id="btn-fc-kanji-on">
-              Luyện Riêng Âm On
-            </button>
-            <button class="btn btn-secondary btn-sm" id="btn-fc-kanji-kun">
-              Luyện Riêng Âm Kun
-            </button>
-            <button class="btn btn-secondary btn-sm" id="btn-fc-kanji-compounds">
-              Luyện Riêng Từ Ghép
+              Luyện Thẻ Hán Tự
             </button>
           </div>
         </div>
@@ -331,8 +336,31 @@
           </div>
         </div>
 
+        <!-- Kanji Grid View -->
         <div class="kanji-grid" id="kanji-grid-root">
           <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Kanji Table View (Hidden by default) -->
+        <div class="vocab-table-container" id="kanji-table-container" style="display: none; margin-top: 1rem;">
+          <table class="vocab-table" id="kanji-main-table">
+            <thead>
+              <tr>
+                <th style="width: 45px; text-align: center;">STT</th>
+                <th style="width: 75px; text-align: center;">Hán tự</th>
+                <th style="width: 110px;">Hán Việt</th>
+                <th style="width: 120px;">Âm On</th>
+                <th style="width: 120px;">Âm Kun</th>
+                <th>Từ ghép & Ví dụ tiêu biểu</th>
+                <th style="width: 100px;">Bài học</th>
+                <th style="width: 65px; text-align: center;">Nghe</th>
+                <th style="width: 80px; text-align: center;">Chi tiết</th>
+              </tr>
+            </thead>
+            <tbody id="kanji-table-body">
+              <!-- Populated by JavaScript -->
+            </tbody>
+          </table>
         </div>
       </section>
 
@@ -343,11 +371,20 @@
         <div class="section-heading-bar">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
             <h3>Toàn Bộ Cấu Trúc Ngữ Pháp (69 Mẫu)</h3>
-            <span class="badge">69 Mẫu câu</span>
+            <span class="badge" id="grammar-count-badge">69 Mẫu câu</span>
           </div>
-          <button class="btn btn-primary btn-sm" id="btn-fc-grammar">
-            Học Flashcard Ngữ Pháp
-          </button>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+            <div class="btn-group" id="grammar-view-toggle">
+              <button class="btn btn-sm active" data-view="list">Dạng danh sách</button>
+              <button class="btn btn-sm" data-view="table">Dạng bảng</button>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="btn-print-grammar" title="In hoặc lưu file PDF danh sách ngữ pháp">
+              In bảng ngữ pháp
+            </button>
+            <button class="btn btn-primary btn-sm" id="btn-fc-grammar">
+              Học Flashcard Ngữ Pháp
+            </button>
+          </div>
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
@@ -357,8 +394,28 @@
           </div>
         </div>
 
+        <!-- Grammar List View -->
         <div class="grammar-list" id="grammar-list-root">
           <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Grammar Table View (Hidden by default) -->
+        <div class="vocab-table-container" id="grammar-table-container" style="display: none; margin-top: 1rem;">
+          <table class="vocab-table" id="grammar-main-table">
+            <thead>
+              <tr>
+                <th style="width: 45px; text-align: center;">STT</th>
+                <th style="min-width: 160px;">Mẫu ngữ pháp</th>
+                <th style="min-width: 170px;">Cấu trúc / Công thức</th>
+                <th>Ý nghĩa & Giải thích</th>
+                <th style="min-width: 240px;">Ví dụ tiêu biểu</th>
+                <th style="width: 90px;">Bài học</th>
+              </tr>
+            </thead>
+            <tbody id="grammar-table-body">
+              <!-- Populated by JavaScript -->
+            </tbody>
+          </table>
         </div>
       </section>
 
