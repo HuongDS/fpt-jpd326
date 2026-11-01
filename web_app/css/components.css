@@ -1612,3 +1612,360 @@
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+
+/* --------------------------------------------------------------------------
+   10. SPEAKING & CONVERSATION PRACTICE MODULE (Luyện Thi Speaking Hội Thoại)
+   -------------------------------------------------------------------------- */
+.speaking-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.speaking-header-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.speaking-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.speaking-situation-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.speaking-situation-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.speaking-card-header {
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.85rem;
+}
+
+.speaking-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.speaking-roles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .speaking-roles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.speaking-role-box {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+}
+
+.speaking-extra-notes {
+  background: var(--bg-elevated);
+  border-left: 3px solid var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Split Editor (Role A Stepper & Role B .txt Importer) */
+.speaking-split-editor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 860px) {
+  .speaking-split-editor {
+    grid-template-columns: 1fr;
+  }
+}
+
+.speaking-editor-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.speaking-editor-panel .panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.panel-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.panel-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-heading);
+}
+
+.turn-step-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  color: var(--text-secondary);
+}
+
+.speaker-pill {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.speaker-pill.a {
+  background: #18181B;
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .speaker-pill.a {
+  background: #F4F4F5;
+  color: #18181B;
+}
+
+.speaker-pill.b {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+.b-response-preview {
+  background: var(--bg-elevated);
+  border: 1px dashed var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+}
+
+.a-input-wrapper,
+.b-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.input-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.input-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.speaking-editor-panel textarea {
+  width: 100%;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+  padding: 0.75rem 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  outline: none;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.speaking-editor-panel textarea:focus {
+  border-color: var(--text-primary);
+}
+
+.panel-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.step-nav-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Practice Toolbar */
+.speaking-toolbar {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.toolbar-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+/* Timeline & Chat turns */
+.speaking-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.speaking-turn-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  position: relative;
+  padding: 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+}
+
+.turn-index-badge {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.25rem;
+  width: 100%;
+}
+
+.chat-turn-item {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.chat-turn-item.side-a {
+  border-left: 3px solid #18181B;
+}
+
+[data-theme="dark"] .chat-turn-item.side-a {
+  border-left: 3px solid #F4F4F5;
+}
+
+.chat-turn-item.side-b {
+  border-left: 3px solid var(--border-subtle);
+}
+
+.chat-speaker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.65rem;
+}
+
+.chat-actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.chat-bubble-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-heading);
+  margin-bottom: 0.4rem;
+}
+
+.chat-bubble-sub {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  border-top: 1px dashed var(--border-subtle);
+  padding-top: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+/* Roleplay blurred state */
+.chat-turn-item.blurred .chat-bubble-text,
+.chat-turn-item.blurred .chat-bubble-sub {
+  filter: blur(6px);
+  user-select: none;
+  pointer-events: none;
+}
+
+.btn-reveal-secret {
+  margin-top: 0.6rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* Autoplay active state */
+.chat-turn-item.speaking-active {
+  border-color: #18181B !important;
+  background: var(--bg-elevated) !important;
+  box-shadow: 0 0 0 2px var(--border-subtle);
+}
+
+[data-theme="dark"] .chat-turn-item.speaking-active {
+  border-color: #FFFFFF !important;
+}
+

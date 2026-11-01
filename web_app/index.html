@@ -31,6 +31,9 @@
         <button class="nav-tab-btn" data-tab="final-exam" id="nav-tab-final-exam">
           Ôn thi Final
         </button>
+        <button class="nav-tab-btn" data-tab="speaking" id="nav-tab-speaking">
+          Luyện Speaking
+        </button>
         <button class="nav-tab-btn" data-tab="flashcards" id="nav-tab-flashcards">
           Thẻ SRS
         </button>
@@ -168,6 +171,19 @@
                 <span>Luyện Hán tự</span>
               </div>
             </div>
+
+            <div class="action-card" id="dash-action-speaking">
+              <div>
+                <div class="action-card-header">
+                  <span class="badge">6 Tình Huống</span>
+                </div>
+                <h3>Luyện Thi Speaking</h3>
+                <p>Phân vai hội thoại A-B, nạp file .txt cho Người B, nhập câu thoại cho Người A và luyện phản xạ nói.</p>
+              </div>
+              <div class="action-card-footer">
+                <span>Luyện hội thoại</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -249,6 +265,130 @@
             <span>Chế độ: <strong id="excel-status-mode">Từ Vựng (2 cột)</strong></span>
             <span>Mẹo: Nhấn <strong>Enter / Mũi tên ↓</strong> để xuống ô dưới | <strong>Tab</strong> để sang ô tiếp theo | Nhận cả chữ Hiragana và Romaji</span>
             <span id="excel-status-count">Tổng cộng: 0 hàng</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           TAB: SPEAKING & CONVERSATION PRACTICE (Ôn Speaking Hội Thoại)
+           ================================================================== -->
+      <section class="tab-panel" id="tab-speaking">
+        <div class="speaking-container">
+          <!-- Header Bar: Title & Situation Chips -->
+          <div class="speaking-header-box">
+            <div class="speaking-header-info">
+              <span class="speaking-tag">HỘI THOẠI & PHẢN XẠ NÓI</span>
+              <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-heading);">Luyện Thi Speaking Hội Thoại Theo Tình Huống JPD326</h3>
+              <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+                Chọn tình huống thi hội thoại, nạp file <strong>.txt</strong> cho lời thoại Người B (mỗi gạch đầu dòng là một lượt nói) và gõ câu thoại Người A lần lượt theo từng bước để luyện phản xạ.
+              </p>
+            </div>
+
+            <!-- Situation Selection Chips (Bài 6.1, Bài 6.2, Bài 7.1, Bài 7.2, Bài 8.1, Bài 10.1) -->
+            <div class="speaking-situation-chips" id="speaking-situation-chips">
+              <!-- Dynamically populated chips -->
+            </div>
+          </div>
+
+          <!-- Situation Briefing Card -->
+          <div class="speaking-situation-card">
+            <div class="speaking-card-header">
+              <div class="speaking-title-row">
+                <span class="badge" id="speaking-sit-badge">第 6 課</span>
+                <h4 id="speaking-sit-title" style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Bài 6.1: Tư vấn ăn uống bồi bổ</h4>
+              </div>
+            </div>
+            <div class="speaking-roles-grid">
+              <div class="speaking-role-box" id="speaking-role-a-task">
+                <!-- Role A task -->
+              </div>
+              <div class="speaking-role-box" id="speaking-role-b-task">
+                <!-- Role B task -->
+              </div>
+            </div>
+            <div class="speaking-extra-notes" id="speaking-extra-info" style="display: none;">
+              <!-- Extra hints or context -->
+            </div>
+          </div>
+
+          <!-- Dual Split Editor: Role A Stepper & Role B .txt Importer -->
+          <div class="speaking-split-editor">
+            <!-- Left: Role A Step-by-Step Stepper -->
+            <div class="speaking-editor-panel" id="speaking-turn-editor-card">
+              <div class="panel-header">
+                <div class="panel-title-group">
+                  <span class="speaker-pill a">Người A</span>
+                  <span class="panel-title">Nhập Lượt Thoại Cho Người A</span>
+                </div>
+                <span class="turn-step-badge" id="speaking-a-turn-indicator">Lượt nói số 1 / 1</span>
+              </div>
+
+              <!-- Context box showing B's response for this turn -->
+              <div class="b-response-preview" id="speaking-a-b-context">
+                <!-- Shows B's line for this turn if available -->
+              </div>
+
+              <div class="a-input-wrapper">
+                <label for="speaking-a-turn-input" class="input-label">Câu thoại tiếng Nhật của Người A ở lượt này:</label>
+                <textarea id="speaking-a-turn-input" class="jp-font" placeholder="Ví dụ: 最近、なんだか食欲がなくて... どうしたらいいでしょうか。" rows="3"></textarea>
+                <div class="input-tip">Mẹo: Nhấn Enter để lưu và tự động chuyển sang lượt nói kế tiếp.</div>
+              </div>
+
+              <div class="panel-footer-actions">
+                <div class="step-nav-group">
+                  <button class="btn btn-secondary btn-sm" id="btn-a-prev" disabled>Lượt trước</button>
+                  <button class="btn btn-primary btn-sm" id="btn-a-save-next">Lưu & Sang lượt sau</button>
+                </div>
+                <button class="btn btn-secondary btn-sm" id="btn-a-add-turn">Thêm lượt (+)</button>
+              </div>
+            </div>
+
+            <!-- Right: Role B .txt Importer & Live Textarea -->
+            <div class="speaking-editor-panel">
+              <div class="panel-header">
+                <div class="panel-title-group">
+                  <span class="speaker-pill b">Người B</span>
+                  <span class="panel-title">Nạp Thoại B Bằng File .txt</span>
+                </div>
+                <div class="file-upload-actions">
+                  <input type="file" id="speaking-b-file-input" accept=".txt" style="display: none;">
+                  <button class="btn btn-secondary btn-sm" id="btn-upload-b-file">Tải lên file .txt</button>
+                </div>
+              </div>
+
+              <div class="b-input-wrapper">
+                <label for="speaking-b-raw-input" class="input-label">Mỗi gạch đầu dòng (-) là một lượt nói của Người B:</label>
+                <textarea id="speaking-b-raw-input" class="jp-font" placeholder="- Câu đối đáp lượt 1 của B&#10;- Câu đối đáp lượt 2 của B&#10;- Câu đối đáp lượt 3 của B..." rows="5"></textarea>
+              </div>
+
+              <div class="panel-footer-actions" style="justify-content: flex-end;">
+                <button class="btn btn-primary btn-sm" id="btn-apply-b-txt">Áp dụng thoại Người B</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Practice Control & Roleplay Bar -->
+          <div class="speaking-toolbar">
+            <div class="toolbar-left">
+              <span class="toolbar-label">Chế độ luyện tập:</span>
+              <select id="speaking-roleplay-mode" class="select-control">
+                <option value="none">Xem toàn bộ kịch bản đối thoại</option>
+                <option value="a">Tôi đóng vai Người A (Luyện A)</option>
+                <option value="b">Tôi đóng vai Người B (Luyện B)</option>
+              </select>
+              <button class="btn btn-secondary btn-sm" id="btn-toggle-hide-role">Hiện đầy đủ lời thoại</button>
+            </div>
+
+            <div class="toolbar-right">
+              <button class="btn btn-secondary btn-sm" id="btn-speaking-play-all">Nghe toàn bộ hội thoại</button>
+              <button class="btn btn-secondary btn-sm" id="btn-speaking-reset-sample" title="Khôi phục mẫu hội thoại chuẩn">Mẫu chuẩn</button>
+              <button class="btn btn-secondary btn-sm" id="btn-speaking-export-txt" title="Tải file .txt toàn bộ kịch bản">Xuất file .txt</button>
+            </div>
+          </div>
+
+          <!-- Dialogue Chat Timeline Root -->
+          <div class="speaking-timeline" id="speaking-timeline-root">
+            <!-- Dynamically populated chat turns -->
           </div>
         </div>
       </section>
@@ -659,11 +799,13 @@
 
   <!-- Scripts -->
   <script src="data/app_data.js"></script>
+  <script src="data/speaking_data.js"></script>
   <script src="js/audio.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/flashcard.js"></script>
   <script src="js/quiz.js"></script>
   <script src="js/final_exam.js"></script>
+  <script src="js/speaking.js"></script>
   <script src="js/search.js"></script>
   <script src="js/app.js"></script>
 </body>
