@@ -345,9 +345,9 @@ class FlashcardEngine {
     // Front Face (Không hiện phiên âm / cách đọc)
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
-        <span class="badge badge-amber">${item.lesson} • ${item.part}</span>
+        <span class="badge">${item.lesson} • ${item.part}</span>
         <div style="display: flex; gap: 0.5rem;" class="no-flip">
-          ${isLearned ? '<span class="badge badge-emerald">Đã thuộc</span>' : ''}
+          ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}" title="Đánh dấu">
             ${isFav ? 'Đã lưu' : 'Lưu'}
           </button>
@@ -364,13 +364,13 @@ class FlashcardEngine {
     // Back Face (Hiện cách đọc, nghĩa tiếng Việt và nút phát âm)
     this.cardBack.innerHTML = `
       <div class="card-badge-row">
-        <span class="badge badge-cyan">${item.lesson}</span>
+        <span class="badge">${item.lesson}</span>
         <button class="icon-btn no-flip tts-btn" title="Nghe phát âm">Phát âm</button>
       </div>
       <div class="card-main-content">
-        <div class="card-kana-sub" style="font-size: 2rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.5rem;">${item.kana}</div>
+        <div class="card-kana-sub" style="font-size: 2rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.5rem;">${item.kana}</div>
         <div class="card-meaning-big">${item.meaning}</div>
-        ${item.kanji ? `<div class="badge badge-sakura" style="font-size: 1rem; padding: 0.4rem 0.8rem; margin-top: 0.5rem;">Hán tự: ${item.kanji}</div>` : ''}
+        ${item.kanji ? `<div class="badge" style="font-size: 0.9rem; padding: 0.35rem 0.75rem; margin-top: 0.5rem;">Hán tự: ${item.kanji}</div>` : ''}
       </div>
       <div class="card-flip-prompt">
         <span>Đánh giá độ nhớ để xếp lịch ôn tập</span>
@@ -398,18 +398,18 @@ class FlashcardEngine {
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
         <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <span class="badge badge-sakura">${item.lesson}</span>
-          <span class="badge badge-purple">Âm On (音読み)</span>
+          <span class="badge">${item.lesson}</span>
+          <span class="badge">Âm On (音読み)</span>
         </div>
         <div style="display: flex; gap: 0.5rem;" class="no-flip">
-          ${isLearned ? '<span class="badge badge-emerald">Đã thuộc</span>' : ''}
+          ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
           </button>
         </div>
       </div>
       <div class="card-main-content">
-        <div class="card-kanji-big" style="color: var(--accent-rose); font-size: 4rem;">${item.kanji}</div>
+        <div class="card-kanji-big" style="font-size: 4rem;">${item.kanji}</div>
         <div class="card-hanviet-tag">Hán-Việt: ${item.han_viet}</div>
         <div style="margin-top: 1rem; font-size: 1.05rem; font-weight: 600; color: var(--text-secondary);">
           Âm On của chữ Hán này là gì?
@@ -433,25 +433,25 @@ class FlashcardEngine {
     this.cardBack.innerHTML = `
       <div class="card-badge-row">
         <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <span class="badge badge-sakura">${item.lesson} • ${item.han_viet}</span>
-          <span class="badge badge-purple">Âm On</span>
+          <span class="badge">${item.lesson} • ${item.han_viet}</span>
+          <span class="badge">Âm On</span>
         </div>
         <button class="icon-btn no-flip tts-btn">Phát âm</button>
       </div>
       <div class="card-main-content" style="align-items: stretch; text-align: left;">
         <div style="text-align: center; margin-bottom: 0.75rem;">
-          <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.25rem;">Âm On (Katakana):</div>
-          <div style="font-size: 2.6rem; font-weight: 800; color: var(--accent-purple); font-family: var(--font-jp);">
+          <div style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.25rem;">Âm On (Katakana):</div>
+          <div style="font-size: 2.6rem; font-weight: 800; color: var(--text-heading); font-family: var(--font-jp);">
             ${item.onyomi}
           </div>
-          <div style="font-size: 1rem; color: var(--text-secondary); margin-top: 0.25rem;">
+          <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.25rem;">
             Chữ gốc: <strong style="color: var(--text-primary);">${item.kanji}</strong> (${item.han_viet})
           </div>
         </div>
 
         ${compoundsList ? `
           <div class="card-extra-details">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase;">Ví dụ từ ghép sử dụng âm này:</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase; font-weight: 700;">Ví dụ từ ghép sử dụng âm này:</div>
             ${compoundsList}
           </div>
         ` : ''}
@@ -470,18 +470,18 @@ class FlashcardEngine {
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
         <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <span class="badge badge-sakura">${item.lesson}</span>
-          <span class="badge badge-cyan">Âm Kun (訓読み)</span>
+          <span class="badge">${item.lesson}</span>
+          <span class="badge">Âm Kun (訓読み)</span>
         </div>
         <div style="display: flex; gap: 0.5rem;" class="no-flip">
-          ${isLearned ? '<span class="badge badge-emerald">Đã thuộc</span>' : ''}
+          ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
           </button>
         </div>
       </div>
       <div class="card-main-content">
-        <div class="card-kanji-big" style="color: var(--accent-cyan); font-size: 4rem;">${item.kanji}</div>
+        <div class="card-kanji-big" style="font-size: 4rem;">${item.kanji}</div>
         <div class="card-hanviet-tag">Hán-Việt: ${item.han_viet}</div>
         <div style="margin-top: 1rem; font-size: 1.05rem; font-weight: 600; color: var(--text-secondary);">
           Âm Kun của chữ Hán này là gì?
@@ -498,25 +498,25 @@ class FlashcardEngine {
     this.cardBack.innerHTML = `
       <div class="card-badge-row">
         <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <span class="badge badge-sakura">${item.lesson} • ${item.han_viet}</span>
-          <span class="badge badge-cyan">Âm Kun</span>
+          <span class="badge">${item.lesson} • ${item.han_viet}</span>
+          <span class="badge">Âm Kun</span>
         </div>
         <button class="icon-btn no-flip tts-btn">Phát âm</button>
       </div>
       <div class="card-main-content" style="align-items: stretch; text-align: left;">
         <div style="text-align: center; margin-bottom: 0.75rem;">
-          <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.25rem;">Âm Kun (Hiragana):</div>
-          <div style="font-size: 2.6rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-jp);">
+          <div style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.25rem;">Âm Kun (Hiragana):</div>
+          <div style="font-size: 2.6rem; font-weight: 800; color: var(--text-heading); font-family: var(--font-jp);">
             ${item.kunyomi}
           </div>
-          <div style="font-size: 1rem; color: var(--text-secondary); margin-top: 0.25rem;">
+          <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.25rem;">
             Chữ gốc: <strong style="color: var(--text-primary);">${item.kanji}</strong> (${item.han_viet})
           </div>
         </div>
 
         ${kunCompound ? `
           <div class="card-extra-details">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase;">Ví dụ từ ghép thuần Nhật liên quan:</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase; font-weight: 700;">Ví dụ từ ghép thuần Nhật liên quan:</div>
             <div class="detail-line">
               <span class="detail-label">${kunCompound.word} (${kunCompound.reading}):</span>
               <span>${kunCompound.meaning}</span>
@@ -538,21 +538,21 @@ class FlashcardEngine {
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
         <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <span class="badge badge-sakura">${item.lesson}</span>
-          <span class="badge badge-amber">Từ Ghép Hán Tự</span>
+          <span class="badge">${item.lesson}</span>
+          <span class="badge">Từ Ghép Hán Tự</span>
         </div>
         <div style="display: flex; gap: 0.5rem;" class="no-flip">
-          ${isLearned ? '<span class="badge badge-emerald">Đã thuộc</span>' : ''}
+          ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
           </button>
         </div>
       </div>
       <div class="card-main-content">
-        <div class="card-kanji-big" style="font-size: 3.2rem; color: var(--text-primary); font-weight: 800; letter-spacing: 0.05em;">
+        <div class="card-kanji-big" style="font-size: 3.2rem; color: var(--text-heading); font-weight: 800; letter-spacing: 0.05em;">
           ${item.word}
         </div>
-        <div class="badge badge-indigo" style="font-size: 0.95rem; padding: 0.35rem 0.8rem; margin-top: 0.75rem;">
+        <div class="badge" style="font-size: 0.9rem; padding: 0.35rem 0.75rem; margin-top: 0.75rem;">
           Gốc Hán Tự: ${item.parentKanji} (${item.parentHanViet})
         </div>
         <div style="margin-top: 1rem; font-size: 1rem; color: var(--text-secondary);">
@@ -568,19 +568,19 @@ class FlashcardEngine {
     this.cardBack.innerHTML = `
       <div class="card-badge-row">
         <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <span class="badge badge-sakura">${item.parentKanji} (${item.parentHanViet})</span>
-          <span class="badge badge-cyan">${item.lesson}</span>
+          <span class="badge">${item.parentKanji} (${item.parentHanViet})</span>
+          <span class="badge">${item.lesson}</span>
         </div>
         <button class="icon-btn no-flip tts-btn">Phát âm</button>
       </div>
       <div class="card-main-content">
-        <div class="card-kana-sub" style="font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); margin-bottom: 0.5rem; font-family: var(--font-jp);">
+        <div class="card-kana-sub" style="font-size: 2.2rem; font-weight: 800; color: var(--text-heading); margin-bottom: 0.5rem; font-family: var(--font-jp);">
           ${item.reading || item.word}
         </div>
         <div class="card-meaning-big" style="font-size: 1.6rem; margin-bottom: 0.75rem;">
           ${item.meaning}
         </div>
-        <div class="badge badge-sakura" style="font-size: 1rem; padding: 0.4rem 0.9rem;">
+        <div class="badge" style="font-size: 0.9rem; padding: 0.35rem 0.75rem;">
           Chữ Hán: ${item.word} • Gốc: ${item.parentKanji} (${item.parentHanViet})
         </div>
       </div>
@@ -596,16 +596,16 @@ class FlashcardEngine {
     // Fallback if needed
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
-        <span class="badge badge-sakura">${item.lesson}</span>
+        <span class="badge">${item.lesson}</span>
         <div style="display: flex; gap: 0.5rem;" class="no-flip">
-          ${isLearned ? '<span class="badge badge-emerald">Đã thuộc</span>' : ''}
+          ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
           </button>
         </div>
       </div>
       <div class="card-main-content">
-        <div class="card-kanji-big" style="color: #FDA4AF; text-shadow: 0 0 25px rgba(244, 63, 94, 0.4);">${item.kanji}</div>
+        <div class="card-kanji-big">${item.kanji}</div>
         <div class="card-hanviet-tag">${item.han_viet}</div>
       </div>
       <div class="card-flip-prompt">
@@ -624,16 +624,16 @@ class FlashcardEngine {
 
     this.cardBack.innerHTML = `
       <div class="card-badge-row">
-        <span class="badge badge-sakura">${item.han_viet}</span>
+        <span class="badge">${item.han_viet}</span>
         <button class="icon-btn no-flip tts-btn">Phát âm</button>
       </div>
       <div class="card-main-content" style="align-items: stretch; text-align: left;">
-        <div style="display: flex; gap: 1rem; margin-bottom: 0.75rem; justify-content: center;">
-          <div class="badge badge-purple" style="font-size: 0.9rem;">音 (On): <strong>${item.onyomi || '—'}</strong></div>
-          <div class="badge badge-cyan" style="font-size: 0.9rem;">訓 (Kun): <strong>${item.kunyomi || '—'}</strong></div>
+        <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; justify-content: center;">
+          <div class="badge" style="font-size: 0.85rem;">音 (On): <strong>${item.onyomi || '—'}</strong></div>
+          <div class="badge" style="font-size: 0.85rem;">訓 (Kun): <strong>${item.kunyomi || '—'}</strong></div>
         </div>
         <div class="card-extra-details">
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">Từ ghép ví dụ:</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase; font-weight: 700;">Từ ghép ví dụ:</div>
           ${compoundsHtml}
         </div>
       </div>
@@ -648,7 +648,7 @@ class FlashcardEngine {
   renderGrammarCard(item, isFav, isLearned) {
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
-        <span class="badge badge-emerald">${item.lesson}</span>
+        <span class="badge">${item.lesson}</span>
         <div style="display: flex; gap: 0.5rem;" class="no-flip">
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
@@ -656,8 +656,8 @@ class FlashcardEngine {
         </div>
       </div>
       <div class="card-main-content">
-        <div style="font-size: 1.5rem; font-weight: 800; color: #FFF; margin-bottom: 1rem; text-align: center;">${item.title}</div>
-        <div class="grammar-formula-badge" style="font-size: 1.1rem; padding: 0.75rem 1.25rem;">${item.formula || 'Cấu trúc'}</div>
+        <div style="font-size: 1.4rem; font-weight: 800; color: var(--text-heading); margin-bottom: 0.85rem; text-align: center;">${item.title}</div>
+        <div class="grammar-formula-badge" style="font-size: 1.05rem; padding: 0.65rem 1.15rem;">${item.formula || 'Cấu trúc'}</div>
       </div>
       <div class="card-flip-prompt">
         <span>Xem giải thích & câu ví dụ</span>
@@ -670,13 +670,13 @@ class FlashcardEngine {
 
     this.cardBack.innerHTML = `
       <div class="card-badge-row">
-        <span class="badge badge-emerald">${item.lesson}</span>
+        <span class="badge">${item.lesson}</span>
         <button class="icon-btn no-flip tts-btn">Phát âm</button>
       </div>
       <div class="card-main-content" style="align-items: stretch; text-align: left;">
         ${item.points ? `<div class="grammar-point-box" style="margin-bottom: 0.75rem;">${item.points}</div>` : ''}
         <div class="card-extra-details">
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase;">Ví dụ minh họa:</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase; font-weight: 700;">Ví dụ minh họa:</div>
           ${exHtml}
         </div>
       </div>

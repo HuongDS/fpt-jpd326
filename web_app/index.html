@@ -19,7 +19,7 @@
         <div class="logo-text">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1>JPD326 速習マスター</h1>
-            <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 0.05rem 0.35rem;">BÀI 6-10</span>
+            <span class="badge" style="font-size: 0.65rem; padding: 0.05rem 0.35rem;">BÀI 6-10</span>
           </div>
         </div>
       </div>
@@ -74,19 +74,19 @@
             </div>
             <div class="hero-stats-row">
               <div class="stat-box">
-                <div class="stat-value" id="dash-streak-val" style="color: var(--accent-amber);">1 Ngày</div>
+                <div class="stat-value" id="dash-streak-val">1 Ngày</div>
                 <div class="stat-label">Streak Ngày</div>
               </div>
               <div class="stat-box">
-                <div class="stat-value" id="dash-learned-val" style="color: var(--accent-emerald);">0 / 604</div>
+                <div class="stat-value" id="dash-learned-val">0 / 604</div>
                 <div class="stat-label">Đã Thuộc</div>
               </div>
               <div class="stat-box">
-                <div class="stat-value" id="dash-reviews-val" style="color: var(--accent-cyan);">0</div>
+                <div class="stat-value" id="dash-reviews-val">0</div>
                 <div class="stat-label">Lượt Ôn Tập</div>
               </div>
               <div class="stat-box">
-                <div class="stat-value" id="dash-mastery-val" style="color: var(--accent-indigo);">0%</div>
+                <div class="stat-value" id="dash-mastery-val">0%</div>
                 <div class="stat-label">Tỷ Lệ Nhớ</div>
               </div>
             </div>
@@ -98,7 +98,7 @@
           <div class="action-card" id="dash-action-quiz">
             <div>
               <div class="action-card-header">
-                <span class="badge badge-cyan">Đấu trường</span>
+                <span class="badge">Đấu trường</span>
               </div>
               <h3>Speed Quiz 1 Phút</h3>
               <p>Luyện phản xạ nhanh với câu hỏi trắc nghiệm đếm ngược 10 giây và combo điểm số.</p>
@@ -111,7 +111,7 @@
           <div class="action-card" id="dash-action-flashcards">
             <div>
               <div class="action-card-header">
-                <span class="badge badge-purple">SRS thông minh</span>
+                <span class="badge">SRS thông minh</span>
               </div>
               <h3>Học Thẻ Nhớ 3D</h3>
               <p>Học từ vựng và hán tự với chế độ lật thẻ 3D, hỗ trợ phím tắt và chế độ tự động chạy rảnh tay.</p>
@@ -124,7 +124,7 @@
           <div class="action-card" id="dash-action-grammar">
             <div>
               <div class="action-card-header">
-                <span class="badge badge-emerald">69 Cấu Trúc</span>
+                <span class="badge">69 Cấu Trúc</span>
               </div>
               <h3>69 Điểm Ngữ Pháp</h3>
               <p>Nắm trọn công thức, ý nghĩa, điểm lưu ý và các câu ví dụ mẫu của từng bài học.</p>
@@ -137,7 +137,7 @@
           <div class="action-card" id="dash-action-kanji">
             <div>
               <div class="action-card-header">
-                <span class="badge badge-sakura">73 Chữ Hán • 536 Thẻ</span>
+                <span class="badge">73 Chữ Hán • 536 Thẻ</span>
               </div>
               <h3>73 Hán Tự Trọng Tâm</h3>
               <p>Luyện riêng từng thẻ cho âm On, âm Kun và các từ ghép thực tế kèm nghĩa tiếng Việt.</p>
@@ -151,7 +151,7 @@
         <!-- Lessons Overview Section -->
         <div class="section-heading-bar">
           <h3>Danh Sách Các Bài Học (Dekiru Nihongo Chukyu)</h3>
-          <span style="color: var(--text-muted); font-size: 0.88rem;">Khóa học JPD326 FA26</span>
+          <span style="color: var(--text-muted); font-size: 0.85rem;">Khóa học JPD326 FA26</span>
         </div>
         <div class="lessons-grid" id="dash-lessons-grid">
           <!-- Populated by JavaScript -->
@@ -216,7 +216,7 @@
           </div>
 
           <!-- Navigation controls -->
-          <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+          <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
             <button class="btn btn-secondary" id="fc-prev-btn">Thẻ trước</button>
             <button class="btn btn-secondary" id="fc-next-btn">Thẻ tiếp</button>
           </div>
@@ -230,9 +230,9 @@
         <div class="section-heading-bar">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
             <h3>Toàn Bộ Từ Vựng JPD326</h3>
-            <span class="badge badge-amber" id="vocab-count-badge">531 từ</span>
+            <span class="badge" id="vocab-count-badge">531 từ</span>
           </div>
-          <button class="btn btn-amber btn-sm" id="btn-fc-vocab" style="background: var(--grad-amber); color: #000;">
+          <button class="btn btn-primary btn-sm" id="btn-fc-vocab">
             Học Flashcard Mục Này
           </button>
         </div>
@@ -241,8 +241,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
           <div class="filter-bar" id="vocab-filter-bar" style="margin-bottom: 0;"></div>
           <div style="min-width: 260px;">
-            <input type="text" id="vocab-search-input" placeholder="Tìm theo Kanji, Kana hoặc tiếng Việt..." 
-                   style="width: 100%; background: var(--bg-card); border: 1px solid var(--border-subtle); color: #FFF; padding: 0.5rem 1rem; border-radius: 10px; outline: none;">
+            <input type="text" id="vocab-search-input" placeholder="Tìm theo Kanji, Kana hoặc tiếng Việt...">
           </div>
         </div>
 
@@ -272,10 +271,10 @@
         <div class="section-heading-bar">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
             <h3>73 Hán Tự Trọng Tâm (Bài 6 - 10)</h3>
-            <span class="badge badge-sakura">73 Kanji • 536 Thẻ Flashcard</span>
+            <span class="badge">73 Kanji • 536 Thẻ Flashcard</span>
           </div>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <button class="btn btn-sakura btn-sm" id="btn-fc-kanji">
+            <button class="btn btn-primary btn-sm" id="btn-fc-kanji">
               Luyện Tất Cả Thẻ Hán Tự
             </button>
             <button class="btn btn-secondary btn-sm" id="btn-fc-kanji-on">
@@ -293,8 +292,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
           <div class="filter-bar" id="kanji-filter-bar" style="margin-bottom: 0;"></div>
           <div style="min-width: 260px;">
-            <input type="text" id="kanji-search-input" placeholder="Tìm theo chữ Hán, Hán-Việt, âm On/Kun..." 
-                   style="width: 100%; background: var(--bg-card); border: 1px solid var(--border-subtle); color: #FFF; padding: 0.5rem 1rem; border-radius: 10px; outline: none;">
+            <input type="text" id="kanji-search-input" placeholder="Tìm theo chữ Hán, Hán-Việt, âm On/Kun...">
           </div>
         </div>
 
@@ -310,9 +308,9 @@
         <div class="section-heading-bar">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
             <h3>Toàn Bộ Cấu Trúc Ngữ Pháp (69 Mẫu)</h3>
-            <span class="badge badge-emerald">69 Mẫu câu</span>
+            <span class="badge">69 Mẫu câu</span>
           </div>
-          <button class="btn btn-emerald btn-sm" id="btn-fc-grammar">
+          <button class="btn btn-primary btn-sm" id="btn-fc-grammar">
             Học Flashcard Ngữ Pháp
           </button>
         </div>
@@ -320,8 +318,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
           <div class="filter-bar" id="grammar-filter-bar" style="margin-bottom: 0;"></div>
           <div style="min-width: 260px;">
-            <input type="text" id="grammar-search-input" placeholder="Tìm theo cấu trúc hoặc ý nghĩa..." 
-                   style="width: 100%; background: var(--bg-card); border: 1px solid var(--border-subtle); color: #FFF; padding: 0.5rem 1rem; border-radius: 10px; outline: none;">
+            <input type="text" id="grammar-search-input" placeholder="Tìm theo cấu trúc hoặc ý nghĩa...">
           </div>
         </div>
 
@@ -337,7 +334,7 @@
         <div class="quiz-arena-container">
           <!-- Config View -->
           <div class="quiz-config-card" id="quiz-config-view">
-            <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: #FFF;">Đấu Trường Speed Quiz</h3>
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--text-heading);">Đấu Trường Speed Quiz</h3>
             <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
               Thử thách phản xạ từ vựng, hán tự và ngữ pháp với đồng hồ đếm ngược 10s cho mỗi câu hỏi.
             </p>
@@ -368,7 +365,7 @@
               </div>
             </div>
 
-            <button class="btn btn-primary" id="btn-start-quiz" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+            <button class="btn btn-primary" id="btn-start-quiz" style="width: 100%; padding: 0.85rem; font-size: 1rem;">
               Bắt Đầu Thi Đấu Ngay
             </button>
           </div>
@@ -376,13 +373,13 @@
           <!-- Active Question View -->
           <div class="quiz-active-card" id="quiz-play-view" style="display: none;">
             <div class="quiz-progress-row">
-              <div style="display: flex; align-items: center; gap: 0.75rem;">
-                <span class="badge badge-cyan" id="quiz-hint-tag">Bài 6</span>
-                <span class="badge badge-sakura" id="quiz-combo-badge" style="display: none;">Combo x2</span>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="badge" id="quiz-hint-tag">Bài 6</span>
+                <span class="badge" id="quiz-combo-badge" style="display: none;">Combo x2</span>
               </div>
               <div style="display: flex; align-items: center; gap: 1rem;">
-                <span style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary);" id="quiz-q-num">1 / 15</span>
-                <span style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: var(--accent-amber);" id="quiz-score-val">0 pts</span>
+                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary);" id="quiz-q-num">1 / 15</span>
+                <span style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: var(--text-heading);" id="quiz-score-val">0 pts</span>
               </div>
             </div>
 
@@ -405,9 +402,9 @@
 
           <!-- Results View -->
           <div class="quiz-config-card" id="quiz-result-view" style="display: none; text-align: center; align-items: center;">
-            <h3 style="font-size: 2rem; color: #FFF; margin-bottom: 0.5rem;">Hoàn Thành Thử Thách!</h3>
-            <div class="stat-value" id="final-score-val" style="color: var(--accent-amber); font-size: 3rem; margin: 0.5rem 0;">0 Điểm</div>
-            <div id="final-max-combo" style="color: var(--accent-sakura); font-weight: 700; margin-bottom: 1.5rem;">Max Combo: x0</div>
+            <h3 style="font-size: 1.75rem; color: var(--text-heading); margin-bottom: 0.5rem;">Hoàn Thành Thử Thách!</h3>
+            <div class="stat-value" id="final-score-val" style="font-size: 2.8rem; margin: 0.5rem 0;">0 Điểm</div>
+            <div id="final-max-combo" style="color: var(--text-secondary); font-weight: 700; margin-bottom: 1.5rem;">Max Combo: x0</div>
             <button class="btn btn-primary" id="btn-quiz-retry">Chơi lại thử thách khác</button>
           </div>
         </div>
@@ -423,34 +420,34 @@
       <div class="modal-content">
         <div class="modal-header">
           <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span class="badge badge-sakura" id="modal-kanji-lesson">第 6 課</span>
-            <h3 id="modal-kanji-hanviet" style="font-size: 1.3rem; color: #FDA4AF;">HÌNH</h3>
+            <span class="badge" id="modal-kanji-lesson">第 6 課</span>
+            <h3 id="modal-kanji-hanviet" style="font-size: 1.2rem; color: var(--text-heading);">HÌNH</h3>
           </div>
           <button class="icon-btn btn-sm" id="kanji-modal-close">Đóng</button>
         </div>
         <div class="modal-body">
           <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 1.5rem;">
-            <div id="modal-kanji-char" style="font-family: var(--font-jp); font-size: 5rem; font-weight: 900; color: #FFF; text-shadow: 0 0 30px rgba(244, 63, 94, 0.4);">
+            <div id="modal-kanji-char" style="font-family: var(--font-jp); font-size: 4.5rem; font-weight: 900; color: var(--text-heading);">
               形
             </div>
-            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-              <div class="badge badge-purple" style="font-size: 1rem; padding: 0.4rem 0.8rem;">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <div class="badge" style="font-size: 0.9rem; padding: 0.35rem 0.75rem;">
                 音 (On): <strong id="modal-kanji-on" style="margin-left: 0.3rem;">ケイ</strong>
               </div>
-              <div class="badge badge-cyan" style="font-size: 1rem; padding: 0.4rem 0.8rem;">
+              <div class="badge" style="font-size: 0.9rem; padding: 0.35rem 0.75rem;">
                 訓 (Kun): <strong id="modal-kanji-kun" style="margin-left: 0.3rem;">かたち</strong>
               </div>
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem;">
                 <button class="btn btn-secondary btn-sm" id="btn-modal-speak-kanji">Nghe phát âm</button>
-                <button class="btn btn-sakura btn-sm" id="btn-modal-study-kanji">Học Flashcard Chữ Này</button>
+                <button class="btn btn-primary btn-sm" id="btn-modal-study-kanji">Học Flashcard Chữ Này</button>
               </div>
             </div>
           </div>
 
-          <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;">
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.65rem; font-weight: 700;">
             Từ ghép ví dụ & Nghĩa tiếng Việt:
           </div>
-          <div id="modal-kanji-compounds" style="display: flex; flex-direction: column; gap: 0.5rem; max-height: 240px; overflow-y: auto;">
+          <div id="modal-kanji-compounds" style="display: flex; flex-direction: column; gap: 0.45rem; max-height: 240px; overflow-y: auto;">
             <!-- Compounds rendered dynamically -->
           </div>
         </div>
@@ -461,7 +458,7 @@
     <div class="modal-overlay" id="search-modal">
       <div class="modal-content search-modal-box">
         <div class="modal-header" style="border: none; padding-bottom: 0;">
-          <h3 style="font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <h3 style="font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text-heading);">
             Tra cứu nhanh JPD326
           </h3>
           <button class="icon-btn btn-sm" id="btn-close-search">Đóng</button>

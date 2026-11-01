@@ -83,7 +83,7 @@ class OmniSearch {
         matches.push({
           type: 'kanji',
           badge: 'Hán tự',
-          badgeClass: 'badge-sakura',
+          badgeClass: 'badge',
           title: `${k.kanji} (${k.han_viet})`,
           sub: `On: ${k.onyomi || '—'} | Kun: ${k.kunyomi || '—'} • ${k.lesson}`,
           raw: k
@@ -97,7 +97,7 @@ class OmniSearch {
         matches.push({
           type: 'vocab',
           badge: 'Từ vựng',
-          badgeClass: 'badge-amber',
+          badgeClass: 'badge',
           title: `${v.display} [${v.kana}]`,
           sub: `${v.meaning} • ${v.lesson} (${v.part})`,
           raw: v
@@ -111,7 +111,7 @@ class OmniSearch {
         matches.push({
           type: 'grammar',
           badge: 'Ngữ pháp',
-          badgeClass: 'badge-emerald',
+          badgeClass: 'badge',
           title: g.title,
           sub: `${g.formula.replace(/\n/g, ' ')} • ${g.lesson}`,
           raw: g
@@ -131,14 +131,14 @@ class OmniSearch {
       <div class="search-result-item" data-idx="${idx}">
         <div style="display: flex; flex-direction: column; gap: 0.2rem; overflow: hidden;">
           <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span class="badge ${m.badgeClass}">${m.badge}</span>
-            <strong style="color: #FFF; font-size: 0.95rem;">${m.title}</strong>
+            <span class="badge">${m.badge}</span>
+            <strong style="color: var(--text-heading); font-size: 0.95rem;">${m.title}</strong>
           </div>
           <div style="font-size: 0.8rem; color: var(--text-secondary); text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
             ${m.sub}
           </div>
         </div>
-        <span style="font-size: 0.8rem; color: var(--accent-cyan);">Xem</span>
+        <span style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 600;">Xem</span>
       </div>
     `).join('');
 

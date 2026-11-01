@@ -160,7 +160,7 @@ class App {
         <div class="lesson-card" data-lesson="${lesson}">
           <div class="lesson-card-header">
             <span class="lesson-tag">${lesson}</span>
-            <span style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 600;">JPD326</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">JPD326</span>
           </div>
           <div class="lesson-title">${lessonTopics[lesson] || lesson}</div>
           <div class="lesson-counts">
@@ -338,8 +338,8 @@ class App {
       return `
         <div class="kanji-card-item" data-id="${k.id}">
           <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-            <span class="badge badge-sakura" style="font-size: 0.72rem;">${k.lesson}</span>
-            ${isLearned ? '<span style="color: var(--accent-emerald); font-size: 0.8rem;">Thuộc</span>' : ''}
+            <span class="badge" style="font-size: 0.72rem;">${k.lesson}</span>
+            ${isLearned ? '<span style="color: var(--text-muted); font-size: 0.75rem; font-weight: 600;">Đã thuộc</span>' : ''}
           </div>
           <div class="kanji-char-preview">${k.kanji}</div>
           <div class="kanji-hanviet-badge">${k.han_viet}</div>
@@ -392,8 +392,8 @@ class App {
       if (k.compounds && k.compounds.length > 0) {
         compoundsList.innerHTML = k.compounds.map(c => `
           <div class="grammar-example-row" style="cursor: pointer;" data-word="${c.word}">
-            <span style="font-size: 1.1rem; font-weight: 700; color: #FFF;">${c.word}</span>
-            <span style="color: var(--accent-cyan); font-weight: 500;">${c.reading ? `(${c.reading})` : ''}</span>
+            <span style="font-size: 1.1rem; font-weight: 700; color: var(--text-heading);">${c.word}</span>
+            <span style="color: var(--text-secondary); font-weight: 500;">${c.reading ? `(${c.reading})` : ''}</span>
             <span style="flex: 1; color: var(--text-primary); text-align: right;">${c.meaning}</span>
             <button class="icon-btn btn-sm">Nghe</button>
           </div>
@@ -514,7 +514,7 @@ class App {
             <div class="vocab-meaning-txt">${v.meaning}</div>
           </td>
           <td>
-            <span class="badge badge-amber">${v.lesson} • ${v.part}</span>
+            <span class="badge">${v.lesson} • ${v.part}</span>
           </td>
           <td style="width: 70px; text-align: center;">
             <button class="icon-btn btn-sm btn-speak-vocab" data-text="${v.kana || v.display}">Nghe</button>
@@ -628,7 +628,7 @@ class App {
         <div class="grammar-item-card" data-id="${g.id}">
           <div class="grammar-card-header">
             <div style="display: flex; align-items: center; gap: 0.75rem;">
-              <span class="badge badge-emerald">${g.lesson}</span>
+              <span class="badge">${g.lesson}</span>
               <div class="grammar-title-text">${g.title}</div>
             </div>
             <button class="icon-btn btn-sm btn-speak-formula" data-text="${encodeURIComponent(g.formula || g.title)}" title="Nghe mẫu câu">Nghe</button>
