@@ -106,6 +106,7 @@ class App {
         this.theme = this.theme === 'light' ? 'dark' : 'light';
         localStorage.setItem('jpd326_theme', this.theme);
         this.applyTheme(this.theme);
+        window.soundEngine.playToggle(this.theme === 'dark');
         this.showToast(this.theme === 'light' ? 'Đã chuyển sang chế độ Sáng (Light mode)' : 'Đã chuyển sang chế độ Tối (Dark mode)', 'info');
       });
     }
@@ -139,11 +140,18 @@ class App {
     // Sound toggle
     const soundToggle = document.getElementById('btn-toggle-sound');
     if (soundToggle) {
+      soundToggle.classList.toggle('active', window.soundEngine.soundEnabled);
+      soundToggle.textContent = window.soundEngine.soundEnabled ? 'Bật âm' : 'Tắt âm';
+
       soundToggle.addEventListener('click', () => {
         window.soundEngine.soundEnabled = !window.soundEngine.soundEnabled;
+        localStorage.setItem('jpd326_sound_enabled', window.soundEngine.soundEnabled ? '1' : '0');
         soundToggle.classList.toggle('active', window.soundEngine.soundEnabled);
         soundToggle.textContent = window.soundEngine.soundEnabled ? 'Bật âm' : 'Tắt âm';
-        this.showToast(window.soundEngine.soundEnabled ? 'Đã bật âm thanh' : 'Đã tắt âm thanh', 'info');
+        if (window.soundEngine.soundEnabled) {
+          window.soundEngine.playToggle(true);
+        }
+        this.showToast(window.soundEngine.soundEnabled ? 'Đã bật hiệu ứng âm thanh tương tác' : 'Đã tắt âm thanh', 'info');
       });
     }
 
@@ -813,6 +821,7 @@ class App {
         const active = window.storageManager.toggleFavorite(id);
         btn.classList.toggle('active', active);
         btn.innerHTML = active ? 'Đã lưu' : 'Lưu';
+        window.soundEngine.playFavorite(active);
       });
     });
   }

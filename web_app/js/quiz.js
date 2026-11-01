@@ -309,7 +309,7 @@ class QuizEngine {
       const points = 100 + this.combo * 20;
       this.score += points;
       chosenBtn.classList.add('correct');
-      window.soundEngine.playCorrect();
+      window.soundEngine.playCorrect(this.combo);
     } else {
       this.combo = 0;
       chosenBtn.classList.add('wrong');

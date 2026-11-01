@@ -195,6 +195,7 @@ class FlashcardEngine {
       this.autoPronounceBtn.addEventListener('click', () => {
         this.autoPronounce = !this.autoPronounce;
         this.autoPronounceBtn.classList.toggle('active', this.autoPronounce);
+        window.soundEngine.playToggle(this.autoPronounce);
         window.app.showToast(this.autoPronounce ? 'Bật tự động phát âm' : 'Tắt tự động phát âm', 'info');
       });
     }
@@ -392,7 +393,9 @@ class FlashcardEngine {
     if (!item) return;
 
     window.storageManager.recordReview(item.id, rating);
-    if (rating >= 3) {
+    if (window.soundEngine && window.soundEngine.playRating) {
+      window.soundEngine.playRating(rating);
+    } else if (rating >= 3) {
       window.soundEngine.playCorrect();
     } else {
       window.soundEngine.playWrong();
@@ -819,6 +822,7 @@ class FlashcardEngine {
         const active = window.storageManager.toggleFavorite(item.id);
         btn.classList.toggle('active', active);
         btn.innerHTML = active ? 'Đã lưu' : 'Lưu';
+        window.soundEngine.playFavorite(active);
         window.app.showToast(active ? 'Đã thêm vào mục yêu thích!' : 'Đã bỏ yêu thích', 'info');
       });
     });
@@ -827,6 +831,7 @@ class FlashcardEngine {
   // Hands-free Auto-play Mode
   toggleAutoPlay() {
     this.isAutoPlaying = !this.isAutoPlaying;
+    window.soundEngine.playToggle(this.isAutoPlaying);
     if (this.autoPlayBtn) {
       this.autoPlayBtn.classList.toggle('btn-primary', this.isAutoPlaying);
       this.autoPlayBtn.classList.toggle('btn-secondary', !this.isAutoPlaying);

@@ -22,8 +22,10 @@ class OmniSearch {
     document.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
+        window.soundEngine.playModalOpen();
         this.open();
       } else if (e.key === 'Escape' && this.isOpen()) {
+        window.soundEngine.playModalClose();
         this.close();
       }
     });
