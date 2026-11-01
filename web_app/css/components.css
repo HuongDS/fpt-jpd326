@@ -106,7 +106,7 @@
 
 .action-card:hover {
   transform: translateY(-2px);
-  border-color: #18181B;
+  border-color: #2C313A;
   box-shadow: var(--shadow-md);
 }
 
@@ -179,14 +179,14 @@
 }
 
 .lesson-card:hover {
-  border-color: #18181B;
+  border-color: #2C313A;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 .lesson-card.active-lesson {
-  border-color: #18181B;
-  box-shadow: 0 0 0 1px #18181B, var(--shadow-md);
+  border-color: #2C313A;
+  box-shadow: 0 0 0 1px #2C313A, var(--shadow-md);
 }
 
 [data-theme="dark"] .lesson-card:hover {
@@ -256,7 +256,7 @@
 
 .progress-bar-fill {
   height: 100%;
-  background: #18181B;
+  background: #2C313A;
   border-radius: 999px;
   transition: width 0.3s ease;
 }
@@ -414,7 +414,7 @@
 
 .card-back {
   transform: rotateY(180deg);
-  border-color: #18181B;
+  border-color: #2C313A;
 }
 
 [data-theme="dark"] .card-back {
@@ -533,7 +533,7 @@
 
 .rating-btn:hover {
   transform: translateY(-2px);
-  border-color: #18181B;
+  border-color: #2C313A;
   background: var(--bg-card-hover);
   color: var(--text-heading);
 }
@@ -577,7 +577,7 @@
 }
 
 .kanji-card-item:hover {
-  border-color: #18181B;
+  border-color: #2C313A;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -693,7 +693,7 @@
 }
 
 .grammar-item-card:hover {
-  border-color: #18181B;
+  border-color: #2C313A;
 }
 
 [data-theme="dark"] .grammar-item-card:hover {
@@ -730,7 +730,7 @@
 
 .grammar-point-box {
   background: var(--bg-elevated);
-  border-left: 3px solid #18181B;
+  border-left: 3px solid #2C313A;
   border-radius: 0 6px 6px 0;
   padding: 0.65rem 0.85rem;
   font-size: 0.88rem;
@@ -817,12 +817,12 @@
 }
 
 .mode-btn:hover {
-  border-color: #18181B;
+  border-color: #2C313A;
 }
 
 .mode-btn.active {
-  border-color: #18181B;
-  background: #18181B;
+  border-color: #2C313A;
+  background: #2C313A;
   color: #FFFFFF;
 }
 
@@ -833,7 +833,7 @@
 [data-theme="dark"] .mode-btn.active {
   border-color: #FFFFFF;
   background: #FFFFFF;
-  color: #09090B;
+  color: #20232A;
 }
 
 [data-theme="dark"] .mode-btn.active .mode-desc {
@@ -881,7 +881,7 @@
 
 .quiz-timer-fill {
   height: 100%;
-  background: #18181B;
+  background: #2C313A;
   width: 100%;
   transition: width 0.1s linear;
 }
@@ -944,7 +944,7 @@
 }
 
 .quiz-opt-btn:hover:not(:disabled) {
-  border-color: #18181B;
+  border-color: #2C313A;
   background: var(--bg-elevated);
 }
 
@@ -953,8 +953,8 @@
 }
 
 .quiz-opt-btn.correct {
-  background: #18181B !important;
-  border-color: #18181B !important;
+  background: #2C313A !important;
+  border-color: #2C313A !important;
   color: #FFFFFF !important;
   animation: pulseCorrect 0.3s ease;
 }
@@ -962,7 +962,7 @@
 [data-theme="dark"] .quiz-opt-btn.correct {
   background: #FFFFFF !important;
   border-color: #FFFFFF !important;
-  color: #09090B !important;
+  color: #20232A !important;
 }
 
 .quiz-opt-btn.wrong {
@@ -1034,7 +1034,7 @@
 
 .search-result-item:hover {
   background: var(--bg-elevated);
-  border-color: #18181B;
+  border-color: #2C313A;
 }
 
 [data-theme="dark"] .search-result-item:hover {
@@ -1060,7 +1060,7 @@
 #vocab-search-input:focus,
 #kanji-search-input:focus,
 #grammar-search-input:focus {
-  border-color: #18181B;
+  border-color: #2C313A;
 }
 
 [data-theme="dark"] #vocab-search-input:focus,
@@ -1094,13 +1094,13 @@
 }
 
 .btn-group .btn.active {
-  background: #18181B;
+  background: #2C313A;
   color: #FFFFFF;
 }
 
 [data-theme="dark"] .btn-group .btn.active {
   background: #FFFFFF;
-  color: #09090B;
+  color: #20232A;
 }
 
 .table-stt {
@@ -1286,7 +1286,7 @@
 }
 
 .excel-app-tag {
-  background: #18181B;
+  background: #2C313A;
   color: #FFFFFF;
   font-size: 0.7rem;
   font-weight: 800;
@@ -1297,7 +1297,7 @@
 
 [data-theme="dark"] .excel-app-tag {
   background: #FFFFFF;
-  color: #09090B;
+  color: #20232A;
 }
 
 .excel-title-actions {
@@ -1345,14 +1345,14 @@
 }
 
 .excel-tab-btn.active {
-  background: #18181B;
+  background: #2C313A;
   color: #FFFFFF;
-  border-color: #18181B;
+  border-color: #2C313A;
 }
 
 [data-theme="dark"] .excel-tab-btn.active {
   background: #FFFFFF;
-  color: #09090B;
+  color: #20232A;
   border-color: #FFFFFF;
 }
 
@@ -1517,7 +1517,7 @@
 }
 
 .excel-input:focus {
-  border-color: #18181B;
+  border-color: #2C313A;
   background: var(--bg-canvas);
 }
 
@@ -1765,13 +1765,13 @@
 }
 
 .speaker-pill.a {
-  background: #18181B;
+  background: #2C313A;
   color: #FFFFFF;
 }
 
 [data-theme="dark"] .speaker-pill.a {
   background: #F4F4F5;
-  color: #18181B;
+  color: #20232A;
 }
 
 .speaker-pill.b {
@@ -1905,7 +1905,7 @@
 }
 
 .chat-turn-item.side-a {
-  border-left: 3px solid #18181B;
+  border-left: 3px solid #2C313A;
 }
 
 [data-theme="dark"] .chat-turn-item.side-a {
@@ -1960,7 +1960,7 @@
 
 /* Autoplay active state */
 .chat-turn-item.speaking-active {
-  border-color: #18181B !important;
+  border-color: #2C313A !important;
   background: var(--bg-elevated) !important;
   box-shadow: 0 0 0 2px var(--border-subtle);
 }

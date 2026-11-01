@@ -969,13 +969,13 @@ html, body {
   }
 
   .nav-tab-btn.active:hover {
-    background: #18181B;
+    background: #2C313A;
     color: #FFFFFF;
   }
 
   [data-theme="dark"] .nav-tab-btn.active:hover {
     background: #FFFFFF;
-    color: #09090B;
+    color: #20232A;
   }
 
   .action-card:hover {
