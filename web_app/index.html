@@ -56,6 +56,21 @@
       </div>
     </header>
 
+    <!-- Global Lesson Program Bar (Chia chương trình học theo bài 6, 7, 8, 9, 10) -->
+    <div class="global-lesson-bar">
+      <div class="lesson-bar-inner">
+        <span class="lesson-bar-title">Chương trình học:</span>
+        <div class="lesson-bar-chips" id="global-lesson-chips">
+          <button class="filter-chip active" data-lesson="all">Tất cả bài (6 - 10)</button>
+          <button class="filter-chip" data-lesson="第 6 課">Bài 6</button>
+          <button class="filter-chip" data-lesson="第 7 課">Bài 7</button>
+          <button class="filter-chip" data-lesson="第 8 課">Bài 8</button>
+          <button class="filter-chip" data-lesson="第 9 課">Bài 9</button>
+          <button class="filter-chip" data-lesson="第 10 課">Bài 10</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Main Content Panels -->
     <main class="app-main">
 
@@ -63,95 +78,102 @@
            TAB 1: DASHBOARD
            ================================================================== -->
       <section class="tab-panel active" id="tab-dashboard">
-        <!-- Hero Overview -->
-        <div class="dashboard-hero">
-          <div class="hero-content">
-            <div class="hero-title-group">
-              <h2>Ôn Luyện Siêu Tốc <span>JPD326</span></h2>
-              <p class="hero-description">
-                Hệ thống học cấp tốc tích hợp thuật toán lặp lại ngắt quãng (SRS), phát âm giọng bản xứ tự động, 3D Flashcard và kho dữ liệu hoàn chỉnh 531 từ vựng, 73 Hán tự cùng 69 điểm ngữ pháp.
-              </p>
-            </div>
-            <div class="hero-stats-row">
-              <div class="stat-box">
-                <div class="stat-value" id="dash-streak-val">1 Ngày</div>
-                <div class="stat-label">Streak Ngày</div>
+        <!-- Focused Lesson Hub Banner (Dynamically populated when a single lesson 6-10 is selected) -->
+        <div id="dash-lesson-hub-root" style="display: none;"></div>
+
+        <!-- Global Hero Overview (Shown when 'all' is selected) -->
+        <div id="dash-hero-overview">
+          <div class="dashboard-hero">
+            <div class="hero-content">
+              <div class="hero-title-group">
+                <h2>Ôn Luyện Siêu Tốc <span>JPD326</span></h2>
+                <p class="hero-description">
+                  Hệ thống học cấp tốc chia theo từng bài học 6, 7, 8, 9, 10. Tích hợp thẻ Flashcard 3D theo bài, thuật toán lặp lại ngắt quãng (SRS), phát âm giọng bản xứ và đấu trường trắc nghiệm phản xạ 10 giây.
+                </p>
               </div>
-              <div class="stat-box">
-                <div class="stat-value" id="dash-learned-val">0 / 604</div>
-                <div class="stat-label">Đã Thuộc</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-value" id="dash-reviews-val">0</div>
-                <div class="stat-label">Lượt Ôn Tập</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-value" id="dash-mastery-val">0%</div>
-                <div class="stat-label">Tỷ Lệ Nhớ</div>
+              <div class="hero-stats-row">
+                <div class="stat-box">
+                  <div class="stat-value" id="dash-streak-val">1 Ngày</div>
+                  <div class="stat-label">Streak Ngày</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-value" id="dash-learned-val">0 / 604</div>
+                  <div class="stat-label">Đã Thuộc</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-value" id="dash-reviews-val">0</div>
+                  <div class="stat-label">Lượt Ôn Tập</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-value" id="dash-mastery-val">0%</div>
+                  <div class="stat-label">Tỷ Lệ Nhớ</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Quick Launch Cards -->
-        <div class="quick-action-grid">
-          <div class="action-card" id="dash-action-quiz">
-            <div>
-              <div class="action-card-header">
-                <span class="badge">Đấu trường</span>
+          <!-- Quick Launch Cards -->
+          <div class="quick-action-grid">
+            <div class="action-card" id="dash-action-quiz">
+              <div>
+                <div class="action-card-header">
+                  <span class="badge">Đấu trường</span>
+                </div>
+                <h3>Speed Quiz 1 Phút</h3>
+                <p>Luyện phản xạ nhanh với câu hỏi trắc nghiệm đếm ngược 10 giây và combo điểm số.</p>
               </div>
-              <h3>Speed Quiz 1 Phút</h3>
-              <p>Luyện phản xạ nhanh với câu hỏi trắc nghiệm đếm ngược 10 giây và combo điểm số.</p>
+              <div class="action-card-footer">
+                <span>Bắt đầu thi đấu</span>
+              </div>
             </div>
-            <div class="action-card-footer">
-              <span>Bắt đầu thi đấu</span>
-            </div>
-          </div>
 
-          <div class="action-card" id="dash-action-flashcards">
-            <div>
-              <div class="action-card-header">
-                <span class="badge">SRS thông minh</span>
+            <div class="action-card" id="dash-action-flashcards">
+              <div>
+                <div class="action-card-header">
+                  <span class="badge">SRS thông minh</span>
+                </div>
+                <h3>Học Thẻ Nhớ 3D</h3>
+                <p>Học từ vựng và hán tự với chế độ lật thẻ 3D, hỗ trợ phím tắt và chế độ tự động chạy rảnh tay.</p>
               </div>
-              <h3>Học Thẻ Nhớ 3D</h3>
-              <p>Học từ vựng và hán tự với chế độ lật thẻ 3D, hỗ trợ phím tắt và chế độ tự động chạy rảnh tay.</p>
+              <div class="action-card-footer">
+                <span>Mở bộ thẻ</span>
+              </div>
             </div>
-            <div class="action-card-footer">
-              <span>Mở bộ thẻ</span>
-            </div>
-          </div>
 
-          <div class="action-card" id="dash-action-grammar">
-            <div>
-              <div class="action-card-header">
-                <span class="badge">69 Cấu Trúc</span>
+            <div class="action-card" id="dash-action-grammar">
+              <div>
+                <div class="action-card-header">
+                  <span class="badge">69 Cấu Trúc</span>
+                </div>
+                <h3>69 Điểm Ngữ Pháp</h3>
+                <p>Nắm trọn công thức, ý nghĩa, điểm lưu ý và các câu ví dụ mẫu của từng bài học.</p>
               </div>
-              <h3>69 Điểm Ngữ Pháp</h3>
-              <p>Nắm trọn công thức, ý nghĩa, điểm lưu ý và các câu ví dụ mẫu của từng bài học.</p>
+              <div class="action-card-footer">
+                <span>Học ngữ pháp</span>
+              </div>
             </div>
-            <div class="action-card-footer">
-              <span>Học ngữ pháp</span>
-            </div>
-          </div>
 
-          <div class="action-card" id="dash-action-kanji">
-            <div>
-              <div class="action-card-header">
-                <span class="badge">73 Chữ Hán • 536 Thẻ</span>
+            <div class="action-card" id="dash-action-kanji">
+              <div>
+                <div class="action-card-header">
+                  <span class="badge">73 Chữ Hán • 536 Thẻ</span>
+                </div>
+                <h3>73 Hán Tự Trọng Tâm</h3>
+                <p>Luyện riêng từng thẻ cho âm On, âm Kun và các từ ghép thực tế kèm nghĩa tiếng Việt.</p>
               </div>
-              <h3>73 Hán Tự Trọng Tâm</h3>
-              <p>Luyện riêng từng thẻ cho âm On, âm Kun và các từ ghép thực tế kèm nghĩa tiếng Việt.</p>
-            </div>
-            <div class="action-card-footer">
-              <span>Luyện Hán tự</span>
+              <div class="action-card-footer">
+                <span>Luyện Hán tự</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Lessons Overview Section -->
         <div class="section-heading-bar">
-          <h3>Danh Sách Các Bài Học (Dekiru Nihongo Chukyu)</h3>
-          <span style="color: var(--text-muted); font-size: 0.85rem;">Khóa học JPD326 FA26</span>
+          <div>
+            <h3>Chương Trình 5 Bài Học (Dekiru Nihongo Chukyu)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.15rem;">Bấm chọn bài học để ôn tập chuyên sâu Từ vựng, Hán tự, Ngữ pháp hoặc làm bài kiểm tra theo bài.</p>
+          </div>
         </div>
         <div class="lessons-grid" id="dash-lessons-grid">
           <!-- Populated by JavaScript -->
@@ -162,14 +184,27 @@
            TAB 2: FLASHCARD SRS
            ================================================================== -->
       <section class="tab-panel" id="tab-flashcards">
-        <!-- Deck Switcher Chips -->
+        <!-- Flashcard Lesson Filter Bar -->
+        <div class="filter-bar" id="fc-lesson-selector" style="justify-content: center; margin-bottom: 0.5rem;">
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.25rem;">Bài học:</span>
+          <button class="filter-chip active" data-fc-lesson="all">Tất cả bài</button>
+          <button class="filter-chip" data-fc-lesson="第 6 課">Bài 6</button>
+          <button class="filter-chip" data-fc-lesson="第 7 課">Bài 7</button>
+          <button class="filter-chip" data-fc-lesson="第 8 課">Bài 8</button>
+          <button class="filter-chip" data-fc-lesson="第 9 課">Bài 9</button>
+          <button class="filter-chip" data-fc-lesson="第 10 課">Bài 10</button>
+        </div>
+
+        <!-- Flashcard Deck Content Switcher Chips -->
         <div class="filter-bar" id="fc-deck-selector" style="justify-content: center; margin-bottom: 1.25rem;">
-          <button class="filter-chip active" data-deck="vocab">Từ vựng (531)</button>
-          <button class="filter-chip" data-deck="kanji-all">Hán tự: Tất cả (536)</button>
-          <button class="filter-chip" data-deck="kanji-on">Hán tự: Âm On (73)</button>
-          <button class="filter-chip" data-deck="kanji-kun">Hán tự: Âm Kun (52)</button>
-          <button class="filter-chip" data-deck="kanji-compounds">Hán tự: Từ ghép (411)</button>
-          <button class="filter-chip" data-deck="grammar">Ngữ pháp (69)</button>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.25rem;">Nội dung:</span>
+          <button class="filter-chip active" data-deck="all">Toàn bộ</button>
+          <button class="filter-chip" data-deck="vocab">Từ vựng</button>
+          <button class="filter-chip" data-deck="kanji-all">Hán tự (Tất cả)</button>
+          <button class="filter-chip" data-deck="kanji-on">Âm On</button>
+          <button class="filter-chip" data-deck="kanji-kun">Âm Kun</button>
+          <button class="filter-chip" data-deck="kanji-compounds">Từ ghép Hán tự</button>
+          <button class="filter-chip" data-deck="grammar">Ngữ pháp</button>
         </div>
 
         <div class="flashcard-arena">
@@ -338,6 +373,18 @@
             <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
               Thử thách phản xạ từ vựng, hán tự và ngữ pháp với đồng hồ đếm ngược 10s cho mỗi câu hỏi.
             </p>
+
+            <div class="quiz-config-section">
+              <div class="quiz-config-label">Chọn phạm vi bài học:</div>
+              <div class="filter-bar" id="quiz-lesson-chips" style="margin-bottom: 0;">
+                <button class="filter-chip active" data-quiz-lesson="all">Tất cả bài (6 - 10)</button>
+                <button class="filter-chip" data-quiz-lesson="第 6 課">Bài 6</button>
+                <button class="filter-chip" data-quiz-lesson="第 7 課">Bài 7</button>
+                <button class="filter-chip" data-quiz-lesson="第 8 課">Bài 8</button>
+                <button class="filter-chip" data-quiz-lesson="第 9 課">Bài 9</button>
+                <button class="filter-chip" data-quiz-lesson="第 10 課">Bài 10</button>
+              </div>
+            </div>
 
             <div class="quiz-config-section">
               <div class="quiz-config-label">Chọn chế độ thi đấu:</div>

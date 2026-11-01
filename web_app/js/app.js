@@ -7,6 +7,7 @@ class App {
   constructor() {
     this.data = window.APP_DATA || { kanji: [], vocabulary: [], grammar: [] };
     this.currentTab = 'dashboard';
+    this.currentLesson = 'all'; // 'all' | '第 6 課' | '第 7 課' | '第 8 課' | '第 9 課' | '第 10 課'
     this.kanjiLessonFilter = 'all';
     this.vocabLessonFilter = 'all';
     this.grammarLessonFilter = 'all';
@@ -16,6 +17,7 @@ class App {
 
   init() {
     this.initTheme();
+    this.initGlobalLessonBar();
     this.initNavigation();
     this.initDashboard();
     this.initKanjiView();
@@ -28,10 +30,70 @@ class App {
     window.omniSearch = new OmniSearch();
 
     // Initial Flashcard load
-    window.flashcardEngine.loadDeck(this.data.vocabulary, 'vocab');
+    window.flashcardEngine.refreshDeck();
 
     // Quick Action cards on dashboard
     this.bindDashboardActions();
+  }
+
+  initGlobalLessonBar() {
+    const chipsContainer = document.getElementById('global-lesson-chips');
+    if (!chipsContainer) return;
+
+    chipsContainer.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const lesson = chip.dataset.lesson;
+        this.setLesson(lesson);
+      });
+    });
+  }
+
+  setLesson(lesson) {
+    this.currentLesson = lesson || 'all';
+    this.syncGlobalLessonBar();
+
+    // Synchronize Flashcard Engine
+    if (window.flashcardEngine) {
+      window.flashcardEngine.setLessonFilter(this.currentLesson);
+    }
+
+    // Synchronize Quiz Engine
+    if (window.quizEngine) {
+      window.quizEngine.setLessonScope(this.currentLesson);
+    }
+
+    // Synchronize Vocab tab
+    this.vocabLessonFilter = this.currentLesson;
+    this.renderVocabFilters();
+    this.renderVocabList();
+
+    // Synchronize Kanji tab
+    this.kanjiLessonFilter = this.currentLesson;
+    this.renderKanjiFilters();
+    this.renderKanjiGrid();
+
+    // Synchronize Grammar tab
+    this.grammarLessonFilter = this.currentLesson;
+    this.renderGrammarFilters();
+    this.renderGrammarList();
+
+    // Update Dashboard view
+    this.renderDashboardLessonView();
+
+    if (this.currentLesson !== 'all') {
+      this.showToast(`Đã chọn chương trình: ${this.currentLesson}`, 'info');
+    } else {
+      this.showToast('Hiển thị toàn bộ chương trình (Bài 6 - 10)', 'info');
+    }
+  }
+
+  syncGlobalLessonBar() {
+    const chipsContainer = document.getElementById('global-lesson-chips');
+    if (chipsContainer) {
+      chipsContainer.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.classList.toggle('active', chip.dataset.lesson === this.currentLesson);
+      });
+    }
   }
 
   initTheme() {
@@ -66,6 +128,14 @@ class App {
       });
     });
 
+    const logoHome = document.getElementById('btn-logo-home');
+    if (logoHome) {
+      logoHome.addEventListener('click', () => {
+        this.setLesson('all');
+        this.switchTab('dashboard');
+      });
+    }
+
     // Sound toggle
     const soundToggle = document.getElementById('btn-toggle-sound');
     if (soundToggle) {
@@ -84,6 +154,7 @@ class App {
         if (confirm('Bạn có chắc chắn muốn đặt lại toàn bộ tiến độ học tập (flashcard, điểm số, streak)?')) {
           window.storageManager.resetAllProgress();
           this.updateDashboardStats();
+          this.renderDashboardLessonView();
           this.showToast('Đã đặt lại toàn bộ tiến độ!', 'warning');
         }
       });
@@ -102,7 +173,7 @@ class App {
 
     // Sub-triggers when entering tabs
     if (tabId === 'dashboard') {
-      this.updateDashboardStats();
+      this.renderDashboardLessonView();
     } else if (tabId === 'flashcards') {
       window.flashcardEngine.renderCard();
     }
@@ -111,8 +182,157 @@ class App {
   }
 
   initDashboard() {
+    this.renderDashboardLessonView();
+  }
+
+  renderDashboardLessonView() {
     this.updateDashboardStats();
-    this.renderLessonCards();
+
+    const heroOverview = document.getElementById('dash-hero-overview');
+    const lessonHub = document.getElementById('dash-lesson-hub-root');
+
+    if (this.currentLesson === 'all') {
+      if (heroOverview) heroOverview.style.display = 'block';
+      if (lessonHub) lessonHub.style.display = 'none';
+      this.renderLessonCards();
+    } else {
+      if (heroOverview) heroOverview.style.display = 'none';
+      if (lessonHub) {
+        lessonHub.style.display = 'block';
+        this.renderLessonHub(this.currentLesson);
+      }
+      this.renderLessonCards();
+    }
+  }
+
+  renderLessonHub(lesson) {
+    const hubRoot = document.getElementById('dash-lesson-hub-root');
+    if (!hubRoot) return;
+
+    const lessonTopics = {
+      '第 6 課': '地図を広げる (Khám phá bản đồ)',
+      '第 7 課': '世代を超えた交流 (Giao lưu thế hệ)',
+      '第 8 課': '気持ちを伝える (Bày tỏ cảm xúc)',
+      '第 9 課': '言葉を楽しむ (Thưởng thức ngôn ngữ)',
+      '第 10 課': '自然と人間 (Thiên nhiên & Con người)'
+    };
+
+    const vInLesson = this.data.vocabulary.filter(v => v.lesson === lesson);
+    const kInLesson = this.data.kanji.filter(k => k.lesson === lesson);
+    const gInLesson = this.data.grammar.filter(g => g.lesson === lesson);
+
+    const vLearned = vInLesson.filter(v => window.storageManager.isLearned(v.id)).length;
+    const kLearned = kInLesson.filter(k => window.storageManager.isLearned(k.id)).length;
+    const totalItems = vInLesson.length + kInLesson.length;
+    const pct = totalItems > 0 ? Math.round(((vLearned + kLearned) / totalItems) * 100) : 0;
+
+    const kCards = window.flashcardEngine ? window.flashcardEngine.buildKanjiDeck(kInLesson, 'all') : [];
+    const totalFc = vInLesson.length + kCards.length + gInLesson.length;
+
+    hubRoot.innerHTML = `
+      <div class="lesson-hub-hero">
+        <div class="lesson-hub-top">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+              <span class="badge">${lesson}</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">CHƯƠNG TRÌNH HỌC JPD326</span>
+            </div>
+            <div class="lesson-hub-title">${lessonTopics[lesson] || lesson}</div>
+            <div class="lesson-hub-subtitle">Toàn bộ kho tài liệu chuyên sâu dành riêng cho ${lesson}: từ vựng, hán tự, ngữ pháp, flashcard và bài kiểm tra trắc nghiệm.</div>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btn-back-all-lessons">
+            Xem tất cả các bài (6 - 10)
+          </button>
+        </div>
+
+        <div class="lesson-hub-stats-grid">
+          <div class="stat-box">
+            <div class="stat-value">${totalFc}</div>
+            <div class="stat-label">Tổng Thẻ SRS</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value">${vInLesson.length}</div>
+            <div class="stat-label">Từ Vựng (${vLearned} đã thuộc)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value">${kInLesson.length}</div>
+            <div class="stat-label">Hán Tự (${kCards.length} thẻ)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value">${gInLesson.length}</div>
+            <div class="stat-label">Ngữ Pháp</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value">${pct}%</div>
+            <div class="stat-label">Tiến Độ Thuộc</div>
+          </div>
+        </div>
+
+        <div class="lesson-hub-actions">
+          <button class="btn btn-primary" id="btn-hub-study-fc">
+            Luyện Flashcard ${lesson} (${totalFc} Thẻ)
+          </button>
+          <button class="btn btn-secondary" id="btn-hub-quiz">
+            Thi Speed Quiz ${lesson}
+          </button>
+          <button class="btn btn-secondary" id="btn-hub-vocab">
+            Bảng Từ Vựng (${vInLesson.length})
+          </button>
+          <button class="btn btn-secondary" id="btn-hub-kanji">
+            Hán Tự (${kInLesson.length} chữ)
+          </button>
+          <button class="btn btn-secondary" id="btn-hub-grammar">
+            Ngữ Pháp (${gInLesson.length} mẫu)
+          </button>
+        </div>
+      </div>
+    `;
+
+    // Bind action events in Hub
+    const backBtn = document.getElementById('btn-back-all-lessons');
+    if (backBtn) backBtn.onclick = () => this.setLesson('all');
+
+    const fcBtn = document.getElementById('btn-hub-study-fc');
+    if (fcBtn) {
+      fcBtn.onclick = () => {
+        window.flashcardEngine.setLessonFilter(lesson);
+        window.flashcardEngine.category = 'all';
+        window.flashcardEngine.refreshDeck();
+        this.switchTab('flashcards');
+      };
+    }
+
+    const quizBtn = document.getElementById('btn-hub-quiz');
+    if (quizBtn) {
+      quizBtn.onclick = () => {
+        window.quizEngine.setLessonScope(lesson);
+        this.switchTab('quiz');
+      };
+    }
+
+    const vBtn = document.getElementById('btn-hub-vocab');
+    if (vBtn) {
+      vBtn.onclick = () => {
+        this.filterVocabByLesson(lesson);
+        this.switchTab('vocab');
+      };
+    }
+
+    const kBtn = document.getElementById('btn-hub-kanji');
+    if (kBtn) {
+      kBtn.onclick = () => {
+        this.filterKanjiByLesson(lesson);
+        this.switchTab('kanji');
+      };
+    }
+
+    const gBtn = document.getElementById('btn-hub-grammar');
+    if (gBtn) {
+      gBtn.onclick = () => {
+        this.filterGrammarByLesson(lesson);
+        this.switchTab('grammar');
+      };
+    }
   }
 
   updateDashboardStats() {
@@ -152,51 +372,122 @@ class App {
     };
 
     grid.innerHTML = lessons.map(lesson => {
-      const vCount = this.data.vocabulary.filter(v => v.lesson === lesson).length;
-      const kCount = this.data.kanji.filter(k => k.lesson === lesson).length;
-      const gCount = this.data.grammar.filter(g => g.lesson === lesson).length;
+      const vList = this.data.vocabulary.filter(v => v.lesson === lesson);
+      const kList = this.data.kanji.filter(k => k.lesson === lesson);
+      const gList = this.data.grammar.filter(g => g.lesson === lesson);
+
+      const vCount = vList.length;
+      const kCount = kList.length;
+      const gCount = gList.length;
+
+      const vLearned = vList.filter(v => window.storageManager.isLearned(v.id)).length;
+      const kLearned = kList.filter(k => window.storageManager.isLearned(k.id)).length;
+      const totalLearnable = vCount + kCount;
+      const pct = totalLearnable > 0 ? Math.round(((vLearned + kLearned) / totalLearnable) * 100) : 0;
+
+      const kCardsCount = window.flashcardEngine ? window.flashcardEngine.buildKanjiDeck(kList, 'all').length : kCount * 7;
+      const totalFcCount = vCount + kCardsCount + gCount;
+      const isActive = this.currentLesson === lesson;
 
       return `
-        <div class="lesson-card" data-lesson="${lesson}">
-          <div class="lesson-card-header">
-            <span class="lesson-tag">${lesson}</span>
-            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">JPD326</span>
+        <div class="lesson-card ${isActive ? 'active-lesson' : ''}" data-lesson="${lesson}">
+          <div>
+            <div class="lesson-card-header">
+              <span class="lesson-tag">${lesson}</span>
+              <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 700;">${isActive ? 'ĐANG CHỌN' : 'JPD326'}</span>
+            </div>
+            <div class="lesson-title">${lessonTopics[lesson] || lesson}</div>
+            <div class="lesson-counts">
+              <span>${vCount} Từ vựng</span>
+              <span>${kCount} Hán tự</span>
+              <span>${gCount} Ngữ pháp</span>
+            </div>
+
+            <div class="lesson-progress-row">
+              <span>Tiến độ thuộc</span>
+              <span>${vLearned + kLearned}/${totalLearnable} (${pct}%)</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" style="width: ${pct}%;"></div>
+            </div>
           </div>
-          <div class="lesson-title">${lessonTopics[lesson] || lesson}</div>
-          <div class="lesson-counts">
-            <span>${vCount} Từ</span>
-            <span>${kCount} Hán tự</span>
-            <span>${gCount} Ngữ pháp</span>
-          </div>
-          <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
-            <button class="btn btn-secondary btn-sm btn-lesson-vocab" data-lesson="${lesson}">Học từ</button>
-            <button class="btn btn-secondary btn-sm btn-lesson-kanji" data-lesson="${lesson}">Hán tự</button>
-            <button class="btn btn-secondary btn-sm btn-lesson-grammar" data-lesson="${lesson}">Ngữ pháp</button>
+
+          <div class="lesson-card-actions">
+            <div class="lesson-primary-row">
+              <button class="btn btn-primary btn-sm btn-study-lesson" style="flex: 1;" data-lesson="${lesson}">
+                Học Bài Này
+              </button>
+              <button class="btn btn-secondary btn-sm btn-lesson-fc" style="flex: 1;" data-lesson="${lesson}" title="Luyện thẻ Flashcard của ${lesson}">
+                Thẻ SRS (${totalFcCount})
+              </button>
+              <button class="btn btn-secondary btn-sm btn-lesson-quiz" data-lesson="${lesson}" title="Thi trắc nghiệm ${lesson}">
+                Quiz
+              </button>
+            </div>
+            <div class="lesson-secondary-row">
+              <button class="btn btn-secondary btn-sm btn-lesson-vocab" style="flex: 1;" data-lesson="${lesson}">Từ vựng (${vCount})</button>
+              <button class="btn btn-secondary btn-sm btn-lesson-kanji" style="flex: 1;" data-lesson="${lesson}">Hán tự (${kCount})</button>
+              <button class="btn btn-secondary btn-sm btn-lesson-grammar" style="flex: 1;" data-lesson="${lesson}">Ngữ pháp (${gCount})</button>
+            </div>
           </div>
         </div>
       `;
     }).join('');
 
-    grid.querySelectorAll('.btn-lesson-vocab').forEach(btn => {
-      btn.addEventListener('click', () => {
+    // Attach listeners
+    grid.querySelectorAll('.btn-study-lesson').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         const lesson = btn.dataset.lesson;
-        this.filterVocabByLesson(lesson);
+        this.setLesson(lesson);
+      });
+    });
+
+    grid.querySelectorAll('.btn-lesson-fc').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const lesson = btn.dataset.lesson;
+        this.setLesson(lesson);
+        window.flashcardEngine.setLessonFilter(lesson);
+        window.flashcardEngine.category = 'all';
+        window.flashcardEngine.refreshDeck();
+        this.switchTab('flashcards');
+      });
+    });
+
+    grid.querySelectorAll('.btn-lesson-quiz').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const lesson = btn.dataset.lesson;
+        this.setLesson(lesson);
+        window.quizEngine.setLessonScope(lesson);
+        this.switchTab('quiz');
+      });
+    });
+
+    grid.querySelectorAll('.btn-lesson-vocab').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const lesson = btn.dataset.lesson;
+        this.setLesson(lesson);
         this.switchTab('vocab');
       });
     });
 
     grid.querySelectorAll('.btn-lesson-kanji').forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         const lesson = btn.dataset.lesson;
-        this.filterKanjiByLesson(lesson);
+        this.setLesson(lesson);
         this.switchTab('kanji');
       });
     });
 
     grid.querySelectorAll('.btn-lesson-grammar').forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         const lesson = btn.dataset.lesson;
-        this.filterGrammarByLesson(lesson);
+        this.setLesson(lesson);
         this.switchTab('grammar');
       });
     });
@@ -235,10 +526,9 @@ class App {
     const fcKanjiBtn = document.getElementById('btn-fc-kanji');
     if (fcKanjiBtn) {
       fcKanjiBtn.addEventListener('click', () => {
-        const filtered = this.kanjiLessonFilter === 'all'
-          ? this.data.kanji
-          : this.data.kanji.filter(k => k.lesson === this.kanjiLessonFilter);
-        window.flashcardEngine.loadDeck(filtered, 'kanji', 'all');
+        window.flashcardEngine.category = 'kanji';
+        window.flashcardEngine.kanjiSubType = 'all';
+        window.flashcardEngine.setLessonFilter(this.kanjiLessonFilter);
         this.switchTab('flashcards');
       });
     }
@@ -246,10 +536,9 @@ class App {
     const fcKanjiOnBtn = document.getElementById('btn-fc-kanji-on');
     if (fcKanjiOnBtn) {
       fcKanjiOnBtn.addEventListener('click', () => {
-        const filtered = this.kanjiLessonFilter === 'all'
-          ? this.data.kanji
-          : this.data.kanji.filter(k => k.lesson === this.kanjiLessonFilter);
-        window.flashcardEngine.loadDeck(filtered, 'kanji', 'on');
+        window.flashcardEngine.category = 'kanji';
+        window.flashcardEngine.kanjiSubType = 'on';
+        window.flashcardEngine.setLessonFilter(this.kanjiLessonFilter);
         this.switchTab('flashcards');
       });
     }
@@ -257,10 +546,9 @@ class App {
     const fcKanjiKunBtn = document.getElementById('btn-fc-kanji-kun');
     if (fcKanjiKunBtn) {
       fcKanjiKunBtn.addEventListener('click', () => {
-        const filtered = this.kanjiLessonFilter === 'all'
-          ? this.data.kanji
-          : this.data.kanji.filter(k => k.lesson === this.kanjiLessonFilter);
-        window.flashcardEngine.loadDeck(filtered, 'kanji', 'kun');
+        window.flashcardEngine.category = 'kanji';
+        window.flashcardEngine.kanjiSubType = 'kun';
+        window.flashcardEngine.setLessonFilter(this.kanjiLessonFilter);
         this.switchTab('flashcards');
       });
     }
@@ -268,10 +556,9 @@ class App {
     const fcKanjiCpBtn = document.getElementById('btn-fc-kanji-compounds');
     if (fcKanjiCpBtn) {
       fcKanjiCpBtn.addEventListener('click', () => {
-        const filtered = this.kanjiLessonFilter === 'all'
-          ? this.data.kanji
-          : this.data.kanji.filter(k => k.lesson === this.kanjiLessonFilter);
-        window.flashcardEngine.loadDeck(filtered, 'kanji', 'compound');
+        window.flashcardEngine.category = 'kanji';
+        window.flashcardEngine.kanjiSubType = 'compound';
+        window.flashcardEngine.setLessonFilter(this.kanjiLessonFilter);
         this.switchTab('flashcards');
       });
     }
@@ -296,18 +583,14 @@ class App {
 
     container.querySelectorAll('.filter-chip').forEach(btn => {
       btn.addEventListener('click', () => {
-        container.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        this.kanjiLessonFilter = btn.dataset.lesson;
-        this.renderKanjiGrid();
+        const lesson = btn.dataset.lesson;
+        this.setLesson(lesson);
       });
     });
   }
 
   filterKanjiByLesson(lesson) {
-    this.kanjiLessonFilter = lesson;
-    this.renderKanjiFilters();
-    this.renderKanjiGrid();
+    this.setLesson(lesson);
   }
 
   renderKanjiGrid(query = '') {
@@ -436,10 +719,8 @@ class App {
     const fcVocabBtn = document.getElementById('btn-fc-vocab');
     if (fcVocabBtn) {
       fcVocabBtn.addEventListener('click', () => {
-        const filtered = this.vocabLessonFilter === 'all'
-          ? this.data.vocabulary
-          : this.data.vocabulary.filter(v => v.lesson === this.vocabLessonFilter);
-        window.flashcardEngine.loadDeck(filtered, 'vocab');
+        window.flashcardEngine.category = 'vocab';
+        window.flashcardEngine.setLessonFilter(this.vocabLessonFilter);
         this.switchTab('flashcards');
       });
     }
@@ -458,18 +739,14 @@ class App {
 
     container.querySelectorAll('.filter-chip').forEach(btn => {
       btn.addEventListener('click', () => {
-        container.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        this.vocabLessonFilter = btn.dataset.lesson;
-        this.renderVocabList();
+        const lesson = btn.dataset.lesson;
+        this.setLesson(lesson);
       });
     });
   }
 
   filterVocabByLesson(lesson) {
-    this.vocabLessonFilter = lesson;
-    this.renderVocabFilters();
-    this.renderVocabList();
+    this.setLesson(lesson);
   }
 
   renderVocabList(query = '') {
@@ -557,10 +834,8 @@ class App {
     const fcGrammarBtn = document.getElementById('btn-fc-grammar');
     if (fcGrammarBtn) {
       fcGrammarBtn.addEventListener('click', () => {
-        const filtered = this.grammarLessonFilter === 'all'
-          ? this.data.grammar
-          : this.data.grammar.filter(g => g.lesson === this.grammarLessonFilter);
-        window.flashcardEngine.loadDeck(filtered, 'grammar');
+        window.flashcardEngine.category = 'grammar';
+        window.flashcardEngine.setLessonFilter(this.grammarLessonFilter);
         this.switchTab('flashcards');
       });
     }
@@ -579,18 +854,14 @@ class App {
 
     container.querySelectorAll('.filter-chip').forEach(btn => {
       btn.addEventListener('click', () => {
-        container.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        this.grammarLessonFilter = btn.dataset.lesson;
-        this.renderGrammarList();
+        const lesson = btn.dataset.lesson;
+        this.setLesson(lesson);
       });
     });
   }
 
   filterGrammarByLesson(lesson) {
-    this.grammarLessonFilter = lesson;
-    this.renderGrammarFilters();
-    this.renderGrammarList();
+    this.setLesson(lesson);
   }
 
   renderGrammarList(query = '') {

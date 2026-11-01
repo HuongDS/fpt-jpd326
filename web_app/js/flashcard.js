@@ -11,7 +11,8 @@ class FlashcardEngine {
     this.autoPronounce = true;
     this.isAutoPlaying = false;
     this.autoPlayTimer = null;
-    this.category = 'vocab'; // 'vocab' | 'kanji' | 'grammar'
+    this.lessonFilter = 'all'; // 'all' | '第 6 課' | '第 7 課' | '第 8 課' | '第 9 課' | '第 10 課'
+    this.category = 'vocab'; // 'all' | 'vocab' | 'kanji' | 'grammar'
     this.kanjiSubType = 'all'; // 'all' | 'on' | 'kun' | 'compound'
 
     this.cardInner = document.getElementById('flashcard-inner');
@@ -22,7 +23,25 @@ class FlashcardEngine {
     this.autoPronounceBtn = document.getElementById('btn-fc-autopronounce');
 
     this.initEvents();
+    this.initLessonSelector();
     this.initDeckSelector();
+  }
+
+  initLessonSelector() {
+    const container = document.getElementById('fc-lesson-selector');
+    if (!container) return;
+
+    container.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const lesson = chip.dataset.fcLesson;
+        this.setLessonFilter(lesson);
+      });
+    });
+  }
+
+  setLessonFilter(lesson) {
+    this.lessonFilter = lesson || 'all';
+    this.refreshDeck();
   }
 
   initDeckSelector() {
@@ -32,42 +51,134 @@ class FlashcardEngine {
     container.querySelectorAll('.filter-chip').forEach(chip => {
       chip.addEventListener('click', () => {
         const deckKey = chip.dataset.deck;
-        if (deckKey === 'vocab') {
-          this.loadDeck(window.APP_DATA.vocabulary, 'vocab');
+        if (deckKey === 'all') {
+          this.category = 'all';
+          this.kanjiSubType = 'all';
+        } else if (deckKey === 'vocab') {
+          this.category = 'vocab';
         } else if (deckKey === 'kanji-all') {
-          this.loadDeck(window.APP_DATA.kanji, 'kanji', 'all');
+          this.category = 'kanji';
+          this.kanjiSubType = 'all';
         } else if (deckKey === 'kanji-on') {
-          this.loadDeck(window.APP_DATA.kanji, 'kanji', 'on');
+          this.category = 'kanji';
+          this.kanjiSubType = 'on';
         } else if (deckKey === 'kanji-kun') {
-          this.loadDeck(window.APP_DATA.kanji, 'kanji', 'kun');
+          this.category = 'kanji';
+          this.kanjiSubType = 'kun';
         } else if (deckKey === 'kanji-compounds') {
-          this.loadDeck(window.APP_DATA.kanji, 'kanji', 'compound');
+          this.category = 'kanji';
+          this.kanjiSubType = 'compound';
         } else if (deckKey === 'grammar') {
-          this.loadDeck(window.APP_DATA.grammar, 'grammar');
+          this.category = 'grammar';
         }
+        this.refreshDeck();
       });
     });
   }
 
-  updateDeckSelectorChips() {
-    const container = document.getElementById('fc-deck-selector');
-    if (!container) return;
+  refreshDeck() {
+    const data = window.APP_DATA;
+    if (!data) return;
 
-    let targetKey = 'vocab';
-    if (this.category === 'vocab') {
-      targetKey = 'vocab';
-    } else if (this.category === 'grammar') {
-      targetKey = 'grammar';
-    } else if (this.category === 'kanji') {
-      if (this.kanjiSubType === 'on') targetKey = 'kanji-on';
-      else if (this.kanjiSubType === 'kun') targetKey = 'kanji-kun';
-      else if (this.kanjiSubType === 'compound') targetKey = 'kanji-compounds';
-      else targetKey = 'kanji-all';
+    let vList = data.vocabulary || [];
+    let kList = data.kanji || [];
+    let gList = data.grammar || [];
+
+    if (this.lessonFilter && this.lessonFilter !== 'all') {
+      vList = vList.filter(v => v.lesson === this.lessonFilter);
+      kList = kList.filter(k => k.lesson === this.lessonFilter);
+      gList = gList.filter(g => g.lesson === this.lessonFilter);
     }
 
-    container.querySelectorAll('.filter-chip').forEach(chip => {
-      chip.classList.toggle('active', chip.dataset.deck === targetKey);
-    });
+    if (this.category === 'all') {
+      const vCards = vList.map(v => ({ ...v, category: 'vocab' }));
+      const kCards = this.buildKanjiDeck(kList, 'all');
+      const gCards = gList.map(g => ({ ...g, category: 'grammar' }));
+      this.deck = [...vCards, ...kCards, ...gCards];
+    } else if (this.category === 'vocab') {
+      this.deck = vList.map(v => ({ ...v, category: 'vocab' }));
+    } else if (this.category === 'kanji') {
+      this.deck = this.buildKanjiDeck(kList, this.kanjiSubType);
+    } else if (this.category === 'grammar') {
+      this.deck = gList.map(g => ({ ...g, category: 'grammar' }));
+    }
+
+    this.currentIndex = 0;
+    this.isFlipped = false;
+    this.updateSelectorChips();
+    this.renderCard();
+  }
+
+  updateSelectorChips() {
+    // 1. Update Lesson Chips
+    const lessonContainer = document.getElementById('fc-lesson-selector');
+    if (lessonContainer) {
+      lessonContainer.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.classList.toggle('active', chip.dataset.fcLesson === this.lessonFilter);
+      });
+    }
+
+    // 2. Update Deck Category Chips with dynamic counts
+    const deckContainer = document.getElementById('fc-deck-selector');
+    if (deckContainer) {
+      const data = window.APP_DATA;
+      if (data) {
+        let vList = data.vocabulary || [];
+        let kList = data.kanji || [];
+        let gList = data.grammar || [];
+
+        if (this.lessonFilter && this.lessonFilter !== 'all') {
+          vList = vList.filter(v => v.lesson === this.lessonFilter);
+          kList = kList.filter(k => k.lesson === this.lessonFilter);
+          gList = gList.filter(g => g.lesson === this.lessonFilter);
+        }
+
+        const kAll = this.buildKanjiDeck(kList, 'all');
+        const kOn = this.buildKanjiDeck(kList, 'on');
+        const kKun = this.buildKanjiDeck(kList, 'kun');
+        const kCp = this.buildKanjiDeck(kList, 'compound');
+        const totalAll = vList.length + kAll.length + gList.length;
+
+        const countMap = {
+          'all': totalAll,
+          'vocab': vList.length,
+          'kanji-all': kAll.length,
+          'kanji-on': kOn.length,
+          'kanji-kun': kKun.length,
+          'kanji-compounds': kCp.length,
+          'grammar': gList.length
+        };
+
+        const labelMap = {
+          'all': 'Toàn bộ',
+          'vocab': 'Từ vựng',
+          'kanji-all': 'Hán tự (Tất cả)',
+          'kanji-on': 'Âm On',
+          'kanji-kun': 'Âm Kun',
+          'kanji-compounds': 'Từ ghép Hán tự',
+          'grammar': 'Ngữ pháp'
+        };
+
+        let targetKey = 'vocab';
+        if (this.category === 'all') targetKey = 'all';
+        else if (this.category === 'vocab') targetKey = 'vocab';
+        else if (this.category === 'grammar') targetKey = 'grammar';
+        else if (this.category === 'kanji') {
+          if (this.kanjiSubType === 'on') targetKey = 'kanji-on';
+          else if (this.kanjiSubType === 'kun') targetKey = 'kanji-kun';
+          else if (this.kanjiSubType === 'compound') targetKey = 'kanji-compounds';
+          else targetKey = 'kanji-all';
+        }
+
+        deckContainer.querySelectorAll('.filter-chip').forEach(chip => {
+          const key = chip.dataset.deck;
+          chip.classList.toggle('active', key === targetKey);
+          if (countMap[key] !== undefined) {
+            chip.textContent = `${labelMap[key]} (${countMap[key]})`;
+          }
+        });
+      }
+    }
   }
 
   initEvents() {
@@ -221,12 +332,12 @@ class FlashcardEngine {
         this.deck = this.buildKanjiDeck(deck || [], kanjiSubType);
       }
     } else {
-      this.deck = deck || [];
+      this.deck = (deck || []).map(item => ({ ...item, category: item.category || category }));
     }
 
     this.currentIndex = 0;
     this.isFlipped = false;
-    this.updateDeckSelectorChips();
+    this.updateSelectorChips();
     this.renderCard();
   }
 
@@ -256,9 +367,11 @@ class FlashcardEngine {
     const item = this.deck[this.currentIndex];
     if (!item) return;
 
-    if (this.category === 'vocab') {
+    const cat = item.category || this.category;
+
+    if (cat === 'vocab') {
       window.soundEngine.speakJapanese(item.kana || item.display);
-    } else if (this.category === 'kanji') {
+    } else if (cat === 'kanji') {
       if (item.subType === 'on') {
         window.soundEngine.speakJapanese(item.onyomi);
       } else if (item.subType === 'kun') {
@@ -268,7 +381,7 @@ class FlashcardEngine {
       } else {
         window.soundEngine.speakJapanese(item.speakText || item.kunyomi || item.onyomi || item.kanji);
       }
-    } else if (this.category === 'grammar') {
+    } else if (cat === 'grammar') {
       const textToSpeak = item.formula || item.title;
       window.soundEngine.speakJapanese(textToSpeak);
     }
@@ -325,18 +438,20 @@ class FlashcardEngine {
     }
 
     const item = this.deck[this.currentIndex];
+    const lessonLabel = item.lesson ? ` (${item.lesson})` : '';
     if (this.counterEl) {
-      this.counterEl.innerHTML = `Thẻ <strong>${this.currentIndex + 1}</strong> / ${this.deck.length}`;
+      this.counterEl.innerHTML = `Thẻ <strong>${this.currentIndex + 1}</strong> / ${this.deck.length}${lessonLabel}`;
     }
 
     const isFav = window.storageManager.isFavorite(item.id);
     const isLearned = window.storageManager.isLearned(item.id);
+    const cat = item.category || this.category;
 
-    if (this.category === 'vocab') {
+    if (cat === 'vocab') {
       this.renderVocabCard(item, isFav, isLearned);
-    } else if (this.category === 'kanji') {
+    } else if (cat === 'kanji') {
       this.renderKanjiCard(item, isFav, isLearned);
-    } else if (this.category === 'grammar') {
+    } else if (cat === 'grammar') {
       this.renderGrammarCard(item, isFav, isLearned);
     }
   }

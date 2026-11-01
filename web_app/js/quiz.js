@@ -6,6 +6,7 @@
 class QuizEngine {
   constructor() {
     this.mode = 'vocab_jp_vn';
+    this.lessonScope = 'all'; // 'all' | '第 6 課' | '第 7 課' | '第 8 課' | '第 9 課' | '第 10 課'
     this.questions = [];
     this.currentIndex = 0;
     this.score = 0;
@@ -18,6 +19,30 @@ class QuizEngine {
 
     this.container = document.getElementById('quiz-arena-root');
     this.initEvents();
+    this.initLessonChips();
+  }
+
+  initLessonChips() {
+    const lessonContainer = document.getElementById('quiz-lesson-chips');
+    if (!lessonContainer) return;
+
+    lessonContainer.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        lessonContainer.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        this.lessonScope = chip.dataset.quizLesson || 'all';
+      });
+    });
+  }
+
+  setLessonScope(lesson) {
+    this.lessonScope = lesson || 'all';
+    const lessonContainer = document.getElementById('quiz-lesson-chips');
+    if (lessonContainer) {
+      lessonContainer.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.classList.toggle('active', chip.dataset.quizLesson === this.lessonScope);
+      });
+    }
   }
 
   initEvents() {
@@ -56,13 +81,23 @@ class QuizEngine {
     const data = window.APP_DATA;
     if (!data) return [];
     const questions = [];
-    const count = 15; // 15 questions per session
+
+    let vocabList = [...data.vocabulary];
+    let kanjiList = [...data.kanji];
+    let grammarList = [...data.grammar];
+
+    if (this.lessonScope && this.lessonScope !== 'all') {
+      vocabList = vocabList.filter(v => v.lesson === this.lessonScope);
+      kanjiList = kanjiList.filter(k => k.lesson === this.lessonScope);
+      grammarList = grammarList.filter(g => g.lesson === this.lessonScope);
+    }
 
     if (this.mode === 'vocab_jp_vn') {
-      const vocabList = [...data.vocabulary];
+      const count = Math.min(15, vocabList.length);
+      const shuffledTargets = this.shuffleArray(vocabList);
       for (let i = 0; i < count; i++) {
-        const target = vocabList[Math.floor(Math.random() * vocabList.length)];
-        const distractors = this.getRandomDistractors(vocabList, target, 3, 'meaning');
+        const target = shuffledTargets[i];
+        const distractors = this.getRandomDistractors(vocabList, target, 3, 'meaning', data.vocabulary);
         const options = this.shuffleArray([target.meaning, ...distractors.map(d => d.meaning)]);
         questions.push({
           prompt: target.display,
@@ -73,10 +108,11 @@ class QuizEngine {
         });
       }
     } else if (this.mode === 'vocab_vn_jp') {
-      const vocabList = [...data.vocabulary];
+      const count = Math.min(15, vocabList.length);
+      const shuffledTargets = this.shuffleArray(vocabList);
       for (let i = 0; i < count; i++) {
-        const target = vocabList[Math.floor(Math.random() * vocabList.length)];
-        const distractors = this.getRandomDistractors(vocabList, target, 3, 'display');
+        const target = shuffledTargets[i];
+        const distractors = this.getRandomDistractors(vocabList, target, 3, 'display', data.vocabulary);
         const options = this.shuffleArray([target.display, ...distractors.map(d => d.display)]);
         questions.push({
           prompt: target.meaning,
@@ -87,10 +123,11 @@ class QuizEngine {
         });
       }
     } else if (this.mode === 'kanji_hanviet') {
-      const kanjiList = [...data.kanji];
+      const count = Math.min(15, kanjiList.length);
+      const shuffledTargets = this.shuffleArray(kanjiList);
       for (let i = 0; i < count; i++) {
-        const target = kanjiList[Math.floor(Math.random() * kanjiList.length)];
-        const distractors = this.getRandomDistractors(kanjiList, target, 3, 'han_viet');
+        const target = shuffledTargets[i];
+        const distractors = this.getRandomDistractors(kanjiList, target, 3, 'han_viet', data.kanji);
         const options = this.shuffleArray([target.han_viet, ...distractors.map(d => d.han_viet)]);
         questions.push({
           prompt: target.kanji,
@@ -101,10 +138,11 @@ class QuizEngine {
         });
       }
     } else if (this.mode === 'grammar_formula') {
-      const grammarList = [...data.grammar];
+      const count = Math.min(15, grammarList.length);
+      const shuffledTargets = this.shuffleArray(grammarList);
       for (let i = 0; i < count; i++) {
-        const target = grammarList[Math.floor(Math.random() * grammarList.length)];
-        const distractors = this.getRandomDistractors(grammarList, target, 3, 'formula');
+        const target = shuffledTargets[i];
+        const distractors = this.getRandomDistractors(grammarList, target, 3, 'formula', data.grammar);
         const options = this.shuffleArray([target.formula, ...distractors.map(d => d.formula)]);
         questions.push({
           prompt: target.title,
@@ -117,14 +155,16 @@ class QuizEngine {
     } else {
       // Mixed Challenge
       const allPool = [
-        ...data.vocabulary.map(v => ({ type: 'v', item: v })),
-        ...data.kanji.map(k => ({ type: 'k', item: k }))
+        ...vocabList.map(v => ({ type: 'v', item: v })),
+        ...kanjiList.map(k => ({ type: 'k', item: k }))
       ];
+      const count = Math.min(15, allPool.length);
+      const shuffledPool = this.shuffleArray(allPool);
       for (let i = 0; i < count; i++) {
-        const pick = allPool[Math.floor(Math.random() * allPool.length)];
+        const pick = shuffledPool[i];
         if (pick.type === 'v') {
           const target = pick.item;
-          const distractors = this.getRandomDistractors(data.vocabulary, target, 3, 'meaning');
+          const distractors = this.getRandomDistractors(vocabList, target, 3, 'meaning', data.vocabulary);
           questions.push({
             prompt: target.display,
             subPrompt: target.kana,
@@ -134,7 +174,7 @@ class QuizEngine {
           });
         } else {
           const target = pick.item;
-          const distractors = this.getRandomDistractors(data.kanji, target, 3, 'han_viet');
+          const distractors = this.getRandomDistractors(kanjiList, target, 3, 'han_viet', data.kanji);
           questions.push({
             prompt: target.kanji,
             subPrompt: 'Hán Việt là gì?',
@@ -149,8 +189,11 @@ class QuizEngine {
     return questions;
   }
 
-  getRandomDistractors(list, excludeItem, count, key) {
-    const pool = list.filter(item => item[key] && item[key] !== excludeItem[key]);
+  getRandomDistractors(list, excludeItem, count, key, fallbackList = null) {
+    let pool = list.filter(item => item[key] && item[key] !== excludeItem[key]);
+    if (pool.length < count && fallbackList) {
+      pool = fallbackList.filter(item => item[key] && item[key] !== excludeItem[key]);
+    }
     const shuffled = this.shuffleArray([...pool]);
     return shuffled.slice(0, count);
   }

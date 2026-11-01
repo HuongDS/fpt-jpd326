@@ -237,6 +237,50 @@ h1, h2, h3, h4, h5, h6 {
   gap: 1rem;
 }
 
+/* Global Lesson Program Bar */
+.global-lesson-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.45rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 45px;
+  z-index: 40;
+  backdrop-filter: blur(12px);
+}
+
+.lesson-bar-inner {
+  max-width: 1360px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.lesson-bar-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.lesson-bar-chips {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+[data-theme="light"] .global-lesson-bar {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom-color: #E4E4E7;
+}
+
 .logo-section {
   display: flex;
   align-items: center;
