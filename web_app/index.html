@@ -34,6 +34,9 @@
         <button class="nav-tab-btn" data-tab="speaking" id="nav-tab-speaking">
           Luyện Speaking
         </button>
+        <button class="nav-tab-btn" data-tab="oral" id="nav-tab-oral">
+          Ôn Vấn Đáp
+        </button>
         <button class="nav-tab-btn" data-tab="flashcards" id="nav-tab-flashcards">
           Thẻ SRS
         </button>
@@ -182,6 +185,19 @@
               </div>
               <div class="action-card-footer">
                 <span>Luyện hội thoại</span>
+              </div>
+            </div>
+
+            <div class="action-card" id="dash-action-oral">
+              <div>
+                <div class="action-card-header">
+                  <span class="badge">10 Câu Vấn Đáp</span>
+                </div>
+                <h3>Ôn Thi Vấn Đáp</h3>
+                <p>10 câu hỏi phỏng vấn Bài 6-10, gợi ý dàn ý, cấu trúc ghi điểm và mô phỏng bốc thăm 60 giây.</p>
+              </div>
+              <div class="action-card-footer">
+                <span>Vào luyện vấn đáp</span>
               </div>
             </div>
           </div>
@@ -389,6 +405,57 @@
           <!-- Dialogue Chat Timeline Root -->
           <div class="speaking-timeline" id="speaking-timeline-root">
             <!-- Dynamically populated chat turns -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           TAB: ORAL EXAM (Ôn Thi Vấn Đáp JPD326)
+           ================================================================== -->
+      <section class="tab-panel" id="tab-oral">
+        <div class="oral-container">
+          <!-- Header Box -->
+          <div class="oral-header-box">
+            <div class="oral-header-info">
+              <span class="oral-tag">PHỎNG VẤN TRỰC TIẾP & TRẢ LỜI CÂU HỎI</span>
+              <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-heading);">Ôn Thi Vấn Đáp JPD326 Theo Từng Bài Học</h3>
+              <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+                Trọn bộ 10 câu hỏi phỏng vấn vấn đáp Bài 6-10 trích xuất từ tài liệu ôn thi. Đi kèm gợi ý dàn ý triển khai, cấu trúc/từ vựng ghi điểm, câu trả lời mẫu chuẩn Dekiru Chukyu và chế độ bốc thăm thử 60 giây.
+              </p>
+            </div>
+
+            <!-- Toolbar Row: Lesson Chips, Search & Actions -->
+            <div class="oral-toolbar-row">
+              <div class="oral-lesson-chips" id="oral-lesson-chips">
+                <button class="filter-chip active" data-oral-lesson="all">Tất cả bài (10 câu)</button>
+                <button class="filter-chip" data-oral-lesson="第 6 課">Bài 6 (2 câu)</button>
+                <button class="filter-chip" data-oral-lesson="第 7 課">Bài 7 (2 câu)</button>
+                <button class="filter-chip" data-oral-lesson="第 8 課">Bài 8 (2 câu)</button>
+                <button class="filter-chip" data-oral-lesson="第 9 課">Bài 9 (2 câu)</button>
+                <button class="filter-chip" data-oral-lesson="第 10 課">Bài 10 (2 câu)</button>
+              </div>
+
+              <div class="oral-actions-row">
+                <div class="oral-search-box">
+                  <input type="text" id="oral-search-input" placeholder="Tìm theo câu hỏi, từ vựng hoặc ngữ pháp..." autocomplete="off">
+                </div>
+                <button class="btn btn-secondary btn-sm" id="btn-oral-toggle-answers">
+                  Hiện đầy đủ câu trả lời mẫu
+                </button>
+                <button class="btn btn-primary btn-sm" id="btn-oral-mock-interview">
+                  Bốc thăm thi thử 60s
+                </button>
+              </div>
+            </div>
+
+            <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;" id="oral-count-indicator">
+              Hiển thị: 10 / 10 câu hỏi
+            </div>
+          </div>
+
+          <!-- Questions List Root -->
+          <div id="oral-questions-root" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Rendered dynamically by OralExamEngine -->
           </div>
         </div>
       </section>
@@ -792,6 +859,56 @@
       </div>
     </div>
 
+    <!-- Mock Interview Modal (Bốc thăm ngẫu nhiên 60s) -->
+    <div class="modal-overlay" id="oral-mock-modal">
+      <div class="modal-content mock-modal-box">
+        <div class="modal-header">
+          <div>
+            <span class="badge" id="mock-q-code">第 6 課 • Bài 6.1</span>
+            <h3 style="margin: 0.25rem 0 0 0; font-size: 1.15rem; color: var(--text-heading);">Mô Phỏng Phòng Thi Vấn Đáp</h3>
+          </div>
+          <button class="icon-btn btn-sm" id="btn-close-mock-modal">Đóng</button>
+        </div>
+        <div class="modal-body">
+          <div class="mock-timer-bar">
+            <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Thời gian phản xạ:</span>
+            <span class="mock-timer-display" id="mock-timer-display">60s</span>
+          </div>
+          <div class="mock-progress-track">
+            <div class="mock-progress-fill" id="mock-timer-progress"></div>
+          </div>
+
+          <div class="oral-question-box" style="margin-bottom: 1.25rem;">
+            <div class="oral-question-label">GIÁM KHẢO HỎI BẠN:</div>
+            <div class="oral-question-jp jp-font" id="mock-q-jp" style="font-size: 1.25rem;">—</div>
+            <div class="oral-question-vi" id="mock-q-vi" style="margin-top: 0.4rem;">—</div>
+            <div style="margin-top: 0.75rem;">
+              <button class="btn btn-secondary btn-sm" id="btn-mock-speak-q">Nghe lại câu hỏi</button>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-bottom: 1rem;">
+            <button class="btn btn-primary" id="btn-mock-reveal-sample">
+              Xem câu trả lời mẫu & Gợi ý đối chiếu
+            </button>
+          </div>
+
+          <div id="mock-answer-wrapper" style="display: none;">
+            <div class="oral-sample-box">
+              <div style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase;">
+                CÂU TRẢ LỜI MẪU THAM KHẢO:
+              </div>
+              <div class="oral-sample-text jp-font" id="mock-sample-jp"></div>
+              <div class="oral-sample-vi" id="mock-sample-vi"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 0.5rem;">
+          <button class="btn btn-secondary btn-sm" id="btn-mock-next-q">Bốc câu khác</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Toast Container -->
     <div class="toast-container" id="toast-container"></div>
 
@@ -800,12 +917,14 @@
   <!-- Scripts -->
   <script src="data/app_data.js"></script>
   <script src="data/speaking_data.js"></script>
+  <script src="data/oral_exam_data.js"></script>
   <script src="js/audio.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/flashcard.js"></script>
   <script src="js/quiz.js"></script>
   <script src="js/final_exam.js"></script>
   <script src="js/speaking.js"></script>
+  <script src="js/oral_exam.js"></script>
   <script src="js/search.js"></script>
   <script src="js/app.js"></script>
 </body>

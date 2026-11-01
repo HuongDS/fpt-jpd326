@@ -34,6 +34,9 @@ class App {
     if (typeof SpeakingEngine !== 'undefined') {
       window.speakingEngine = new SpeakingEngine();
     }
+    if (typeof OralExamEngine !== 'undefined') {
+      window.oralExamEngine = new OralExamEngine();
+    }
     window.omniSearch = new OmniSearch();
 
     // Initial Flashcard load
@@ -77,6 +80,11 @@ class App {
     // Synchronize Speaking Engine
     if (window.speakingEngine) {
       window.speakingEngine.filterByLesson(this.currentLesson);
+    }
+
+    // Synchronize Oral Exam Engine
+    if (window.oralExamEngine) {
+      window.oralExamEngine.setLessonScope(this.currentLesson);
     }
 
     // Synchronize Vocab tab
@@ -795,6 +803,7 @@ class App {
     const actKanji = document.getElementById('dash-action-kanji');
     const actGrammar = document.getElementById('dash-action-grammar');
     const actSpeaking = document.getElementById('dash-action-speaking');
+    const actOral = document.getElementById('dash-action-oral');
 
     if (actQuiz) actQuiz.onclick = () => this.switchTab('quiz');
     if (actFc) actFc.onclick = () => this.switchTab('flashcards');
@@ -802,6 +811,7 @@ class App {
     if (actKanji) actKanji.onclick = () => this.switchTab('kanji');
     if (actGrammar) actGrammar.onclick = () => this.switchTab('grammar');
     if (actSpeaking) actSpeaking.onclick = () => this.switchTab('speaking');
+    if (actOral) actOral.onclick = () => this.switchTab('oral');
   }
 
   // ------------------------------------------------------------------------
