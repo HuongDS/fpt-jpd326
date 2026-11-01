@@ -1254,3 +1254,361 @@
     page-break-inside: avoid !important;
   }
 }
+
+/* --------------------------------------------------------------------------
+   FINAL EXAM CRAM MODE (Excel-like Spreadsheet)
+   -------------------------------------------------------------------------- */
+.excel-window-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.excel-title-bar {
+  background: var(--bg-card);
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.excel-title-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.excel-app-tag {
+  background: #18181B;
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .excel-app-tag {
+  background: #FFFFFF;
+  color: #09090B;
+}
+
+.excel-title-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.excel-progress-indicator {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.excel-ribbon-bar {
+  background: var(--bg-elevated);
+  padding: 0.5rem 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.excel-sheet-tabs {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.excel-tab-btn {
+  padding: 0.45rem 0.95rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.excel-tab-btn:hover {
+  color: var(--text-heading);
+}
+
+.excel-tab-btn.active {
+  background: #18181B;
+  color: #FFFFFF;
+  border-color: #18181B;
+}
+
+[data-theme="dark"] .excel-tab-btn.active {
+  background: #FFFFFF;
+  color: #09090B;
+  border-color: #FFFFFF;
+}
+
+.excel-lesson-chips {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+/* Remediation Banner (In đỏ các từ chưa nhớ & chuyển sang Flashcard) */
+.excel-remediation-banner {
+  background: #FEF2F2;
+  border-bottom: 2px solid #EF4444;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  animation: fadeIn 0.25s ease;
+}
+
+[data-theme="dark"] .excel-remediation-banner {
+  background: rgba(239, 68, 68, 0.12);
+  border-bottom-color: #DC2626;
+}
+
+.remediation-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.remediation-headline {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.remediation-badge {
+  background: #DC2626;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.remediation-badge.success {
+  background: #16A34A;
+}
+
+.remediation-desc {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Grid Viewport & Table */
+.excel-grid-viewport {
+  max-height: 65vh;
+  overflow-y: auto;
+  overflow-x: auto;
+  background: var(--bg-card);
+}
+
+.excel-sheet-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.excel-col-headers th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 0.35rem 0.6rem;
+  box-shadow: 0 1px 0 var(--border-subtle);
+}
+
+.col-letter {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.col-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.excel-corner-cell {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  background: var(--bg-elevated);
+  width: 45px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.excel-row-num {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  width: 45px;
+  user-select: none;
+}
+
+.excel-data-row:hover .excel-row-num {
+  color: var(--text-heading);
+}
+
+.excel-cell-prompt {
+  border: 1px solid var(--border-subtle);
+  padding: 0.45rem 0.85rem;
+  background: var(--bg-card);
+  white-space: nowrap;
+}
+
+.excel-jp-char {
+  font-family: var(--font-jp);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.excel-cell-edit {
+  border: 1px solid var(--border-subtle);
+  padding: 0;
+  background: var(--bg-card);
+}
+
+.excel-input {
+  width: 100%;
+  height: 100%;
+  min-height: 40px;
+  padding: 0.45rem 0.85rem;
+  border: 2px solid transparent;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-jp);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  box-sizing: border-box;
+}
+
+.excel-input:focus {
+  border-color: #18181B;
+  background: var(--bg-canvas);
+}
+
+[data-theme="dark"] .excel-input:focus {
+  border-color: #FFFFFF;
+}
+
+/* Correct feedback state */
+.excel-input.cell-correct {
+  background: rgba(34, 197, 94, 0.08) !important;
+  color: #16A34A !important;
+  font-weight: 700 !important;
+  border-color: #22C55E !important;
+}
+
+[data-theme="dark"] .excel-input.cell-correct {
+  background: rgba(34, 197, 94, 0.15) !important;
+  color: #4ADE80 !important;
+}
+
+/* WRONG & UNANSWERED feedback state (IN ĐỎ THEO YÊU CẦU CỦA USER) */
+.excel-input.cell-wrong {
+  color: #DC2626 !important;
+  background: #FEF2F2 !important;
+  border: 2px solid #DC2626 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .excel-input.cell-wrong {
+  color: #EF4444 !important;
+  background: rgba(239, 68, 68, 0.2) !important;
+  border: 2px solid #EF4444 !important;
+}
+
+.excel-cell-result {
+  border: 1px solid var(--border-subtle);
+  padding: 0.4rem 0.85rem;
+  background: var(--bg-card);
+  vertical-align: middle;
+}
+
+.excel-cell-meaning {
+  border: 1px solid var(--border-subtle);
+  padding: 0.4rem 0.85rem;
+  background: var(--bg-card);
+  vertical-align: middle;
+}
+
+.excel-wrong-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: #DC2626;
+  color: #FFFFFF;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  margin-bottom: 0.2rem;
+}
+
+.excel-correct-answer-reveal {
+  font-size: 0.88rem;
+  color: #DC2626;
+  font-family: var(--font-jp);
+  font-weight: 700;
+}
+
+[data-theme="dark"] .excel-correct-answer-reveal {
+  color: #EF4444;
+}
+
+.txt-red {
+  color: #DC2626;
+}
+
+[data-theme="dark"] .txt-red {
+  color: #EF4444;
+}
+
+.excel-cell-empty-hint {
+  color: var(--text-muted);
+}
+
+.excel-status-bar {
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-subtle);
+  padding: 0.45rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

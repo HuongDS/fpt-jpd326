@@ -30,6 +30,7 @@ class App {
     // Initialize Subsystems
     window.flashcardEngine = new FlashcardEngine();
     window.quizEngine = new QuizEngine();
+    window.finalExamEngine = new FinalExamEngine();
     window.omniSearch = new OmniSearch();
 
     // Initial Flashcard load
@@ -63,6 +64,11 @@ class App {
     // Synchronize Quiz Engine
     if (window.quizEngine) {
       window.quizEngine.setLessonScope(this.currentLesson);
+    }
+
+    // Synchronize Final Exam Engine
+    if (window.finalExamEngine) {
+      window.finalExamEngine.setLessonScope(this.currentLesson);
     }
 
     // Synchronize Vocab tab
@@ -283,6 +289,9 @@ class App {
           <button class="btn btn-primary" id="btn-hub-study-fc">
             Luyện Flashcard ${lesson} (${totalFc} Thẻ)
           </button>
+          <button class="btn btn-secondary" id="btn-hub-final-exam">
+            Ôn Thi Final ${lesson}
+          </button>
           <button class="btn btn-secondary" id="btn-hub-quiz">
             Thi Speed Quiz ${lesson}
           </button>
@@ -340,6 +349,14 @@ class App {
       quizBtn.onclick = () => {
         window.quizEngine.setLessonScope(lesson);
         this.switchTab('quiz');
+      };
+    }
+
+    const finalBtn = document.getElementById('btn-hub-final-exam');
+    if (finalBtn) {
+      finalBtn.onclick = () => {
+        window.finalExamEngine.setLessonScope(lesson);
+        this.switchTab('final-exam');
       };
     }
 

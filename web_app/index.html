@@ -28,6 +28,9 @@
         <button class="nav-tab-btn active" data-tab="dashboard" id="nav-tab-dashboard">
           Tổng quan
         </button>
+        <button class="nav-tab-btn" data-tab="final-exam" id="nav-tab-final-exam">
+          Ôn thi Final
+        </button>
         <button class="nav-tab-btn" data-tab="flashcards" id="nav-tab-flashcards">
           Thẻ SRS
         </button>
@@ -177,6 +180,76 @@
         </div>
         <div class="lessons-grid" id="dash-lessons-grid">
           <!-- Populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           TAB: FINAL EXAM CRAM MODE (Excel-like Spreadsheet Interface)
+           ================================================================== -->
+      <section class="tab-panel" id="tab-final-exam">
+        <div class="excel-window-container">
+          <!-- Excel Title Bar -->
+          <div class="excel-title-bar">
+            <div class="excel-title-left">
+              <span class="excel-app-tag">EXCEL CRAM</span>
+              <h3 style="margin: 0; font-size: 1.1rem; color: var(--text-heading);">Bảng Điền Cách Đọc Ôn Thi Final (Chữ Hán ➜ Cách Đọc)</h3>
+            </div>
+            <div class="excel-title-actions">
+              <span class="excel-progress-indicator" id="excel-progress-text">Đã điền: 0 / 0 ô</span>
+              <button class="btn btn-secondary btn-sm" id="btn-excel-clear" title="Xóa trắng toàn bộ sheet này để làm lại từ đầu">Làm lại</button>
+              <button class="btn btn-primary btn-sm" id="btn-excel-submit" title="Chấm điểm và in đỏ các câu sai / bỏ trống">Nộp bài & Chấm điểm</button>
+            </div>
+          </div>
+
+          <!-- Excel Ribbon: Sheet Switcher & Lesson Scope Filter -->
+          <div class="excel-ribbon-bar">
+            <!-- Sheet Tabs: Vocab (2 cols) vs Kanji (3 cols) -->
+            <div class="excel-sheet-tabs" id="excel-sheet-tabs">
+              <button class="excel-tab-btn active" data-sheet="vocab">Sheet 1: Từ Vựng (Chữ Hán ➜ Cách Đọc)</button>
+              <button class="excel-tab-btn" data-sheet="kanji">Sheet 2: Hán Tự (Hán Tự ➜ Âm On ➜ Âm Kun)</button>
+            </div>
+
+            <!-- Scope Filter: Bài 6-10 -->
+            <div class="excel-lesson-chips" id="excel-lesson-chips">
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); align-self: center;">Phạm vi:</span>
+              <button class="filter-chip active" data-exam-lesson="all">Tất cả bài (6-10)</button>
+              <button class="filter-chip" data-exam-lesson="第 6 課">Bài 6</button>
+              <button class="filter-chip" data-exam-lesson="第 7 課">Bài 7</button>
+              <button class="filter-chip" data-exam-lesson="第 8 課">Bài 8</button>
+              <button class="filter-chip" data-exam-lesson="第 9 課">Bài 9</button>
+              <button class="filter-chip" data-exam-lesson="第 10 課">Bài 10</button>
+            </div>
+          </div>
+
+          <!-- Remediation Alert Box (In đỏ & Bắt học lại liền ở Flashcard) -->
+          <div class="excel-remediation-banner" id="excel-remediation-banner" style="display: none;">
+            <div class="remediation-content">
+              <div class="remediation-headline">
+                <span class="remediation-badge" id="remediation-badge-text">CẦN ÔN LẠI: 0 MỤC CHƯA NHỚ</span>
+                <span id="remediation-score-text" style="font-weight: 700; color: var(--text-heading);">Điểm số: 0%</span>
+              </div>
+              <p class="remediation-desc" id="remediation-desc-text">
+                Các từ sai hoặc bỏ trống do không nhớ đã được in màu đỏ nổi bật bên dưới. Hệ thống đã gom sẵn thành bộ Flashcard để bạn học lại ngay lập tức!
+              </p>
+            </div>
+            <button class="btn btn-primary" id="btn-remediation-flashcard" style="white-space: nowrap; font-weight: 700;">
+              Học Lại Ngay Các Từ Sai Bằng Flashcard SRS
+            </button>
+          </div>
+
+          <!-- Excel Spreadsheet Viewport -->
+          <div class="excel-grid-viewport">
+            <table class="excel-sheet-table" id="excel-sheet-table">
+              <!-- Rendered via FinalExamEngine -->
+            </table>
+          </div>
+
+          <!-- Excel Status Bar (Bottom) -->
+          <div class="excel-status-bar">
+            <span>Chế độ: <strong id="excel-status-mode">Từ Vựng (2 cột)</strong></span>
+            <span>Mẹo: Nhấn <strong>Enter / Mũi tên ↓</strong> để xuống ô dưới | <strong>Tab</strong> để sang ô tiếp theo | Nhận cả chữ Hiragana và Romaji</span>
+            <span id="excel-status-count">Tổng cộng: 0 hàng</span>
+          </div>
         </div>
       </section>
 
@@ -590,6 +663,7 @@
   <script src="js/storage.js"></script>
   <script src="js/flashcard.js"></script>
   <script src="js/quiz.js"></script>
+  <script src="js/final_exam.js"></script>
   <script src="js/search.js"></script>
   <script src="js/app.js"></script>
 </body>
