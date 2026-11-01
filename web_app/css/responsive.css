@@ -1,91 +1,1001 @@
 /* ==========================================================================
    NIHONGO SPEED MASTER - JPD326
-   Responsive Styles
+   Comprehensive Master Responsive Stylesheet
+   Designed for all viewports: Desktop, Laptop, Tablet, Mobile (Portrait & Landscape)
+   Minimalist Monochrome B&W Theme • Fast Touch Feedback • Zero Horizontal Overflow
    ========================================================================== */
 
-@media (max-width: 768px) {
+/* --------------------------------------------------------------------------
+   0. UNIVERSAL RESPONSIVE FOUNDATIONS
+   -------------------------------------------------------------------------- */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Scrollbar hiding utility for smooth horizontal touch strips */
+.hide-scrollbar::-webkit-scrollbar,
+.nav-tabs::-webkit-scrollbar,
+.lesson-bar-chips::-webkit-scrollbar,
+.speaking-situation-chips::-webkit-scrollbar,
+.oral-lesson-chips::-webkit-scrollbar,
+.excel-sheet-tabs::-webkit-scrollbar,
+.excel-lesson-chips::-webkit-scrollbar,
+.filter-bar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.nav-tabs,
+.lesson-bar-chips,
+.speaking-situation-chips,
+.oral-lesson-chips,
+.excel-sheet-tabs,
+.excel-lesson-chips,
+.filter-bar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   1. LAPTOPS & SMALL DESKTOPS (max-width: 1360px)
+   Header transforms into clean 2-row layout to prevent tab squishing
+   -------------------------------------------------------------------------- */
+@media (max-width: 1360px) {
   .app-header {
-    padding: 0.75rem 1rem;
     flex-wrap: wrap;
+    padding: 0.5rem 1.25rem 0.35rem;
+    gap: 0.5rem;
   }
 
+  /* Row 1: Logo on left, Actions on right */
+  .logo-section {
+    order: 1;
+  }
+
+  .header-actions {
+    order: 2;
+    margin-left: auto;
+  }
+
+  /* Row 2: Nav Tabs full width swipeable bar */
   .nav-tabs {
     order: 3;
     width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     justify-content: flex-start;
+    padding: 0.3rem 0.25rem;
+    gap: 0.25rem;
+    background: var(--bg-elevated);
   }
 
   .nav-tab-btn {
-    padding: 0.45rem 0.8rem;
+    flex-shrink: 0;
+    padding: 0.4rem 0.75rem;
     font-size: 0.8rem;
-    white-space: nowrap;
+  }
+
+  /* Global lesson bar sticky offset when header is 2 rows */
+  .global-lesson-bar {
+    position: static;
   }
 
   .app-main {
-    padding: 1rem;
+    padding: 1.25rem 1.5rem;
   }
 
+  /* Dashboard Adjustments */
+  .quick-action-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. TABLETS & LARGE PHONES (max-width: 992px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .app-main {
+    padding: 1rem 1.25rem;
+  }
+
+  /* Dashboard Hero */
   .dashboard-hero {
     padding: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-content {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .hero-title-group h2 {
+    font-size: 1.65rem;
   }
 
   .hero-stats-row {
     width: 100%;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.65rem;
   }
 
   .stat-box {
-    flex: 1;
-    min-width: 90px;
+    min-width: 0;
     padding: 0.75rem 0.5rem;
   }
 
   .stat-value {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
   }
 
-  .flashcard-stage {
-    height: 360px;
+  .stat-label {
+    font-size: 0.68rem;
   }
 
-  .card-face {
-    padding: 1.5rem;
+  /* Quick Actions (2 columns) */
+  .quick-action-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.75rem;
   }
 
-  .card-kanji-big {
-    font-size: 3.5rem;
+  /* Lesson Cards Grid */
+  .lessons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
-  .card-meaning-big {
-    font-size: 1.5rem;
+  /* Lesson Hub Hero */
+  .lesson-hub-hero {
+    padding: 1.35rem;
   }
 
-  .flashcard-ratings {
+  .lesson-hub-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .lesson-hub-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Final Exam Cram Mode */
+  .excel-title-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .excel-title-actions {
+    width: 100%;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
 
+  .excel-ribbon-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+
+  .excel-sheet-tabs {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+  }
+
+  .excel-sheet-tabs .excel-tab-btn {
+    flex-shrink: 0;
+  }
+
+  .excel-lesson-chips {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding-bottom: 2px;
+  }
+
+  .excel-lesson-chips .filter-chip {
+    flex-shrink: 0;
+  }
+
+  .excel-remediation-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  /* Speaking Practice Module */
+  .speaking-split-editor {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .speaking-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .toolbar-left,
+  .toolbar-right {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .toolbar-left select,
+  .toolbar-left button,
+  .toolbar-right button {
+    flex: 1;
+  }
+
+  /* Oral Exam Module */
+  .oral-toolbar-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .oral-lesson-chips {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding-bottom: 2px;
+  }
+
+  .oral-lesson-chips .filter-chip {
+    flex-shrink: 0;
+  }
+
+  .oral-actions-row {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .oral-search-box {
+    width: 100%;
+  }
+
+  .oral-actions-row .btn {
+    width: 100%;
+  }
+
+  .oral-hints-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. MOBILE DEVICES (max-width: 768px)
+   Compact padding, thumb-sized controls, zero clipping
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Header & Navigation */
+  .app-header {
+    padding: 0.45rem 0.85rem 0.35rem;
+    gap: 0.4rem;
+  }
+
+  .logo-text h1 {
+    font-size: 0.95rem;
+  }
+
+  .logo-subtitle {
+    display: none;
+  }
+
+  .search-trigger-btn {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  .kbd-shortcut {
+    display: none; /* Hide desktop shortcuts on mobile */
+  }
+
+  .icon-btn {
+    min-width: 30px;
+    height: 30px;
+    padding: 0 0.45rem;
+    font-size: 0.75rem;
+  }
+
+  .nav-tabs {
+    padding: 0.25rem 0.15rem;
+  }
+
+  .nav-tab-btn {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.78rem;
+  }
+
+  /* Global Lesson Bar */
+  .global-lesson-bar {
+    padding: 0.35rem 0.85rem;
+  }
+
+  .lesson-bar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .lesson-bar-title {
+    font-size: 0.72rem;
+  }
+
+  .lesson-bar-chips {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding-bottom: 2px;
+  }
+
+  .lesson-bar-chips .filter-chip {
+    flex-shrink: 0;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.76rem;
+  }
+
+  /* Main Container */
+  .app-main {
+    padding: 0.75rem 0.85rem;
+  }
+
+  /* Dashboard */
+  .dashboard-hero {
+    padding: 1.15rem;
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title-group h2 {
+    font-size: 1.4rem;
+    line-height: 1.25;
+  }
+
+  .hero-description {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  /* 2x2 Grid for Hero Stats */
+  .hero-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .stat-box {
+    padding: 0.65rem 0.5rem;
+    border-radius: 9px;
+  }
+
+  .stat-value {
+    font-size: 1.35rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+  }
+
+  /* Quick Actions (1 column on small phones, 2 on wide) */
+  .quick-action-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .action-card {
+    padding: 1.15rem;
+    border-radius: 12px;
+  }
+
+  .action-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .action-card p {
+    font-size: 0.82rem;
+    margin-bottom: 0.85rem;
+  }
+
+  /* Lesson Cards */
+  .lessons-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .lesson-card {
+    padding: 1.15rem;
+    border-radius: 12px;
+  }
+
+  .lesson-title {
+    font-size: 1rem;
+  }
+
+  .lesson-primary-row {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .lesson-primary-row .btn {
+    width: 100%;
+    padding: 0.55rem;
+    font-size: 0.82rem;
+  }
+
+  .lesson-secondary-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.35rem;
+  }
+
+  .lesson-secondary-row .btn {
+    padding: 0.4rem 0.2rem;
+    font-size: 0.72rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* --------------------------------------------------------------------------
+     FINAL EXAM (EXCEL CRAM) MOBILE RESPONSIVENESS
+     -------------------------------------------------------------------------- */
+  .excel-window-container {
+    border-radius: 10px;
+  }
+
+  .excel-title-bar {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .excel-title-left h3 {
+    font-size: 0.95rem;
+  }
+
+  .excel-title-actions .btn {
+    flex: 1;
+    text-align: center;
+    padding: 0.45rem 0.5rem;
+    font-size: 0.78rem;
+  }
+
+  .excel-progress-indicator {
+    width: 100%;
+    font-size: 0.78rem;
+  }
+
+  .excel-grid-viewport {
+    max-height: 55vh;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .excel-sheet-table {
+    min-width: 560px;
+  }
+
+  /* Make sure inputs are comfortable for mobile keyboards */
+  .excel-input {
+    min-height: 44px;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.95rem;
+  }
+
+  .excel-status-bar {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.72rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  /* --------------------------------------------------------------------------
+     SPEAKING & CONVERSATION MOBILE RESPONSIVENESS
+     -------------------------------------------------------------------------- */
+  .speaking-header-box {
+    padding: 1.15rem;
+    border-radius: 12px;
+    gap: 0.85rem;
+  }
+
+  .speaking-situation-chips {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding-bottom: 2px;
+  }
+
+  .speaking-situation-chips .filter-chip {
+    flex-shrink: 0;
+  }
+
+  .speaking-situation-card {
+    padding: 1.15rem;
+    border-radius: 12px;
+  }
+
+  .speaking-roles-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .speaking-role-box {
+    padding: 0.85rem;
+  }
+
+  .speaking-editor-panel {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .speaking-turn-row {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .chat-turn-item {
+    padding: 0.85rem;
+  }
+
+  .chat-bubble-text {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .chat-bubble-sub {
+    font-size: 0.82rem;
+  }
+
+  .panel-footer-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .step-nav-group {
+    width: 100%;
+  }
+
+  .step-nav-group .btn {
+    flex: 1;
+  }
+
+  .panel-footer-actions > .btn {
+    width: 100%;
+  }
+
+  /* --------------------------------------------------------------------------
+     ORAL EXAM (VẤN ĐÁP) MOBILE RESPONSIVENESS
+     -------------------------------------------------------------------------- */
+  .oral-header-box {
+    padding: 1.15rem;
+    border-radius: 12px;
+    gap: 0.85rem;
+  }
+
+  .oral-card {
+    padding: 1.15rem;
+    border-radius: 12px;
+    gap: 1rem;
+  }
+
+  .oral-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .oral-card-header .oral-header-actions {
+    width: 100%;
+  }
+
+  .oral-card-header .oral-header-actions .btn {
+    width: 100%;
+  }
+
+  .oral-question-box {
+    padding: 0.9rem 1rem;
+  }
+
+  .oral-question-jp {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .oral-question-vi {
+    font-size: 0.85rem;
+  }
+
+  .oral-sample-box {
+    padding: 0.9rem 1rem;
+  }
+
+  .oral-sample-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .sample-actions {
+    width: 100%;
+  }
+
+  .sample-actions .btn,
+  .sample-actions .icon-btn {
+    flex: 1;
+  }
+
+  .oral-sample-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .oral-sample-vi {
+    font-size: 0.82rem;
+  }
+
+  /* --------------------------------------------------------------------------
+     FLASHCARD SRS MOBILE RESPONSIVENESS
+     -------------------------------------------------------------------------- */
+  .filter-bar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    justify-content: flex-start !important;
+    padding-bottom: 2px;
+  }
+
+  .filter-bar .filter-chip {
+    flex-shrink: 0;
+  }
+
+  .flashcard-arena {
+    padding: 0.5rem 0;
+  }
+
+  .flashcard-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .flashcard-options {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .flashcard-options .btn,
+  .flashcard-options .icon-btn {
+    flex: 1;
+    font-size: 0.78rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .flashcard-stage {
+    height: 330px !important;
+    max-height: 52vh;
+  }
+
+  .card-face {
+    padding: 1.15rem !important;
+  }
+
+  .card-kanji-big {
+    font-size: 2.8rem !important;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-meaning-big {
+    font-size: 1.25rem !important;
+  }
+
+  .card-reading-sub {
+    font-size: 1rem !important;
+  }
+
+  .card-hint-row {
+    font-size: 0.8rem !important;
+  }
+
+  .flashcard-navigation {
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .flashcard-navigation .btn {
+    padding: 0.6rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .flashcard-ratings {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 0.85rem;
+  }
+
   .rating-btn {
-    min-width: 45%;
+    min-width: 0 !important;
+    padding: 0.6rem 0.5rem;
+    font-size: 0.82rem;
+    text-align: center;
+  }
+
+  /* --------------------------------------------------------------------------
+     SPEED QUIZ MOBILE RESPONSIVENESS
+     -------------------------------------------------------------------------- */
+  .quiz-card {
+    padding: 1.15rem;
+    border-radius: 12px;
+  }
+
+  .quiz-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .quiz-meta {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .quiz-question-box {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .quiz-prompt-text {
+    font-size: 1.35rem;
   }
 
   .quiz-options-grid {
     grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .quiz-option-btn {
+    min-height: 50px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* --------------------------------------------------------------------------
+     VOCAB, KANJI & GRAMMAR TABLES / LISTS
+     -------------------------------------------------------------------------- */
+  .search-bar-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .search-bar-row .search-input-wrap,
+  .search-bar-row input {
+    width: 100%;
+  }
+
+  .search-bar-row .view-toggle-group {
+    width: 100%;
+  }
+
+  .search-bar-row .view-toggle-group .btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Responsive Horizontal Scroll for all Data Tables */
+  .table-responsive,
+  #vocab-list-container,
+  #grammar-list-container,
+  #hub-overview-table-root {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 10px;
+  }
+
+  .vocab-table {
+    min-width: 580px; /* Ensures columns stay readable with clean horizontal scroll */
+  }
+
+  .vocab-table th,
+  .vocab-table td {
+    padding: 0.55rem 0.65rem;
+    font-size: 0.84rem;
+  }
+
+  /* Kanji Grid on Mobile */
+  .kanji-cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)) !important;
+    gap: 0.6rem !important;
+  }
+
+  .kanji-card-item {
+    padding: 0.75rem 0.5rem !important;
+  }
+
+  .kanji-char-display {
+    font-size: 2rem !important;
+  }
+
+  .kanji-hanviet {
+    font-size: 0.75rem !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     MODALS RESPONSIVENESS (Search, Kanji, Mock Interview)
+     -------------------------------------------------------------------------- */
+  .modal-overlay {
+    padding: 0.75rem;
+  }
+
+  .modal-content {
+    max-width: 100%;
+    width: 100%;
+    max-height: 90vh;
+    border-radius: 12px;
+  }
+
+  .modal-header {
+    padding: 0.85rem 1rem;
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  /* Toast Notification */
+  .toast-container {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+  }
+
+  .toast {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.82rem;
+    padding: 0.6rem 0.85rem;
   }
 }
 
+/* --------------------------------------------------------------------------
+   4. ULTRA-SMALL MOBILE (max-width: 480px)
+   -------------------------------------------------------------------------- */
 @media (max-width: 480px) {
+  .logo-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 0.9rem;
+  }
+
   .logo-text h1 {
-    font-size: 1.05rem;
+    font-size: 0.88rem;
+  }
+
+  .badge {
+    font-size: 0.68rem;
+    padding: 0.15rem 0.4rem;
+  }
+
+  .header-actions {
+    gap: 0.25rem;
   }
 
   .search-trigger-btn span {
-    display: none;
+    display: none; /* Just icon/shortcut */
+  }
+
+  .search-trigger-btn::before {
+    content: "Tìm";
+  }
+
+  .hero-title-group h2 {
+    font-size: 1.25rem;
+  }
+
+  .hero-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .flashcard-stage {
+    height: 300px !important;
+  }
+
+  .card-kanji-big {
+    font-size: 2.4rem !important;
+  }
+
+  .card-meaning-big {
+    font-size: 1.15rem !important;
+  }
+
+  .excel-sheet-table th,
+  .excel-sheet-table td {
+    padding: 0.35rem 0.45rem;
+  }
+
+  .col-name {
+    font-size: 0.72rem;
+  }
+
+  .excel-input {
+    font-size: 0.88rem;
+    min-height: 40px;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .mock-timer-display {
+    font-size: 1.2rem;
+  }
+
+  .oral-question-jp {
+    font-size: 0.98rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. TOUCH DEVICE OPTIMIZATIONS (hover: none and pointer: coarse)
+   Removes sticky hover artifacts on touch screens
+   -------------------------------------------------------------------------- */
+@media (hover: none) and (pointer: coarse) {
+  .nav-tab-btn:hover {
+    background: transparent;
+  }
+
+  .nav-tab-btn.active:hover {
+    background: #18181B;
+    color: #FFFFFF;
+  }
+
+  [data-theme="dark"] .nav-tab-btn.active:hover {
+    background: #FFFFFF;
+    color: #09090B;
+  }
+
+  .action-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .action-card:active,
+  .btn:active,
+  .nav-tab-btn:active,
+  .filter-chip:active {
+    transform: scale(0.98);
+    transition: transform 0.08s ease;
+  }
+
+  /* Generous touch targets */
+  .btn,
+  .nav-tab-btn,
+  .filter-chip,
+  .icon-btn {
+    touch-action: manipulation;
   }
 }

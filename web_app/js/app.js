@@ -116,7 +116,11 @@ class App {
     const chipsContainer = document.getElementById('global-lesson-chips');
     if (chipsContainer) {
       chipsContainer.querySelectorAll('.filter-chip').forEach(chip => {
-        chip.classList.toggle('active', chip.dataset.lesson === this.currentLesson);
+        const isActive = chip.dataset.lesson === this.currentLesson;
+        chip.classList.toggle('active', isActive);
+        if (isActive) {
+          chip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
       });
     }
   }
@@ -197,7 +201,11 @@ class App {
   switchTab(tabId) {
     this.currentTab = tabId;
     document.querySelectorAll('.nav-tab-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.tab === tabId);
+      const isActive = btn.dataset.tab === tabId;
+      btn.classList.toggle('active', isActive);
+      if (isActive) {
+        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
     });
 
     document.querySelectorAll('.tab-panel').forEach(panel => {
