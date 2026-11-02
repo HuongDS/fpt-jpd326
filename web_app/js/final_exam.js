@@ -36,8 +36,8 @@ class FinalExamEngine {
       'wa':'わ','wo':'を','nn':'ん','n':'ん',
       'ga':'が','gi':'ぎ','gu':'ぐ','ge':'げ','go':'ご',
       'za':'ざ','zu':'ず','ze':'ぜ','zo':'ぞ',
-      'da':'だ','di':'ぢ','du':'づ','de':'де','do':'ど',
-      'ba':'ba','bi':'び','bu':'ぶ','be':'べ','bo':'ぼ',
+      'da':'だ','di':'ぢ','du':'づ','de':'で','do':'ど',
+      'ba':'ば','bi':'び','bu':'ぶ','be':'べ','bo':'ぼ',
       'pa':'ぱ','pi':'ぴ','pu':'ぷ','pe':'ぺ','po':'ぽ',
       'a':'あ','i':'い','u':'う','e':'え','o':'お'
     };
@@ -126,12 +126,13 @@ class FinalExamEngine {
   }
 
   /**
-   * Normalizes kana for flexible comparison: strips dots, dashes, spaces, punctuation
+   * Normalizes kana for flexible comparison: strips dots, dashes, spaces, punctuation,
+   * tilde/wave dashes (~, ～, 〜, ∼), and affixes so learners don't have to type ~
    */
   normalizeKana(str) {
     if (!str) return '';
     const hira = this.toHiragana(str);
-    return hira.replace(/[・\s\-\.\,\/、\(\)\[\]]/g, '').trim();
+    return hira.replace(/[・\s\-\.\,\/、\(\)\[\]（）〔〕【】~～〜∼−―—–…\u3000\uFF5E\u301C\u223C]/g, '').trim();
   }
 
   /**
