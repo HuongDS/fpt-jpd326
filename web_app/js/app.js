@@ -142,6 +142,11 @@ class App {
         this.showToast(this.theme === 'light' ? 'Đã chuyển sang chế độ Sáng (Light mode)' : 'Đã chuyển sang chế độ Tối (Dark mode)', 'info');
       });
     }
+
+    const modalThemeBtn = document.getElementById('btn-modal-toggle-theme');
+    if (modalThemeBtn && themeBtn) {
+      modalThemeBtn.addEventListener('click', () => themeBtn.click());
+    }
   }
 
   applyTheme(theme) {
@@ -272,6 +277,11 @@ class App {
           this.showToast('Đã đặt lại toàn bộ tiến độ!', 'warning');
         }
       });
+    }
+
+    const modalResetBtn = document.getElementById('btn-modal-reset-data');
+    if (modalResetBtn && resetBtn) {
+      modalResetBtn.addEventListener('click', () => resetBtn.click());
     }
   }
 

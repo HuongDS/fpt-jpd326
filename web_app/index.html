@@ -535,19 +535,8 @@
            TAB 2: FLASHCARD SRS
            ================================================================== -->
       <section class="tab-panel" id="tab-flashcards">
-        <!-- Flashcard Lesson Filter Bar -->
-        <div class="filter-bar" id="fc-lesson-selector" style="justify-content: center; margin-bottom: 0.5rem;">
-          <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.25rem;">Bài học:</span>
-          <button class="filter-chip active" data-fc-lesson="all">Tất cả bài</button>
-          <button class="filter-chip" data-fc-lesson="第 6 課">Bài 6</button>
-          <button class="filter-chip" data-fc-lesson="第 7 課">Bài 7</button>
-          <button class="filter-chip" data-fc-lesson="第 8 課">Bài 8</button>
-          <button class="filter-chip" data-fc-lesson="第 9 課">Bài 9</button>
-          <button class="filter-chip" data-fc-lesson="第 10 課">Bài 10</button>
-        </div>
-
         <!-- Flashcard Deck Content Switcher Chips -->
-        <div class="filter-bar" id="fc-deck-selector" style="justify-content: center; margin-bottom: 1.25rem;">
+        <div class="filter-bar" id="fc-deck-selector" style="justify-content: center; margin-bottom: 1rem;">
           <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.25rem;">Nội dung:</span>
           <button class="filter-chip active" data-deck="all">Toàn bộ</button>
           <button class="filter-chip" data-deck="vocab">Từ vựng</button>
@@ -602,7 +591,7 @@
           </div>
 
           <!-- Navigation controls -->
-          <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+          <div class="flashcard-nav-row" style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
             <button class="btn btn-secondary" id="fc-prev-btn">Thẻ trước</button>
             <button class="btn btn-secondary" id="fc-next-btn">Thẻ tiếp</button>
           </div>
@@ -1109,9 +1098,12 @@
           </div>
         </div>
 
-        <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.25rem;">
-          <span style="font-size: 0.75rem; color: var(--text-muted);">Mẹo: Bạn có thể nhấn <strong>Ctrl + M</strong> bất cứ lúc nào để mở sơ đồ này.</span>
-          <button class="btn btn-secondary btn-sm" id="btn-footer-close-map">Đóng</button>
+        <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.25rem; flex-wrap: wrap; gap: 0.5rem;">
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <button class="btn btn-secondary btn-sm" id="btn-modal-toggle-theme">Giao diện Sáng / Tối</button>
+            <button class="btn btn-secondary btn-sm" id="btn-modal-reset-data">Đặt lại tiến độ</button>
+          </div>
+          <button class="btn btn-primary btn-sm" id="btn-footer-close-map">Đóng sơ đồ</button>
         </div>
       </div>
     </div>

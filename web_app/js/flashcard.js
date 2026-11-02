@@ -475,7 +475,7 @@ class FlashcardEngine {
         <div class="card-kanji-big">${item.kanji || item.kana}</div>
       </div>
       <div class="card-flip-prompt">
-        <span>Nhấn [Space] hoặc nhấp để xem nghĩa</span>
+        <span>Chạm vào thẻ để xem nghĩa (hoặc Space)</span>
       </div>
     `;
 
@@ -534,7 +534,7 @@ class FlashcardEngine {
         </div>
       </div>
       <div class="card-flip-prompt">
-        <span>Nhấn [Space] hoặc nhấp thẻ để xem âm On</span>
+        <span>Chạm vào thẻ để xem âm On (hoặc Space)</span>
       </div>
     `;
 
@@ -606,7 +606,7 @@ class FlashcardEngine {
         </div>
       </div>
       <div class="card-flip-prompt">
-        <span>Nhấn [Space] hoặc nhấp thẻ để xem âm Kun</span>
+        <span>Chạm vào thẻ để xem âm Kun (hoặc Space)</span>
       </div>
     `;
 
@@ -678,7 +678,7 @@ class FlashcardEngine {
         </div>
       </div>
       <div class="card-flip-prompt">
-        <span>Nhấn [Space] hoặc nhấp thẻ để xem cách đọc & nghĩa</span>
+        <span>Chạm vào thẻ để xem cách đọc & nghĩa</span>
       </div>
     `;
 
