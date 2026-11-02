@@ -43,6 +43,14 @@ html, body {
   scrollbar-width: none !important;
 }
 
+.mobile-text {
+  display: none;
+}
+
+.desktop-text {
+  display: inline;
+}
+
 /* --------------------------------------------------------------------------
    1. LAPTOPS & SMALL DESKTOPS (max-width: 1360px)
    Header transforms into clean 2-row layout to prevent tab squishing
@@ -261,6 +269,18 @@ html, body {
    Compact padding, thumb-sized controls, zero clipping
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
+  .desktop-text {
+    display: none !important;
+  }
+
+  .mobile-text {
+    display: inline !important;
+  }
+
+  .counter-lesson {
+    display: none !important;
+  }
+
   /* Header & Navigation (Clean Sleek 2-Row Grid, Fixed ~76px) */
   .app-header {
     display: grid !important;
@@ -382,51 +402,33 @@ html, body {
   .app-subbar {
     position: relative !important;
     top: auto !important;
-    padding: 0.35rem 0.65rem !important;
+    padding: 0.3rem 0.65rem !important;
     background: var(--bg-card) !important;
     border-bottom: 1px solid var(--border-subtle) !important;
     z-index: 10 !important;
   }
 
   .subbar-inner {
-    flex-direction: column !important;
-    align-items: stretch !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
     gap: 0.3rem !important;
   }
 
+  /* Hide redundant contextual pills row on mobile to save vertical space */
   .subbar-context-section {
-    width: 100% !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none !important;
-    flex-wrap: nowrap !important;
-    padding-bottom: 1px !important;
-    gap: 0.25rem !important;
-  }
-
-  .subbar-context-section::-webkit-scrollbar {
     display: none !important;
-  }
-
-  .subbar-group-label {
-    font-size: 0.65rem !important;
-    margin-right: 0.25rem !important;
-  }
-
-  .subbar-pill {
-    padding: 0.2rem 0.5rem !important;
-    font-size: 0.72rem !important;
-    border-radius: 6px !important;
-    flex-shrink: 0 !important;
   }
 
   .subbar-lesson-section {
     width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none !important;
-    flex-wrap: nowrap !important;
     padding-bottom: 1px !important;
+    gap: 0.25rem !important;
   }
 
   .subbar-lesson-section::-webkit-scrollbar {
@@ -434,11 +436,16 @@ html, body {
   }
 
   .subbar-lesson-label {
-    font-size: 0.65rem !important;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    color: var(--fpt-orange-text, #C2410C) !important;
     margin-right: 0.25rem !important;
+    white-space: nowrap !important;
   }
 
   .lesson-bar-chips {
+    display: flex !important;
+    align-items: center !important;
     width: 100% !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch;
@@ -776,7 +783,7 @@ html, body {
 
   /* Flashcard Content Switcher */
   #fc-deck-selector {
-    margin-bottom: 0.45rem !important;
+    margin-bottom: 0.35rem !important;
     justify-content: flex-start !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
@@ -793,7 +800,7 @@ html, body {
   }
 
   .flashcard-arena {
-    padding: 0.2rem 0 !important;
+    padding: 0.15rem 0 !important;
   }
 
   .flashcard-toolbar {
@@ -802,7 +809,7 @@ html, body {
     justify-content: space-between !important;
     align-items: center !important;
     gap: 0.35rem !important;
-    margin-bottom: 0.45rem !important;
+    margin-bottom: 0.35rem !important;
     width: 100% !important;
   }
 
@@ -810,6 +817,7 @@ html, body {
     font-size: 0.76rem !important;
     font-weight: 700 !important;
     white-space: nowrap !important;
+    color: var(--fpt-orange-text, #C2410C) !important;
   }
 
   .flashcard-options {
@@ -829,9 +837,9 @@ html, body {
   }
 
   .flashcard-stage {
-    height: 255px !important;
-    max-height: 38vh !important;
-    margin-bottom: 0.4rem !important;
+    height: 240px !important;
+    max-height: 36vh !important;
+    margin-bottom: 0.35rem !important;
   }
 
   .card-face {
@@ -867,8 +875,9 @@ html, body {
   }
 
   .card-meaning-big {
-    font-size: 1.05rem !important;
+    font-size: 1.15rem !important;
     line-height: 1.35 !important;
+    color: var(--fpt-orange-text, #C2410C) !important;
     margin-bottom: 0.25rem !important;
   }
 
@@ -1130,16 +1139,16 @@ html, body {
   }
 
   .flashcard-stage {
-    height: 245px !important;
-    max-height: 38vh !important;
+    height: 235px !important;
+    max-height: 35vh !important;
   }
 
   .card-kanji-big {
-    font-size: 2.4rem !important;
+    font-size: 2.2rem !important;
   }
 
   .card-meaning-big {
-    font-size: 1.15rem !important;
+    font-size: 1.1rem !important;
   }
 
   .excel-sheet-table th,
@@ -1171,18 +1180,24 @@ html, body {
    Removes sticky hover artifacts on touch screens
    -------------------------------------------------------------------------- */
 @media (hover: none) and (pointer: coarse) {
+  /* Touch devices NEVER have physical keys: permanently hide keyboard shortcuts */
+  .rating-key,
+  .kbd-shortcut {
+    display: none !important;
+  }
+
   .nav-tab-btn:hover {
     background: transparent;
   }
 
   .nav-tab-btn.active:hover {
-    background: #2C313A;
+    background: #F27024;
     color: #FFFFFF;
   }
 
   [data-theme="dark"] .nav-tab-btn.active:hover {
-    background: #FFFFFF;
-    color: #20232A;
+    background: #F27024;
+    color: #FFFFFF;
   }
 
   .action-card:hover {
@@ -1204,5 +1219,74 @@ html, body {
   .filter-chip,
   .icon-btn {
     touch-action: manipulation;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. SHORT VIEWPORTS & MOBILE LANDSCAPE (max-height: 520px)
+   Prevents screen overflowing vertically in landscape orientation
+   -------------------------------------------------------------------------- */
+@media (max-height: 520px) {
+  .app-header {
+    position: relative !important;
+    top: auto !important;
+    padding: 0.25rem 0.65rem !important;
+  }
+
+  .app-subbar {
+    position: relative !important;
+    top: auto !important;
+    padding: 0.25rem 0.65rem !important;
+  }
+
+  .subbar-context-section {
+    display: none !important;
+  }
+
+  .flashcard-stage {
+    height: 180px !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .card-face {
+    padding: 0.45rem 0.75rem !important;
+  }
+
+  .card-kanji-big {
+    font-size: 1.9rem !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  .card-meaning-big {
+    font-size: 1.05rem !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  .card-extra-details {
+    max-height: 55px !important;
+  }
+
+  .rating-key {
+    display: none !important;
+  }
+
+  .flashcard-ratings {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.25rem !important;
+    margin-top: 0.3rem !important;
+  }
+
+  .rating-btn {
+    min-height: 32px !important;
+    padding: 0.3rem 0.15rem !important;
+  }
+
+  .flashcard-nav-row {
+    margin-top: 0.3rem !important;
+  }
+
+  .flashcard-nav-row .btn {
+    height: 30px !important;
   }
 }

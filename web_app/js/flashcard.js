@@ -441,7 +441,7 @@ class FlashcardEngine {
     }
 
     const item = this.deck[this.currentIndex];
-    const lessonLabel = item.lesson ? ` (${item.lesson})` : '';
+    const lessonLabel = item.lesson ? ` <span class="counter-lesson">(${item.lesson})</span>` : '';
     if (this.counterEl) {
       this.counterEl.innerHTML = `Thẻ <strong>${this.currentIndex + 1}</strong> / ${this.deck.length}${lessonLabel}`;
     }

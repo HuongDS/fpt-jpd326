@@ -536,8 +536,8 @@
            ================================================================== -->
       <section class="tab-panel" id="tab-flashcards">
         <!-- Flashcard Deck Content Switcher Chips -->
-        <div class="filter-bar" id="fc-deck-selector" style="justify-content: center; margin-bottom: 1rem;">
-          <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.25rem;">Nội dung:</span>
+        <div class="filter-bar" id="fc-deck-selector" style="justify-content: center; margin-bottom: 0.75rem;">
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.25rem; white-space: nowrap;">Nội dung:</span>
           <button class="filter-chip active" data-deck="all">Toàn bộ</button>
           <button class="filter-chip" data-deck="vocab">Từ vựng</button>
           <button class="filter-chip" data-deck="kanji-all">Hán tự (Tất cả)</button>
@@ -552,9 +552,18 @@
           <div class="flashcard-toolbar">
             <div class="card-counter" id="fc-counter">Thẻ 1 / 531</div>
             <div class="flashcard-options">
-              <button class="btn btn-secondary btn-sm" id="fc-shuffle-btn" title="Trộn thẻ ngẫu nhiên">Trộn thẻ</button>
-              <button class="icon-btn btn-sm active" id="btn-fc-autopronounce" title="Tự động phát âm khi lật">Tự động đọc</button>
-              <button class="btn btn-secondary btn-sm" id="btn-fc-autoplay">Chạy tự động (Hands-free)</button>
+              <button class="btn btn-secondary btn-sm" id="fc-shuffle-btn" title="Trộn thẻ ngẫu nhiên">
+                <span class="desktop-text">Trộn thẻ</span>
+                <span class="mobile-text">Trộn</span>
+              </button>
+              <button class="icon-btn btn-sm active" id="btn-fc-autopronounce" title="Tự động phát âm khi lật">
+                <span class="desktop-text">Tự động đọc</span>
+                <span class="mobile-text">Đọc</span>
+              </button>
+              <button class="btn btn-secondary btn-sm" id="btn-fc-autoplay" title="Chạy tự động">
+                <span class="desktop-text">Chạy tự động (Hands-free)</span>
+                <span class="mobile-text">Auto</span>
+              </button>
             </div>
           </div>
 
