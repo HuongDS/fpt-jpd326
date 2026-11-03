@@ -8,7 +8,8 @@ const STORAGE_KEYS = {
   FAVORITES: 'jpd326_favorites',
   UNREMEMBERED: 'jpd326_unremembered_items',
   SRS_DATA: 'jpd326_srs_records',
-  STATS: 'jpd326_user_stats'
+  STATS: 'jpd326_user_stats',
+  FC_PROGRESS: 'jpd326_fc_progress'
 };
 
 class StorageManager {
@@ -17,6 +18,7 @@ class StorageManager {
     this.favorites = this.load(STORAGE_KEYS.FAVORITES, {});
     this.unremembered = this.load(STORAGE_KEYS.UNREMEMBERED, {});
     this.srs = this.load(STORAGE_KEYS.SRS_DATA, {});
+    this.fcProgress = this.load(STORAGE_KEYS.FC_PROGRESS, { lastDeck: null, decks: {} });
     this.stats = this.load(STORAGE_KEYS.STATS, {
       streakDays: 1,
       lastActiveDate: new Date().toISOString().split('T')[0],
@@ -178,11 +180,41 @@ class StorageManager {
     this.save(STORAGE_KEYS.STATS, this.stats);
   }
 
+  saveFlashcardProgress(deckKey, info) {
+    if (!this.fcProgress) {
+      this.fcProgress = this.load(STORAGE_KEYS.FC_PROGRESS, { lastDeck: null, decks: {} });
+    }
+    if (!this.fcProgress.decks) this.fcProgress.decks = {};
+    this.fcProgress.decks[deckKey] = info;
+    this.fcProgress.lastDeck = {
+      deckKey,
+      category: info.category,
+      lessonFilter: info.lessonFilter,
+      kanjiSubType: info.kanjiSubType
+    };
+    this.save(STORAGE_KEYS.FC_PROGRESS, this.fcProgress);
+  }
+
+  getFlashcardProgress(deckKey) {
+    if (!this.fcProgress) {
+      this.fcProgress = this.load(STORAGE_KEYS.FC_PROGRESS, { lastDeck: null, decks: {} });
+    }
+    return (this.fcProgress.decks && this.fcProgress.decks[deckKey]) || null;
+  }
+
+  getLastActiveDeck() {
+    if (!this.fcProgress) {
+      this.fcProgress = this.load(STORAGE_KEYS.FC_PROGRESS, { lastDeck: null, decks: {} });
+    }
+    return this.fcProgress.lastDeck || null;
+  }
+
   resetAllProgress() {
     this.learned = {};
     this.favorites = {};
     this.unremembered = {};
     this.srs = {};
+    this.fcProgress = { lastDeck: null, decks: {} };
     this.stats = {
       streakDays: 1,
       lastActiveDate: new Date().toISOString().split('T')[0],
@@ -193,6 +225,7 @@ class StorageManager {
     this.save(STORAGE_KEYS.FAVORITES, this.favorites);
     this.save(STORAGE_KEYS.UNREMEMBERED, this.unremembered);
     this.save(STORAGE_KEYS.SRS_DATA, this.srs);
+    this.save(STORAGE_KEYS.FC_PROGRESS, this.fcProgress);
     this.save(STORAGE_KEYS.STATS, this.stats);
   }
 }

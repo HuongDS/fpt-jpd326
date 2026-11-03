@@ -15,6 +15,14 @@ class FlashcardEngine {
     this.category = 'vocab'; // 'all' | 'vocab' | 'kanji' | 'grammar'
     this.kanjiSubType = 'all'; // 'all' | 'on' | 'kun' | 'compound'
 
+    // Khôi phục bộ thẻ và tiến độ hoạt động gần nhất nếu có
+    const lastActive = window.storageManager?.getLastActiveDeck();
+    if (lastActive) {
+      if (lastActive.category) this.category = lastActive.category;
+      if (lastActive.lessonFilter) this.lessonFilter = lastActive.lessonFilter;
+      if (lastActive.kanjiSubType) this.kanjiSubType = lastActive.kanjiSubType;
+    }
+
     this.cardInner = document.getElementById('flashcard-inner');
     this.cardFront = document.getElementById('card-front');
     this.cardBack = document.getElementById('card-back');
@@ -25,6 +33,32 @@ class FlashcardEngine {
     this.initEvents();
     this.initLessonSelector();
     this.initDeckSelector();
+  }
+
+  getDeckKey() {
+    return `${this.category}_${this.lessonFilter}_${this.kanjiSubType}`;
+  }
+
+  saveCurrentProgress() {
+    if (!window.storageManager || !this.deck || this.deck.length === 0) return;
+    const currentItem = this.deck[this.currentIndex];
+    const deckKey = this.getDeckKey();
+    window.storageManager.saveFlashcardProgress(deckKey, {
+      deckKey,
+      category: this.category,
+      lessonFilter: this.lessonFilter,
+      kanjiSubType: this.kanjiSubType,
+      index: this.currentIndex,
+      cardId: currentItem ? currentItem.id : null,
+      timestamp: Date.now()
+    });
+  }
+
+  jumpToCard(targetIndex) {
+    if (!this.deck || this.deck.length === 0) return;
+    const clampedIndex = Math.max(0, Math.min(targetIndex, this.deck.length - 1));
+    this.currentIndex = clampedIndex;
+    this.resetCardState();
   }
 
   initLessonSelector() {
@@ -86,7 +120,7 @@ class FlashcardEngine {
     this.refreshDeck();
   }
 
-  refreshDeck() {
+  refreshDeck(preservePosition = true) {
     const data = window.APP_DATA;
     if (!data) return;
 
@@ -126,10 +160,26 @@ class FlashcardEngine {
       this.deck = gList.map(g => ({ ...g, category: 'grammar' }));
     }
 
-    this.currentIndex = 0;
+    if (preservePosition && window.storageManager && this.deck.length > 0) {
+      const saved = window.storageManager.getFlashcardProgress(this.getDeckKey());
+      let targetIndex = -1;
+      if (saved && saved.cardId) {
+        targetIndex = this.deck.findIndex(card => card.id === saved.cardId);
+      }
+      if (targetIndex === -1 && saved && typeof saved.index === 'number') {
+        if (saved.index >= 0 && saved.index < this.deck.length) {
+          targetIndex = saved.index;
+        }
+      }
+      this.currentIndex = targetIndex >= 0 ? targetIndex : 0;
+    } else {
+      this.currentIndex = 0;
+    }
+
     this.isFlipped = false;
     this.updateSelectorChips();
     this.renderCard();
+    this.saveCurrentProgress();
   }
 
   updateSelectorChips() {
@@ -302,6 +352,26 @@ class FlashcardEngine {
       });
     }
 
+    // Jump to card by clicking on counter
+    if (this.counterEl) {
+      this.counterEl.setAttribute('title', 'Nhấn vào đây để chuyển nhanh tới số thẻ mong muốn');
+      this.counterEl.addEventListener('click', () => {
+        if (!this.deck || this.deck.length <= 1) return;
+        const current = this.currentIndex + 1;
+        const total = this.deck.length;
+        const input = prompt(`Nhập số thứ tự thẻ muốn học (1 - ${total}):`, current);
+        if (input === null) return;
+        const num = parseInt(input.trim(), 10);
+        if (!isNaN(num) && num >= 1 && num <= total) {
+          this.jumpToCard(num - 1);
+          window.soundEngine?.playFlip();
+          window.app?.showToast(`Đã chuyển đến thẻ ${num} / ${total}`, 'info');
+        } else if (input.trim() !== '') {
+          window.app?.showToast(`Số thẻ không hợp lệ! Vui lòng nhập số từ 1 đến ${total}`, 'warning');
+        }
+      });
+    }
+
     // Keyboard Shortcuts
     document.addEventListener('keydown', (e) => {
       // Only process when flashcard tab or modal is active and not inside input
@@ -421,6 +491,7 @@ class FlashcardEngine {
     this.currentIndex = 0;
     this.isFlipped = false;
     this.renderCard();
+    this.saveCurrentProgress();
   }
 
   flip() {
@@ -509,6 +580,7 @@ class FlashcardEngine {
       this.cardInner.classList.remove('flipped');
     }
     this.renderCard();
+    this.saveCurrentProgress();
   }
 
   renderCard() {
@@ -546,6 +618,10 @@ class FlashcardEngine {
         this.cardBack.innerHTML = '';
       }
       return;
+    }
+
+    if (this.currentIndex < 0 || this.currentIndex >= this.deck.length) {
+      this.currentIndex = 0;
     }
 
     const item = this.deck[this.currentIndex];
