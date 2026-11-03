@@ -1442,27 +1442,6 @@ class App {
 
     modal.classList.add('active');
   }
-          <div class="grammar-example-row" style="cursor: pointer;" data-word="${c.word}">
-            <span style="font-size: 1.1rem; font-weight: 700; color: var(--text-heading);">${c.word}</span>
-            <span style="color: var(--text-secondary); font-weight: 500;">${c.reading ? `(${c.reading})` : ''}</span>
-            <span style="flex: 1; color: var(--text-primary); text-align: right;">${c.meaning}</span>
-            <button class="icon-btn btn-sm">Nghe</button>
-          </div>
-        `).join('');
-
-        compoundsList.querySelectorAll('.grammar-example-row').forEach(row => {
-          row.addEventListener('click', () => {
-            const word = row.dataset.word;
-            window.soundEngine.speakJapanese(word);
-          });
-        });
-      } else {
-        compoundsList.innerHTML = `<div style="color: var(--text-secondary); white-space: pre-wrap;">${k.examples_raw}</div>`;
-      }
-    }
-
-    modal.classList.add('active');
-  }
 
   closeKanjiModal() {
     const modal = document.getElementById('kanji-detail-modal');
