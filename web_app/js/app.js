@@ -11,6 +11,8 @@ class App {
     this.kanjiLessonFilter = 'all';
     this.vocabLessonFilter = 'all';
     this.grammarLessonFilter = 'all';
+    this.vocabStatusFilter = 'all'; // 'all' | 'unremembered'
+    this.kanjiStatusFilter = 'all'; // 'all' | 'unremembered'
     this.kanjiViewMode = 'grid'; // 'grid' | 'table'
     this.grammarViewMode = 'list'; // 'list' | 'table'
     this.hubOverviewTab = 'vocab'; // 'vocab' | 'kanji' | 'grammar'
@@ -353,7 +355,16 @@ class App {
     if (tabId === 'dashboard') {
       this.renderDashboardLessonView();
     } else if (tabId === 'flashcards') {
-      if (window.flashcardEngine) window.flashcardEngine.renderCard();
+      if (window.flashcardEngine) {
+        window.flashcardEngine.updateSelectorChips();
+        window.flashcardEngine.renderCard();
+      }
+    } else if (tabId === 'vocab') {
+      this.renderVocabFilters();
+      this.renderVocabList();
+    } else if (tabId === 'kanji') {
+      this.renderKanjiFilters();
+      this.updateKanjiView();
     }
 
     this.closeAllDropdowns();
@@ -895,6 +906,25 @@ class App {
     if (learnedVal) learnedVal.textContent = `${totalLearned} / ${totalMasterable}`;
     if (reviewsVal) reviewsVal.textContent = `${window.storageManager.stats.totalReviews}`;
     if (masteryVal) masteryVal.textContent = `${masteryPct}%`;
+
+    // Unremembered Alert Banner
+    const unrememberedCount = window.storageManager.getUnrememberedCount();
+    const banner = document.getElementById('dash-unremembered-banner');
+    const bannerCount = document.getElementById('dash-unremembered-count');
+    if (banner && bannerCount) {
+      if (unrememberedCount > 0) {
+        banner.style.display = 'flex';
+        bannerCount.textContent = unrememberedCount;
+      } else {
+        banner.style.display = 'none';
+      }
+    }
+  }
+
+  updateStats() {
+    this.updateDashboardStats();
+    this.renderVocabFilters();
+    this.renderKanjiFilters();
   }
 
   renderLessonCards() {
@@ -1040,6 +1070,7 @@ class App {
     const actGrammar = document.getElementById('dash-action-grammar');
     const actSpeaking = document.getElementById('dash-action-speaking');
     const actOral = document.getElementById('dash-action-oral');
+    const btnDashReviewUnremembered = document.getElementById('btn-dash-review-unremembered');
 
     if (actQuiz) actQuiz.onclick = () => this.switchTab('quiz');
     if (actFc) actFc.onclick = () => this.switchTab('flashcards');
@@ -1048,6 +1079,14 @@ class App {
     if (actGrammar) actGrammar.onclick = () => this.switchTab('grammar');
     if (actSpeaking) actSpeaking.onclick = () => this.switchTab('speaking');
     if (actOral) actOral.onclick = () => this.switchTab('oral');
+    if (btnDashReviewUnremembered) {
+      btnDashReviewUnremembered.onclick = () => {
+        this.switchTab('flashcards');
+        if (window.flashcardEngine) {
+          window.flashcardEngine.loadUnrememberedDeck('all');
+        }
+      };
+    }
   }
 
   // ------------------------------------------------------------------------
@@ -1153,6 +1192,9 @@ class App {
     if (!tbody) return;
 
     let items = this.data.kanji;
+    if (this.kanjiStatusFilter === 'unremembered') {
+      items = items.filter(k => window.storageManager.isUnremembered(k.id));
+    }
     if (this.kanjiLessonFilter !== 'all') {
       items = items.filter(k => k.lesson === this.kanjiLessonFilter);
     }
@@ -1167,14 +1209,17 @@ class App {
     }
 
     const countBadge = document.getElementById('kanji-count-badge');
-    if (countBadge) countBadge.textContent = `${items.length} Kanji`;
+    if (countBadge) {
+      countBadge.textContent = this.kanjiStatusFilter === 'unremembered' ? `${items.length} Kanji chưa nhớ` : `${items.length} Kanji`;
+    }
 
     if (items.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="9" style="text-align: center; color: var(--text-muted); padding: 2.5rem;">Không tìm thấy Hán tự nào phù hợp.</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="9" style="text-align: center; color: var(--text-muted); padding: 2.5rem;">${this.kanjiStatusFilter === 'unremembered' ? '🎉 Tuyệt vời! Bạn không có Hán tự nào bị đánh dấu chưa nhớ.' : 'Không tìm thấy Hán tự nào phù hợp.'}</td></tr>`;
       return;
     }
 
     tbody.innerHTML = items.map((k, idx) => {
+      const isUnremembered = window.storageManager.isUnremembered(k.id);
       const compoundsHtml = k.compounds && k.compounds.length > 0
         ? `<div class="table-compounds-list">` + k.compounds.map(c => `
             <div class="table-compound-row">
@@ -1188,7 +1233,12 @@ class App {
       return `
         <tr data-id="${k.id}">
           <td class="table-stt">${idx + 1}</td>
-          <td style="text-align: center;"><span class="table-kanji-cell" style="font-size: 1.4rem;">${k.kanji}</span></td>
+          <td style="text-align: center;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.2rem;">
+              <span class="table-kanji-cell" style="font-size: 1.4rem;">${k.kanji}</span>
+              ${isUnremembered ? '<span style="font-size: 0.68rem; color: #D97706; font-weight: 700;">⚠️ Chưa nhớ</span>' : ''}
+            </div>
+          </td>
           <td><strong>${k.han_viet}</strong></td>
           <td><span class="badge">${k.onyomi || '—'}</span></td>
           <td><span class="badge">${k.kunyomi || '—'}</span></td>
@@ -1220,18 +1270,39 @@ class App {
     if (!container) return;
 
     const lessons = ['all', '第 6 課', '第 7 課', '第 8 課', '第 9 課', '第 10 課'];
-    container.innerHTML = lessons.map(l => `
-      <button class="filter-chip ${l === this.kanjiLessonFilter ? 'active' : ''}" data-lesson="${l}">
+    const unrememberedKanjiCount = this.data.kanji.filter(k => window.storageManager.isUnremembered(k.id)).length;
+
+    let html = lessons.map(l => `
+      <button class="filter-chip ${l === this.kanjiLessonFilter && this.kanjiStatusFilter !== 'unremembered' ? 'active' : ''}" data-lesson="${l}">
         ${l === 'all' ? 'Tất cả (73 Kanji)' : l}
       </button>
     `).join('');
 
-    container.querySelectorAll('.filter-chip').forEach(btn => {
+    html += `
+      <button class="filter-chip chip-unremembered ${this.kanjiStatusFilter === 'unremembered' ? 'active' : ''}" data-status="unremembered">
+        ⚠️ Chưa nhớ (${unrememberedKanjiCount})
+      </button>
+    `;
+
+    container.innerHTML = html;
+
+    container.querySelectorAll('.filter-chip[data-lesson]').forEach(btn => {
       btn.addEventListener('click', () => {
+        this.kanjiStatusFilter = 'all';
         const lesson = btn.dataset.lesson;
         this.setLesson(lesson);
       });
     });
+
+    const unrememberedChip = container.querySelector('.filter-chip[data-status="unremembered"]');
+    if (unrememberedChip) {
+      unrememberedChip.addEventListener('click', () => {
+        this.kanjiStatusFilter = this.kanjiStatusFilter === 'unremembered' ? 'all' : 'unremembered';
+        this.renderKanjiFilters();
+        const kSearch = document.getElementById('kanji-search-input');
+        this.updateKanjiView(kSearch ? kSearch.value.toLowerCase().trim() : '');
+      });
+    }
   }
 
   filterKanjiByLesson(lesson) {
@@ -1243,6 +1314,9 @@ class App {
     if (!grid) return;
 
     let items = this.data.kanji;
+    if (this.kanjiStatusFilter === 'unremembered') {
+      items = items.filter(k => window.storageManager.isUnremembered(k.id));
+    }
     if (this.kanjiLessonFilter !== 'all') {
       items = items.filter(k => k.lesson === this.kanjiLessonFilter);
     }
@@ -1257,17 +1331,21 @@ class App {
     }
 
     if (items.length === 0) {
-      grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 3rem;">Không tìm thấy Hán tự nào phù hợp.</div>`;
+      grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 3rem;">${this.kanjiStatusFilter === 'unremembered' ? '🎉 Tuyệt vời! Bạn không có Hán tự nào bị đánh dấu chưa nhớ.' : 'Không tìm thấy Hán tự nào phù hợp.'}</div>`;
       return;
     }
 
     grid.innerHTML = items.map(k => {
       const isLearned = window.storageManager.isLearned(k.id);
+      const isUnremembered = window.storageManager.isUnremembered(k.id);
       return `
-        <div class="kanji-card-item" data-id="${k.id}">
+        <div class="kanji-card-item ${isUnremembered ? 'kanji-unremembered-card' : ''}" data-id="${k.id}">
           <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
             <span class="badge" style="font-size: 0.72rem;">${k.lesson}</span>
-            ${isLearned ? '<span style="color: var(--text-muted); font-size: 0.75rem; font-weight: 600;">Đã thuộc</span>' : ''}
+            <div style="display: flex; gap: 0.35rem; align-items: center;">
+              ${isUnremembered ? '<span class="badge" style="background: #FEF3C7; color: #D97706; border-color: #FCD34D; font-size: 0.7rem; font-weight: 700;">⚠️ Chưa nhớ</span>' : ''}
+              ${isLearned ? '<span style="color: var(--text-muted); font-size: 0.75rem; font-weight: 600;">Đã thuộc</span>' : ''}
+            </div>
           </div>
           <div class="kanji-char-preview">${k.kanji}</div>
           <div class="kanji-hanviet-badge">${k.han_viet}</div>
@@ -1315,10 +1393,55 @@ class App {
       };
     }
 
+    // Unremembered button in modal
+    const unrememberedBtn = document.getElementById('btn-modal-unremembered-kanji');
+    if (unrememberedBtn) {
+      const updateUnrememberedBtnState = () => {
+        const isUnremembered = window.storageManager.isUnremembered(k.id);
+        unrememberedBtn.classList.toggle('active', isUnremembered);
+        unrememberedBtn.textContent = isUnremembered ? '⚠️ Bỏ Chưa nhớ' : '⚠️ Đánh dấu Chưa nhớ';
+      };
+      updateUnrememberedBtnState();
+
+      unrememberedBtn.onclick = () => {
+        const active = window.storageManager.toggleUnremembered(k.id);
+        updateUnrememberedBtnState();
+        window.soundEngine.playToggle(active);
+        this.showToast(active ? `Đã thêm chữ ${k.kanji} vào danh sách CHƯA NHỚ!` : `Đã bỏ đánh dấu chưa nhớ chữ ${k.kanji}`, active ? 'warning' : 'info');
+        this.renderKanjiFilters();
+        this.updateKanjiView();
+        this.updateDashboardStats();
+        if (window.flashcardEngine) {
+          window.flashcardEngine.updateSelectorChips();
+        }
+      };
+    }
+
     const compoundsList = document.getElementById('modal-kanji-compounds');
     if (compoundsList) {
       if (k.compounds && k.compounds.length > 0) {
         compoundsList.innerHTML = k.compounds.map(c => `
+          <div class="grammar-example-row" style="cursor: pointer;" data-word="${c.word}">
+            <span style="font-size: 1.1rem; font-weight: 700; color: var(--text-heading);">${c.word}</span>
+            <span style="color: var(--text-secondary); font-weight: 500;">${c.reading ? `(${c.reading})` : ''}</span>
+            <span style="flex: 1; color: var(--text-primary); text-align: right;">${c.meaning}</span>
+            <button class="icon-btn btn-sm">Nghe</button>
+          </div>
+        `).join('');
+
+        compoundsList.querySelectorAll('.grammar-example-row').forEach(row => {
+          row.addEventListener('click', () => {
+            const word = row.dataset.word;
+            window.soundEngine.speakJapanese(word);
+          });
+        });
+      } else {
+        compoundsList.innerHTML = `<div style="color: var(--text-secondary); white-space: pre-wrap;">${k.examples_raw}</div>`;
+      }
+    }
+
+    modal.classList.add('active');
+  }
           <div class="grammar-example-row" style="cursor: pointer;" data-word="${c.word}">
             <span style="font-size: 1.1rem; font-weight: 700; color: var(--text-heading);">${c.word}</span>
             <span style="color: var(--text-secondary); font-weight: 500;">${c.reading ? `(${c.reading})` : ''}</span>
@@ -1382,18 +1505,39 @@ class App {
     if (!container) return;
 
     const lessons = ['all', '第 6 課', '第 7 課', '第 8 課', '第 9 課', '第 10 課'];
-    container.innerHTML = lessons.map(l => `
-      <button class="filter-chip ${l === this.vocabLessonFilter ? 'active' : ''}" data-lesson="${l}">
+    const unrememberedVocabCount = this.data.vocabulary.filter(v => window.storageManager.isUnremembered(v.id)).length;
+
+    let html = lessons.map(l => `
+      <button class="filter-chip ${l === this.vocabLessonFilter && this.vocabStatusFilter !== 'unremembered' ? 'active' : ''}" data-lesson="${l}">
         ${l === 'all' ? 'Tất cả (531 từ)' : l}
       </button>
     `).join('');
 
-    container.querySelectorAll('.filter-chip').forEach(btn => {
+    html += `
+      <button class="filter-chip chip-unremembered ${this.vocabStatusFilter === 'unremembered' ? 'active' : ''}" data-status="unremembered">
+        ⚠️ Chưa nhớ (${unrememberedVocabCount})
+      </button>
+    `;
+
+    container.innerHTML = html;
+
+    container.querySelectorAll('.filter-chip[data-lesson]').forEach(btn => {
       btn.addEventListener('click', () => {
+        this.vocabStatusFilter = 'all';
         const lesson = btn.dataset.lesson;
         this.setLesson(lesson);
       });
     });
+
+    const unrememberedChip = container.querySelector('.filter-chip[data-status="unremembered"]');
+    if (unrememberedChip) {
+      unrememberedChip.addEventListener('click', () => {
+        this.vocabStatusFilter = this.vocabStatusFilter === 'unremembered' ? 'all' : 'unremembered';
+        this.renderVocabFilters();
+        const vSearch = document.getElementById('vocab-search-input');
+        this.renderVocabList(vSearch ? vSearch.value.toLowerCase().trim() : '');
+      });
+    }
   }
 
   filterVocabByLesson(lesson) {
@@ -1405,6 +1549,9 @@ class App {
     if (!tbody) return;
 
     let items = this.data.vocabulary;
+    if (this.vocabStatusFilter === 'unremembered') {
+      items = items.filter(v => window.storageManager.isUnremembered(v.id));
+    }
     if (this.vocabLessonFilter !== 'all') {
       items = items.filter(v => v.lesson === this.vocabLessonFilter);
     }
@@ -1417,22 +1564,30 @@ class App {
     }
 
     const countBadge = document.getElementById('vocab-count-badge');
-    if (countBadge) countBadge.textContent = `${items.length} từ`;
+    if (countBadge) {
+      countBadge.textContent = this.vocabStatusFilter === 'unremembered' ? `${items.length} từ chưa nhớ` : `${items.length} từ`;
+    }
 
     if (items.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 2rem;">Không tìm thấy từ vựng nào phù hợp.</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 2rem;">${this.vocabStatusFilter === 'unremembered' ? '🎉 Tuyệt vời! Không có từ vựng nào bị đánh dấu chưa nhớ.' : 'Không tìm thấy từ vựng nào phù hợp.'}</td></tr>`;
       return;
     }
 
     tbody.innerHTML = items.map((v, idx) => {
       const isFav = window.storageManager.isFavorite(v.id);
+      const isUnremembered = window.storageManager.isUnremembered(v.id);
       return `
         <tr data-id="${v.id}">
           <td class="table-stt">${idx + 1}</td>
-          <td style="width: 50px; text-align: center;">
-            <button class="icon-btn btn-sm btn-vocab-fav ${isFav ? 'active' : ''}" data-id="${v.id}">
-              ${isFav ? 'Đã lưu' : 'Lưu'}
-            </button>
+          <td style="width: 80px; text-align: center;">
+            <div style="display: inline-flex; gap: 0.25rem; align-items: center; justify-content: center;">
+              <button class="icon-btn btn-sm btn-vocab-fav ${isFav ? 'active' : ''}" data-id="${v.id}" title="${isFav ? 'Bỏ lưu' : 'Lưu'}">
+                ${isFav ? 'Đã lưu' : 'Lưu'}
+              </button>
+              <button class="icon-btn btn-sm unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${v.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+                ${isUnremembered ? '⚠️' : '⚪'}
+              </button>
+            </div>
           </td>
           <td style="min-width: 140px;">
             <span class="table-kanji-cell">${v.kanji || v.kana}</span>
@@ -1467,6 +1622,22 @@ class App {
         btn.classList.toggle('active', active);
         btn.innerHTML = active ? 'Đã lưu' : 'Lưu';
         window.soundEngine.playFavorite(active);
+      });
+    });
+
+    tbody.querySelectorAll('.unremembered-toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.id;
+        const active = window.storageManager.toggleUnremembered(id);
+        btn.classList.toggle('active', active);
+        btn.innerHTML = active ? '⚠️' : '⚪';
+        btn.title = active ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại';
+        window.soundEngine.playToggle(active);
+        this.renderVocabFilters();
+        this.updateDashboardStats();
+        if (window.flashcardEngine) {
+          window.flashcardEngine.updateSelectorChips();
+        }
       });
     });
   }

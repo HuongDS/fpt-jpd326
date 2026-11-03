@@ -526,13 +526,18 @@ class FinalExamEngine {
       }
     }
 
-    // Sound feedback
+    // Sound feedback & Auto-persist to Unremembered list
     if (this.failedItems.length === 0) {
       window.soundEngine.playFanfare();
       window.app.showToast('Chúc mừng! Bạn đã hoàn thành xuất sắc 100%!', 'success');
     } else {
       window.soundEngine.playWrong();
-      window.app.showToast(`Bạn có ${this.failedItems.length} câu làm sai hoặc bỏ trống (đã in đỏ)!`, 'warning');
+      window.storageManager.markBatchUnremembered(this.failedItems);
+      if (window.flashcardEngine) {
+        window.flashcardEngine.updateSelectorChips();
+        window.flashcardEngine.updateUnrememberedBadges?.();
+      }
+      window.app.showToast(`Bạn có ${this.failedItems.length} câu làm sai hoặc bỏ trống (đã đánh dấu Chưa nhớ)!`, 'warning');
     }
   }
 

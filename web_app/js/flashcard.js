@@ -51,7 +51,10 @@ class FlashcardEngine {
     container.querySelectorAll('.filter-chip').forEach(chip => {
       chip.addEventListener('click', () => {
         const deckKey = chip.dataset.deck;
-        if (deckKey === 'all') {
+        if (deckKey === 'unremembered') {
+          this.category = 'unremembered';
+          this.kanjiSubType = 'all';
+        } else if (deckKey === 'all') {
           this.category = 'all';
           this.kanjiSubType = 'all';
         } else if (deckKey === 'vocab') {
@@ -76,6 +79,13 @@ class FlashcardEngine {
     });
   }
 
+  loadUnrememberedDeck(lesson = 'all') {
+    this.lessonFilter = lesson || 'all';
+    this.category = 'unremembered';
+    this.kanjiSubType = 'all';
+    this.refreshDeck();
+  }
+
   refreshDeck() {
     const data = window.APP_DATA;
     if (!data) return;
@@ -90,7 +100,20 @@ class FlashcardEngine {
       gList = gList.filter(g => g.lesson === this.lessonFilter);
     }
 
-    if (this.category === 'all') {
+    if (this.category === 'unremembered') {
+      const vCards = vList
+        .filter(v => window.storageManager.isUnremembered(v.id))
+        .map(v => ({ ...v, category: 'vocab' }));
+
+      const kCards = this.buildKanjiDeck(kList, 'all')
+        .filter(k => window.storageManager.isUnremembered(k.id, k.rawKanjiId));
+
+      const gCards = gList
+        .filter(g => window.storageManager.isUnremembered(g.id))
+        .map(g => ({ ...g, category: 'grammar' }));
+
+      this.deck = [...vCards, ...kCards, ...gCards];
+    } else if (this.category === 'all') {
       const vCards = vList.map(v => ({ ...v, category: 'vocab' }));
       const kCards = this.buildKanjiDeck(kList, 'all');
       const gCards = gList.map(g => ({ ...g, category: 'grammar' }));
@@ -139,8 +162,15 @@ class FlashcardEngine {
         const kCp = this.buildKanjiDeck(kList, 'compound');
         const totalAll = vList.length + kAll.length + gList.length;
 
+        // Calculate unremembered items count
+        const unrememberedVocab = vList.filter(v => window.storageManager.isUnremembered(v.id)).length;
+        const unrememberedKanji = kAll.filter(k => window.storageManager.isUnremembered(k.id, k.rawKanjiId)).length;
+        const unrememberedGrammar = gList.filter(g => window.storageManager.isUnremembered(g.id)).length;
+        const totalUnremembered = unrememberedVocab + unrememberedKanji + unrememberedGrammar;
+
         const countMap = {
           'all': totalAll,
+          'unremembered': totalUnremembered,
           'vocab': vList.length,
           'kanji-all': kAll.length,
           'kanji-on': kOn.length,
@@ -151,6 +181,7 @@ class FlashcardEngine {
 
         const labelMap = {
           'all': 'Toàn bộ',
+          'unremembered': '⚠️ Chưa nhớ',
           'vocab': 'Từ vựng',
           'kanji-all': 'Hán tự (Tất cả)',
           'kanji-on': 'Âm On',
@@ -160,7 +191,8 @@ class FlashcardEngine {
         };
 
         let targetKey = 'vocab';
-        if (this.category === 'all') targetKey = 'all';
+        if (this.category === 'unremembered') targetKey = 'unremembered';
+        else if (this.category === 'all') targetKey = 'all';
         else if (this.category === 'vocab') targetKey = 'vocab';
         else if (this.category === 'grammar') targetKey = 'grammar';
         else if (this.category === 'kanji') {
@@ -177,11 +209,50 @@ class FlashcardEngine {
             chip.textContent = `${labelMap[key]} (${countMap[key]})`;
           }
         });
+
+        this.updateUnrememberedBadges(totalUnremembered);
       }
     }
   }
 
+  updateUnrememberedBadges(currentScopeCount = null) {
+    const totalCount = window.storageManager.getUnrememberedCount();
+    const countToShow = currentScopeCount !== null ? currentScopeCount : totalCount;
+
+    const toolbarCount = document.getElementById('fc-unremembered-toolbar-count');
+    const toolbarCountM = document.getElementById('fc-unremembered-toolbar-count-m');
+    if (toolbarCount) toolbarCount.textContent = countToShow;
+    if (toolbarCountM) toolbarCountM.textContent = countToShow;
+
+    const dashCount = document.getElementById('dash-unremembered-count');
+    const dashBanner = document.getElementById('dash-unremembered-banner');
+    if (dashCount) dashCount.textContent = totalCount;
+    if (dashBanner) dashBanner.style.display = totalCount > 0 ? 'flex' : 'none';
+
+    const vocabBadge = document.getElementById('vocab-unremembered-count');
+    if (vocabBadge) {
+      const vCount = (window.APP_DATA?.vocabulary || []).filter(v => window.storageManager.isUnremembered(v.id)).length;
+      vocabBadge.textContent = vCount;
+    }
+  }
+
   initEvents() {
+    // Quick action: Review Unremembered Cards
+    const reviewUnrememberedBtn = document.getElementById('btn-fc-review-unremembered');
+    if (reviewUnrememberedBtn) {
+      reviewUnrememberedBtn.addEventListener('click', () => {
+        this.category = 'unremembered';
+        this.kanjiSubType = 'all';
+        this.refreshDeck();
+        if (this.deck.length === 0) {
+          window.app?.showToast('Bạn hiện không có thẻ nào bị đánh dấu là chưa nhớ!', 'info');
+        } else {
+          window.soundEngine?.playChip();
+          window.app?.showToast(`Đang mở ${this.deck.length} thẻ chưa nhớ cần ôn tập lại!`, 'warning');
+        }
+      });
+    }
+
     const stage = document.getElementById('flashcard-stage');
     if (stage) {
       stage.addEventListener('click', (e) => {
@@ -393,6 +464,9 @@ class FlashcardEngine {
     if (!item) return;
 
     window.storageManager.recordReview(item.id, rating);
+    if (item.rawKanjiId && rating >= 3) {
+      window.storageManager.markUnremembered(item.rawKanjiId, false);
+    }
     if (window.soundEngine && window.soundEngine.playRating) {
       window.soundEngine.playRating(rating);
     } else if (rating >= 3) {
@@ -401,6 +475,18 @@ class FlashcardEngine {
       window.soundEngine.playWrong();
     }
 
+    // If currently in 'unremembered' deck mode and card was remembered (rating >= 3)
+    if (this.category === 'unremembered' && rating >= 3) {
+      this.deck.splice(this.currentIndex, 1);
+      if (this.currentIndex >= this.deck.length) {
+        this.currentIndex = 0;
+      }
+      this.updateSelectorChips();
+      this.resetCardState();
+      return;
+    }
+
+    this.updateSelectorChips();
     // Automatically transition to next card
     this.nextCard();
   }
@@ -429,10 +515,32 @@ class FlashcardEngine {
     if (this.deck.length === 0) {
       if (this.counterEl) this.counterEl.innerHTML = '0 / 0';
       if (this.cardFront) {
-        this.cardFront.innerHTML = `
-          <div class="card-main-content">
-            <h3 style="color: var(--text-muted);">Không tìm thấy thẻ nào theo bộ lọc này</h3>
-          </div>`;
+        if (this.category === 'unremembered') {
+          this.cardFront.innerHTML = `
+            <div class="card-main-content" style="text-align: center; padding: 2rem 1rem;">
+              <div style="font-size: 3.2rem; margin-bottom: 0.75rem;">🎉</div>
+              <h3 style="color: var(--text-heading); font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 800;">Tuyệt vời! Không còn từ chưa nhớ!</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; max-width: 320px; line-height: 1.5; margin: 0 auto 1.25rem;">
+                Bạn đã ôn thuộc toàn bộ danh sách thẻ chưa nhớ. Hãy tiếp tục duy trì phong độ nhé!
+              </p>
+              <button class="btn btn-primary btn-sm no-flip" id="btn-fc-reset-to-all" style="margin: 0 auto;">
+                Chuyển sang học toàn bộ thẻ
+              </button>
+            </div>`;
+          const resetBtn = this.cardFront.querySelector('#btn-fc-reset-to-all');
+          if (resetBtn) {
+            resetBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              this.category = 'all';
+              this.refreshDeck();
+            });
+          }
+        } else {
+          this.cardFront.innerHTML = `
+            <div class="card-main-content">
+              <h3 style="color: var(--text-muted);">Không tìm thấy thẻ nào theo bộ lọc này</h3>
+            </div>`;
+        }
       }
       if (this.cardBack) {
         this.cardBack.innerHTML = '';
@@ -460,12 +568,16 @@ class FlashcardEngine {
   }
 
   renderVocabCard(item, isFav, isLearned) {
+    const isUnremembered = window.storageManager.isUnremembered(item.id);
     // Front Face (Không hiện phiên âm / cách đọc)
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
         <span class="badge">${item.lesson} • ${item.part}</span>
-        <div style="display: flex; gap: 0.5rem;" class="no-flip">
+        <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
+          <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+          </button>
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}" title="Đánh dấu">
             ${isFav ? 'Đã lưu' : 'Lưu'}
           </button>
@@ -483,7 +595,12 @@ class FlashcardEngine {
     this.cardBack.innerHTML = `
       <div class="card-badge-row">
         <span class="badge">${item.lesson}</span>
-        <button class="icon-btn no-flip tts-btn" title="Nghe phát âm">Phát âm</button>
+        <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
+          <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+          </button>
+          <button class="icon-btn no-flip tts-btn" title="Nghe phát âm">Phát âm</button>
+        </div>
       </div>
       <div class="card-main-content">
         <div class="card-kana-sub" style="font-size: 2rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.5rem;">${item.kana}</div>
@@ -512,6 +629,7 @@ class FlashcardEngine {
 
   // 1. Thẻ học riêng Âm On
   renderKanjiOnCard(item, isFav, isLearned) {
+    const isUnremembered = window.storageManager.isUnremembered(item.id, item.rawKanjiId);
     // Front Face (Chỉ hiện chữ Hán, âm Hán-Việt, tuyệt đối không hiện âm On)
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
@@ -519,8 +637,11 @@ class FlashcardEngine {
           <span class="badge">${item.lesson}</span>
           <span class="badge">Âm On (音読み)</span>
         </div>
-        <div style="display: flex; gap: 0.5rem;" class="no-flip">
+        <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
+          <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+          </button>
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
           </button>
@@ -554,7 +675,12 @@ class FlashcardEngine {
           <span class="badge">${item.lesson} • ${item.han_viet}</span>
           <span class="badge">Âm On</span>
         </div>
-        <button class="icon-btn no-flip tts-btn">Phát âm</button>
+        <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
+          <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+          </button>
+          <button class="icon-btn no-flip tts-btn">Phát âm</button>
+        </div>
       </div>
       <div class="card-main-content" style="align-items: stretch; text-align: left;">
         <div style="text-align: center; margin-bottom: 0.75rem;">
@@ -584,6 +710,7 @@ class FlashcardEngine {
 
   // 2. Thẻ học riêng Âm Kun
   renderKanjiKunCard(item, isFav, isLearned) {
+    const isUnremembered = window.storageManager.isUnremembered(item.id, item.rawKanjiId);
     // Front Face (Chỉ hiện chữ Hán, âm Hán-Việt, tuyệt đối không hiện âm Kun)
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
@@ -591,8 +718,11 @@ class FlashcardEngine {
           <span class="badge">${item.lesson}</span>
           <span class="badge">Âm Kun (訓読み)</span>
         </div>
-        <div style="display: flex; gap: 0.5rem;" class="no-flip">
+        <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
+          <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+          </button>
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
           </button>
@@ -619,7 +749,12 @@ class FlashcardEngine {
           <span class="badge">${item.lesson} • ${item.han_viet}</span>
           <span class="badge">Âm Kun</span>
         </div>
-        <button class="icon-btn no-flip tts-btn">Phát âm</button>
+        <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
+          <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+          </button>
+          <button class="icon-btn no-flip tts-btn">Phát âm</button>
+        </div>
       </div>
       <div class="card-main-content" style="align-items: stretch; text-align: left;">
         <div style="text-align: center; margin-bottom: 0.75rem;">
@@ -652,6 +787,7 @@ class FlashcardEngine {
 
   // 3. Thẻ học riêng từng Từ Liên Quan (Từ Ghép)
   renderKanjiCompoundCard(item, isFav, isLearned) {
+    const isUnremembered = window.storageManager.isUnremembered(item.id, item.rawKanjiId);
     // Front Face (Chỉ hiện chữ Hán từ ghép và gốc Kanji, không hiện cách đọc hay nghĩa)
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
@@ -659,8 +795,11 @@ class FlashcardEngine {
           <span class="badge">${item.lesson}</span>
           <span class="badge">Từ Ghép Hán Tự</span>
         </div>
-        <div style="display: flex; gap: 0.5rem;" class="no-flip">
+        <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
+          <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+          </button>
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
           </button>
@@ -689,7 +828,12 @@ class FlashcardEngine {
           <span class="badge">${item.parentKanji} (${item.parentHanViet})</span>
           <span class="badge">${item.lesson}</span>
         </div>
-        <button class="icon-btn no-flip tts-btn">Phát âm</button>
+        <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
+          <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+          </button>
+          <button class="icon-btn no-flip tts-btn">Phát âm</button>
+        </div>
       </div>
       <div class="card-main-content">
         <div class="card-kana-sub" style="font-size: 2.2rem; font-weight: 800; color: var(--text-heading); margin-bottom: 0.5rem; font-family: var(--font-jp);">
@@ -711,12 +855,16 @@ class FlashcardEngine {
   }
 
   renderLegacyKanjiCard(item, isFav, isLearned) {
+    const isUnremembered = window.storageManager.isUnremembered(item.id, item.rawKanjiId);
     // Fallback if needed
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
         <span class="badge">${item.lesson}</span>
-        <div style="display: flex; gap: 0.5rem;" class="no-flip">
+        <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
+          <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+          </button>
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
           </button>
@@ -743,7 +891,12 @@ class FlashcardEngine {
     this.cardBack.innerHTML = `
       <div class="card-badge-row">
         <span class="badge">${item.han_viet}</span>
-        <button class="icon-btn no-flip tts-btn">Phát âm</button>
+        <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
+          <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+          </button>
+          <button class="icon-btn no-flip tts-btn">Phát âm</button>
+        </div>
       </div>
       <div class="card-main-content" style="align-items: stretch; text-align: left;">
         <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; justify-content: center;">
@@ -764,10 +917,14 @@ class FlashcardEngine {
   }
 
   renderGrammarCard(item, isFav, isLearned) {
+    const isUnremembered = window.storageManager.isUnremembered(item.id);
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
         <span class="badge">${item.lesson}</span>
-        <div style="display: flex; gap: 0.5rem;" class="no-flip">
+        <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
+          <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+          </button>
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
           </button>
@@ -789,7 +946,12 @@ class FlashcardEngine {
     this.cardBack.innerHTML = `
       <div class="card-badge-row">
         <span class="badge">${item.lesson}</span>
-        <button class="icon-btn no-flip tts-btn">Phát âm</button>
+        <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
+          <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
+            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+          </button>
+          <button class="icon-btn no-flip tts-btn">Phát âm</button>
+        </div>
       </div>
       <div class="card-main-content" style="align-items: stretch; text-align: left;">
         ${item.points ? `<div class="grammar-point-box" style="margin-bottom: 0.75rem;">${item.points}</div>` : ''}
@@ -824,6 +986,27 @@ class FlashcardEngine {
         btn.innerHTML = active ? 'Đã lưu' : 'Lưu';
         window.soundEngine.playFavorite(active);
         window.app.showToast(active ? 'Đã thêm vào mục yêu thích!' : 'Đã bỏ yêu thích', 'info');
+      });
+    });
+
+    // Attach Unremembered toggle button
+    document.querySelectorAll('.unremembered-toggle-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const targetId = item.rawKanjiId || item.id;
+        const active = window.storageManager.toggleUnremembered(targetId);
+        // Update all unremembered buttons on current card
+        document.querySelectorAll('.unremembered-toggle-btn').forEach(b => {
+          b.classList.toggle('active', active);
+          b.innerHTML = active ? '⚠️ Chưa nhớ' : 'Chưa nhớ';
+          b.title = active ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại';
+        });
+        window.soundEngine.playToggle(active);
+        window.app.showToast(active ? 'Đã thêm vào danh sách CHƯA NHỚ để ôn tập!' : 'Đã bỏ đánh dấu chưa nhớ', active ? 'warning' : 'info');
+        this.updateSelectorChips();
+        if (window.app && typeof window.app.updateStats === 'function') {
+          window.app.updateStats();
+        }
       });
     });
   }

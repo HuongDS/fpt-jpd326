@@ -6,6 +6,7 @@
 const STORAGE_KEYS = {
   LEARNED: 'jpd326_learned_items',
   FAVORITES: 'jpd326_favorites',
+  UNREMEMBERED: 'jpd326_unremembered_items',
   SRS_DATA: 'jpd326_srs_records',
   STATS: 'jpd326_user_stats'
 };
@@ -14,6 +15,7 @@ class StorageManager {
   constructor() {
     this.learned = this.load(STORAGE_KEYS.LEARNED, {});
     this.favorites = this.load(STORAGE_KEYS.FAVORITES, {});
+    this.unremembered = this.load(STORAGE_KEYS.UNREMEMBERED, {});
     this.srs = this.load(STORAGE_KEYS.SRS_DATA, {});
     this.stats = this.load(STORAGE_KEYS.STATS, {
       streakDays: 1,
@@ -74,18 +76,71 @@ class StorageManager {
     return !!this.favorites[id];
   }
 
+  // --------------------------------------------------------------------------
+  // Unremembered Items (Danh sách từ bị đánh dấu là CHƯA NHỚ / CẦN ÔN LẠI)
+  // --------------------------------------------------------------------------
+  markUnremembered(id, flag = true) {
+    if (flag) {
+      this.unremembered[id] = true;
+      delete this.learned[id];
+    } else {
+      delete this.unremembered[id];
+    }
+    this.save(STORAGE_KEYS.UNREMEMBERED, this.unremembered);
+    this.save(STORAGE_KEYS.LEARNED, this.learned);
+    return !!this.unremembered[id];
+  }
+
+  toggleUnremembered(id) {
+    return this.markUnremembered(id, !this.unremembered[id]);
+  }
+
+  isUnremembered(id, rawId = null) {
+    if (this.unremembered[id]) return true;
+    if (rawId && this.unremembered[rawId]) return true;
+    return false;
+  }
+
+  markBatchUnremembered(items) {
+    if (!items || !Array.isArray(items)) return;
+    items.forEach(item => {
+      const id = typeof item === 'string' ? item : (item.id || item.rawKanjiId);
+      if (id) {
+        this.unremembered[id] = true;
+        delete this.learned[id];
+      }
+    });
+    this.save(STORAGE_KEYS.UNREMEMBERED, this.unremembered);
+    this.save(STORAGE_KEYS.LEARNED, this.learned);
+  }
+
+  getUnrememberedCount(prefix = '') {
+    if (!prefix) return Object.keys(this.unremembered).length;
+    return Object.keys(this.unremembered).filter(id => id.startsWith(prefix)).length;
+  }
+
   // Mark as Learned / SRS rating
   recordReview(id, rating) {
-    // rating: 1 (again), 2 (hard), 3 (good), 4 (easy)
+    // rating: 1 (again / chưa thuộc / chưa nhớ), 2 (hard / khó nhớ), 3 (good / đã nhớ), 4 (easy / quá dễ)
     const now = Date.now();
     let record = this.srs[id] || { level: 0, reviews: 0, lastReviewed: now };
 
     if (rating === 1) {
       record.level = Math.max(0, record.level - 1);
-    } else if (rating === 4) {
-      record.level += 2;
-    } else {
+      // Đánh dấu ngay vào danh sách chưa nhớ
+      this.unremembered[id] = true;
+      delete this.learned[id];
+    } else if (rating === 2) {
       record.level += 1;
+      // Khó nhớ: giữ lại trong danh sách nếu đã có
+    } else {
+      // Rating 3 (Đã nhớ) hoặc 4 (Quá dễ): Xóa khỏi danh sách chưa nhớ!
+      delete this.unremembered[id];
+      if (rating === 4) {
+        record.level += 2;
+      } else {
+        record.level += 1;
+      }
     }
 
     record.reviews += 1;
@@ -101,6 +156,7 @@ class StorageManager {
     this.stats.totalReviews += 1;
     this.save(STORAGE_KEYS.SRS_DATA, this.srs);
     this.save(STORAGE_KEYS.LEARNED, this.learned);
+    this.save(STORAGE_KEYS.UNREMEMBERED, this.unremembered);
     this.save(STORAGE_KEYS.STATS, this.stats);
   }
 
@@ -125,6 +181,7 @@ class StorageManager {
   resetAllProgress() {
     this.learned = {};
     this.favorites = {};
+    this.unremembered = {};
     this.srs = {};
     this.stats = {
       streakDays: 1,
@@ -134,6 +191,7 @@ class StorageManager {
     };
     this.save(STORAGE_KEYS.LEARNED, this.learned);
     this.save(STORAGE_KEYS.FAVORITES, this.favorites);
+    this.save(STORAGE_KEYS.UNREMEMBERED, this.unremembered);
     this.save(STORAGE_KEYS.SRS_DATA, this.srs);
     this.save(STORAGE_KEYS.STATS, this.stats);
   }

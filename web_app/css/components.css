@@ -2519,4 +2519,132 @@
   transition: width 1s linear;
 }
 
+/* --------------------------------------------------------------------------
+   12. UNREMEMBERED WORDS REVIEW (Ôn lại các từ chưa nhớ)
+   -------------------------------------------------------------------------- */
+.btn-warning {
+  background: #F59E0B;
+  color: #FFFFFF !important;
+  border: 1px solid #D97706;
+}
+
+.btn-warning:hover {
+  background: #D97706;
+  border-color: #B45309;
+}
+
+[data-theme="dark"] .btn-warning {
+  background: #D97706;
+  color: #FFFFFF !important;
+  border-color: #B45309;
+}
+
+[data-theme="dark"] .btn-warning:hover {
+  background: #B45309;
+}
+
+.filter-chip.chip-unremembered {
+  border-color: #FCD34D;
+  background: #FFFBEB;
+  color: #B45309;
+  font-weight: 700;
+}
+
+.filter-chip.chip-unremembered:hover {
+  background: #FEF3C7;
+  border-color: #F59E0B;
+  color: #92400E;
+}
+
+.filter-chip.chip-unremembered.active {
+  background: #F59E0B !important;
+  border-color: #D97706 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.25);
+}
+
+[data-theme="dark"] .filter-chip.chip-unremembered {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #FCD34D;
+}
+
+[data-theme="dark"] .filter-chip.chip-unremembered.active {
+  background: #D97706 !important;
+  border-color: #B45309 !important;
+  color: #FFFFFF !important;
+}
+
+.unremembered-toggle-btn {
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.unremembered-toggle-btn:hover {
+  background: #FFFBEB;
+  border-color: #FCD34D;
+  color: #B45309;
+}
+
+.unremembered-toggle-btn.active {
+  background: #FEF3C7;
+  border-color: #F59E0B;
+  color: #B45309;
+}
+
+[data-theme="dark"] .unremembered-toggle-btn.active {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: #F59E0B;
+  color: #FCD34D;
+}
+
+.dash-unremembered-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: #FFFBEB;
+  border: 1px solid #FCD34D;
+  border-left: 4px solid #F59E0B;
+  border-radius: 12px;
+  padding: 0.9rem 1.25rem;
+  margin: 1rem 0;
+  box-shadow: 0 1px 3px rgba(245, 158, 11, 0.08);
+}
+
+[data-theme="dark"] .dash-unremembered-banner {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.35);
+  border-left: 4px solid #F59E0B;
+}
+
+.dash-unremembered-banner .btn {
+  background: #D97706;
+  border-color: #B45309;
+  color: #FFFFFF;
+}
+
+.dash-unremembered-banner .btn:hover {
+  background: #B45309;
+}
+
+.kanji-card-item.kanji-unremembered-card {
+  border-color: #FCD34D !important;
+  box-shadow: 0 0 0 1px #F59E0B, 0 4px 12px rgba(245, 158, 11, 0.12);
+}
+
+[data-theme="dark"] .kanji-card-item.kanji-unremembered-card {
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.6), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
 
