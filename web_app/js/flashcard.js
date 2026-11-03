@@ -181,12 +181,12 @@ class FlashcardEngine {
 
         const labelMap = {
           'all': 'Toàn bộ',
-          'unremembered': '⚠️ Chưa nhớ',
+          'unremembered': 'Chưa nhớ',
           'vocab': 'Từ vựng',
-          'kanji-all': 'Hán tự (Tất cả)',
+          'kanji-all': 'Hán tự',
           'kanji-on': 'Âm On',
           'kanji-kun': 'Âm Kun',
-          'kanji-compounds': 'Từ ghép Hán tự',
+          'kanji-compounds': 'Từ ghép',
           'grammar': 'Ngữ pháp'
         };
 
@@ -576,7 +576,7 @@ class FlashcardEngine {
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+            Chưa nhớ
           </button>
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}" title="Đánh dấu">
             ${isFav ? 'Đã lưu' : 'Lưu'}
@@ -597,7 +597,7 @@ class FlashcardEngine {
         <span class="badge">${item.lesson}</span>
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+            Chưa nhớ
           </button>
           <button class="icon-btn no-flip tts-btn" title="Nghe phát âm">Phát âm</button>
         </div>
@@ -640,7 +640,7 @@ class FlashcardEngine {
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+            Chưa nhớ
           </button>
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
@@ -677,7 +677,7 @@ class FlashcardEngine {
         </div>
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+            Chưa nhớ
           </button>
           <button class="icon-btn no-flip tts-btn">Phát âm</button>
         </div>
@@ -721,7 +721,7 @@ class FlashcardEngine {
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+            Chưa nhớ
           </button>
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
@@ -751,7 +751,7 @@ class FlashcardEngine {
         </div>
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+            Chưa nhớ
           </button>
           <button class="icon-btn no-flip tts-btn">Phát âm</button>
         </div>
@@ -798,7 +798,7 @@ class FlashcardEngine {
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+            Chưa nhớ
           </button>
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
@@ -830,7 +830,7 @@ class FlashcardEngine {
         </div>
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+            Chưa nhớ
           </button>
           <button class="icon-btn no-flip tts-btn">Phát âm</button>
         </div>
@@ -863,7 +863,7 @@ class FlashcardEngine {
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+            Chưa nhớ
           </button>
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
@@ -893,7 +893,7 @@ class FlashcardEngine {
         <span class="badge">${item.han_viet}</span>
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+            Chưa nhớ
           </button>
           <button class="icon-btn no-flip tts-btn">Phát âm</button>
         </div>
@@ -923,7 +923,7 @@ class FlashcardEngine {
         <span class="badge">${item.lesson}</span>
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+            Chưa nhớ
           </button>
           <button class="icon-btn no-flip fav-toggle-btn ${isFav ? 'active' : ''}" data-id="${item.id}">
             ${isFav ? 'Đã lưu' : 'Lưu'}
@@ -948,7 +948,7 @@ class FlashcardEngine {
         <span class="badge">${item.lesson}</span>
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-            ${isUnremembered ? '⚠️ Chưa nhớ' : 'Chưa nhớ'}
+            Chưa nhớ
           </button>
           <button class="icon-btn no-flip tts-btn">Phát âm</button>
         </div>
@@ -998,11 +998,11 @@ class FlashcardEngine {
         // Update all unremembered buttons on current card
         document.querySelectorAll('.unremembered-toggle-btn').forEach(b => {
           b.classList.toggle('active', active);
-          b.innerHTML = active ? '⚠️ Chưa nhớ' : 'Chưa nhớ';
+          b.innerHTML = 'Chưa nhớ';
           b.title = active ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại';
         });
         window.soundEngine.playToggle(active);
-        window.app.showToast(active ? 'Đã thêm vào danh sách CHƯA NHỚ để ôn tập!' : 'Đã bỏ đánh dấu chưa nhớ', active ? 'warning' : 'info');
+        window.app.showToast(active ? 'Đã thêm vào danh sách Chưa nhớ để ôn tập!' : 'Đã bỏ đánh dấu chưa nhớ', active ? 'warning' : 'info');
         this.updateSelectorChips();
         if (window.app && typeof window.app.updateStats === 'function') {
           window.app.updateStats();
@@ -1018,7 +1018,7 @@ class FlashcardEngine {
     if (this.autoPlayBtn) {
       this.autoPlayBtn.classList.toggle('btn-primary', this.isAutoPlaying);
       this.autoPlayBtn.classList.toggle('btn-secondary', !this.isAutoPlaying);
-      this.autoPlayBtn.innerHTML = this.isAutoPlaying ? 'Tạm dừng chạy tự động' : 'Chạy tự động (Hands-free)';
+      this.autoPlayBtn.innerHTML = this.isAutoPlaying ? 'Tạm dừng' : 'Chạy tự động';
     }
 
     if (this.isAutoPlaying) {

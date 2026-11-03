@@ -1236,7 +1236,7 @@ class App {
           <td style="text-align: center;">
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.2rem;">
               <span class="table-kanji-cell" style="font-size: 1.4rem;">${k.kanji}</span>
-              ${isUnremembered ? '<span style="font-size: 0.68rem; color: #D97706; font-weight: 700;">⚠️ Chưa nhớ</span>' : ''}
+              ${isUnremembered ? '<span style="font-size: 0.68rem; color: #D97706; font-weight: 700;">Chưa nhớ</span>' : ''}
             </div>
           </td>
           <td><strong>${k.han_viet}</strong></td>
@@ -1280,7 +1280,7 @@ class App {
 
     html += `
       <button class="filter-chip chip-unremembered ${this.kanjiStatusFilter === 'unremembered' ? 'active' : ''}" data-status="unremembered">
-        ⚠️ Chưa nhớ (${unrememberedKanjiCount})
+        Chưa nhớ (${unrememberedKanjiCount})
       </button>
     `;
 
@@ -1343,7 +1343,7 @@ class App {
           <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
             <span class="badge" style="font-size: 0.72rem;">${k.lesson}</span>
             <div style="display: flex; gap: 0.35rem; align-items: center;">
-              ${isUnremembered ? '<span class="badge" style="background: #FEF3C7; color: #D97706; border-color: #FCD34D; font-size: 0.7rem; font-weight: 700;">⚠️ Chưa nhớ</span>' : ''}
+              ${isUnremembered ? '<span class="badge" style="background: #FFF7ED; color: #C2410C; border-color: #FED7AA; font-size: 0.7rem; font-weight: 700;">Chưa nhớ</span>' : ''}
               ${isLearned ? '<span style="color: var(--text-muted); font-size: 0.75rem; font-weight: 600;">Đã thuộc</span>' : ''}
             </div>
           </div>
@@ -1399,7 +1399,7 @@ class App {
       const updateUnrememberedBtnState = () => {
         const isUnremembered = window.storageManager.isUnremembered(k.id);
         unrememberedBtn.classList.toggle('active', isUnremembered);
-        unrememberedBtn.textContent = isUnremembered ? '⚠️ Bỏ Chưa nhớ' : '⚠️ Đánh dấu Chưa nhớ';
+        unrememberedBtn.textContent = isUnremembered ? 'Bỏ Chưa nhớ' : 'Chưa nhớ';
       };
       updateUnrememberedBtnState();
 
@@ -1407,7 +1407,7 @@ class App {
         const active = window.storageManager.toggleUnremembered(k.id);
         updateUnrememberedBtnState();
         window.soundEngine.playToggle(active);
-        this.showToast(active ? `Đã thêm chữ ${k.kanji} vào danh sách CHƯA NHỚ!` : `Đã bỏ đánh dấu chưa nhớ chữ ${k.kanji}`, active ? 'warning' : 'info');
+        this.showToast(active ? `Đã thêm chữ ${k.kanji} vào danh sách Chưa nhớ!` : `Đã bỏ đánh dấu chưa nhớ chữ ${k.kanji}`, active ? 'warning' : 'info');
         this.renderKanjiFilters();
         this.updateKanjiView();
         this.updateDashboardStats();
@@ -1494,7 +1494,7 @@ class App {
 
     html += `
       <button class="filter-chip chip-unremembered ${this.vocabStatusFilter === 'unremembered' ? 'active' : ''}" data-status="unremembered">
-        ⚠️ Chưa nhớ (${unrememberedVocabCount})
+        Chưa nhớ (${unrememberedVocabCount})
       </button>
     `;
 
@@ -1564,7 +1564,7 @@ class App {
                 ${isFav ? 'Đã lưu' : 'Lưu'}
               </button>
               <button class="icon-btn btn-sm unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${v.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
-                ${isUnremembered ? '⚠️' : '⚪'}
+                ${isUnremembered ? 'Chưa nhớ' : 'Chưa nhớ'}
               </button>
             </div>
           </td>
@@ -1609,7 +1609,7 @@ class App {
         const id = btn.dataset.id;
         const active = window.storageManager.toggleUnremembered(id);
         btn.classList.toggle('active', active);
-        btn.innerHTML = active ? '⚠️' : '⚪';
+        btn.innerHTML = 'Chưa nhớ';
         btn.title = active ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại';
         window.soundEngine.playToggle(active);
         this.renderVocabFilters();

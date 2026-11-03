@@ -341,8 +341,28 @@
 /* --------------------------------------------------------------------------
    2. FLASHCARD SRS ENGINE (3D FLIP)
    -------------------------------------------------------------------------- */
+.fc-deck-selector {
+  max-width: 960px;
+  margin: 0 auto 1.15rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.fc-filter-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  align-self: center;
+  margin-right: 0.25rem;
+  white-space: nowrap;
+}
+
 .flashcard-arena {
-  max-width: 760px;
+  max-width: 940px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -354,33 +374,57 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.15rem;
-  padding: 0.45rem 0.85rem;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding: 0.55rem 1rem;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: var(--shadow-sm);
+  flex-wrap: wrap;
 }
 
 .card-counter {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .card-counter strong {
   color: var(--text-heading);
+  font-weight: 800;
+}
+
+.card-counter .counter-lesson {
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-left: 0.35rem;
+  white-space: nowrap;
 }
 
 .flashcard-options {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.flashcard-options .btn,
+.flashcard-options .icon-btn {
+  white-space: nowrap !important;
+  flex-shrink: 0;
+  font-size: 0.82rem;
+  padding: 0.38rem 0.75rem;
+  border-radius: 8px;
+  height: auto;
+  line-height: 1.3;
 }
 
 .flashcard-stage {
   width: 100%;
-  height: 410px;
+  height: 460px;
   perspective: 1200px;
   margin-bottom: 1.5rem;
   cursor: pointer;
@@ -406,8 +450,8 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 16px;
-  padding: 2rem 2.25rem;
+  border-radius: 18px;
+  padding: 2.25rem 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -527,16 +571,17 @@
 /* Rating Controls */
 .flashcard-ratings {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.85rem;
   width: 100%;
+  max-width: 720px;
   justify-content: center;
 }
 
 .rating-btn {
   flex: 1;
-  max-width: 130px;
-  padding: 0.65rem 0.5rem;
-  border-radius: 10px;
+  max-width: 160px;
+  padding: 0.75rem 0.65rem;
+  border-radius: 12px;
   border: 1px solid var(--border-subtle);
   background: var(--bg-card);
   color: var(--text-primary);
@@ -544,7 +589,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.25rem;
   font-family: var(--font-body);
   transition: all var(--transition-fast);
   box-shadow: var(--shadow-sm);
@@ -2522,88 +2567,93 @@
 /* --------------------------------------------------------------------------
    12. UNREMEMBERED WORDS REVIEW (Ôn lại các từ chưa nhớ)
    -------------------------------------------------------------------------- */
-.btn-warning {
-  background: #F59E0B;
-  color: #FFFFFF !important;
-  border: 1px solid #D97706;
+.btn-fc-unremembered {
+  border-color: #FED7AA !important;
+  background: #FFF7ED !important;
+  color: #C2410C !important;
+  font-weight: 600 !important;
 }
 
-.btn-warning:hover {
-  background: #D97706;
-  border-color: #B45309;
+.btn-fc-unremembered:hover {
+  background: #FFEDD5 !important;
+  border-color: #FDBA74 !important;
+  color: #9A3412 !important;
 }
 
-[data-theme="dark"] .btn-warning {
-  background: #D97706;
-  color: #FFFFFF !important;
-  border-color: #B45309;
+[data-theme="dark"] .btn-fc-unremembered {
+  background: rgba(242, 112, 36, 0.15) !important;
+  border-color: rgba(242, 112, 36, 0.35) !important;
+  color: #FB923C !important;
 }
 
-[data-theme="dark"] .btn-warning:hover {
-  background: #B45309;
+[data-theme="dark"] .btn-fc-unremembered:hover {
+  background: rgba(242, 112, 36, 0.25) !important;
+  border-color: #F97316 !important;
 }
 
 .filter-chip.chip-unremembered {
-  border-color: #FCD34D;
-  background: #FFFBEB;
-  color: #B45309;
-  font-weight: 700;
+  border-color: #FED7AA;
+  background: #FFF7ED;
+  color: #C2410C;
+  font-weight: 600;
 }
 
 .filter-chip.chip-unremembered:hover {
-  background: #FEF3C7;
-  border-color: #F59E0B;
-  color: #92400E;
+  background: #FFEDD5;
+  border-color: #FDBA74;
+  color: #9A3412;
 }
 
 .filter-chip.chip-unremembered.active {
-  background: #F59E0B !important;
-  border-color: #D97706 !important;
+  background: #EA580C !important;
+  border-color: #C2410C !important;
   color: #FFFFFF !important;
-  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 2px 6px rgba(234, 88, 12, 0.25);
 }
 
 [data-theme="dark"] .filter-chip.chip-unremembered {
-  background: rgba(245, 158, 11, 0.15);
-  border-color: rgba(245, 158, 11, 0.4);
-  color: #FCD34D;
+  background: rgba(242, 112, 36, 0.15);
+  border-color: rgba(242, 112, 36, 0.35);
+  color: #FB923C;
 }
 
 [data-theme="dark"] .filter-chip.chip-unremembered.active {
-  background: #D97706 !important;
-  border-color: #B45309 !important;
+  background: #EA580C !important;
+  border-color: #C2410C !important;
   color: #FFFFFF !important;
 }
 
 .unremembered-toggle-btn {
   border: 1px solid var(--border-subtle);
   border-radius: 6px;
-  padding: 0.2rem 0.55rem;
-  font-size: 0.75rem;
-  font-weight: 700;
+  padding: 0.22rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 600;
   color: var(--text-secondary);
-  background: transparent;
+  background: var(--bg-card);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
   user-select: none;
+  white-space: nowrap;
 }
 
 .unremembered-toggle-btn:hover {
-  background: #FFFBEB;
-  border-color: #FCD34D;
-  color: #B45309;
+  background: #FFF7ED;
+  border-color: #FED7AA;
+  color: #C2410C;
 }
 
 .unremembered-toggle-btn.active {
-  background: #FEF3C7;
-  border-color: #F59E0B;
-  color: #B45309;
+  background: #FFF7ED;
+  border-color: #F97316;
+  color: #C2410C;
+  font-weight: 700;
 }
 
 [data-theme="dark"] .unremembered-toggle-btn.active {
-  background: rgba(245, 158, 11, 0.2);
-  border-color: #F59E0B;
-  color: #FCD34D;
+  background: rgba(242, 112, 36, 0.2);
+  border-color: #F97316;
+  color: #FB923C;
 }
 
 .dash-unremembered-banner {
