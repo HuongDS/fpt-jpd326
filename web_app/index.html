@@ -384,6 +384,17 @@
                 <span class="badge" id="speaking-sit-badge">第 6 課</span>
                 <h4 id="speaking-sit-title" style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Bài 6.1: Tư vấn ăn uống bồi bổ</h4>
               </div>
+              <div class="speaking-header-order-box">
+                <span class="order-box-label">Ai nói trước:</span>
+                <div class="speaker-order-toggle" role="group" aria-label="Chọn người mở lời trước">
+                  <button type="button" class="speaker-order-btn active" data-first-speaker="a" title="Người A là người mở lời trước">
+                    <span class="speaker-pill-dot a"></span> Người A nói trước
+                  </button>
+                  <button type="button" class="speaker-order-btn" data-first-speaker="b" title="Người B là người mở lời trước">
+                    <span class="speaker-pill-dot b"></span> Người B nói trước
+                  </button>
+                </div>
+              </div>
             </div>
             <div class="speaking-roles-grid">
               <div class="speaking-role-box" id="speaking-role-a-task">
@@ -416,7 +427,7 @@
               </div>
 
               <div class="a-input-wrapper">
-                <label for="speaking-a-turn-input" class="input-label">Câu thoại tiếng Nhật của Người A ở lượt này:</label>
+                <label for="speaking-a-turn-input" class="input-label" id="speaking-a-input-label">Câu thoại tiếng Nhật của Người A ở lượt này:</label>
                 <textarea id="speaking-a-turn-input" class="jp-font" placeholder="Ví dụ: 最近、なんだか食欲がなくて... どうしたらいいでしょうか。" rows="3"></textarea>
                 <div class="input-tip">Mẹo: Nhấn Enter để lưu và tự động chuyển sang lượt nói kế tiếp.</div>
               </div>
@@ -444,7 +455,8 @@
               </div>
 
               <div class="b-input-wrapper">
-                <label for="speaking-b-raw-input" class="input-label">Mỗi gạch đầu dòng (-) là một lượt nói của Người B:</label>
+                <label for="speaking-b-raw-input" class="input-label" id="speaking-b-input-label">Mỗi gạch đầu dòng (-) là một lượt nói của Người B:</label>
+                <span id="speaking-b-order-hint" style="font-size: 0.78rem; color: var(--text-muted); display: block; margin-top: -0.25rem; margin-bottom: 0.4rem;"></span>
                 <textarea id="speaking-b-raw-input" class="jp-font" placeholder="- Câu đối đáp lượt 1 của B&#10;- Câu đối đáp lượt 2 của B&#10;- Câu đối đáp lượt 3 của B..." rows="5"></textarea>
               </div>
 
@@ -464,6 +476,18 @@
                 <option value="b">Tôi đóng vai Người B (Luyện B)</option>
               </select>
               <button class="btn btn-secondary btn-sm" id="btn-toggle-hide-role">Hiện đầy đủ lời thoại</button>
+
+              <div class="toolbar-order-box">
+                <span class="toolbar-label">Thứ tự:</span>
+                <div class="speaker-order-toggle" role="group" aria-label="Thứ tự nói">
+                  <button type="button" class="speaker-order-btn active" data-first-speaker="a" title="Người A mở lời trước">
+                    <span class="speaker-pill-dot a"></span> A nói trước
+                  </button>
+                  <button type="button" class="speaker-order-btn" data-first-speaker="b" title="Người B mở lời trước">
+                    <span class="speaker-pill-dot b"></span> B nói trước
+                  </button>
+                </div>
+              </div>
             </div>
 
             <div class="toolbar-right">

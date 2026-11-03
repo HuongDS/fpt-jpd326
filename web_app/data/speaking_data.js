@@ -253,6 +253,7 @@ window.SPEAKING_DATA = [
     id: "bai_10_1",
     lesson: "第 10 課",
     code: "Bài 10.1",
+    default_first_speaker: "b",
     title: "Gọi điện đến quán cà phê tìm ví bỏ quên và nhờ gửi chuyển phát COD",
     jp_title: "忘れ物の問い合わせ・着払い配送",
     roleA: {

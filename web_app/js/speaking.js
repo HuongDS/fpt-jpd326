@@ -10,6 +10,7 @@ class SpeakingEngine {
     this.currentSitIndex = 0;
     this.turns = []; // [{ a: '', b: '', vi_a: '', vi_b: '' }]
     this.currentTurnIdxA = 0;
+    this.firstSpeaker = 'a'; // 'a' | 'b' (Người A nói trước vs Người B nói trước)
     this.roleplayRole = 'none'; // 'a' | 'b' | 'none'
     this.hideMyRole = false;
     this.isPlayingAll = false;
@@ -124,6 +125,14 @@ class SpeakingEngine {
       });
     }
 
+    // 6. First Speaker Order Controls (Người A nói trước vs Người B nói trước)
+    document.querySelectorAll('.speaker-order-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const role = btn.dataset.firstSpeaker;
+        if (role) this.setFirstSpeaker(role);
+      });
+    });
+
     // Load first situation
     this.selectSituation(0);
   }
@@ -151,10 +160,60 @@ class SpeakingEngine {
     }
 
     this.currentTurnIdxA = 0;
+
+    // Load persisted first speaker order or situation default
+    const savedFirst = localStorage.getItem(`jpd326_speaking_${sit.id}_first_speaker`);
+    if (savedFirst === 'a' || savedFirst === 'b') {
+      this.firstSpeaker = savedFirst;
+    } else if (sit.default_first_speaker) {
+      this.firstSpeaker = sit.default_first_speaker;
+    } else {
+      this.firstSpeaker = 'a';
+    }
+    this.updateFirstSpeakerUI();
+
     this.renderSituationDetails(sit);
     this.populateBTextarea();
     this.renderTurnAEditor();
     this.renderTimeline();
+  }
+
+  /**
+   * Sets who initiates the conversation (A speaks first vs B speaks first)
+   */
+  setFirstSpeaker(role) {
+    if (role !== 'a' && role !== 'b') return;
+    this.firstSpeaker = role;
+
+    const sit = this.situations[this.currentSitIndex];
+    if (sit) {
+      localStorage.setItem(`jpd326_speaking_${sit.id}_first_speaker`, role);
+    }
+
+    this.updateFirstSpeakerUI();
+    this.renderTurnAEditor();
+    this.renderTimeline();
+
+    if (window.soundEngine) {
+      window.soundEngine.playToggle(role === 'b');
+    }
+    const label = role === 'b' ? 'Người B nói trước (B ➔ A)' : 'Người A nói trước (A ➔ B)';
+    window.app?.showToast(`Đã chọn thứ tự: ${label}`, 'info');
+  }
+
+  /**
+   * Synchronizes active state across all speaker-order-btn elements
+   */
+  updateFirstSpeakerUI() {
+    document.querySelectorAll('.speaker-order-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.firstSpeaker === this.firstSpeaker);
+    });
+    const bHint = document.getElementById('speaking-b-order-hint');
+    if (bHint) {
+      bHint.textContent = this.firstSpeaker === 'b'
+        ? '(Người B mở lời trước — Lượt 1 của file là câu mở đầu cuộc trò chuyện)'
+        : '(Người A mở lời trước — Người B đáp lại câu nói của A)';
+    }
   }
 
   /**
@@ -316,6 +375,7 @@ class SpeakingEngine {
     const currentTurn = this.turns[this.currentTurnIdxA];
     const indicator = document.getElementById('speaking-a-turn-indicator');
     const input = document.getElementById('speaking-a-turn-input');
+    const inputLabel = document.getElementById('speaking-a-input-label');
     const bContextBox = document.getElementById('speaking-a-b-context');
     const prevBtn = document.getElementById('btn-a-prev');
 
@@ -323,8 +383,19 @@ class SpeakingEngine {
       indicator.textContent = `Lượt nói số ${this.currentTurnIdxA + 1} / ${this.turns.length}`;
     }
 
+    if (inputLabel) {
+      if (this.firstSpeaker === 'b') {
+        inputLabel.innerHTML = `Câu thoại <strong>Người A đáp lại</strong> Người B ở lượt này:`;
+      } else {
+        inputLabel.innerHTML = `Câu thoại tiếng Nhật của <strong>Người A mở lời</strong> ở lượt này:`;
+      }
+    }
+
     if (input) {
       input.value = currentTurn.a || '';
+      input.placeholder = this.firstSpeaker === 'b'
+        ? 'Nhập câu thoại của Người A đáp lại lời Người B...'
+        : 'Ví dụ: 最近、なんだか食欲がなくて... どうしたらいいでしょうか。';
       input.focus();
     }
 
@@ -333,21 +404,43 @@ class SpeakingEngine {
     }
 
     if (bContextBox) {
-      if (currentTurn.b && currentTurn.b.trim()) {
-        bContextBox.innerHTML = `
-          <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.2rem;">LƯỢT NÓI CỦA NGƯỜI B ĐỐI ĐÁP LẠI:</div>
-          <div class="jp-font" style="font-weight: 600; color: var(--text-heading); font-size: 0.95rem;">
-            「 ${currentTurn.b} 」
-          </div>
-        `;
-        bContextBox.style.display = 'block';
+      const hasB = currentTurn.b && currentTurn.b.trim();
+      if (this.firstSpeaker === 'b') {
+        if (hasB) {
+          bContextBox.innerHTML = `
+            <div style="font-size: 0.78rem; font-weight: 700; color: #3B82F6; margin-bottom: 0.2rem; display: flex; align-items: center; gap: 4px;">
+              <span>🗣️ CÂU NÓI TRƯỚC CỦA NGƯỜI B (LƯỢT ${this.currentTurnIdxA + 1}):</span>
+            </div>
+            <div class="jp-font" style="font-weight: 600; color: var(--text-heading); font-size: 0.96rem; line-height: 1.5;">
+              「 ${currentTurn.b} 」
+            </div>
+          `;
+          bContextBox.style.display = 'block';
+        } else {
+          bContextBox.innerHTML = `
+            <div style="font-size: 0.78rem; color: var(--text-muted); font-style: italic;">
+              (Người B nói trước nhưng chưa có câu thoại ở lượt này. Bạn có thể nạp file thoại B ở khung bên phải).
+            </div>
+          `;
+          bContextBox.style.display = 'block';
+        }
       } else {
-        bContextBox.innerHTML = `
-          <div style="font-size: 0.78rem; color: var(--text-muted); font-style: italic;">
-            (Người B chưa có câu thoại ở lượt này. Bạn có thể nạp file thoại B ở khung bên cạnh).
-          </div>
-        `;
-        bContextBox.style.display = 'block';
+        if (hasB) {
+          bContextBox.innerHTML = `
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.2rem;">LƯỢT NÓI CỦA NGƯỜI B ĐỐI ĐÁP LẠI (LƯỢT ${this.currentTurnIdxA + 1}):</div>
+            <div class="jp-font" style="font-weight: 600; color: var(--text-heading); font-size: 0.95rem;">
+              「 ${currentTurn.b} 」
+            </div>
+          `;
+          bContextBox.style.display = 'block';
+        } else {
+          bContextBox.innerHTML = `
+            <div style="font-size: 0.78rem; color: var(--text-muted); font-style: italic;">
+              (Người B chưa có câu thoại ở lượt này. Bạn có thể nạp file thoại B ở khung bên phải).
+            </div>
+          `;
+          bContextBox.style.display = 'block';
+        }
       }
     }
   }
@@ -431,37 +524,59 @@ class SpeakingEngine {
       const hideA = (this.roleplayRole === 'a' && this.hideMyRole);
       const hideB = (this.roleplayRole === 'b' && this.hideMyRole);
 
+      const bubbleA = `
+        <!-- Bubble A (Người A) -->
+        <div class="chat-turn-item side-a ${hideA ? 'blurred' : ''}" data-role="a">
+          <div class="chat-speaker-header">
+            <div class="speaker-meta">
+              <span class="speaker-pill a">Người A</span>
+              <span class="speaker-order-tag">${this.firstSpeaker === 'a' ? '1. Mở lời' : '2. Đáp lại'}</span>
+            </div>
+            <div class="chat-actions">
+              <button class="icon-btn btn-sm btn-speak-turn" data-text="${encodeURIComponent(turn.a || '')}" title="Nghe phát âm câu A">Nghe</button>
+              <button class="icon-btn btn-sm btn-edit-turn-a" data-idx="${idx}" title="Chỉnh sửa câu A này">Sửa</button>
+            </div>
+          </div>
+          <div class="chat-bubble-text jp-font">${turn.a || '<span style="color: var(--text-muted); font-style: italic;">(Chưa nhập câu thoại của A)</span>'}</div>
+          ${turn.vi_a ? `<div class="chat-bubble-sub">${turn.vi_a}</div>` : ''}
+          ${hideA ? `<button class="btn btn-sm btn-reveal-secret" data-target="a-${idx}">Bấm để xem lời thoại</button>` : ''}
+        </div>
+      `;
+
+      const bubbleB = `
+        <!-- Bubble B (Người B) -->
+        <div class="chat-turn-item side-b ${hideB ? 'blurred' : ''}" data-role="b">
+          <div class="chat-speaker-header">
+            <div class="speaker-meta">
+              <span class="speaker-pill b">Người B</span>
+              <span class="speaker-order-tag">${this.firstSpeaker === 'b' ? '1. Mở lời' : '2. Đáp lại'}</span>
+            </div>
+            <div class="chat-actions">
+              <button class="icon-btn btn-sm btn-speak-turn" data-text="${encodeURIComponent(turn.b || '')}" title="Nghe phát âm câu B">Nghe</button>
+              <button class="icon-btn btn-sm btn-del-turn" data-idx="${idx}" title="Xóa toàn bộ lượt này">Xóa</button>
+            </div>
+          </div>
+          <div class="chat-bubble-text jp-font">${turn.b || '<span style="color: var(--text-muted); font-style: italic;">(Chưa nhập câu thoại của B)</span>'}</div>
+          ${turn.vi_b ? `<div class="chat-bubble-sub">${turn.vi_b}</div>` : ''}
+          ${hideB ? `<button class="btn btn-sm btn-reveal-secret" data-target="b-${idx}">Bấm để xem lời thoại</button>` : ''}
+        </div>
+      `;
+
+      const bubblesHtml = this.firstSpeaker === 'b'
+        ? `${bubbleB}${bubbleA}`
+        : `${bubbleA}${bubbleB}`;
+
+      const orderHint = this.firstSpeaker === 'b'
+        ? '(Người B nói trước ➔ Người A đáp lại)'
+        : '(Người A nói trước ➔ Người B đáp lại)';
+
       return `
         <div class="speaking-turn-row" data-turn-idx="${idx}">
-          <div class="turn-index-badge">LƯỢT ${idx + 1}</div>
-
-          <!-- Bubble A (Người A) -->
-          <div class="chat-turn-item side-a ${hideA ? 'blurred' : ''}" data-role="a">
-            <div class="chat-speaker-header">
-              <span class="speaker-pill a">Người A</span>
-              <div class="chat-actions">
-                <button class="icon-btn btn-sm btn-speak-turn" data-text="${encodeURIComponent(turn.a)}" title="Nghe phát âm câu A">Nghe</button>
-                <button class="icon-btn btn-sm btn-edit-turn-a" data-idx="${idx}" title="Chỉnh sửa câu A này">Sửa</button>
-              </div>
-            </div>
-            <div class="chat-bubble-text jp-font">${turn.a || '<span style="color: var(--text-muted); font-style: italic;">(Chưa nhập câu thoại của A)</span>'}</div>
-            ${turn.vi_a ? `<div class="chat-bubble-sub">${turn.vi_a}</div>` : ''}
-            ${hideA ? `<button class="btn btn-sm btn-reveal-secret" data-target="a-${idx}">Bấm để xem lời thoại</button>` : ''}
+          <div class="turn-index-badge">
+            <span>LƯỢT ${idx + 1}</span>
+            <span class="turn-order-hint">${orderHint}</span>
           </div>
-
-          <!-- Bubble B (Người B) -->
-          <div class="chat-turn-item side-b ${hideB ? 'blurred' : ''}" data-role="b">
-            <div class="chat-speaker-header">
-              <span class="speaker-pill b">Người B</span>
-              <div class="chat-actions">
-                <button class="icon-btn btn-sm btn-speak-turn" data-text="${encodeURIComponent(turn.b)}" title="Nghe phát âm câu B">Nghe</button>
-                <button class="icon-btn btn-sm btn-del-turn" data-idx="${idx}" title="Xóa toàn bộ lượt này">Xóa</button>
-              </div>
-            </div>
-            <div class="chat-bubble-text jp-font">${turn.b || '<span style="color: var(--text-muted); font-style: italic;">(Chưa nhập câu thoại của B)</span>'}</div>
-            ${turn.vi_b ? `<div class="chat-bubble-sub">${turn.vi_b}</div>` : ''}
-            ${hideB ? `<button class="btn btn-sm btn-reveal-secret" data-target="b-${idx}">Bấm để xem lời thoại</button>` : ''}
-          </div>
+          ${bubblesHtml}
         </div>
       `;
     }).join('');
@@ -532,8 +647,13 @@ class SpeakingEngine {
 
     const sequence = [];
     this.turns.forEach((t, idx) => {
-      if (t.a && t.a.trim()) sequence.push({ role: 'a', text: t.a, turnIdx: idx });
-      if (t.b && t.b.trim()) sequence.push({ role: 'b', text: t.b, turnIdx: idx });
+      if (this.firstSpeaker === 'b') {
+        if (t.b && t.b.trim()) sequence.push({ role: 'b', text: t.b, turnIdx: idx });
+        if (t.a && t.a.trim()) sequence.push({ role: 'a', text: t.a, turnIdx: idx });
+      } else {
+        if (t.a && t.a.trim()) sequence.push({ role: 'a', text: t.a, turnIdx: idx });
+        if (t.b && t.b.trim()) sequence.push({ role: 'b', text: t.b, turnIdx: idx });
+      }
     });
 
     if (sequence.length === 0) {
@@ -568,7 +688,8 @@ class SpeakingEngine {
     };
 
     playNext();
-    window.app.showToast('Bắt đầu phát toàn bộ hội thoại tự động...', 'info');
+    const speakerLabel = this.firstSpeaker === 'b' ? 'Người B nói trước' : 'Người A nói trước';
+    window.app.showToast(`Bắt đầu phát hội thoại (${speakerLabel})...`, 'info');
   }
 
   stopPlayAll() {
@@ -592,7 +713,14 @@ class SpeakingEngine {
     if (!sit) return;
 
     this.turns = JSON.parse(JSON.stringify(sit.default_turns));
+    if (sit.default_first_speaker) {
+      this.firstSpeaker = sit.default_first_speaker;
+    } else {
+      this.firstSpeaker = 'a';
+    }
+    localStorage.setItem(`jpd326_speaking_${sit.id}_first_speaker`, this.firstSpeaker);
     this.saveTurns();
+    this.updateFirstSpeakerUI();
     this.populateBTextarea();
     this.renderTurnAEditor();
     this.renderTimeline();
@@ -607,8 +735,10 @@ class SpeakingEngine {
     const sit = this.situations[this.currentSitIndex];
     if (!sit) return;
 
+    const orderStr = this.firstSpeaker === 'b' ? 'Người B nói trước (B ➔ A)' : 'Người A nói trước (A ➔ B)';
     let output = `JPD326 SPEAKING - ${sit.code}: ${sit.title}\n`;
     output += `====================================================\n\n`;
+    output += `THỨ TỰ THOẠI: ${orderStr}\n\n`;
     output += `[VAI A]: ${sit.roleA.task_jp}\n(${sit.roleA.task_vi})\n\n`;
     output += `[VAI B]: ${sit.roleB.task_jp}\n(${sit.roleB.task_vi})\n\n`;
     output += `KỊCH BẢN HỘI THOẠI CHI TIẾT:\n`;
@@ -616,17 +746,24 @@ class SpeakingEngine {
 
     this.turns.forEach((t, idx) => {
       output += `[LƯỢT ${idx + 1}]\n`;
-      output += `A: ${t.a || ''}\n`;
-      if (t.vi_a) output += `   (${t.vi_a})\n`;
-      output += `B: ${t.b || ''}\n`;
-      if (t.vi_b) output += `   (${t.vi_b})\n\n`;
+      if (this.firstSpeaker === 'b') {
+        output += `B: ${t.b || ''}\n`;
+        if (t.vi_b) output += `   (${t.vi_b})\n`;
+        output += `A: ${t.a || ''}\n`;
+        if (t.vi_a) output += `   (${t.vi_a})\n\n`;
+      } else {
+        output += `A: ${t.a || ''}\n`;
+        if (t.vi_a) output += `   (${t.vi_a})\n`;
+        output += `B: ${t.b || ''}\n`;
+        if (t.vi_b) output += `   (${t.vi_b})\n\n`;
+      }
     });
 
     const blob = new Blob([output], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `JPD326_Speaking_${sit.code.replace(/\s+/g, '_')}.txt`;
+    a.download = `JPD326_Speaking_${sit.code.replace(/\s+/g, '_')}_${this.firstSpeaker.toUpperCase()}First.txt`;
     a.click();
     URL.revokeObjectURL(url);
     window.soundEngine.playClick();
