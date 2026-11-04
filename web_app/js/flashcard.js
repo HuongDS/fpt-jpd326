@@ -12,7 +12,7 @@ class FlashcardEngine {
     this.isAutoPlaying = false;
     this.autoPlayTimer = null;
     this.lessonFilter = 'all'; // 'all' | '第 6 課' | '第 7 課' | '第 8 課' | '第 9 課' | '第 10 課'
-    this.category = 'vocab'; // 'all' | 'vocab' | 'kanji' | 'grammar'
+    this.category = 'all'; // 'all' | 'vocab' | 'kanji' | 'grammar' | 'unremembered'
     this.kanjiSubType = 'all'; // 'all' | 'on' | 'kun' | 'compound'
 
     // Khôi phục bộ thẻ và tiến độ hoạt động gần nhất nếu có
@@ -50,6 +50,7 @@ class FlashcardEngine {
       kanjiSubType: this.kanjiSubType,
       index: this.currentIndex,
       cardId: currentItem ? currentItem.id : null,
+      deckOrder: this.deck.map(c => c.id),
       timestamp: Date.now()
     });
   }
@@ -162,6 +163,13 @@ class FlashcardEngine {
 
     if (preservePosition && window.storageManager && this.deck.length > 0) {
       const saved = window.storageManager.getFlashcardProgress(this.getDeckKey());
+      if (saved && Array.isArray(saved.deckOrder) && saved.deckOrder.length === this.deck.length) {
+        const cardMap = new Map(this.deck.map(c => [c.id, c]));
+        if (saved.deckOrder.every(id => cardMap.has(id))) {
+          this.deck = saved.deckOrder.map(id => cardMap.get(id));
+        }
+      }
+
       let targetIndex = -1;
       if (saved && saved.cardId) {
         targetIndex = this.deck.findIndex(card => card.id === saved.cardId);
@@ -625,7 +633,8 @@ class FlashcardEngine {
     }
 
     const item = this.deck[this.currentIndex];
-    const lessonLabel = item.lesson ? ` <span class="counter-lesson">(${item.lesson})</span>` : '';
+    const lessonClean = item.lesson ? item.lesson.replace(/ /g, '&nbsp;') : '';
+    const lessonLabel = item.lesson ? ` <span class="counter-lesson" style="white-space: nowrap;">(${lessonClean})</span>` : '';
     if (this.counterEl) {
       this.counterEl.innerHTML = `Thẻ <strong>${this.currentIndex + 1}</strong> / ${this.deck.length}${lessonLabel}`;
     }

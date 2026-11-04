@@ -22,6 +22,11 @@ class App {
 
   init() {
     this.initTheme();
+
+    // Khôi phục bài học đang chọn gần nhất nếu có
+    const savedLesson = localStorage.getItem('jpd326_current_lesson') || window.storageManager?.getLastActiveDeck()?.lessonFilter || 'all';
+    this.currentLesson = savedLesson;
+
     this.initGlobalLessonBar();
     this.initNavigation();
     this.initDashboard();
@@ -41,14 +46,22 @@ class App {
     }
     window.omniSearch = new OmniSearch();
 
-    // Initial Flashcard load
-    window.flashcardEngine.refreshDeck();
+    // Đồng bộ bài học cho các subsystem
+    this.syncGlobalLessonBar();
+
+    // Initial Flashcard load với lessonFilter đã khôi phục
+    if (this.currentLesson !== 'all') {
+      window.flashcardEngine.setLessonFilter(this.currentLesson);
+    } else {
+      window.flashcardEngine.refreshDeck();
+    }
 
     // Quick Action cards on dashboard
     this.bindDashboardActions();
 
-    // Initial Tab sync & Subbar initialization
-    this.switchTab('dashboard');
+    // Initial Tab sync & Subbar initialization: Khôi phục tab đang học gần nhất
+    const savedTab = localStorage.getItem('jpd326_active_tab') || 'dashboard';
+    this.switchTab(savedTab);
   }
 
   initGlobalLessonBar() {
@@ -65,6 +78,9 @@ class App {
 
   setLesson(lesson) {
     this.currentLesson = lesson || 'all';
+    try {
+      localStorage.setItem('jpd326_current_lesson', this.currentLesson);
+    } catch (e) {}
     this.syncGlobalLessonBar();
 
     // Synchronize Flashcard Engine
@@ -289,6 +305,9 @@ class App {
 
   switchTab(tabId) {
     this.currentTab = tabId;
+    try {
+      localStorage.setItem('jpd326_active_tab', tabId);
+    } catch (e) {}
 
     // Determine category group
     let group = 'dashboard';

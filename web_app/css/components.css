@@ -342,13 +342,19 @@
    2. FLASHCARD SRS ENGINE (3D FLIP)
    -------------------------------------------------------------------------- */
 .fc-deck-selector {
-  max-width: 960px;
+  max-width: 1080px;
+  width: 100%;
   margin: 0 auto 1.15rem auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.4rem;
   flex-wrap: wrap;
+}
+
+.fc-deck-selector .filter-chip {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.82rem;
 }
 
 .fc-filter-label {
@@ -388,7 +394,7 @@
   font-family: var(--font-mono);
   font-size: 0.88rem;
   color: var(--text-secondary);
-  white-space: nowrap;
+  white-space: nowrap !important;
   flex-shrink: 0;
   cursor: pointer;
   user-select: none;
@@ -407,13 +413,14 @@
 .card-counter strong {
   color: var(--text-heading);
   font-weight: 800;
+  white-space: nowrap !important;
 }
 
 .card-counter .counter-lesson {
   font-weight: 500;
   color: var(--text-muted);
   margin-left: 0.35rem;
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 
 .flashcard-options {
