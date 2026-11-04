@@ -3856,7 +3856,7 @@ window.APP_DATA = {
       "lesson": "第 6 課",
       "part": "Part 5",
       "kanji": "湿気",
-      "kana": "しっけい",
+      "kana": "しっけ",
       "display": "湿気",
       "meaning": "hơi ẩm"
     },
