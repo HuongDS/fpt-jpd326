@@ -1014,10 +1014,10 @@ class FlashcardEngine {
         </div>
       </div>
       <div class="card-main-content">
-        <div class="card-meaning-big" style="font-size: 2.1rem; font-weight: 800; color: var(--text-heading); line-height: 1.4; text-align: center; max-width: 620px; margin: 0 auto 0.75rem;">
+        <div class="card-meaning-big" style="font-size: 1.95rem; font-weight: 800; color: var(--text-heading); line-height: 1.4; text-align: center; max-width: 620px; margin: 0 auto 0.5rem;">
           ${cleanMeaning}
         </div>
-        <div style="font-size: 0.95rem; color: var(--text-secondary); font-weight: 500; text-align: center;">
+        <div style="font-size: 0.92rem; color: var(--text-secondary); font-weight: 500; text-align: center;">
           Cấu trúc ngữ pháp tiếng Nhật tương ứng là gì?
         </div>
       </div>
@@ -1029,7 +1029,7 @@ class FlashcardEngine {
     const exHtml = item.examples && item.examples.length > 0
       ? item.examples.map(ex => {
           const cleanEx = ex.replace(/^例:\s*/, '').trim();
-          return `<div class="detail-line" style="font-family: var(--font-jp); font-size: 0.92rem; line-height: 1.5; margin-bottom: 0.35rem;">• ${cleanEx}</div>`;
+          return `<div class="detail-line" style="font-family: var(--font-jp); font-size: 0.9rem; line-height: 1.45; margin-bottom: 0.3rem;">• ${cleanEx}</div>`;
         }).join('')
       : '';
 
@@ -1045,27 +1045,27 @@ class FlashcardEngine {
         </div>
       </div>
       <div class="card-main-content" style="align-items: stretch; text-align: left; width: 100%;">
-        <div style="text-align: center; margin-bottom: 0.85rem;">
-          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; margin-bottom: 0.35rem; letter-spacing: 0.05em;">
+        <div style="text-align: center; margin-bottom: 0.5rem; flex-shrink: 0;">
+          <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; margin-bottom: 0.2rem; letter-spacing: 0.05em;">
             Cấu trúc / Công thức
           </div>
-          <div class="grammar-formula-badge" style="font-size: 1.45rem; font-weight: 800; padding: 0.65rem 1.25rem; font-family: var(--font-jp); color: var(--text-heading); display: inline-block; margin-bottom: 0.4rem; border-radius: 10px;">
+          <div class="grammar-formula-badge" style="font-size: 1.25rem; font-weight: 800; padding: 0.45rem 1rem; font-family: var(--font-jp); color: var(--text-heading); display: inline-block; margin-bottom: 0.25rem; border-radius: 10px; max-width: 100%; box-sizing: border-box;">
             ${item.formula || '—'}
           </div>
-          <div style="font-size: 1.15rem; font-weight: 700; color: var(--primary); margin-top: 0.2rem;">
+          <div style="font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-top: 0.15rem;">
             ${cleanMeaning}
           </div>
         </div>
 
         ${item.points ? `
-          <div class="grammar-point-box" style="margin-bottom: 0.75rem; font-size: 0.92rem; line-height: 1.55;">
+          <div class="grammar-point-box" style="margin-bottom: 0.5rem; font-size: 0.88rem; line-height: 1.45; padding: 0.45rem 0.75rem; flex-shrink: 0;">
             <strong style="color: var(--text-heading);">Giải thích:</strong> ${item.points}
           </div>
         ` : ''}
 
         ${exHtml ? `
-          <div class="card-extra-details" style="max-height: 180px; overflow-y: auto;">
-            <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em;">Ví dụ minh họa:</div>
+          <div class="card-extra-details" style="max-height: 140px; overflow-y: auto; padding: 0.55rem 0.85rem; flex-shrink: 0;">
+            <div style="font-size: 0.76rem; color: var(--text-muted); margin-bottom: 0.25rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em;">Ví dụ minh họa:</div>
             ${exHtml}
           </div>
         ` : ''}
