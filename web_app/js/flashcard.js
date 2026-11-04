@@ -994,10 +994,17 @@ class FlashcardEngine {
 
   renderGrammarCard(item, isFav, isLearned) {
     const isUnremembered = window.storageManager.isUnremembered(item.id);
+    const cleanMeaning = (item.title || '')
+      .replace(/^\d+[\.\s]*/, '')
+      .replace(/[:：\s]+$/, '')
+      .trim();
+
+    // Front Face (Chỉ hiển thị ý nghĩa của cấu trúc để người học tự nhớ công thức tiếng Nhật)
     this.cardFront.innerHTML = `
       <div class="card-badge-row">
         <span class="badge">${item.lesson}</span>
         <div style="display: flex; gap: 0.4rem; align-items: center;" class="no-flip">
+          ${isLearned ? '<span class="badge">Đã thuộc</span>' : ''}
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
             Chưa nhớ
           </button>
@@ -1007,18 +1014,26 @@ class FlashcardEngine {
         </div>
       </div>
       <div class="card-main-content">
-        <div style="font-size: 1.4rem; font-weight: 800; color: var(--text-heading); margin-bottom: 0.85rem; text-align: center;">${item.title}</div>
-        <div class="grammar-formula-badge" style="font-size: 1.05rem; padding: 0.65rem 1.15rem;">${item.formula || 'Cấu trúc'}</div>
+        <div class="card-meaning-big" style="font-size: 2.1rem; font-weight: 800; color: var(--text-heading); line-height: 1.4; text-align: center; max-width: 620px; margin: 0 auto 0.75rem;">
+          ${cleanMeaning}
+        </div>
+        <div style="font-size: 0.95rem; color: var(--text-secondary); font-weight: 500; text-align: center;">
+          Cấu trúc ngữ pháp tiếng Nhật tương ứng là gì?
+        </div>
       </div>
       <div class="card-flip-prompt">
-        <span>Xem giải thích & câu ví dụ</span>
+        <span>Chạm vào thẻ để xem cấu trúc, nghĩa & ví dụ (hoặc Space)</span>
       </div>
     `;
 
     const exHtml = item.examples && item.examples.length > 0
-      ? item.examples.map(ex => `<div class="detail-line">• ${ex}</div>`).join('')
+      ? item.examples.map(ex => {
+          const cleanEx = ex.replace(/^例:\s*/, '').trim();
+          return `<div class="detail-line" style="font-family: var(--font-jp); font-size: 0.92rem; line-height: 1.5; margin-bottom: 0.35rem;">• ${cleanEx}</div>`;
+        }).join('')
       : '';
 
+    // Back Face (Hiển thị công thức nổi bật, nghĩa/giải thích và câu ví dụ minh họa)
     this.cardBack.innerHTML = `
       <div class="card-badge-row">
         <span class="badge">${item.lesson}</span>
@@ -1026,18 +1041,37 @@ class FlashcardEngine {
           <button class="icon-btn no-flip unremembered-toggle-btn ${isUnremembered ? 'active' : ''}" data-id="${item.id}" title="${isUnremembered ? 'Bỏ đánh dấu chưa nhớ' : 'Đánh dấu chưa nhớ để ôn lại'}">
             Chưa nhớ
           </button>
-          <button class="icon-btn no-flip tts-btn">Phát âm</button>
+          <button class="icon-btn no-flip tts-btn" title="Nghe phát âm cấu trúc">Phát âm</button>
         </div>
       </div>
-      <div class="card-main-content" style="align-items: stretch; text-align: left;">
-        ${item.points ? `<div class="grammar-point-box" style="margin-bottom: 0.75rem;">${item.points}</div>` : ''}
-        <div class="card-extra-details">
-          <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase; font-weight: 700;">Ví dụ minh họa:</div>
-          ${exHtml}
+      <div class="card-main-content" style="align-items: stretch; text-align: left; width: 100%;">
+        <div style="text-align: center; margin-bottom: 0.85rem;">
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; margin-bottom: 0.35rem; letter-spacing: 0.05em;">
+            Cấu trúc / Công thức
+          </div>
+          <div class="grammar-formula-badge" style="font-size: 1.45rem; font-weight: 800; padding: 0.65rem 1.25rem; font-family: var(--font-jp); color: var(--text-heading); display: inline-block; margin-bottom: 0.4rem; border-radius: 10px;">
+            ${item.formula || '—'}
+          </div>
+          <div style="font-size: 1.15rem; font-weight: 700; color: var(--primary); margin-top: 0.2rem;">
+            ${cleanMeaning}
+          </div>
         </div>
+
+        ${item.points ? `
+          <div class="grammar-point-box" style="margin-bottom: 0.75rem; font-size: 0.92rem; line-height: 1.55;">
+            <strong style="color: var(--text-heading);">Giải thích:</strong> ${item.points}
+          </div>
+        ` : ''}
+
+        ${exHtml ? `
+          <div class="card-extra-details" style="max-height: 180px; overflow-y: auto;">
+            <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em;">Ví dụ minh họa:</div>
+            ${exHtml}
+          </div>
+        ` : ''}
       </div>
       <div class="card-flip-prompt">
-        <span>Đánh giá độ nhớ</span>
+        <span>Đánh giá độ nhớ để xếp lịch ôn tập</span>
       </div>
     `;
 
