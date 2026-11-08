@@ -190,38 +190,24 @@ class OralExamEngine {
             </div>
           </div>
 
-          <!-- Sample Model Answer Box -->
-          <div class="oral-sample-box ${isBlurred ? 'blurred' : ''}" id="sample-box-${q.id}">
-            <div class="oral-sample-header">
-              <div style="font-weight: 700; font-size: 0.88rem; color: var(--text-heading);">
-                Câu trả lời mẫu tham khảo (Chuẩn Dekiru Chukyu):
-              </div>
-              <div class="sample-actions">
-                <button class="icon-btn btn-sm btn-speak-answer" data-text="${encodeURIComponent(q.sample_answer_jp)}" title="Nghe phát âm câu trả lời mẫu">
-                  Nghe bài mẫu
-                </button>
-                <button class="btn btn-secondary btn-sm btn-toggle-single-sample" data-target="sample-box-${q.id}">
-                  ${isBlurred ? 'Hiện đáp án' : 'Ẩn đáp án'}
-                </button>
-              </div>
-            </div>
-            <div class="oral-sample-text jp-font">${q.sample_answer_jp}</div>
-            <div class="oral-sample-vi">${q.sample_answer_vi}</div>
-          </div>
-
           <!-- User Personal Response / Notes -->
           <div class="oral-user-notes-section">
             <div class="user-notes-header">
               <label for="oral-user-input-${q.id}" class="user-notes-label">
                 Câu trả lời hoặc dàn ý cá nhân của bạn (Tự động lưu):
               </label>
-              <button class="btn btn-secondary btn-sm btn-save-user-ans" data-id="${q.id}">Lưu ghi chú</button>
+              <div style="display: flex; gap: 0.4rem; align-items: center;">
+                <button class="icon-btn btn-sm btn-speak-user-ans" data-id="${q.id}" title="Nghe phát âm câu trả lời của bạn">
+                  Phát âm câu trả lời
+                </button>
+                <button class="btn btn-secondary btn-sm btn-save-user-ans" data-id="${q.id}">Lưu ghi chú</button>
+              </div>
             </div>
             <textarea 
               id="oral-user-input-${q.id}" 
               class="oral-user-textarea jp-font" 
               placeholder="Gõ câu trả lời bằng tiếng Nhật hoặc gạch đầu dòng ý tưởng của riêng bạn tại đây..."
-              rows="3"
+              rows="4"
             >${userSavedAns}</textarea>
           </div>
         </article>
@@ -259,6 +245,20 @@ class OralExamEngine {
           box.classList.toggle('blurred', !isCurrentlyBlurred);
           btn.textContent = !isCurrentlyBlurred ? 'Hiện đáp án' : 'Ẩn đáp án';
           window.soundEngine.playClick();
+        }
+      });
+    });
+
+    // Speak User Answer
+    container.querySelectorAll('.btn-speak-user-ans').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const qId = btn.dataset.id;
+        const textarea = document.getElementById(`oral-user-input-${qId}`);
+        const text = textarea ? textarea.value.trim() : '';
+        if (text) {
+          window.soundEngine.speakJapanese(text);
+        } else {
+          window.app?.showToast('Hãy nhập câu trả lời tiếng Nhật của bạn để nghe phát âm!', 'info');
         }
       });
     });
@@ -315,8 +315,14 @@ class OralExamEngine {
     if (jpEl) jpEl.textContent = randomQ.question_jp;
     if (viEl) viEl.textContent = randomQ.question_vi;
 
-    if (sampleJp) sampleJp.textContent = randomQ.sample_answer_jp;
-    if (sampleVi) sampleVi.textContent = randomQ.sample_answer_vi;
+    const userSavedAns = localStorage.getItem(`jpd326_oral_ans_${randomQ.id}`) || '';
+    if (sampleJp) {
+      sampleJp.textContent = userSavedAns || 'Bạn chưa soạn câu trả lời cho câu hỏi này. Hãy nhập câu trả lời ở danh sách câu hỏi bên ngoài!';
+    }
+    if (sampleVi) {
+      sampleVi.textContent = '';
+      sampleVi.style.display = 'none';
+    }
 
     if (answerWrap) answerWrap.style.display = 'none';
     if (revealBtn) {
