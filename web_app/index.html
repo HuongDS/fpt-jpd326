@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Noto+Sans+JP:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/main.css?v=2.2">
+  <link rel="stylesheet" href="css/components.css?v=2.2">
+  <link rel="stylesheet" href="css/responsive.css?v=2.2">
 </head>
 <body>
   <div class="app-container">
@@ -973,6 +973,52 @@
       </div>
     </div>
 
+    <!-- Oral Answer Zoom View Modal (Xem toàn cảnh câu trả lời & luyện đọc cỡ lớn) -->
+    <div class="modal-overlay" id="oral-answer-zoom-modal">
+      <div class="modal-content" style="max-width: 820px; width: 95%;">
+        <div class="modal-header">
+          <div>
+            <span class="badge" id="zoom-modal-lesson-tag">第 10 課 • Bài 10.2</span>
+            <h3 style="margin: 0.25rem 0 0 0; font-size: 1.15rem; color: var(--text-heading);" id="zoom-modal-title">Xem Toàn Cảnh Câu Trả Lời & Câu Hỏi Phụ</h3>
+          </div>
+          <button class="icon-btn btn-sm" id="btn-close-zoom-modal">Đóng</button>
+        </div>
+        <div class="modal-body" style="display: flex; flex-direction: column; gap: 1.25rem; max-height: 75vh; overflow-y: auto;">
+          <!-- Question Box -->
+          <div class="oral-question-box" style="margin-bottom: 0;">
+            <div class="oral-question-label">CÂU HỎI VẤN ĐÁP:</div>
+            <div class="oral-question-jp jp-font" id="zoom-modal-q-jp" style="font-size: 1.25rem;"></div>
+            <div class="oral-question-vi" id="zoom-modal-q-vi" style="margin-top: 0.35rem;"></div>
+          </div>
+
+          <!-- Main Answer Large Reading View -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
+                CÂU TRẢ LỜI CHÍNH CỦA BẠN (CHỮ TO DỄ NHÌN):
+              </span>
+              <button class="btn btn-secondary btn-sm" id="btn-zoom-speak-main">
+                Phát âm câu trả lời
+              </button>
+            </div>
+            <div class="oral-large-reading-box jp-font" id="zoom-modal-main-ans"></div>
+          </div>
+
+          <!-- Sub Questions Section inside Modal -->
+          <div id="zoom-modal-sub-qa-wrapper" style="display: none;">
+            <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
+              CÂU HỎI PHỤ & ĐỐI ĐÁP LIÊN QUAN:
+            </div>
+            <div id="zoom-modal-sub-qa-list" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
+          </div>
+        </div>
+        <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Font chữ to & thoáng giúp bạn luyện nói trôi chảy trước kỳ thi</span>
+          <button class="btn btn-secondary btn-sm" id="btn-zoom-modal-close">Đóng</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Mock Interview Modal (Bốc thăm ngẫu nhiên 60s) -->
     <div class="modal-overlay" id="oral-mock-modal">
       <div class="modal-content mock-modal-box">
@@ -1168,17 +1214,17 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/app_data.js"></script>
-  <script src="data/speaking_data.js"></script>
-  <script src="data/oral_exam_data.js"></script>
-  <script src="js/audio.js"></script>
-  <script src="js/storage.js"></script>
-  <script src="js/flashcard.js"></script>
-  <script src="js/quiz.js"></script>
-  <script src="js/final_exam.js"></script>
-  <script src="js/speaking.js"></script>
-  <script src="js/oral_exam.js"></script>
-  <script src="js/search.js"></script>
-  <script src="js/app.js"></script>
+  <script src="data/app_data.js?v=2.2"></script>
+  <script src="data/speaking_data.js?v=2.2"></script>
+  <script src="data/oral_exam_data.js?v=2.2"></script>
+  <script src="js/audio.js?v=2.2"></script>
+  <script src="js/storage.js?v=2.2"></script>
+  <script src="js/flashcard.js?v=2.2"></script>
+  <script src="js/quiz.js?v=2.2"></script>
+  <script src="js/final_exam.js?v=2.2"></script>
+  <script src="js/speaking.js?v=2.2"></script>
+  <script src="js/oral_exam.js?v=2.2"></script>
+  <script src="js/search.js?v=2.2"></script>
+  <script src="js/app.js?v=2.2"></script>
 </body>
 </html>
