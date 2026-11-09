@@ -2242,7 +2242,7 @@
   font-size: 1.05rem;
   line-height: 1.6;
   color: var(--text-heading);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0;
 }
 
 .chat-bubble-sub {

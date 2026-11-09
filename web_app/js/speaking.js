@@ -538,7 +538,6 @@ class SpeakingEngine {
             </div>
           </div>
           <div class="chat-bubble-text jp-font">${turn.a || '<span style="color: var(--text-muted); font-style: italic;">(Chưa nhập câu thoại của A)</span>'}</div>
-          ${turn.vi_a ? `<div class="chat-bubble-sub">${turn.vi_a}</div>` : ''}
           ${hideA ? `<button class="btn btn-sm btn-reveal-secret" data-target="a-${idx}">Bấm để xem lời thoại</button>` : ''}
         </div>
       `;
@@ -557,7 +556,6 @@ class SpeakingEngine {
             </div>
           </div>
           <div class="chat-bubble-text jp-font">${turn.b || '<span style="color: var(--text-muted); font-style: italic;">(Chưa nhập câu thoại của B)</span>'}</div>
-          ${turn.vi_b ? `<div class="chat-bubble-sub">${turn.vi_b}</div>` : ''}
           ${hideB ? `<button class="btn btn-sm btn-reveal-secret" data-target="b-${idx}">Bấm để xem lời thoại</button>` : ''}
         </div>
       `;
@@ -748,14 +746,10 @@ class SpeakingEngine {
       output += `[LƯỢT ${idx + 1}]\n`;
       if (this.firstSpeaker === 'b') {
         output += `B: ${t.b || ''}\n`;
-        if (t.vi_b) output += `   (${t.vi_b})\n`;
-        output += `A: ${t.a || ''}\n`;
-        if (t.vi_a) output += `   (${t.vi_a})\n\n`;
+        output += `A: ${t.a || ''}\n\n`;
       } else {
         output += `A: ${t.a || ''}\n`;
-        if (t.vi_a) output += `   (${t.vi_a})\n`;
-        output += `B: ${t.b || ''}\n`;
-        if (t.vi_b) output += `   (${t.vi_b})\n\n`;
+        output += `B: ${t.b || ''}\n\n`;
       }
     });
 
