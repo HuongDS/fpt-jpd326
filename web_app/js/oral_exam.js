@@ -2,7 +2,7 @@
  * Oral Exam Cram Module (Ôn Thi Vấn Đáp JPD326)
  * Quản lý danh sách câu hỏi vấn đáp trích xuất từ van_dap/cac_cau_hoi_van_dap.docx.
  * Hỗ trợ hiển thị gợi ý, ngữ pháp/từ vựng, soạn câu trả lời cá nhân, xem chữ to,
- * mở rộng câu hỏi phụ và trả lời, phát âm chuẩn và chế độ bốc thăm 60 giây.
+ * mở rộng câu hỏi phụ và trả lời, phát âm chuẩn và chế độ bốc thăm thi thử.
  */
 
 class OralExamEngine {
@@ -12,8 +12,6 @@ class OralExamEngine {
     this.searchQuery = '';
     
     // Mock Interview State
-    this.mockTimer = null;
-    this.mockTimeRemaining = 60;
     this.mockQuestion = null;
 
     this.init();
@@ -797,48 +795,10 @@ class OralExamEngine {
       speakModalBtn.onclick = () => window.soundEngine.speakJapanese(randomQ.question_jp);
     }
 
-    // Reset & Start 60s countdown
-    this.startMockTimer(60);
     window.soundEngine.playStart();
   }
 
-  startMockTimer(seconds = 60) {
-    if (this.mockTimer) clearInterval(this.mockTimer);
-    this.mockTimeRemaining = seconds;
-    const timerEl = document.getElementById('mock-timer-display');
-    const progressEl = document.getElementById('mock-timer-progress');
-
-    const updateUI = () => {
-      if (timerEl) timerEl.textContent = `${this.mockTimeRemaining}s`;
-      if (progressEl) {
-        const pct = (this.mockTimeRemaining / 60) * 100;
-        progressEl.style.width = `${pct}%`;
-        if (this.mockTimeRemaining <= 10) {
-          progressEl.style.background = '#EF4444';
-          timerEl.style.color = '#EF4444';
-        } else {
-          progressEl.style.background = 'var(--text-primary)';
-          timerEl.style.color = 'var(--text-heading)';
-        }
-      }
-    };
-
-    updateUI();
-
-    this.mockTimer = setInterval(() => {
-      this.mockTimeRemaining--;
-      updateUI();
-
-      if (this.mockTimeRemaining <= 0) {
-        clearInterval(this.mockTimer);
-        window.soundEngine.playWrong();
-        window.app?.showToast('Hết thời gian 60 giây!', 'warning');
-      }
-    }, 1000);
-  }
-
   stopMockInterview() {
-    if (this.mockTimer) clearInterval(this.mockTimer);
     const modal = document.getElementById('oral-mock-modal');
     if (modal) modal.classList.remove('active');
     window.soundEngine.playClick();

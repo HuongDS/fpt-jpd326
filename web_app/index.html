@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Noto+Sans+JP:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=2.2">
-  <link rel="stylesheet" href="css/components.css?v=2.2">
-  <link rel="stylesheet" href="css/responsive.css?v=2.2">
+  <link rel="stylesheet" href="css/main.css?v=2.3">
+  <link rel="stylesheet" href="css/components.css?v=2.3">
+  <link rel="stylesheet" href="css/responsive.css?v=2.3">
 </head>
 <body>
   <div class="app-container">
@@ -100,7 +100,7 @@
             <button class="dropdown-item nav-tab-btn" data-tab="oral">
               <div class="dropdown-item-main">
                 <span class="dropdown-item-title">Ôn Thi Vấn Đáp</span>
-                <span class="dropdown-item-desc">10 câu hỏi phỏng vấn JPD326, dàn ý cấu trúc & bốc thăm 60s</span>
+                <span class="dropdown-item-desc">10 câu hỏi phỏng vấn JPD326, dàn ý cấu trúc & bốc thăm thi thử</span>
               </div>
               <span class="dropdown-item-tag">10 Câu hỏi</span>
             </button>
@@ -283,7 +283,7 @@
                   <span class="badge">10 Câu Vấn Đáp</span>
                 </div>
                 <h3>Ôn Thi Vấn Đáp</h3>
-                <p>10 câu hỏi phỏng vấn Bài 6-10, gợi ý dàn ý, cấu trúc ghi điểm và mô phỏng bốc thăm 60 giây.</p>
+                <p>10 câu hỏi phỏng vấn Bài 6-10, gợi ý dàn ý, cấu trúc ghi điểm và mô phỏng bốc thăm thi thử.</p>
               </div>
               <div class="action-card-footer">
                 <span>Vào luyện vấn đáp</span>
@@ -533,7 +533,7 @@
               <span class="oral-tag">PHỎNG VẤN TRỰC TIẾP & TRẢ LỜI CÂU HỎI</span>
               <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-heading);">Ôn Thi Vấn Đáp JPD326 Theo Từng Bài Học</h3>
               <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
-                Trọn bộ 10 câu hỏi phỏng vấn vấn đáp Bài 6-10 trích xuất từ tài liệu ôn thi. Đi kèm gợi ý dàn ý triển khai, cấu trúc/từ vựng ghi điểm, không gian tự soạn câu trả lời cá nhân và chế độ bốc thăm thử 60 giây.
+                Trọn bộ 10 câu hỏi phỏng vấn vấn đáp Bài 6-10 trích xuất từ tài liệu ôn thi. Đi kèm gợi ý dàn ý triển khai, cấu trúc/từ vựng ghi điểm, không gian tự soạn câu trả lời cá nhân và chế độ bốc thăm thi thử ngẫu nhiên.
               </p>
             </div>
 
@@ -553,7 +553,7 @@
                   <input type="text" id="oral-search-input" placeholder="Tìm theo câu hỏi, từ vựng hoặc ngữ pháp..." autocomplete="off">
                 </div>
                 <button class="btn btn-primary btn-sm" id="btn-oral-mock-interview">
-                  Bốc thăm thi thử 60s
+                  Bốc thăm thi thử
                 </button>
               </div>
             </div>
@@ -1019,7 +1019,7 @@
       </div>
     </div>
 
-    <!-- Mock Interview Modal (Bốc thăm ngẫu nhiên 60s) -->
+    <!-- Mock Interview Modal (Bốc thăm thi thử ngẫu nhiên) -->
     <div class="modal-overlay" id="oral-mock-modal">
       <div class="modal-content mock-modal-box">
         <div class="modal-header">
@@ -1030,14 +1030,6 @@
           <button class="icon-btn btn-sm" id="btn-close-mock-modal">Đóng</button>
         </div>
         <div class="modal-body">
-          <div class="mock-timer-bar">
-            <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Thời gian phản xạ:</span>
-            <span class="mock-timer-display" id="mock-timer-display">60s</span>
-          </div>
-          <div class="mock-progress-track">
-            <div class="mock-progress-fill" id="mock-timer-progress"></div>
-          </div>
-
           <div class="oral-question-box" style="margin-bottom: 1.25rem;">
             <div class="oral-question-label">GIÁM KHẢO HỎI BẠN:</div>
             <div class="oral-question-jp jp-font" id="mock-q-jp" style="font-size: 1.25rem;">—</div>
@@ -1150,7 +1142,7 @@
                     <span class="nav-map-item-title">Ôn Thi Vấn Đáp</span>
                     <span class="badge">10 Câu hỏi</span>
                   </div>
-                  <p class="nav-map-item-desc">10 câu hỏi phỏng vấn JPD326, dàn ý cấu trúc điểm và mô phỏng 60 giây.</p>
+                  <p class="nav-map-item-desc">10 câu hỏi phỏng vấn JPD326, dàn ý cấu trúc điểm và mô phỏng bốc thăm thi thử.</p>
                 </div>
                 <div class="nav-map-item nav-tab-btn" data-tab="quiz">
                   <div class="nav-map-item-header">
@@ -1214,17 +1206,17 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/app_data.js?v=2.2"></script>
-  <script src="data/speaking_data.js?v=2.2"></script>
-  <script src="data/oral_exam_data.js?v=2.2"></script>
-  <script src="js/audio.js?v=2.2"></script>
-  <script src="js/storage.js?v=2.2"></script>
-  <script src="js/flashcard.js?v=2.2"></script>
-  <script src="js/quiz.js?v=2.2"></script>
-  <script src="js/final_exam.js?v=2.2"></script>
-  <script src="js/speaking.js?v=2.2"></script>
-  <script src="js/oral_exam.js?v=2.2"></script>
-  <script src="js/search.js?v=2.2"></script>
-  <script src="js/app.js?v=2.2"></script>
+  <script src="data/app_data.js?v=2.3"></script>
+  <script src="data/speaking_data.js?v=2.3"></script>
+  <script src="data/oral_exam_data.js?v=2.3"></script>
+  <script src="js/audio.js?v=2.3"></script>
+  <script src="js/storage.js?v=2.3"></script>
+  <script src="js/flashcard.js?v=2.3"></script>
+  <script src="js/quiz.js?v=2.3"></script>
+  <script src="js/final_exam.js?v=2.3"></script>
+  <script src="js/speaking.js?v=2.3"></script>
+  <script src="js/oral_exam.js?v=2.3"></script>
+  <script src="js/search.js?v=2.3"></script>
+  <script src="js/app.js?v=2.3"></script>
 </body>
 </html>
