@@ -3043,3 +3043,12 @@
 }
 
 
+
+.quiz-review-item {
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid #DC2626;
+  border-radius: 8px;
+}
+.quiz-review-list-scroll { max-height: 40vh; overflow: auto; }

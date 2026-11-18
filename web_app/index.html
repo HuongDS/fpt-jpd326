@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Noto+Sans+JP:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=2.4">
-  <link rel="stylesheet" href="css/components.css?v=2.4">
-  <link rel="stylesheet" href="css/responsive.css?v=2.4">
+  <link rel="stylesheet" href="css/main.css?v=2.5">
+  <link rel="stylesheet" href="css/components.css?v=2.5">
+  <link rel="stylesheet" href="css/responsive.css?v=2.5">
 </head>
 <body>
   <div class="app-container">
@@ -821,7 +821,7 @@
           <div class="quiz-config-card" id="quiz-config-view">
             <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--text-heading);">Đấu Trường Speed Quiz</h3>
             <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-              Thử thách phản xạ từ vựng, hán tự và ngữ pháp với đồng hồ đếm ngược 10s cho mỗi câu hỏi.
+              Luyện từ vựng, hán tự và ngữ pháp bằng câu hỏi trắc nghiệm. Tự chọn số câu và thời gian mỗi lần làm.
             </p>
 
             <div class="quiz-config-section">
@@ -862,8 +862,30 @@
               </div>
             </div>
 
+            <div class="quiz-config-section">
+              <div class="quiz-config-label">Số câu mỗi lần làm:</div>
+              <div class="filter-bar" id="quiz-count-chips" style="margin-bottom: 0; align-items: center;">
+                <button class="filter-chip" data-count="10">10 câu</button>
+                <button class="filter-chip active" data-count="20">20 câu</button>
+                <button class="filter-chip" data-count="30">30 câu</button>
+                <button class="filter-chip" data-count="50">50 câu</button>
+                <button class="filter-chip" data-count="all">Tất cả</button>
+                <input type="number" id="quiz-count-custom" min="1" max="500" placeholder="Tự nhập" style="width: 6.5rem; padding: 0.4rem 0.6rem; border: 1px solid var(--border-subtle); border-radius: 8px; background: var(--bg-card, #fff); color: var(--text-heading); font: inherit;">
+              </div>
+            </div>
+
+            <div class="quiz-config-section">
+              <div class="quiz-config-label">Thời gian mỗi câu:</div>
+              <div class="filter-bar" id="quiz-time-chips" style="margin-bottom: 0;">
+                <button class="filter-chip active" data-time="0">Không giới hạn</button>
+                <button class="filter-chip" data-time="10">10 giây</button>
+                <button class="filter-chip" data-time="20">20 giây</button>
+                <button class="filter-chip" data-time="30">30 giây</button>
+              </div>
+            </div>
+
             <button class="btn btn-primary" id="btn-start-quiz" style="width: 100%; padding: 0.85rem; font-size: 1rem;">
-              Bắt Đầu Thi Đấu Ngay
+              Bắt Đầu Làm Bài
             </button>
           </div>
 
@@ -880,7 +902,14 @@
               </div>
             </div>
 
-            <!-- Timer Countdown Bar -->
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
+              <div style="flex: 1; height: 6px; border-radius: 3px; background: var(--border-subtle); overflow: hidden;">
+                <div id="quiz-progress-fill" style="height: 100%; width: 0; background: #F27024; transition: width 0.3s;"></div>
+              </div>
+              <button class="btn btn-secondary btn-sm" id="btn-quiz-quit">Dừng</button>
+            </div>
+
+            <!-- Timer Countdown Bar (only when a per-question limit is set) -->
             <div class="quiz-timer-bar-wrap">
               <div class="quiz-timer-fill" id="quiz-timer-fill"></div>
             </div>
@@ -902,7 +931,12 @@
             <h3 style="font-size: 1.75rem; color: var(--text-heading); margin-bottom: 0.5rem;">Hoàn Thành Thử Thách!</h3>
             <div class="stat-value" id="final-score-val" style="font-size: 2.8rem; margin: 0.5rem 0;">0 Điểm</div>
             <div id="final-max-combo" style="color: var(--text-secondary); font-weight: 700; margin-bottom: 1.5rem;">Max Combo: x0</div>
-            <button class="btn btn-primary" id="btn-quiz-retry">Chơi lại thử thách khác</button>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.25rem;">
+              <button class="btn btn-primary" id="btn-quiz-redo">Làm lại bộ mới</button>
+              <button class="btn btn-secondary" id="btn-quiz-redo-wrong">Làm lại các câu sai</button>
+              <button class="btn btn-secondary" id="btn-quiz-retry">Đổi cấu hình</button>
+            </div>
+            <div id="quiz-review-list" style="width: 100%; text-align: left;"></div>
           </div>
         </div>
       </section>
@@ -1206,17 +1240,17 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/app_data.js?v=2.4"></script>
-  <script src="data/speaking_data.js?v=2.4"></script>
-  <script src="data/oral_exam_data.js?v=2.4"></script>
-  <script src="js/audio.js?v=2.4"></script>
-  <script src="js/storage.js?v=2.4"></script>
-  <script src="js/flashcard.js?v=2.4"></script>
-  <script src="js/quiz.js?v=2.4"></script>
-  <script src="js/final_exam.js?v=2.4"></script>
-  <script src="js/speaking.js?v=2.4"></script>
-  <script src="js/oral_exam.js?v=2.4"></script>
-  <script src="js/search.js?v=2.4"></script>
-  <script src="js/app.js?v=2.4"></script>
+  <script src="data/app_data.js?v=2.5"></script>
+  <script src="data/speaking_data.js?v=2.5"></script>
+  <script src="data/oral_exam_data.js?v=2.5"></script>
+  <script src="js/audio.js?v=2.5"></script>
+  <script src="js/storage.js?v=2.5"></script>
+  <script src="js/flashcard.js?v=2.5"></script>
+  <script src="js/quiz.js?v=2.5"></script>
+  <script src="js/final_exam.js?v=2.5"></script>
+  <script src="js/speaking.js?v=2.5"></script>
+  <script src="js/oral_exam.js?v=2.5"></script>
+  <script src="js/search.js?v=2.5"></script>
+  <script src="js/app.js?v=2.5"></script>
 </body>
 </html>

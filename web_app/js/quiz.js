@@ -1,37 +1,72 @@
 /**
- * Speed Quiz Arena Engine
- * Fast-paced multiple choice quizzes with timers, streaks, combos, and sound effects.
+ * Quiz Engine
+ * Multiple choice quiz with configurable question count, optional timer,
+ * combo scoring and a review of wrong answers.
  */
 
 class QuizEngine {
   constructor() {
     this.mode = 'vocab_jp_vn';
-    this.lessonScope = 'all'; // 'all' | '第 6 課' | '第 7 課' | '第 8 課' | '第 9 課' | '第 10 課'
+    this.lessonScope = 'all';
+    this.questionCount = 20; // number | 'all'
+    this.maxTime = 0;        // seconds per question, 0 = unlimited
+
     this.questions = [];
     this.currentIndex = 0;
     this.score = 0;
     this.combo = 0;
     this.maxCombo = 0;
+    this.correctCount = 0;
+    this.wrongList = [];
     this.timer = null;
-    this.timeLeft = 10;
-    this.maxTime = 10;
+    this.timeLeft = 0;
     this.isAnswering = false;
+    this.nextTimeout = null;
 
-    this.container = document.getElementById('quiz-arena-root');
+    this.loadSettings();
     this.initEvents();
     this.initLessonChips();
+    this.syncSettingsUI();
+  }
+
+  // ---------------------------------------------------------------- settings
+  loadSettings() {
+    try {
+      const s = JSON.parse(localStorage.getItem('jpd326_quiz_settings') || '{}');
+      if (s.mode) this.mode = s.mode;
+      if (s.questionCount === 'all' || Number.isInteger(s.questionCount)) this.questionCount = s.questionCount;
+      if (Number.isInteger(s.maxTime) && s.maxTime >= 0) this.maxTime = s.maxTime;
+    } catch (e) { /* ignore */ }
+  }
+
+  saveSettings() {
+    localStorage.setItem('jpd326_quiz_settings', JSON.stringify({
+      mode: this.mode,
+      questionCount: this.questionCount,
+      maxTime: this.maxTime
+    }));
+  }
+
+  syncSettingsUI() {
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === this.mode));
+
+    const countChips = document.querySelectorAll('#quiz-count-chips .filter-chip');
+    const presets = ['10', '20', '30', '50', 'all'];
+    const cur = String(this.questionCount);
+    countChips.forEach(c => c.classList.toggle('active', c.dataset.count === cur));
+    const customInput = document.getElementById('quiz-count-custom');
+    if (customInput) customInput.value = presets.includes(cur) ? '' : cur;
+
+    document.querySelectorAll('#quiz-time-chips .filter-chip').forEach(c => {
+      c.classList.toggle('active', parseInt(c.dataset.time, 10) === this.maxTime);
+    });
   }
 
   initLessonChips() {
     const lessonContainer = document.getElementById('quiz-lesson-chips');
     if (!lessonContainer) return;
-
     lessonContainer.querySelectorAll('.filter-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        lessonContainer.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        this.lessonScope = chip.dataset.quizLesson || 'all';
-      });
+      chip.addEventListener('click', () => this.setLessonScope(chip.dataset.quizLesson || 'all'));
     });
   }
 
@@ -46,156 +81,161 @@ class QuizEngine {
   }
 
   initEvents() {
-    // Mode selection buttons
     document.querySelectorAll('.mode-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
         this.mode = btn.dataset.mode;
+        this.saveSettings();
+        this.syncSettingsUI();
+      });
+    });
+
+    document.querySelectorAll('#quiz-count-chips .filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        this.questionCount = chip.dataset.count === 'all' ? 'all' : parseInt(chip.dataset.count, 10);
+        this.saveSettings();
+        this.syncSettingsUI();
+      });
+    });
+
+    const customInput = document.getElementById('quiz-count-custom');
+    if (customInput) {
+      customInput.addEventListener('input', () => {
+        const n = parseInt(customInput.value, 10);
+        if (Number.isInteger(n) && n > 0) {
+          this.questionCount = Math.min(n, 500);
+          this.saveSettings();
+          document.querySelectorAll('#quiz-count-chips .filter-chip').forEach(c => c.classList.remove('active'));
+        }
+      });
+    }
+
+    document.querySelectorAll('#quiz-time-chips .filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        this.maxTime = parseInt(chip.dataset.time, 10) || 0;
+        this.saveSettings();
+        this.syncSettingsUI();
       });
     });
 
     const startBtn = document.getElementById('btn-start-quiz');
-    if (startBtn) {
-      startBtn.addEventListener('click', () => this.startQuiz());
-    }
+    if (startBtn) startBtn.addEventListener('click', () => this.startQuiz());
 
-    // Keyboard support for 1, 2, 3, 4
+    const quitBtn = document.getElementById('btn-quiz-quit');
+    if (quitBtn) quitBtn.addEventListener('click', () => {
+      if (!confirm('Dừng bài quiz hiện tại và xem kết quả?')) return;
+      // Only count questions already answered
+      const answeredCount = this.currentIndex + (this.isAnswering ? 0 : 1);
+      this.questions = this.questions.slice(0, answeredCount);
+      if (this.questions.length === 0) { this.showConfig(); return; }
+      this.finishQuiz();
+    });
+
+    const retryBtn = document.getElementById('btn-quiz-retry');
+    if (retryBtn) retryBtn.addEventListener('click', () => this.showConfig());
+
+    const redoBtn = document.getElementById('btn-quiz-redo');
+    if (redoBtn) redoBtn.addEventListener('click', () => this.startQuiz());
+
+    const wrongBtn = document.getElementById('btn-quiz-redo-wrong');
+    if (wrongBtn) wrongBtn.addEventListener('click', () => this.startQuiz(this.wrongList.map(w => w.q)));
+
     document.addEventListener('keydown', (e) => {
       if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
       const quizPanel = document.getElementById('tab-quiz');
       if (!quizPanel || !quizPanel.classList.contains('active')) return;
       if (!this.isAnswering) return;
-
       const keyNum = parseInt(e.key, 10);
       if (keyNum >= 1 && keyNum <= 4) {
         const optionBtns = document.querySelectorAll('.quiz-opt-btn');
-        if (optionBtns[keyNum - 1]) {
-          optionBtns[keyNum - 1].click();
-        }
+        if (optionBtns[keyNum - 1]) optionBtns[keyNum - 1].click();
       }
     });
   }
 
-  generateQuestions() {
+  // --------------------------------------------------------------- questions
+  getPoolSize() {
+    return this.buildTargets().length;
+  }
+
+  buildTargets() {
     const data = window.APP_DATA;
     if (!data) return [];
-    const questions = [];
+    const scope = this.lessonScope;
+    const f = list => (scope && scope !== 'all') ? list.filter(i => i.lesson === scope) : [...list];
+    const vocab = f(data.vocabulary);
+    const kanji = f(data.kanji);
+    const grammar = f(data.grammar);
 
-    let vocabList = [...data.vocabulary];
-    let kanjiList = [...data.kanji];
-    let grammarList = [...data.grammar];
-
-    if (this.lessonScope && this.lessonScope !== 'all') {
-      vocabList = vocabList.filter(v => v.lesson === this.lessonScope);
-      kanjiList = kanjiList.filter(k => k.lesson === this.lessonScope);
-      grammarList = grammarList.filter(g => g.lesson === this.lessonScope);
+    switch (this.mode) {
+      case 'vocab_jp_vn':
+      case 'vocab_vn_jp': return vocab.map(item => ({ type: this.mode, item, list: vocab, all: data.vocabulary }));
+      case 'kanji_hanviet': return kanji.map(item => ({ type: 'k', item, list: kanji, all: data.kanji }));
+      case 'grammar_formula': return grammar.map(item => ({ type: 'g', item, list: grammar, all: data.grammar }));
+      default:
+        return [
+          ...vocab.map(item => ({ type: 'vocab_jp_vn', item, list: vocab, all: data.vocabulary })),
+          ...kanji.map(item => ({ type: 'k', item, list: kanji, all: data.kanji }))
+        ];
     }
+  }
 
-    if (this.mode === 'vocab_jp_vn') {
-      const count = Math.min(15, vocabList.length);
-      const shuffledTargets = this.shuffleArray(vocabList);
-      for (let i = 0; i < count; i++) {
-        const target = shuffledTargets[i];
-        const distractors = this.getRandomDistractors(vocabList, target, 3, 'meaning', data.vocabulary);
-        const options = this.shuffleArray([target.meaning, ...distractors.map(d => d.meaning)]);
-        questions.push({
-          prompt: target.display,
-          subPrompt: target.kana && target.kanji ? target.kana : '',
-          correctAnswer: target.meaning,
-          options,
-          hint: `${target.lesson} • ${target.part}`
-        });
-      }
-    } else if (this.mode === 'vocab_vn_jp') {
-      const count = Math.min(15, vocabList.length);
-      const shuffledTargets = this.shuffleArray(vocabList);
-      for (let i = 0; i < count; i++) {
-        const target = shuffledTargets[i];
-        const distractors = this.getRandomDistractors(vocabList, target, 3, 'display', data.vocabulary);
-        const options = this.shuffleArray([target.display, ...distractors.map(d => d.display)]);
-        questions.push({
-          prompt: target.meaning,
-          subPrompt: 'Chọn từ tiếng Nhật tương ứng',
-          correctAnswer: target.display,
-          options,
-          hint: target.lesson
-        });
-      }
-    } else if (this.mode === 'kanji_hanviet') {
-      const count = Math.min(15, kanjiList.length);
-      const shuffledTargets = this.shuffleArray(kanjiList);
-      for (let i = 0; i < count; i++) {
-        const target = shuffledTargets[i];
-        const distractors = this.getRandomDistractors(kanjiList, target, 3, 'han_viet', data.kanji);
-        const options = this.shuffleArray([target.han_viet, ...distractors.map(d => d.han_viet)]);
-        questions.push({
-          prompt: target.kanji,
-          subPrompt: `On: ${target.onyomi || '—'} | Kun: ${target.kunyomi || '—'}`,
-          correctAnswer: target.han_viet,
-          options,
-          hint: `${target.lesson} • Hán tự`
-        });
-      }
-    } else if (this.mode === 'grammar_formula') {
-      const count = Math.min(15, grammarList.length);
-      const shuffledTargets = this.shuffleArray(grammarList);
-      for (let i = 0; i < count; i++) {
-        const target = shuffledTargets[i];
-        const distractors = this.getRandomDistractors(grammarList, target, 3, 'formula', data.grammar);
-        const options = this.shuffleArray([target.formula, ...distractors.map(d => d.formula)]);
-        questions.push({
-          prompt: target.title,
-          subPrompt: target.points ? target.points.slice(0, 60) + '...' : '',
-          correctAnswer: target.formula,
-          options,
-          hint: `${target.lesson} • Cấu trúc ngữ pháp`
-        });
-      }
-    } else {
-      // Mixed Challenge
-      const allPool = [
-        ...vocabList.map(v => ({ type: 'v', item: v })),
-        ...kanjiList.map(k => ({ type: 'k', item: k }))
-      ];
-      const count = Math.min(15, allPool.length);
-      const shuffledPool = this.shuffleArray(allPool);
-      for (let i = 0; i < count; i++) {
-        const pick = shuffledPool[i];
-        if (pick.type === 'v') {
-          const target = pick.item;
-          const distractors = this.getRandomDistractors(vocabList, target, 3, 'meaning', data.vocabulary);
-          questions.push({
-            prompt: target.display,
-            subPrompt: target.kana,
-            correctAnswer: target.meaning,
-            options: this.shuffleArray([target.meaning, ...distractors.map(d => d.meaning)]),
-            hint: `${target.lesson} • Từ vựng`
-          });
-        } else {
-          const target = pick.item;
-          const distractors = this.getRandomDistractors(kanjiList, target, 3, 'han_viet', data.kanji);
-          questions.push({
-            prompt: target.kanji,
-            subPrompt: 'Hán Việt là gì?',
-            correctAnswer: target.han_viet,
-            options: this.shuffleArray([target.han_viet, ...distractors.map(d => d.han_viet)]),
-            hint: `${target.lesson} • Hán tự`
-          });
-        }
-      }
+  makeQuestion(t) {
+    const { item: target, list, all } = t;
+    const build = (key, correct, extra) => {
+      const distractors = this.getRandomDistractors(list, target, 3, key, all);
+      return {
+        correctAnswer: correct,
+        options: this.shuffleArray([correct, ...distractors.map(d => d[key])]),
+        ...extra
+      };
+    };
+
+    if (t.type === 'vocab_jp_vn') {
+      return build('meaning', target.meaning, {
+        prompt: target.display,
+        subPrompt: target.kana && target.kanji ? target.kana : '',
+        hint: `${target.lesson} • ${target.part || 'Từ vựng'}`
+      });
     }
+    if (t.type === 'vocab_vn_jp') {
+      return build('display', target.display, {
+        prompt: target.meaning,
+        subPrompt: 'Chọn từ tiếng Nhật tương ứng',
+        hint: target.lesson
+      });
+    }
+    if (t.type === 'k') {
+      return build('han_viet', target.han_viet, {
+        prompt: target.kanji,
+        subPrompt: `On: ${target.onyomi || '—'} | Kun: ${target.kunyomi || '—'}`,
+        hint: `${target.lesson} • Hán tự`
+      });
+    }
+    return build('formula', target.formula, {
+      prompt: target.title,
+      subPrompt: target.points ? target.points.slice(0, 60) + '...' : '',
+      hint: `${target.lesson} • Cấu trúc ngữ pháp`
+    });
+  }
 
-    return questions;
+  generateQuestions() {
+    const targets = this.shuffleArray(this.buildTargets());
+    const count = this.questionCount === 'all' ? targets.length : Math.min(this.questionCount, targets.length);
+    return targets.slice(0, count).map(t => this.makeQuestion(t));
   }
 
   getRandomDistractors(list, excludeItem, count, key, fallbackList = null) {
-    let pool = list.filter(item => item[key] && item[key] !== excludeItem[key]);
-    if (pool.length < count && fallbackList) {
-      pool = fallbackList.filter(item => item[key] && item[key] !== excludeItem[key]);
-    }
-    const shuffled = this.shuffleArray([...pool]);
-    return shuffled.slice(0, count);
+    const uniq = arr => {
+      const seen = new Set();
+      return arr.filter(item => {
+        if (!item[key] || item[key] === excludeItem[key] || seen.has(item[key])) return false;
+        seen.add(item[key]);
+        return true;
+      });
+    };
+    let pool = uniq(list);
+    if (pool.length < count && fallbackList) pool = uniq(fallbackList);
+    return this.shuffleArray(pool).slice(0, count);
   }
 
   shuffleArray(arr) {
@@ -207,17 +247,44 @@ class QuizEngine {
     return copy;
   }
 
-  startQuiz() {
-    this.questions = this.generateQuestions();
+  // -------------------------------------------------------------------- flow
+  showConfig() {
+    clearInterval(this.timer);
+    clearTimeout(this.nextTimeout);
+    document.getElementById('quiz-result-view').style.display = 'none';
+    document.getElementById('quiz-play-view').style.display = 'none';
+    document.getElementById('quiz-config-view').style.display = 'block';
+    this.syncSettingsUI();
+  }
+
+  startQuiz(customQuestions = null) {
+    clearInterval(this.timer);
+    clearTimeout(this.nextTimeout);
+
+    const qs = customQuestions
+      ? this.shuffleArray(customQuestions).map(q => ({ ...q, options: this.shuffleArray(q.options) }))
+      : this.generateQuestions();
+
+    if (qs.length === 0) {
+      window.app?.showToast('Không có dữ liệu cho phạm vi/chế độ đã chọn!', 'warning');
+      return;
+    }
+
+    this.questions = qs;
     this.currentIndex = 0;
     this.score = 0;
     this.combo = 0;
     this.maxCombo = 0;
+    this.correctCount = 0;
+    this.wrongList = [];
 
-    const configCard = document.getElementById('quiz-config-view');
-    const playCard = document.getElementById('quiz-play-view');
-    if (configCard) configCard.style.display = 'none';
-    if (playCard) playCard.style.display = 'flex';
+    if (!customQuestions && this.questionCount !== 'all' && qs.length < this.questionCount) {
+      window.app?.showToast(`Phạm vi này chỉ có ${qs.length} câu.`, 'info');
+    }
+
+    document.getElementById('quiz-config-view').style.display = 'none';
+    document.getElementById('quiz-result-view').style.display = 'none';
+    document.getElementById('quiz-play-view').style.display = 'flex';
 
     this.renderQuestion();
   }
@@ -231,7 +298,6 @@ class QuizEngine {
     this.isAnswering = true;
     const q = this.questions[this.currentIndex];
 
-    // Update Counter & Score
     const qNumEl = document.getElementById('quiz-q-num');
     const scoreEl = document.getElementById('quiz-score-val');
     const comboEl = document.getElementById('quiz-combo-badge');
@@ -241,42 +307,43 @@ class QuizEngine {
       comboEl.textContent = `Combo x${this.combo}`;
       comboEl.style.display = this.combo > 1 ? 'inline-block' : 'none';
     }
+    const progressFill = document.getElementById('quiz-progress-fill');
+    if (progressFill) progressFill.style.width = `${(this.currentIndex / this.questions.length) * 100}%`;
 
-    // Render Prompt
-    const promptEl = document.getElementById('quiz-prompt-text');
-    const subPromptEl = document.getElementById('quiz-prompt-sub');
-    const hintEl = document.getElementById('quiz-hint-tag');
-    if (promptEl) promptEl.textContent = q.prompt;
-    if (subPromptEl) subPromptEl.textContent = q.subPrompt;
-    if (hintEl) hintEl.textContent = q.hint;
+    document.getElementById('quiz-prompt-text').textContent = q.prompt;
+    document.getElementById('quiz-prompt-sub').textContent = q.subPrompt || '';
+    document.getElementById('quiz-hint-tag').textContent = q.hint;
 
-    // Render Options
     const optionsGrid = document.getElementById('quiz-options-grid');
-    if (optionsGrid) {
-      optionsGrid.innerHTML = q.options.map((opt, idx) => `
-        <button class="quiz-opt-btn" data-opt="${encodeURIComponent(opt)}">
-          <span><strong>${idx + 1}.</strong> ${opt}</span>
-          <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">[${idx + 1}]</span>
-        </button>
-      `).join('');
+    optionsGrid.innerHTML = q.options.map((opt, idx) => `
+      <button class="quiz-opt-btn" data-opt="${encodeURIComponent(opt)}">
+        <span><strong>${idx + 1}.</strong> ${opt}</span>
+        <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">[${idx + 1}]</span>
+      </button>
+    `).join('');
 
-      optionsGrid.querySelectorAll('.quiz-opt-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          if (!this.isAnswering) return;
-          const chosen = decodeURIComponent(btn.dataset.opt);
-          this.handleAnswer(chosen, btn);
-        });
+    optionsGrid.querySelectorAll('.quiz-opt-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (!this.isAnswering) return;
+        this.handleAnswer(decodeURIComponent(btn.dataset.opt), btn);
       });
-    }
+    });
 
-    // Start Timer
     this.startTimer();
   }
 
   startTimer() {
     clearInterval(this.timer);
-    this.timeLeft = this.maxTime;
+    const wrap = document.querySelector('.quiz-timer-bar-wrap');
     const timerBar = document.getElementById('quiz-timer-fill');
+
+    if (!this.maxTime) {
+      if (wrap) wrap.style.display = 'none';
+      return;
+    }
+    if (wrap) wrap.style.display = '';
+
+    this.timeLeft = this.maxTime;
     if (timerBar) {
       timerBar.style.width = '100%';
       timerBar.classList.remove('warning');
@@ -289,7 +356,6 @@ class QuizEngine {
         timerBar.style.width = `${Math.max(0, pct)}%`;
         if (pct < 30) timerBar.classList.add('warning');
       }
-
       if (this.timeLeft <= 0) {
         clearInterval(this.timer);
         this.handleTimeout();
@@ -297,35 +363,36 @@ class QuizEngine {
     }, 100);
   }
 
+  highlightCorrect(q) {
+    document.querySelectorAll('.quiz-opt-btn').forEach(btn => {
+      if (decodeURIComponent(btn.dataset.opt) === q.correctAnswer) btn.classList.add('correct');
+    });
+  }
+
   handleAnswer(chosen, chosenBtn) {
     clearInterval(this.timer);
     this.isAnswering = false;
     const q = this.questions[this.currentIndex];
-    const isCorrect = chosen === q.correctAnswer;
 
-    if (isCorrect) {
+    if (chosen === q.correctAnswer) {
       this.combo++;
       if (this.combo > this.maxCombo) this.maxCombo = this.combo;
-      const points = 100 + this.combo * 20;
-      this.score += points;
+      this.score += 100 + this.combo * 20;
+      this.correctCount++;
       chosenBtn.classList.add('correct');
       window.soundEngine.playCorrect(this.combo);
     } else {
       this.combo = 0;
       chosenBtn.classList.add('wrong');
       window.soundEngine.playWrong();
-      // Highlight the correct one
-      document.querySelectorAll('.quiz-opt-btn').forEach(btn => {
-        if (decodeURIComponent(btn.dataset.opt) === q.correctAnswer) {
-          btn.classList.add('correct');
-        }
-      });
+      this.highlightCorrect(q);
+      this.wrongList.push({ q, chosen });
     }
 
-    setTimeout(() => {
+    this.nextTimeout = setTimeout(() => {
       this.currentIndex++;
       this.renderQuestion();
-    }, 1200);
+    }, chosen === q.correctAnswer ? 800 : 1500);
   }
 
   handleTimeout() {
@@ -333,39 +400,52 @@ class QuizEngine {
     this.combo = 0;
     window.soundEngine.playWrong();
     const q = this.questions[this.currentIndex];
+    this.highlightCorrect(q);
+    this.wrongList.push({ q, chosen: null });
 
-    // Highlight correct answer
-    document.querySelectorAll('.quiz-opt-btn').forEach(btn => {
-      if (decodeURIComponent(btn.dataset.opt) === q.correctAnswer) {
-        btn.classList.add('correct');
-      }
-    });
-
-    setTimeout(() => {
+    this.nextTimeout = setTimeout(() => {
       this.currentIndex++;
       this.renderQuestion();
-    }, 1400);
+    }, 1500);
   }
 
   finishQuiz() {
     clearInterval(this.timer);
+    clearTimeout(this.nextTimeout);
+    this.isAnswering = false;
+
+    const total = this.questions.length;
+    const accuracy = total ? Math.round((this.correctCount / total) * 100) : 0;
+
     window.storageManager.saveQuizScore(this.mode, this.score);
     window.soundEngine.playFanfare();
 
-    const playCard = document.getElementById('quiz-play-view');
+    document.getElementById('quiz-play-view').style.display = 'none';
     const resultCard = document.getElementById('quiz-result-view');
-    if (playCard) playCard.style.display = 'none';
-    if (resultCard) {
-      resultCard.style.display = 'flex';
-      document.getElementById('final-score-val').textContent = `${this.score} Điểm`;
-      document.getElementById('final-max-combo').textContent = `Max Combo: x${this.maxCombo}`;
-      
-      const restartBtn = document.getElementById('btn-quiz-retry');
-      if (restartBtn) {
-        restartBtn.onclick = () => {
-          resultCard.style.display = 'none';
-          document.getElementById('quiz-config-view').style.display = 'block';
-        };
+    resultCard.style.display = 'flex';
+
+    document.getElementById('final-score-val').textContent = `${this.score} Điểm`;
+    document.getElementById('final-max-combo').textContent =
+      `Đúng ${this.correctCount}/${total} câu (${accuracy}%) • Max Combo: x${this.maxCombo}`;
+
+    const wrongBtn = document.getElementById('btn-quiz-redo-wrong');
+    if (wrongBtn) wrongBtn.style.display = this.wrongList.length ? '' : 'none';
+
+    const review = document.getElementById('quiz-review-list');
+    if (review) {
+      if (!this.wrongList.length) {
+        review.innerHTML = '<div style="color: var(--text-secondary);">Bạn trả lời đúng tất cả các câu.</div>';
+      } else {
+        review.innerHTML = `
+          <div class="quiz-config-label" style="margin-bottom: 0.5rem;">Các câu làm sai (${this.wrongList.length}):</div>
+          ${this.wrongList.map(w => `
+            <div class="quiz-review-item">
+              <div class="jp-font" style="font-weight: 700; color: var(--text-heading);">${w.q.prompt}${w.q.subPrompt && !w.q.subPrompt.startsWith('Chọn') ? ` <span style="font-weight: 400; color: var(--text-muted); font-size: 0.85rem;">${w.q.subPrompt}</span>` : ''}</div>
+              <div style="font-size: 0.9rem;">Đáp án đúng: <strong style="color: var(--success, #16a34a);">${w.q.correctAnswer}</strong></div>
+              <div style="font-size: 0.85rem; color: var(--text-secondary);">Bạn chọn: ${w.chosen === null ? '(hết giờ)' : w.chosen}</div>
+            </div>
+          `).join('')}
+        `;
       }
     }
   }
