@@ -91,8 +91,68 @@ class FinalExamEngine {
     // 4. Remediation button (Bắt học lại liền ở phần Flashcard)
     const remediateBtn = document.getElementById('btn-remediation-flashcard');
     if (remediateBtn) {
-      remediateBtn.addEventListener('click', () => this.remediateInFlashcards());
+      remediateBtn.addEventListener('click', () => {
+        this.exitFullscreen();
+        this.remediateInFlashcards();
+      });
     }
+
+    // 5. Fullscreen toggle
+    const fsBtn = document.getElementById('btn-excel-fullscreen');
+    if (fsBtn) fsBtn.addEventListener('click', () => this.toggleFullscreen());
+    document.addEventListener('fullscreenchange', () => this.syncFullscreenUI());
+    document.addEventListener('webkitfullscreenchange', () => this.syncFullscreenUI());
+    document.addEventListener('keydown', (e) => {
+      // Esc closes the CSS fallback mode (native fullscreen handles Esc itself)
+      if (e.key === 'Escape' && document.body.classList.contains('excel-pseudo-fs')) this.exitFullscreen();
+    });
+  }
+
+  getFullscreenEl() {
+    return document.getElementById('excel-window');
+  }
+
+  isFullscreen() {
+    const el = this.getFullscreenEl();
+    return !!el && (document.fullscreenElement === el || document.webkitFullscreenElement === el ||
+      document.body.classList.contains('excel-pseudo-fs'));
+  }
+
+  toggleFullscreen() {
+    if (this.isFullscreen()) this.exitFullscreen(); else this.enterFullscreen();
+  }
+
+  enterFullscreen() {
+    const el = this.getFullscreenEl();
+    if (!el) return;
+    const req = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (req) {
+      Promise.resolve(req.call(el)).catch(() => this.setPseudoFullscreen(true));
+    } else {
+      this.setPseudoFullscreen(true);
+    }
+  }
+
+  exitFullscreen() {
+    if (document.body.classList.contains('excel-pseudo-fs')) this.setPseudoFullscreen(false);
+    const exit = document.exitFullscreen || document.webkitExitFullscreen;
+    if (exit && (document.fullscreenElement || document.webkitFullscreenElement)) {
+      Promise.resolve(exit.call(document)).catch(() => {});
+    }
+  }
+
+  /** Fallback for browsers/iframes where the Fullscreen API is unavailable */
+  setPseudoFullscreen(on) {
+    document.body.classList.toggle('excel-pseudo-fs', on);
+    this.syncFullscreenUI();
+  }
+
+  syncFullscreenUI() {
+    const on = this.isFullscreen();
+    const el = this.getFullscreenEl();
+    if (el) el.classList.toggle('is-fullscreen', on);
+    const btn = document.getElementById('btn-excel-fullscreen');
+    if (btn) btn.textContent = on ? 'Thu nhỏ (Esc)' : 'Toàn màn hình';
   }
 
   /**

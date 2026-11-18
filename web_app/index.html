@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Noto+Sans+JP:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=2.7">
-  <link rel="stylesheet" href="css/components.css?v=2.7">
-  <link rel="stylesheet" href="css/responsive.css?v=2.7">
+  <link rel="stylesheet" href="css/main.css?v=2.8">
+  <link rel="stylesheet" href="css/components.css?v=2.8">
+  <link rel="stylesheet" href="css/responsive.css?v=2.8">
 </head>
 <body>
   <div class="app-container">
@@ -315,7 +315,7 @@
            TAB: FINAL EXAM CRAM MODE (Excel-like Spreadsheet Interface)
            ================================================================== -->
       <section class="tab-panel" id="tab-final-exam">
-        <div class="excel-window-container">
+        <div class="excel-window-container" id="excel-window">
           <!-- Excel Title Bar -->
           <div class="excel-title-bar">
             <div class="excel-title-left">
@@ -324,6 +324,7 @@
             </div>
             <div class="excel-title-actions">
               <span class="excel-progress-indicator" id="excel-progress-text">Đã điền: 0 / 0 ô</span>
+              <button class="btn btn-secondary btn-sm" id="btn-excel-fullscreen" title="Phóng to bảng ra toàn màn hình">Toàn màn hình</button>
               <button class="btn btn-secondary btn-sm" id="btn-excel-clear" title="Xóa trắng toàn bộ sheet này để làm lại từ đầu">Làm lại</button>
               <button class="btn btn-primary btn-sm" id="btn-excel-submit" title="Chấm điểm và in đỏ các câu sai / bỏ trống">Nộp bài & Chấm điểm</button>
             </div>
@@ -1397,19 +1398,19 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/app_data.js?v=2.7"></script>
-  <script src="data/speaking_data.js?v=2.7"></script>
-  <script src="data/oral_exam_data.js?v=2.7"></script>
-  <script src="js/audio.js?v=2.7"></script>
-  <script src="js/fx.js?v=2.7"></script>
-  <script src="js/storage.js?v=2.7"></script>
-  <script src="js/flashcard.js?v=2.7"></script>
-  <script src="js/quiz.js?v=2.7"></script>
-  <script src="js/typing.js?v=2.7"></script>
-  <script src="js/final_exam.js?v=2.7"></script>
-  <script src="js/speaking.js?v=2.7"></script>
-  <script src="js/oral_exam.js?v=2.7"></script>
-  <script src="js/search.js?v=2.7"></script>
-  <script src="js/app.js?v=2.7"></script>
+  <script src="data/app_data.js?v=2.8"></script>
+  <script src="data/speaking_data.js?v=2.8"></script>
+  <script src="data/oral_exam_data.js?v=2.8"></script>
+  <script src="js/audio.js?v=2.8"></script>
+  <script src="js/fx.js?v=2.8"></script>
+  <script src="js/storage.js?v=2.8"></script>
+  <script src="js/flashcard.js?v=2.8"></script>
+  <script src="js/quiz.js?v=2.8"></script>
+  <script src="js/typing.js?v=2.8"></script>
+  <script src="js/final_exam.js?v=2.8"></script>
+  <script src="js/speaking.js?v=2.8"></script>
+  <script src="js/oral_exam.js?v=2.8"></script>
+  <script src="js/search.js?v=2.8"></script>
+  <script src="js/app.js?v=2.8"></script>
 </body>
 </html>

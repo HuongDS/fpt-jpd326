@@ -3157,3 +3157,11 @@
   .result-stage *, .quiz-opt-btn, .fx-enter, .typing-word-card { animation: none !important; }
   .result-stage .ring-fg { transition: none !important; }
 }
+
+/* Excel mode: fullscreen */
+.excel-window-container.is-fullscreen { border-radius: 0; border: 0; width: 100%; height: 100%; background: var(--bg-card); overflow: auto; }
+.excel-window-container.is-fullscreen .excel-grid-viewport { flex: 1 1 auto; max-height: none; min-height: 0; }
+.excel-window-container:fullscreen { width: 100vw; height: 100vh; }
+.excel-window-container:-webkit-full-screen { width: 100vw; height: 100vh; }
+body.excel-pseudo-fs { overflow: hidden; }
+body.excel-pseudo-fs .excel-window-container { position: fixed; inset: 0; z-index: 9000; }
