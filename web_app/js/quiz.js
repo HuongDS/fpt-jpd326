@@ -313,6 +313,7 @@ class QuizEngine {
     document.getElementById('quiz-prompt-text').textContent = q.prompt;
     document.getElementById('quiz-prompt-sub').textContent = q.subPrompt || '';
     document.getElementById('quiz-hint-tag').textContent = q.hint;
+    window.FX?.replay(document.querySelector('#quiz-play-view .quiz-question-box'), 'fx-enter');
 
     const optionsGrid = document.getElementById('quiz-options-grid');
     optionsGrid.innerHTML = q.options.map((opt, idx) => `
@@ -377,16 +378,39 @@ class QuizEngine {
     if (chosen === q.correctAnswer) {
       this.combo++;
       if (this.combo > this.maxCombo) this.maxCombo = this.combo;
-      this.score += 100 + this.combo * 20;
+      const gained = 100 + this.combo * 20;
+      this.score += gained;
       this.correctCount++;
       chosenBtn.classList.add('correct');
       window.soundEngine.playCorrect(this.combo);
+
+      const FX = window.FX;
+      if (FX) {
+        FX.burstAt(chosenBtn, { count: 16 + Math.min(this.combo, 10) * 2, speed: 300 });
+        FX.floatText(chosenBtn, `+${gained}`, '#16A34A');
+        const scoreEl = document.getElementById('quiz-score-val');
+        if (scoreEl) { scoreEl.textContent = `${this.score} pts`; FX.replay(scoreEl, 'fx-pop'); }
+        const comboEl = document.getElementById('quiz-combo-badge');
+        if (comboEl && this.combo > 1) {
+          comboEl.textContent = `Combo x${this.combo}`;
+          comboEl.style.display = 'inline-block';
+          comboEl.classList.toggle('combo-hot', this.combo >= 3);
+          FX.replay(comboEl, 'fx-pop');
+        }
+        if (this.combo > 0 && this.combo % 5 === 0) {
+          FX.banner(`COMBO x${this.combo}!`);
+          setTimeout(() => window.soundEngine.playComboBurst?.(), 200);
+        }
+      }
     } else {
       this.combo = 0;
       chosenBtn.classList.add('wrong');
       window.soundEngine.playWrong();
       this.highlightCorrect(q);
       this.wrongList.push({ q, chosen });
+      window.FX?.flash('red');
+      window.FX?.replay(document.querySelector('#quiz-play-view .quiz-question-box'), 'fx-shake');
+      document.getElementById('quiz-combo-badge')?.classList.remove('combo-hot');
     }
 
     this.nextTimeout = setTimeout(() => {
@@ -402,6 +426,8 @@ class QuizEngine {
     const q = this.questions[this.currentIndex];
     this.highlightCorrect(q);
     this.wrongList.push({ q, chosen: null });
+    window.FX?.flash('red');
+    window.FX?.replay(document.querySelector('#quiz-play-view .quiz-question-box'), 'fx-shake');
 
     this.nextTimeout = setTimeout(() => {
       this.currentIndex++;
@@ -415,8 +441,9 @@ class QuizEngine {
     this.isAnswering = false;
 
     const total = this.questions.length;
-    const accuracy = total ? Math.round((this.correctCount / total) * 100) : 0;
 
+    // Read previous record BEFORE saving the new score
+    const prevBestEarly = (window.storageManager.stats?.quizHighScores || {})[this.mode] || 0;
     window.storageManager.saveQuizScore(this.mode, this.score);
     window.soundEngine.playFanfare();
 
@@ -424,9 +451,15 @@ class QuizEngine {
     const resultCard = document.getElementById('quiz-result-view');
     resultCard.style.display = 'flex';
 
-    document.getElementById('final-score-val').textContent = `${this.score} Điểm`;
-    document.getElementById('final-max-combo').textContent =
-      `Đúng ${this.correctCount}/${total} câu (${accuracy}%) • Max Combo: x${this.maxCombo}`;
+    const prevBest = prevBestEarly;
+    window.FX.showResult('quiz', {
+      correct: this.correctCount,
+      total,
+      score: this.score,
+      chips: [{ v: `x${this.maxCombo}`, l: 'Combo cao nhất' }],
+      isNewBest: this.score > prevBest && this.score > 0,
+      bestText: this.score > prevBest && this.score > 0 ? 'Kỷ lục mới!' : `Kỷ lục chế độ này: ${prevBest} điểm`
+    });
 
     const wrongBtn = document.getElementById('btn-quiz-redo-wrong');
     if (wrongBtn) wrongBtn.style.display = this.wrongList.length ? '' : 'none';

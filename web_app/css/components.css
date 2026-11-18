@@ -3065,3 +3065,95 @@
 .typing-input:focus { border-color: #F27024; box-shadow: 0 0 0 3px rgba(242, 112, 36, 0.18); }
 .typing-preview { min-height: 1.8rem; margin-top: 0.5rem; font-size: 1.2rem; color: var(--text-secondary); }
 .typing-feedback { min-height: 1.4rem; margin-top: 0.25rem; font-weight: 700; color: var(--text-heading); }
+
+/* ==========================================================================
+   FX + animated result screen (Quiz & Typing)
+   ========================================================================== */
+.fx-canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; }
+.fx-float { position: fixed; pointer-events: none; z-index: 10000; font-weight: 900; font-size: 1.25rem; transform: translate(-50%, -50%); text-shadow: 0 2px 8px rgba(0,0,0,.18); animation: fxFloat 1s ease-out forwards; white-space: nowrap; }
+.fx-float.big { font-size: 1.9rem; }
+@keyframes fxFloat {
+  0% { opacity: 0; transform: translate(-50%, -30%) scale(.6); }
+  15% { opacity: 1; transform: translate(-50%, -70%) scale(1.25); }
+  100% { opacity: 0; transform: translate(-50%, -220%) scale(1); }
+}
+.fx-banner { position: fixed; left: 50%; top: 38%; z-index: 10000; pointer-events: none; font-size: clamp(2.4rem, 8vw, 4.5rem); font-weight: 900; letter-spacing: .04em; color: #fff; -webkit-text-stroke: 2px var(--fx-color, #F27024); text-shadow: 0 0 24px var(--fx-color, #F27024), 0 6px 0 rgba(0,0,0,.12); transform: translate(-50%, -50%); animation: fxBanner 1.2s cubic-bezier(.2,1.4,.4,1) forwards; white-space: nowrap; }
+@keyframes fxBanner {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.3) rotate(-8deg); }
+  25% { opacity: 1; transform: translate(-50%, -50%) scale(1.15) rotate(3deg); }
+  70% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0); }
+  100% { opacity: 0; transform: translate(-50%, -80%) scale(1.1); }
+}
+.fx-flash { position: fixed; inset: 0; pointer-events: none; z-index: 9998; animation: fxFlash .45s ease-out forwards; }
+.fx-flash.red { box-shadow: inset 0 0 120px 20px rgba(239, 68, 68, .55); }
+.fx-flash.green { box-shadow: inset 0 0 120px 20px rgba(34, 197, 94, .45); }
+@keyframes fxFlash { 0% { opacity: 1; } 100% { opacity: 0; } }
+
+.fx-enter { animation: fxEnter .45s cubic-bezier(.2,1.2,.4,1); }
+@keyframes fxEnter { 0% { opacity: 0; transform: translateY(18px) scale(.94); } 100% { opacity: 1; transform: none; } }
+.fx-shake { animation: typingShake .4s; }
+.fx-pop { animation: fxPop .35s cubic-bezier(.3,1.8,.5,1); }
+@keyframes fxPop { 0% { transform: scale(1); } 40% { transform: scale(1.4); } 100% { transform: scale(1); } }
+.combo-hot { background: linear-gradient(90deg, #F27024, #FFB347, #F27024) !important; background-size: 200% 100%; color: #fff !important; animation: comboFlame 1s linear infinite; box-shadow: 0 0 12px rgba(242,112,36,.7); }
+@keyframes comboFlame { to { background-position: 200% 0; } }
+
+/* Quiz options stagger in */
+.quiz-opt-btn { animation: optIn .35s both; }
+.quiz-opt-btn:nth-child(1) { animation-delay: .02s; }
+.quiz-opt-btn:nth-child(2) { animation-delay: .08s; }
+.quiz-opt-btn:nth-child(3) { animation-delay: .14s; }
+.quiz-opt-btn:nth-child(4) { animation-delay: .20s; }
+@keyframes optIn { 0% { opacity: 0; transform: translateX(-16px); } 100% { opacity: 1; transform: none; } }
+.quiz-opt-btn.correct { animation: pulseCorrect .3s ease, correctGlow 1s ease-in-out; }
+@keyframes correctGlow { 0%,100% { box-shadow: 0 0 0 rgba(22,163,74,0); } 40% { box-shadow: 0 0 0 6px rgba(22,163,74,.35); } }
+.quiz-timer-fill.warning { animation: timerPulse .5s ease-in-out infinite alternate; }
+@keyframes timerPulse { from { opacity: 1; } to { opacity: .45; } }
+
+/* Typing game flair */
+.typing-word-card { position: relative; border-radius: 16px; padding: 1.25rem 1rem; border: 2px solid transparent; }
+.typing-word-card.on-fire { border-color: #F27024; animation: fireGlow 1s ease-in-out infinite alternate; background: linear-gradient(180deg, rgba(242,112,36,.10), transparent); }
+@keyframes fireGlow { from { box-shadow: 0 0 8px rgba(242,112,36,.35); } to { box-shadow: 0 0 28px rgba(242,112,36,.75); } }
+.typing-input.key-hit { animation: keyHit .12s ease-out; }
+@keyframes keyHit { 0% { transform: scale(1); } 50% { transform: scale(1.02); border-color: #FFB347; } 100% { transform: scale(1); } }
+.typing-preview { letter-spacing: .08em; }
+.typing-feedback { transition: color .2s; }
+
+/* Animated result screen */
+.result-stage { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; overflow: hidden; padding: 2.25rem 1.5rem; }
+.result-stage::before { content: ''; position: absolute; left: 50%; top: 90px; width: 420px; height: 420px; transform: translateX(-50%); background: radial-gradient(circle, rgba(242,112,36,.22), transparent 65%); animation: glowPulse 3s ease-in-out infinite alternate; pointer-events: none; }
+@keyframes glowPulse { from { opacity: .5; transform: translateX(-50%) scale(.9); } to { opacity: 1; transform: translateX(-50%) scale(1.1); } }
+.result-stage > * { position: relative; }
+.result-title { font-size: .85rem; font-weight: 800; letter-spacing: .25em; text-transform: uppercase; color: var(--text-muted); animation: fxEnter .5s both; }
+.result-medal { width: 170px; height: 170px; margin: .75rem 0 .5rem; animation: medalPop .8s cubic-bezier(.34,1.56,.64,1) both; }
+@keyframes medalPop { 0% { transform: scale(0) rotate(-120deg); opacity: 0; } 100% { transform: none; opacity: 1; } }
+.result-medal svg { width: 100%; height: 100%; transform: rotate(-90deg); filter: drop-shadow(0 6px 14px rgba(242,112,36,.35)); }
+.result-medal .ring-bg { fill: none; stroke: var(--border-subtle); stroke-width: 9; }
+.result-medal .ring-fg { fill: none; stroke-width: 9; stroke-linecap: round; stroke-dasharray: 326.73; stroke-dashoffset: 326.73; }
+.medal-grade { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-size: 4.6rem; font-weight: 900; line-height: 1; animation: gradeIn .6s .5s cubic-bezier(.3,1.8,.5,1) both; }
+@keyframes gradeIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+.result-stage.grade-S .medal-grade { background: linear-gradient(120deg, #FFD93D 20%, #fff7c2 45%, #F59E0B 70%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: gradeIn .6s .5s cubic-bezier(.3,1.8,.5,1) both, shine 2s 1.2s linear infinite; }
+@keyframes shine { to { background-position: -200% 0; } }
+.result-stage.grade-A .medal-grade { color: #F27024; }
+.result-stage.grade-B .medal-grade { color: #16A34A; }
+.result-stage.grade-C .medal-grade { color: #3B82F6; }
+.result-stage.grade-D .medal-grade { color: #94A3B8; }
+.result-rank { font-size: 1.5rem; font-weight: 900; color: var(--text-heading); animation: fxEnter .5s .7s both; }
+.result-score-wrap { margin: .35rem 0 .15rem; animation: fxEnter .5s .85s both; }
+.result-score { font-family: var(--font-display); font-size: 3.6rem; font-weight: 900; line-height: 1; background: linear-gradient(135deg, #F27024, #FFB347); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.result-score-label { margin-left: .4rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: .15em; font-size: .85rem; }
+.result-best { min-height: 1.4rem; font-weight: 700; color: var(--text-muted); font-size: .9rem; animation: fxEnter .5s 1s both; }
+.result-best.new-best { color: #F27024; animation: fxEnter .5s 1s both, bestBlink 1s 1.5s ease-in-out 4; }
+@keyframes bestBlink { 50% { transform: scale(1.12); } }
+.result-chips { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin: 1rem 0 1.25rem; }
+.result-chip { display: flex; flex-direction: column; align-items: center; min-width: 96px; padding: .6rem 1rem; border: 1px solid var(--border-subtle); border-radius: 14px; background: var(--bg-elevated, var(--bg-card)); animation: chipIn .55s cubic-bezier(.3,1.5,.5,1) both; }
+.result-chip strong { font-size: 1.3rem; color: var(--text-heading); }
+.result-chip span { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); font-weight: 700; }
+@keyframes chipIn { 0% { opacity: 0; transform: translateY(20px) scale(.8); } 100% { opacity: 1; transform: none; } }
+.result-actions { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-bottom: 1.25rem; animation: fxEnter .5s 1.1s both; }
+.result-actions .btn { width: auto; white-space: nowrap; }
+.result-review { width: 100%; text-align: left; }
+
+@media (prefers-reduced-motion: reduce) {
+  .result-stage *, .quiz-opt-btn, .fx-enter, .typing-word-card { animation: none !important; }
+  .result-stage .ring-fg { transition: none !important; }
+}

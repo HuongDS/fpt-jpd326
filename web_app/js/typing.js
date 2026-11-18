@@ -402,7 +402,11 @@ class TypingGame {
     if (fill) fill.style.width = `${(this.index / this.words.length) * 100}%`;
 
     const card = document.getElementById('typing-word-card');
-    if (card) card.classList.remove('correct', 'wrong', 'reveal');
+    if (card) {
+      card.classList.remove('correct', 'wrong', 'reveal');
+      card.classList.toggle('on-fire', this.combo >= 5);
+      window.FX?.replay(card, 'fx-enter');
+    }
 
     const input = document.getElementById('typing-input');
     if (input) {
@@ -455,6 +459,14 @@ class TypingGame {
       window.soundEngine?.playTypeBack();
     } else if (val.length > this.lastLen) {
       window.soundEngine?.playTypeKey();
+      // Sparks fly off the input as you type
+      if (window.FX) {
+        const r = input.getBoundingClientRect();
+        const spread = Math.min(r.width * 0.6, val.length * 26 + 20);
+        window.FX.burst(r.left + r.width / 2 + (Math.random() - 0.5) * spread, r.top + 6,
+          { count: 4, speed: 200, size: 5, gravity: 500, life: 0.5, up: true, shapes: ['circle', 'star'] });
+        window.FX.replay(input, 'key-hit');
+      }
     }
     this.lastLen = val.length;
 
@@ -492,8 +504,10 @@ class TypingGame {
     this.attempts++;
     this.combo = 0;
     window.soundEngine?.playWrong();
+    window.FX?.flash('red');
     const card = document.getElementById('typing-word-card');
     if (card) {
+      card.classList.remove('on-fire');
       card.classList.remove('shake');
       void card.offsetWidth;
       card.classList.add('shake');
@@ -530,6 +544,18 @@ class TypingGame {
 
     const card = document.getElementById('typing-word-card');
     if (card) card.classList.add('correct');
+    const FX = window.FX;
+    if (FX) {
+      FX.burstAt(card, { count: 26 + Math.min(this.combo, 12) * 3, speed: 420, size: 9 });
+      FX.floatText(card, `+${gained}`, '#16A34A', true);
+      if (seconds < 2.5 && !this.hintUsed) {
+        setTimeout(() => FX.floatText(card, 'NHANH!', '#F27024'), 150);
+      }
+      if (this.combo > 0 && this.combo % 5 === 0) {
+        FX.banner(`COMBO x${this.combo}!`);
+        card?.classList.add('on-fire');
+      }
+    }
     const fb = document.getElementById('typing-feedback');
     if (fb) fb.textContent = `${item.display}  ·  ${KanaNorm.firstReading(item)}   +${gained}`;
     const scoreEl = document.getElementById('typing-score');
@@ -551,7 +577,8 @@ class TypingGame {
     if (reason !== 'wrong') window.soundEngine?.playWrong();
 
     const card = document.getElementById('typing-word-card');
-    if (card) card.classList.add('reveal');
+    if (card) { card.classList.remove('on-fire'); card.classList.add('reveal'); }
+    if (reason !== 'wrong') window.FX?.flash('red');
     const fb = document.getElementById('typing-feedback');
     const label = reason === 'timeout' ? 'Hết giờ' : reason === 'skip' ? 'Bỏ qua' : 'Chưa đúng';
     if (fb) fb.textContent = `${label}. Đáp án: ${item.display}  ·  ${KanaNorm.firstReading(item)}`;
@@ -587,7 +614,6 @@ class TypingGame {
     this.locked = true;
 
     const total = this.words.length;
-    const accuracy = total ? Math.round((this.correctCount / total) * 100) : 0;
     const avg = total ? (this.totalTime / total).toFixed(1) : '0.0';
 
     let best = 0;
@@ -598,11 +624,19 @@ class TypingGame {
     window.soundEngine?.playFanfare();
     this.show('result');
 
+    window.FX.showResult('typing', {
+      correct: this.correctCount,
+      total,
+      score: this.score,
+      chips: [
+        { v: `${avg}s`, l: 'Trung bình / từ' },
+        { v: `x${this.maxCombo}`, l: 'Combo cao nhất' }
+      ],
+      isNewBest,
+      bestText: isNewBest ? 'Kỷ lục mới!' : `Kỷ lục: ${best} điểm`
+    });
+
     const set = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
-    set('typing-final-score', `${this.score} Điểm`);
-    set('typing-final-stats',
-      `Đúng ${this.correctCount}/${total} từ (${accuracy}%) • Trung bình ${avg}s/từ • Combo cao nhất x${this.maxCombo}`);
-    set('typing-final-best', isNewBest ? 'Kỷ lục mới!' : `Kỷ lục: ${best} điểm`);
 
     const wrongBtn = document.getElementById('btn-typing-replay-wrong');
     if (wrongBtn) wrongBtn.style.display = this.failed.length ? '' : 'none';

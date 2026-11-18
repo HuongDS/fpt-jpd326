@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Noto+Sans+JP:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=2.6">
-  <link rel="stylesheet" href="css/components.css?v=2.6">
-  <link rel="stylesheet" href="css/responsive.css?v=2.6">
+  <link rel="stylesheet" href="css/main.css?v=2.7">
+  <link rel="stylesheet" href="css/components.css?v=2.7">
+  <link rel="stylesheet" href="css/responsive.css?v=2.7">
 </head>
 <body>
   <div class="app-container">
@@ -934,16 +934,33 @@
           </div>
 
           <!-- Results View -->
-          <div class="quiz-config-card" id="quiz-result-view" style="display: none; text-align: center; align-items: center;">
-            <h3 style="font-size: 1.75rem; color: var(--text-heading); margin-bottom: 0.5rem;">Hoàn Thành Thử Thách!</h3>
-            <div class="stat-value" id="final-score-val" style="font-size: 2.8rem; margin: 0.5rem 0;">0 Điểm</div>
-            <div id="final-max-combo" style="color: var(--text-secondary); font-weight: 700; margin-bottom: 1.5rem;">Max Combo: x0</div>
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.25rem;">
+          <div class="quiz-config-card result-stage" id="quiz-result-view" style="display: none;">
+            <div class="result-title" id="quiz-result-title">Hoàn thành</div>
+            <div class="result-medal">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <defs>
+                  <linearGradient id="quiz-ring-grad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#FFB347"/><stop offset="100%" stop-color="#F27024"/>
+                  </linearGradient>
+                </defs>
+                <circle class="ring-bg" cx="60" cy="60" r="52"/>
+                <circle class="ring-fg" id="quiz-ring" cx="60" cy="60" r="52" stroke="url(#quiz-ring-grad)"/>
+              </svg>
+              <div class="medal-grade" id="quiz-grade">S</div>
+            </div>
+            <div class="result-rank" id="quiz-rank"></div>
+            <div class="result-score-wrap">
+              <span class="result-score" id="quiz-final-score">0</span>
+              <span class="result-score-label">điểm</span>
+            </div>
+            <div class="result-best" id="quiz-final-best"></div>
+            <div class="result-chips" id="quiz-result-chips"></div>
+            <div class="result-actions">
               <button class="btn btn-primary" id="btn-quiz-redo">Làm lại bộ mới</button>
               <button class="btn btn-secondary" id="btn-quiz-redo-wrong">Làm lại các câu sai</button>
               <button class="btn btn-secondary" id="btn-quiz-retry">Đổi cấu hình</button>
             </div>
-            <div id="quiz-review-list" style="width: 100%; text-align: left;"></div>
+            <div id="quiz-review-list" class="result-review"></div>
           </div>
         </div>
       </section>
@@ -1043,17 +1060,33 @@
           </div>
 
           <!-- Results View -->
-          <div class="quiz-config-card" id="typing-result-view" style="display: none; text-align: center; align-items: center;">
-            <h3 style="font-size: 1.75rem; color: var(--text-heading); margin-bottom: 0.5rem;">Hoàn Thành!</h3>
-            <div class="stat-value" id="typing-final-score" style="font-size: 2.8rem; margin: 0.5rem 0;">0 Điểm</div>
-            <div id="typing-final-stats" style="color: var(--text-secondary); font-weight: 700; margin-bottom: 0.25rem;"></div>
-            <div id="typing-final-best" style="color: #F27024; font-weight: 700; margin-bottom: 1.25rem;"></div>
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.25rem;">
+          <div class="quiz-config-card result-stage" id="typing-result-view" style="display: none;">
+            <div class="result-title" id="typing-result-title">Hoàn thành</div>
+            <div class="result-medal">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <defs>
+                  <linearGradient id="typing-ring-grad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#FFB347"/><stop offset="100%" stop-color="#F27024"/>
+                  </linearGradient>
+                </defs>
+                <circle class="ring-bg" cx="60" cy="60" r="52"/>
+                <circle class="ring-fg" id="typing-ring" cx="60" cy="60" r="52" stroke="url(#typing-ring-grad)"/>
+              </svg>
+              <div class="medal-grade" id="typing-grade">S</div>
+            </div>
+            <div class="result-rank" id="typing-rank"></div>
+            <div class="result-score-wrap">
+              <span class="result-score" id="typing-final-score">0</span>
+              <span class="result-score-label">điểm</span>
+            </div>
+            <div class="result-best" id="typing-final-best"></div>
+            <div class="result-chips" id="typing-result-chips"></div>
+            <div class="result-actions">
               <button class="btn btn-primary" id="btn-typing-replay">Chơi lại bộ mới</button>
               <button class="btn btn-secondary" id="btn-typing-replay-wrong">Luyện lại từ chưa đúng</button>
               <button class="btn btn-secondary" id="btn-typing-config">Đổi cấu hình</button>
             </div>
-            <div id="typing-review-list" style="width: 100%; text-align: left;"></div>
+            <div id="typing-review-list" class="result-review"></div>
           </div>
         </div>
       </section>
@@ -1364,18 +1397,19 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/app_data.js?v=2.6"></script>
-  <script src="data/speaking_data.js?v=2.6"></script>
-  <script src="data/oral_exam_data.js?v=2.6"></script>
-  <script src="js/audio.js?v=2.6"></script>
-  <script src="js/storage.js?v=2.6"></script>
-  <script src="js/flashcard.js?v=2.6"></script>
-  <script src="js/quiz.js?v=2.6"></script>
-  <script src="js/typing.js?v=2.6"></script>
-  <script src="js/final_exam.js?v=2.6"></script>
-  <script src="js/speaking.js?v=2.6"></script>
-  <script src="js/oral_exam.js?v=2.6"></script>
-  <script src="js/search.js?v=2.6"></script>
-  <script src="js/app.js?v=2.6"></script>
+  <script src="data/app_data.js?v=2.7"></script>
+  <script src="data/speaking_data.js?v=2.7"></script>
+  <script src="data/oral_exam_data.js?v=2.7"></script>
+  <script src="js/audio.js?v=2.7"></script>
+  <script src="js/fx.js?v=2.7"></script>
+  <script src="js/storage.js?v=2.7"></script>
+  <script src="js/flashcard.js?v=2.7"></script>
+  <script src="js/quiz.js?v=2.7"></script>
+  <script src="js/typing.js?v=2.7"></script>
+  <script src="js/final_exam.js?v=2.7"></script>
+  <script src="js/speaking.js?v=2.7"></script>
+  <script src="js/oral_exam.js?v=2.7"></script>
+  <script src="js/search.js?v=2.7"></script>
+  <script src="js/app.js?v=2.7"></script>
 </body>
 </html>
