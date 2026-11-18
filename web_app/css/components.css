@@ -3052,3 +3052,16 @@
   border-radius: 8px;
 }
 .quiz-review-list-scroll { max-height: 40vh; overflow: auto; }
+
+/* Typing game */
+.typing-word-card { text-align: center; transition: background 0.2s, border-color 0.2s; }
+.typing-word-card.correct { background: rgba(22, 163, 74, 0.1); border-color: #16a34a; }
+.typing-word-card.reveal { background: rgba(220, 38, 38, 0.08); border-color: #dc2626; }
+.typing-word-card.shake { animation: typingShake 0.35s; }
+@keyframes typingShake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(8px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(5px); } }
+.typing-hint-text { margin-top: 0.6rem; min-height: 1.3rem; color: #F27024; font-weight: 700; letter-spacing: 0.05em; }
+.typing-input-wrap { margin: 1rem 0; text-align: center; }
+.typing-input { width: 100%; box-sizing: border-box; padding: 0.9rem 1rem; font-size: 1.5rem; text-align: center; border: 2px solid var(--border-subtle); border-radius: 12px; background: var(--bg-card, #fff); color: var(--text-heading); outline: none; transition: border-color 0.15s, box-shadow 0.15s; }
+.typing-input:focus { border-color: #F27024; box-shadow: 0 0 0 3px rgba(242, 112, 36, 0.18); }
+.typing-preview { min-height: 1.8rem; margin-top: 0.5rem; font-size: 1.2rem; color: var(--text-secondary); }
+.typing-feedback { min-height: 1.4rem; margin-top: 0.25rem; font-weight: 700; color: var(--text-heading); }

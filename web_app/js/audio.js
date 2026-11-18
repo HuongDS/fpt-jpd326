@@ -386,6 +386,78 @@ class SoundEngine {
     osc.stop(now + 0.18);
   }
 
+  /** Mechanical keyboard tick for the typing game; pitch varies a little per key */
+  playTypeKey() {
+    if (!this.soundEnabled || !this.audioCtx) return;
+    this.ensureContext();
+    const now = this.audioCtx.currentTime;
+
+    // Short noise-like click body
+    const osc = this.audioCtx.createOscillator();
+    const gain = this.audioCtx.createGain();
+    osc.type = 'square';
+    const base = 700 + Math.random() * 500;
+    osc.frequency.setValueAtTime(base, now);
+    osc.frequency.exponentialRampToValueAtTime(base * 0.45, now + 0.035);
+    gain.gain.setValueAtTime(0.05, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+    osc.connect(gain);
+    gain.connect(this.audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + 0.045);
+
+    // Low thump under the click
+    const thump = this.audioCtx.createOscillator();
+    const tg = this.audioCtx.createGain();
+    thump.type = 'sine';
+    thump.frequency.setValueAtTime(160, now);
+    thump.frequency.exponentialRampToValueAtTime(70, now + 0.05);
+    tg.gain.setValueAtTime(0.09, now);
+    tg.gain.exponentialRampToValueAtTime(0.0001, now + 0.05);
+    thump.connect(tg);
+    tg.connect(this.audioCtx.destination);
+    thump.start(now);
+    thump.stop(now + 0.055);
+  }
+
+  /** Softer, lower tick for backspace */
+  playTypeBack() {
+    if (!this.soundEnabled || !this.audioCtx) return;
+    this.ensureContext();
+    const now = this.audioCtx.currentTime;
+    const osc = this.audioCtx.createOscillator();
+    const gain = this.audioCtx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(420, now);
+    osc.frequency.exponentialRampToValueAtTime(200, now + 0.04);
+    gain.gain.setValueAtTime(0.05, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.045);
+    osc.connect(gain);
+    gain.connect(this.audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + 0.05);
+  }
+
+  /** Quick rising sparkle arpeggio for combo milestones */
+  playComboBurst() {
+    if (!this.soundEnabled || !this.audioCtx) return;
+    this.ensureContext();
+    const now = this.audioCtx.currentTime;
+    [783.99, 987.77, 1174.66, 1567.98].forEach((freq, idx) => {
+      const osc = this.audioCtx.createOscillator();
+      const gain = this.audioCtx.createGain();
+      osc.type = 'triangle';
+      const t = now + idx * 0.05;
+      osc.frequency.setValueAtTime(freq, t);
+      gain.gain.setValueAtTime(0.08, t);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.2);
+      osc.connect(gain);
+      gain.connect(this.audioCtx.destination);
+      osc.start(t);
+      osc.stop(t + 0.22);
+    });
+  }
+
   /** Celebratory 4-note victory chord on quiz completion */
   playFanfare() {
     if (!this.soundEnabled || !this.audioCtx) return;

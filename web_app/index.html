@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Noto+Sans+JP:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=2.5">
-  <link rel="stylesheet" href="css/components.css?v=2.5">
-  <link rel="stylesheet" href="css/responsive.css?v=2.5">
+  <link rel="stylesheet" href="css/main.css?v=2.6">
+  <link rel="stylesheet" href="css/components.css?v=2.6">
+  <link rel="stylesheet" href="css/responsive.css?v=2.6">
 </head>
 <body>
   <div class="app-container">
@@ -111,6 +111,13 @@
                 <span class="dropdown-item-desc">Kiểm tra phản xạ chọn đáp án đúng với đồng hồ đếm ngược</span>
               </div>
               <span class="dropdown-item-tag">Tính giờ</span>
+            </button>
+            <button class="dropdown-item nav-tab-btn" data-tab="typing">
+              <div class="dropdown-item-main">
+                <span class="dropdown-item-title">Đánh Chữ</span>
+                <span class="dropdown-item-desc">Xem nghĩa tiếng Việt, gõ từ tiếng Nhật (romaji, kana, kanji)</span>
+              </div>
+              <span class="dropdown-item-tag">Trò chơi</span>
             </button>
           </div>
         </div>
@@ -941,6 +948,116 @@
         </div>
       </section>
 
+      <!-- ==================================================================
+           TAB 7: TYPING GAME (ĐÁNH CHỮ)
+           ================================================================== -->
+      <section class="tab-panel" id="tab-typing">
+        <div class="quiz-arena-container">
+          <!-- Config View -->
+          <div class="quiz-config-card" id="typing-config-view">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--text-heading);">Đánh Chữ Tiếng Nhật</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+              Hiện nghĩa tiếng Việt, bạn gõ từ tiếng Nhật tương ứng. Chấp nhận romaji, hiragana, katakana hoặc kanji. Tự chấm khi gõ đúng, hoặc nhấn Enter.
+            </p>
+
+            <div class="quiz-config-section">
+              <div class="quiz-config-label">Chọn phạm vi bài học:</div>
+              <div class="filter-bar" id="typing-lesson-chips" style="margin-bottom: 0;">
+                <button class="filter-chip active" data-typing-lesson="all">Tất cả bài (6 - 10)</button>
+                <button class="filter-chip" data-typing-lesson="第 6 課">Bài 6</button>
+                <button class="filter-chip" data-typing-lesson="第 7 課">Bài 7</button>
+                <button class="filter-chip" data-typing-lesson="第 8 課">Bài 8</button>
+                <button class="filter-chip" data-typing-lesson="第 9 課">Bài 9</button>
+                <button class="filter-chip" data-typing-lesson="第 10 課">Bài 10</button>
+              </div>
+              <div id="typing-pool-info" style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);"></div>
+            </div>
+
+            <div class="quiz-config-section">
+              <div class="quiz-config-label">Số từ mỗi lần chơi:</div>
+              <div class="filter-bar" id="typing-count-chips" style="margin-bottom: 0; align-items: center;">
+                <button class="filter-chip" data-count="10">10 từ</button>
+                <button class="filter-chip active" data-count="20">20 từ</button>
+                <button class="filter-chip" data-count="30">30 từ</button>
+                <button class="filter-chip" data-count="50">50 từ</button>
+                <button class="filter-chip" data-count="all">Tất cả</button>
+                <input type="number" id="typing-count-custom" min="1" max="500" placeholder="Tự nhập" style="width: 6.5rem; padding: 0.4rem 0.6rem; border: 1px solid var(--border-subtle); border-radius: 8px; background: var(--bg-card, #fff); color: var(--text-heading); font: inherit;">
+              </div>
+            </div>
+
+            <div class="quiz-config-section">
+              <div class="quiz-config-label">Thời gian mỗi từ:</div>
+              <div class="filter-bar" id="typing-time-chips" style="margin-bottom: 0;">
+                <button class="filter-chip active" data-time="0">Không giới hạn</button>
+                <button class="filter-chip" data-time="15">15 giây</button>
+                <button class="filter-chip" data-time="30">30 giây</button>
+                <button class="filter-chip" data-time="60">60 giây</button>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" id="btn-typing-start" style="width: 100%; padding: 0.85rem; font-size: 1rem;">
+              Bắt Đầu Chơi
+            </button>
+          </div>
+
+          <!-- Play View -->
+          <div class="quiz-active-card" id="typing-play-view" style="display: none;">
+            <div class="quiz-progress-row">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="badge" id="typing-lesson-tag">Bài 6</span>
+                <span class="badge" id="typing-combo" style="display: none;">Combo x2</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary);" id="typing-progress-num">1 / 20</span>
+                <span style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: var(--text-heading);" id="typing-score">0 pts</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
+              <div style="flex: 1; height: 6px; border-radius: 3px; background: var(--border-subtle); overflow: hidden;">
+                <div id="typing-progress-fill" style="height: 100%; width: 0; background: #F27024; transition: width 0.3s;"></div>
+              </div>
+              <button class="btn btn-secondary btn-sm" id="btn-typing-quit">Dừng</button>
+            </div>
+
+            <div class="quiz-timer-bar-wrap" id="typing-timer-wrap">
+              <div class="quiz-timer-fill" id="typing-timer-fill"></div>
+            </div>
+
+            <div class="quiz-question-box typing-word-card" id="typing-word-card">
+              <div class="quiz-prompt-sub" style="margin-bottom: 0.4rem;">Gõ từ tiếng Nhật có nghĩa là:</div>
+              <div class="quiz-prompt-big" id="typing-meaning" style="font-size: 2rem;">khí hậu</div>
+              <div class="typing-hint-text" id="typing-hint-text"></div>
+            </div>
+
+            <div class="typing-input-wrap">
+              <input type="text" id="typing-input" class="typing-input jp-font" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="romaji / ひらがな / カタカナ / 漢字">
+              <div class="typing-preview jp-font" id="typing-preview"></div>
+              <div class="typing-feedback jp-font" id="typing-feedback"></div>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+              <button class="btn btn-secondary btn-sm" id="btn-typing-hint">Gợi ý</button>
+              <button class="btn btn-secondary btn-sm" id="btn-typing-skip">Bỏ qua (Tab)</button>
+            </div>
+          </div>
+
+          <!-- Results View -->
+          <div class="quiz-config-card" id="typing-result-view" style="display: none; text-align: center; align-items: center;">
+            <h3 style="font-size: 1.75rem; color: var(--text-heading); margin-bottom: 0.5rem;">Hoàn Thành!</h3>
+            <div class="stat-value" id="typing-final-score" style="font-size: 2.8rem; margin: 0.5rem 0;">0 Điểm</div>
+            <div id="typing-final-stats" style="color: var(--text-secondary); font-weight: 700; margin-bottom: 0.25rem;"></div>
+            <div id="typing-final-best" style="color: #F27024; font-weight: 700; margin-bottom: 1.25rem;"></div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.25rem;">
+              <button class="btn btn-primary" id="btn-typing-replay">Chơi lại bộ mới</button>
+              <button class="btn btn-secondary" id="btn-typing-replay-wrong">Luyện lại từ chưa đúng</button>
+              <button class="btn btn-secondary" id="btn-typing-config">Đổi cấu hình</button>
+            </div>
+            <div id="typing-review-list" style="width: 100%; text-align: left;"></div>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <!-- ====================================================================
@@ -1185,6 +1302,13 @@
                   </div>
                   <p class="nav-map-item-desc">Kiểm tra phản xạ chọn đáp án đúng với đồng hồ đếm ngược từng câu.</p>
                 </div>
+                <div class="nav-map-item nav-tab-btn" data-tab="typing">
+                  <div class="nav-map-item-header">
+                    <span class="nav-map-item-title">Đánh Chữ</span>
+                    <span class="badge">Trò chơi</span>
+                  </div>
+                  <p class="nav-map-item-desc">Xem nghĩa tiếng Việt và gõ lại từ tiếng Nhật, có âm thanh bàn phím.</p>
+                </div>
               </div>
             </div>
 
@@ -1240,17 +1364,18 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/app_data.js?v=2.5"></script>
-  <script src="data/speaking_data.js?v=2.5"></script>
-  <script src="data/oral_exam_data.js?v=2.5"></script>
-  <script src="js/audio.js?v=2.5"></script>
-  <script src="js/storage.js?v=2.5"></script>
-  <script src="js/flashcard.js?v=2.5"></script>
-  <script src="js/quiz.js?v=2.5"></script>
-  <script src="js/final_exam.js?v=2.5"></script>
-  <script src="js/speaking.js?v=2.5"></script>
-  <script src="js/oral_exam.js?v=2.5"></script>
-  <script src="js/search.js?v=2.5"></script>
-  <script src="js/app.js?v=2.5"></script>
+  <script src="data/app_data.js?v=2.6"></script>
+  <script src="data/speaking_data.js?v=2.6"></script>
+  <script src="data/oral_exam_data.js?v=2.6"></script>
+  <script src="js/audio.js?v=2.6"></script>
+  <script src="js/storage.js?v=2.6"></script>
+  <script src="js/flashcard.js?v=2.6"></script>
+  <script src="js/quiz.js?v=2.6"></script>
+  <script src="js/typing.js?v=2.6"></script>
+  <script src="js/final_exam.js?v=2.6"></script>
+  <script src="js/speaking.js?v=2.6"></script>
+  <script src="js/oral_exam.js?v=2.6"></script>
+  <script src="js/search.js?v=2.6"></script>
+  <script src="js/app.js?v=2.6"></script>
 </body>
 </html>

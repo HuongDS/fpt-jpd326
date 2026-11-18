@@ -37,6 +37,9 @@ class App {
     // Initialize Subsystems
     window.flashcardEngine = new FlashcardEngine();
     window.quizEngine = new QuizEngine();
+    if (typeof TypingGame !== 'undefined') {
+      window.typingGame = new TypingGame();
+    }
     window.finalExamEngine = new FinalExamEngine();
     if (typeof SpeakingEngine !== 'undefined') {
       window.speakingEngine = new SpeakingEngine();
@@ -91,6 +94,9 @@ class App {
     // Synchronize Quiz Engine
     if (window.quizEngine) {
       window.quizEngine.setLessonScope(this.currentLesson);
+    }
+    if (window.typingGame) {
+      window.typingGame.setLessonScope(this.currentLesson);
     }
 
     // Synchronize Final Exam Engine
@@ -313,7 +319,7 @@ class App {
     let group = 'dashboard';
     if (['vocab', 'kanji', 'grammar', 'flashcards'].includes(tabId)) {
       group = 'knowledge';
-    } else if (['final-exam', 'speaking', 'oral', 'quiz'].includes(tabId)) {
+    } else if (['final-exam', 'speaking', 'oral', 'quiz', 'typing'].includes(tabId)) {
       group = 'exam';
     }
 
@@ -347,7 +353,8 @@ class App {
         'final-exam': 'Final',
         'speaking': 'Speaking',
         'oral': 'Vấn đáp',
-        'quiz': 'Speed Quiz'
+        'quiz': 'Speed Quiz',
+        'typing': 'Đánh Chữ'
       };
       if (group === 'exam' && examNames[tabId]) {
         examPill.textContent = examNames[tabId];
@@ -431,6 +438,9 @@ class App {
           </button>
           <button class="subbar-pill nav-tab-btn ${currentTab === 'quiz' ? 'active' : ''}" data-tab="quiz">
             Speed Quiz
+          </button>
+          <button class="subbar-pill nav-tab-btn ${currentTab === 'typing' ? 'active' : ''}" data-tab="typing">
+            Đánh Chữ
           </button>
         </div>
       `;
