@@ -1584,5 +1584,548 @@ window.LISTENING_DATA = [
       { word: '最高', kana: 'さいこう', meaning: 'tuyệt vời nhất, đỉnh cao nhất' },
       { word: '覚えやすい', kana: 'おぼえやすい', meaning: 'dễ nhớ, dễ thuộc' }
     ]
+  },
+// ==========================================================================
+  // BÀI 10 (第 10 課) - NGHE HIỂU (5 BÀI NGHE)
+  // ==========================================================================
+  {
+    id: 'listen_10_1',
+    lesson: '第 10 課',
+    code: 'Bài 10 - Nghe 1',
+    title: 'Để quên áo Cardigan tại nhà hàng & Nhờ gửi chuyển phát thu tiền hộ (着払い)',
+    jp_title: 'レストランでの忘れ物と着払い宅配便',
+    audio: 'audio/listening/bai_10_1.mp3',
+    duration_label: '01:14',
+    type: 'dialogue',
+    summary: 'Khách hàng gọi điện cho nhà hàng Miyabi hỏi về chiếc áo cardigan màu xám để quên trên ghế, và nhờ quán gửi chuyển phát nhanh thu tiền người nhận (Chakubarai) vì đang trên tàu Shinkansen về.',
+    lines: [
+      {
+        speaker: '店員',
+        start: 2.0,
+        end: 4.5,
+        cloze: 'はい、レストラン{{雅|みやび|Miyabi (tên nhà hàng)|1}}です。',
+        vi: 'Vâng, nhà hàng Miyabi xin nghe ạ.'
+      },
+      {
+        speaker: '客（女性）',
+        start: 4.6,
+        end: 9.5,
+        cloze: 'もしもし？今日のお昼にそちらで{{食事をした|しょくじをした|đã dùng bữa|1}}ものなんですが。',
+        vi: 'Alo? Tôi là người đã dùng bữa trưa ở bên mình hôm nay ạ.'
+      },
+      {
+        speaker: '店員',
+        start: 9.6,
+        end: 10.5,
+        cloze: 'はい。',
+        vi: 'Vâng.'
+      },
+      {
+        speaker: '客（女性）',
+        start: 10.6,
+        end: 18.0,
+        cloze: 'そちらに{{カーディガン|カーディガン|áo khoác len cardigan|1}}を{{忘れてしまった|わすれてしまった|lỡ để quên|1}}ようなんです。カバンに{{入れたつもり|いれたつもり|ngỡ là đã cho vào|2}}だったんですが、なかったもので。',
+        vi: 'Hình như tôi đã để quên chiếc áo cardigan ở chỗ bạn. Tôi cứ ngỡ là mình đã cất vào túi rồi, thế mà tìm lại không thấy đâu cả.'
+      },
+      {
+        speaker: '店員',
+        start: 18.1,
+        end: 21.0,
+        cloze: 'そうですか。どんなカーディガンですか？',
+        vi: 'Vậy ạ. Đó là chiếc áo cardigan như thế nào ạ?'
+      },
+      {
+        speaker: '客（女性）',
+        start: 21.1,
+        end: 26.0,
+        cloze: '色は{{グレー|グレー|màu xám|1}}で、胸のところにペンギンの{{マーク|マーク|hình biểu tượng/logo|1}}が{{付いている|ついている|có đính kèm, gắn trên|1}}んです。',
+        vi: 'Áo màu xám, ở phần ngực áo có đính biểu tượng chim cánh cụt ạ.'
+      },
+      {
+        speaker: '店員',
+        start: 26.1,
+        end: 28.5,
+        cloze: 'どの{{辺り|あたり|khu vực, khoảng|1}}に{{座っていらっしゃいましたか|すわっていらっしゃいましたか|đã ngồi (kính ngữ)|2}}？',
+        vi: 'Quý khách đã ngồi ở khu vực nào vậy ạ?'
+      },
+      {
+        speaker: '客（女性）',
+        start: 28.6,
+        end: 37.0,
+        cloze: '{{窓側|まどがわ|phía cửa sổ|1}}の{{奥の席|おくのせき|ghế bên trong sâu|1}}です。椅子に{{かけたように思う|かけたようにおもう|nghĩ là dường như đã vắt trên|2}}んですが、もしかしたら{{下に落ちている|したにおちている|rơi xuống dưới|1}}かもしれません。',
+        vi: 'Bàn phía trong cùng bên cạnh cửa sổ ạ. Tôi nhớ hình như mình có vắt trên ghế, nhưng cũng có thể nó đã bị rơi xuống gầm ghế.'
+      },
+      {
+        speaker: '店員',
+        start: 37.1,
+        end: 40.5,
+        cloze: '分かりました。{{少々お待ちください|しょうしょうおまちください|xin vui lòng đợi trong giây lát|2}}。',
+        vi: 'Tôi hiểu rồi. Xin quý khách vui lòng đợi trong giây lát ạ.'
+      },
+      {
+        speaker: '店員',
+        start: 45.0,
+        end: 48.0,
+        cloze: '{{お待たせいたしました|おまたせいたしました|xin lỗi đã để quý khách đợi lâu|2}}。こちらにございます。',
+        vi: 'Xin lỗi đã để quý khách đợi lâu. Chiếc áo đang ở chỗ chúng tôi đây rồi ạ.'
+      },
+      {
+        speaker: '客（女性）',
+        start: 48.1,
+        end: 50.0,
+        cloze: 'ああ、よかったです！',
+        vi: 'Ôi may quá!'
+      },
+      {
+        speaker: '店員',
+        start: 50.1,
+        end: 52.0,
+        cloze: 'どうしましょうか？',
+        vi: 'Bên tôi nên gửi lại quý khách bằng cách nào đây ạ?'
+      },
+      {
+        speaker: '客（女性）',
+        start: 52.1,
+        end: 57.5,
+        cloze: 'あ、実はそちらには{{旅行|りょこう|du lịch|1}}で行って、今は帰りの{{新幹線|しんかんせん|tàu siêu tốc Shinkansen|1}}の中なんです。',
+        vi: 'À, thực ra tôi đi du lịch đến đấy, giờ thì tôi đang trên chuyến tàu Shinkansen chiều về rồi ạ.'
+      },
+      {
+        speaker: '店員',
+        start: 57.6,
+        end: 59.5,
+        cloze: 'ああ、そうなんですか。',
+        vi: 'À, ra là vậy ạ.'
+      },
+      {
+        speaker: '客（女性）',
+        start: 59.6,
+        end: 65.0,
+        cloze: 'すみませんが、{{着払い|ちゃくばらい|người nhận trả tiền cước|1}}の{{宅配便|たくはいびん|dịch vụ chuyển phát tận nhà|1}}で{{送ってもらってもいいですか|おくってもらってもいいですか|gửi giúp tôi có được không|2}}？',
+        vi: 'Làm phiền bạn có thể gửi dịch vụ chuyển phát nhanh người nhận thanh toán cước giúp tôi được không ạ?'
+      },
+      {
+        speaker: '店員',
+        start: 65.1,
+        end: 70.0,
+        cloze: 'はい、分かりました。では、お名前とご{{住所|じゅうしょ|địa chỉ|1}}を……',
+        vi: 'Vâng, được chứ ạ. Vậy xin quý khách cho biết họ tên và địa chỉ...'
+      }
+    ],
+    vocabulary: [
+      { word: 'カーディガン', kana: 'カーディガン', meaning: 'áo khoác len cài cúc / áo cardigan' },
+      { word: '～たつもり', kana: '～たつもり', meaning: 'cứ ngỡ là, tưởng là đã...' },
+      { word: '～ように思う', kana: '～ようにおもう', meaning: 'cảm thấy như là, dường như là...' },
+      { word: '着払い', kana: 'ちゃくばらい', meaning: 'thanh toán cước khi nhận hàng (người nhận trả tiền ship)' },
+      { word: '宅配便', kana: 'たくはいびん', meaning: 'dịch vụ chuyển phát nhanh hàng hóa tận nhà' },
+      { word: '窓側', kana: 'まどがわ', meaning: 'phía cửa sổ' },
+      { word: '奥の席', kana: 'おくのせき', meaning: 'ghế ngồi phía trong sâu' },
+      { word: 'マークが付いている', kana: 'マークがついている', meaning: 'có gắn hình biểu tượng/logo' }
+    ]
+  },
+  {
+    id: 'listen_10_2',
+    lesson: '第 10 課',
+    code: 'Bài 10 - Nghe 2',
+    title: 'Thông báo trên tàu tốc hành Sunshine Liner 3 & Quy định toa xe',
+    jp_title: '特急列車「サンシャインライナー3号」の車内放送',
+    audio: 'audio/listening/bai_10_2.mp3',
+    duration_label: '01:40',
+    type: 'monologue',
+    summary: 'Phát thanh hướng dẫn hành khách trên tàu đặc cấp Sunshine Liner 3 đi Midorigahama: phân chia toa tự do/toa chỉ định/toa Green, bán hàng lưu động, giờ tàu đến ga và lưu ý hút thuốc/điện thoại.',
+    lines: [
+      {
+        speaker: '車内アナウンス',
+        start: 7.0,
+        end: 12.0,
+        cloze: '本日も、燕鉄道をご{{利用くださいまして|りようくださいまして|sử dụng dịch vụ (kính ngữ)|2}}、ありがとうございます。',
+        vi: 'Cảm ơn quý khách hôm nay cũng đã lựa chọn và sử dụng dịch vụ của đường sắt Tsubame.'
+      },
+      {
+        speaker: '車内アナウンス',
+        start: 12.1,
+        end: 19.5,
+        cloze: 'この列車は、{{特別急行|とくべつきゅうこう|tàu tốc hành đặc biệt (tokkyuu)|1}}「サンシャインライナー3号」、緑が浜{{行き|ゆき|đi đến (hướng đi)|1}}です。',
+        vi: 'Chuyến tàu này là tàu tốc hành đặc biệt "Sunshine Liner số 3", hướng đi Midorigahama.'
+      },
+      {
+        speaker: '車内アナウンス',
+        start: 19.6,
+        end: 22.0,
+        cloze: '{{車内のご案内|しゃないのごあんない|hướng dẫn trên tàu|1}}をいたします。',
+        vi: 'Sau đây tôi xin phép hướng dẫn thông tin trong khoang tàu.'
+      },
+      {
+        speaker: '車内アナウンス',
+        start: 22.1,
+        end: 31.0,
+        cloze: '{{自由席|じゆうせき|ghế tự do|1}}は、1号車から3号車まで。4号車から7号車までが{{座席指定車|ざせきしていしゃ|toa ghế đặt trước/chỉ định|1}}{{となっております|となっております|đang là, được quy định là|2}}。',
+        vi: 'Ghế tự do là từ toa số 1 đến toa số 3. Toa số 4 đến toa số 7 là các toa ghế đặt trước có chỉ định số ghế.'
+      },
+      {
+        speaker: '車内アナウンス',
+        start: 31.1,
+        end: 36.0,
+        cloze: 'そのうち、4号車は{{グリーン車|グリーンしゃ|toa hạng nhất (Green Car)|1}}の座席指定車です。',
+        vi: 'Trong đó, toa số 4 là toa ghế chỉ định hạng nhất (Green Car).'
+      },
+      {
+        speaker: '車内アナウンス',
+        start: 36.1,
+        end: 46.0,
+        cloze: '{{終点|しゅうてん|ga cuối, trạm cuối|1}}、緑が浜まで、{{車内販売|しゃないはんばい|bán hàng trên tàu|1}}がございます。お弁当、お茶などを座席まで{{お持ちします|おもちします|mang đến (khiêm nhường)|2}}ので、どうぞご利用ください。',
+        vi: 'Cho đến ga cuối Midorigahama sẽ có dịch vụ bán đồ ăn thức uống trên tàu. Nhân viên sẽ mang cơm hộp, trà phục vụ tận ghế, kính mời quý khách sử dụng.'
+      },
+      {
+        speaker: '車内アナウンス',
+        start: 46.1,
+        end: 50.0,
+        cloze: '{{停車駅|ていしゃえき|ga dừng đỗ|1}}と{{到着時刻|とうちゃくじこく|thời gian đến nơi|1}}をご案内いたします。',
+        vi: 'Tiếp theo xin thông báo các ga dừng đỗ và thời gian đến nơi.'
+      },
+      {
+        speaker: '車内アナウンス',
+        start: 50.1,
+        end: 64.0,
+        cloze: '次の新港には10時{{ちょうど|ちょうど|đúng, tròn|1}}、未来ヶ丘10時35分、終点緑が浜には11時25分{{到着予定|とうちゃくよてい|dự kiến đến|1}}です。',
+        vi: 'Ga tiếp theo Shin-minato sẽ là đúng 10 giờ, Miraigaoka 10 giờ 35 phút, và ga cuối Midorigahama dự kiến đến lúc 11 giờ 25 phút.'
+      },
+      {
+        speaker: '車内アナウンス',
+        start: 64.1,
+        end: 73.0,
+        cloze: '車内は{{全席禁煙|ぜんせききんえん|cấm hút thuốc toàn bộ ghế|1}}となっておりますので、お煙草を吸われるお客様は{{喫煙ルーム|きつえんルーム|phòng hút thuốc riêng|1}}をご利用ください。',
+        vi: 'Trên tàu toàn bộ ghế đều cấm hút thuốc, quý khách có nhu cầu hút thuốc xin vui lòng sử dụng phòng hút thuốc.'
+      },
+      {
+        speaker: '車内アナウンス',
+        start: 73.1,
+        end: 83.0,
+        cloze: 'また、携帯電話のご使用は{{デッキ|デッキ|khoang đệm cửa tàu (deck)|1}}でお願いいたします。お席での通話は{{ご遠慮くださいますよう|ごえんりょくださいますよう|xin vui lòng kiềm chế, tránh|2}}お願いいたします。',
+        vi: 'Đồng thời, xin quý khách sử dụng điện thoại di động tại khoang đệm nối các toa. Kính mong quý khách vui lòng tránh đàm thoại tại ghế ngồi.'
+      },
+      {
+        speaker: '車内アナウンス',
+        start: 83.1,
+        end: 98.0,
+        cloze: 'なお、本日、指定席は全席{{満席|まんせき|hết chỗ, kín chỗ|1}}となっておりますので、自由席から指定席への変更は{{いたしかねます|いたしかねます|khó mà làm được, không thể|2}}。{{あらかじめ|あらかじめ|trước, sẵn|1}}ご了承ください。',
+        vi: 'Ngoài ra, hôm nay tất cả các ghế chỉ định đều đã kín chỗ, nên chúng tôi xin phép không thể đổi từ vé tự do sang vé chỉ định. Kính mong quý khách thông cảm trước cho điều này.'
+      }
+    ],
+    vocabulary: [
+      { word: '特別急行', kana: 'とくべつきゅうこう', meaning: 'tàu đặc cấp, tốc hành đặc biệt (tokkyuu)' },
+      { word: '座席指定車', kana: 'ざせきしていしゃ', meaning: 'toa ghế đặt trước có số ghế' },
+      { word: 'グリーン車', kana: 'グリーンしゃ', meaning: 'toa hạng nhất cao cấp (Green Car)' },
+      { word: '車内販売', kana: 'しゃないはんばい', meaning: 'dịch vụ bán hàng lưu động trên tàu' },
+      { word: '全席禁煙', kana: 'ぜんせききんえん', meaning: 'cấm hút thuốc toàn bộ ghế' },
+      { word: 'デッキ', kana: 'デッキ', meaning: 'khoang đệm nối giữa các toa xe' },
+      { word: 'ご遠慮ください', kana: 'ごえんりょください', meaning: 'xin vui lòng kiềm chế / không làm điều đó' },
+      { word: '～かねる / いたしかねます', kana: '～かねる / いたしかねます', meaning: 'khó lòng có thể làm được, không thể thực hiện' },
+      { word: 'あらかじめ', kana: 'あらかじめ', meaning: 'sẵn từ trước, chuẩn bị trước' }
+    ]
+  },
+  {
+    id: 'listen_10_3',
+    lesson: '第 10 課',
+    code: 'Bài 10 - Nghe 3',
+    title: 'Chuyến du lịch Matsuyama, Shikoku: Suối nước nóng Dogo & Tiểu thuyết Botchan',
+    jp_title: '四国・松山への旅行（坊っちゃんと道後温泉）',
+    audio: 'audio/listening/bai_10_3.mp3',
+    duration_label: '01:16',
+    type: 'monologue',
+    summary: 'Đoạn văn chia sẻ cảm xúc về chuyến đi du lịch Matsuyama (tỉnh Ehime, đảo Shikoku), ghé thăm khu suối nước nóng Dogo Onsen cổ kính - bối cảnh tiểu thuyết nổi tiếng "Botchan" của đại văn hào Natsume Soseki.',
+    lines: [
+      {
+        speaker: '話し手',
+        start: 0.0,
+        end: 5.0,
+        cloze: '私が{{印象に残っている|いんしょうにのこっている|đọng lại ấn tượng sâu sắc|1}}のは、四国の松山への{{旅行|りょこう|du lịch|1}}です。',
+        vi: 'Điều đọng lại ấn tượng sâu sắc nhất trong tôi là chuyến du lịch đến Matsuyama thuộc đảo Shikoku.'
+      },
+      {
+        speaker: '話し手',
+        start: 5.1,
+        end: 15.0,
+        cloze: '旅行の数日前に{{台風|たいふう|bão gió|1}}が来ていたので、天気が心配でしたが、当日は{{幸運なことに|こううんなことに|may mắn thay|1}}雲も一つない{{青空|あおぞら|bầu trời xanh trong|1}}でした。',
+        vi: 'Vài ngày trước chuyến đi có cơn bão kéo đến nên tôi khá lo lắng về thời tiết, nhưng thật may mắn là đúng ngày hôm đó bầu trời xanh ngắt không một gợn mây.'
+      },
+      {
+        speaker: '話し手',
+        start: 15.1,
+        end: 22.0,
+        cloze: '松山は、{{夏目漱石|なつめそうせき|Natsume Soseki (đại văn hào)|1}}が書いた『{{坊っちゃん|ぼっちゃん|Botchan (tiểu thuyết)|1}}』という小説の{{舞台|ぶたい|bối cảnh, sân khấu|1}}になったところです。',
+        vi: 'Matsuyama chính là địa danh được lấy làm bối cảnh cho cuốn tiểu thuyết "Botchan" do đại văn hào Natsume Soseki sáng tác.'
+      },
+      {
+        speaker: '話し手',
+        start: 22.1,
+        end: 30.0,
+        cloze: '私は『坊っちゃん』を読んでから、いつか松山にある{{温泉|おんせん|suối nước nóng|1}}へ{{行ってみたい|いってみたい|muốn đi thử|1}}と思っていました。',
+        vi: 'Kể từ khi đọc "Botchan", tôi đã luôn mong ước một ngày nào đó được đến suối nước nóng ở Matsuyama.'
+      },
+      {
+        speaker: '話し手',
+        start: 30.1,
+        end: 36.0,
+        cloze: '松山駅について、{{早速|さっそく|ngay lập tức|1}}温泉に行くために{{路面電車|ろめんでんしゃ|tàu điện mặt đất (tram)|1}}に乗りました。',
+        vi: 'Vừa đến ga Matsuyama, tôi lập tức bắt xe điện mặt đất để đi đến khu suối nước nóng.'
+      },
+      {
+        speaker: '話し手',
+        start: 36.1,
+        end: 43.0,
+        cloze: '温泉は有名な観光地{{だけあって|だけあって|quả đúng là, hèn chi|2}}、たくさんの{{観光客|かんこうきゃく|khách du lịch|1}}で{{賑わっていました|にぎわっていました|nhộn nhịp, đông vui|2}}。',
+        vi: 'Khu suối nước nóng đúng chuẩn là một danh lam thắng cảnh nổi tiếng nên vô cùng tấp nập khách du lịch ghé thăm.'
+      },
+      {
+        speaker: '話し手',
+        start: 43.1,
+        end: 48.5,
+        cloze: '建物もとても{{立派|りっぱ|tráng lệ, bề thế|1}}で、古い{{雰囲気|ふんいき|bầu không khí|1}}に{{感動しました|かんどうしました|xúc động, cảm phục|1}}。',
+        vi: 'Kiến trúc công trình vô cùng bề thế tráng lệ, tôi rất ấn tượng và cảm động trước bầu không khí cổ kính nơi đây.'
+      },
+      {
+        speaker: '話し手',
+        start: 48.6,
+        end: 55.0,
+        cloze: 'わくわくしながら中に入ると、思ったより{{天井が高くて|てんじょうがたかくて|trần nhà cao|2}}{{びっくりしました|びっくりしました|bất ngờ, kinh ngạc|1}}。',
+        vi: 'Vừa hồi hộp hào hứng bước vào trong, tôi đã ngạc nhiên vì trần nhà cao hơn nhiều so với tưởng tượng.'
+      },
+      {
+        speaker: '話し手',
+        start: 55.1,
+        end: 61.0,
+        cloze: 'ここが『坊っちゃん』に出てくるお風呂かと思って嬉しくなりました。',
+        vi: 'Nghĩ rằng đây chính là phòng tắm suối nước nóng xuất hiện trong tiểu thuyết "Botchan", lòng tôi dâng trào niềm vui sướng.'
+      },
+      {
+        speaker: '話し手',
+        start: 61.1,
+        end: 67.0,
+        cloze: '温泉に行った{{ついでに|ついでに|nhân tiện, tiện thể|2}}、{{地元|じもと|địa phương, bản xứ|1}}の人に教えてもらった{{料理屋さん|りょうりやさん|quán ăn ngon|1}}にも行きました。',
+        vi: 'Nhân tiện lúc đi tắm suối nước nóng, tôi cũng ghé qua một quán ăn địa phương do người dân bản xứ giới thiệu.'
+      },
+      {
+        speaker: '話し手',
+        start: 67.1,
+        end: 74.0,
+        cloze: '美味しいものもたくさん食べられて、{{大満足|だいまんぞく|vô cùng hài lòng, mãn nguyện|1}}な旅行でした。',
+        vi: 'Tôi được thưởng thức rất nhiều món ăn ngon, đó quả là một chuyến du lịch trên cả tuyệt vời.'
+      }
+    ],
+    vocabulary: [
+      { word: '印象に残る', kana: 'いんしょうにのこる', meaning: 'đọng lại ấn tượng sâu đậm' },
+      { word: '幸運なことに', kana: 'こううんなことに', meaning: 'thật may mắn là, phúc thay là' },
+      { word: '夏目漱石', kana: 'なつめそうせき', meaning: 'Natsume Soseki (đại văn hào thời Meiji)' },
+      { word: '坊っちゃん', kana: 'ぼっちゃん', meaning: 'tiểu thuyết kinh điển "Cậu ấm Botchan"' },
+      { word: '舞台', kana: 'ぶたい', meaning: 'bối cảnh / sân khấu' },
+      { word: '路面電車', kana: 'ろめんでんしゃ', meaning: 'tàu điện chạy trên mặt đường (tram)' },
+      { word: '～だけあって', kana: '～だけあって', meaning: 'quả đúng là... hèn chi mà...' },
+      { word: '賑わう', kana: 'にぎわう', meaning: 'nhộn nhịp, tấp nập khách' },
+      { word: '～ついでに', kana: '～ついでに', meaning: 'nhân tiện, tiện thể...' },
+      { word: '大満足', kana: 'だいまんぞく', meaning: 'cực kỳ mãn nguyện, vô cùng hài lòng' }
+    ]
+  },
+  {
+    id: 'listen_10_4',
+    lesson: '第 10 課',
+    code: 'Bài 10 - Nghe 4',
+    title: 'Thuyết minh hướng dẫn viên du lịch Nagoya: Lâu đài Nagoya & Tượng cá kình vàng',
+    jp_title: '名古屋城の観光ガイドと金の鯱（しゃちほこ）',
+    audio: 'audio/listening/bai_10_4.mp3',
+    duration_label: '01:16',
+    type: 'monologue',
+    summary: 'Hướng dẫn viên du lịch tình nguyện viên Ota thuyết minh về lịch sử Lâu đài Nagoya do Tokugawa Ieyasu xây dựng đầu thế kỷ 17, tháp canh Tenshukaku và biểu tượng tượng cá kình vàng (Kin no Shachihoko) bảo vệ thành phố khỏi hỏa hoạn.',
+    lines: [
+      {
+        speaker: 'ガイド（大田）',
+        start: 3.0,
+        end: 9.0,
+        cloze: '皆さん、初めまして。名古屋城{{観光ガイド|かんこうガイド|hướng dẫn viên du lịch|1}}{{ボランティア|ボランティア|tình nguyện viên|1}}の大田と{{申します|もうします|tên là (khiêm nhường)|2}}。',
+        vi: 'Xin chào tất cả quý khách. Tôi tên là Ota, hướng dẫn viên du lịch tình nguyện tại Lâu đài Nagoya.'
+      },
+      {
+        speaker: 'ガイド（大田）',
+        start: 9.1,
+        end: 16.0,
+        cloze: 'これからの1時間、{{ご案内をさせていただきます|ごあんないをさせていただきます|xin phép được hướng dẫn (khiêm nhường)|2}}。どうぞよろしくお願いいたします。',
+        vi: 'Trong 1 tiếng sắp tới, tôi xin phép được hướng dẫn quý khách. Rất mong nhận được sự hợp tác của mọi người.'
+      },
+      {
+        speaker: 'ガイド（大田）',
+        start: 16.1,
+        end: 21.0,
+        cloze: 'では、この名古屋城について{{ご説明いたします|ごせつめいいいたします|xin phép giải thích|2}}。',
+        vi: 'Sau đây, tôi xin thuyết minh đôi nét về lâu đài Nagoya này.'
+      },
+      {
+        speaker: 'ガイド（大田）',
+        start: 21.1,
+        end: 29.5,
+        cloze: '名古屋城は、17世紀初めに{{徳川家康|とくがわいえやす|Tokugawa Ieyasu (Tướng quân Mạc phủ Edo)|1}}が建てた、日本を{{代表する|だいひょうする|đại diện, tiêu biểu cho|1}}お城の一つです。',
+        vi: 'Lâu đài Nagoya do Tokugawa Ieyasu xây dựng vào đầu thế kỷ 17, là một trong những lâu đài tiêu biểu hàng đầu đại diện cho đất nước Nhật Bản.'
+      },
+      {
+        speaker: 'ガイド（大田）',
+        start: 29.6,
+        end: 36.0,
+        cloze: '名古屋の人々はこのお城を大切に思い、{{誇り|ほこり|niềm tự hào|1}}にしています。',
+        vi: 'Người dân Nagoya luôn hết sức trân trọng và xem tòa lâu đài này là niềm tự hào của mình.'
+      },
+      {
+        speaker: 'ガイド（大田）',
+        start: 36.1,
+        end: 44.0,
+        cloze: '一度{{戦争|せんそう|chiến tranh|1}}で焼けてしまいましたが、{{天守閣|てんしゅかく|tháp canh chính lâu đài|1}}は1959年に{{再び|ふたたび|lại một lần nữa|1}}建てられました。',
+        vi: 'Tòa lâu đài từng bị thiêu rụi một lần trong chiến tranh, nhưng tòa tháp canh Tenshukaku đã được tái thiết dựng lại vào năm 1959.'
+      },
+      {
+        speaker: 'ガイド（大田）',
+        start: 44.1,
+        end: 51.0,
+        cloze: '{{屋根|やね|mái nhà|1}}の上には、{{高さ|たかさ|chiều cao|1}}約3メートルの{{金の鯱|きんのしゃちほこ|tượng cá kình thếp vàng|1}}があります。',
+        vi: 'Trên nóc mái của lâu đài có gắn bức tượng cá kình bằng vàng (Kin no Shachihoko) cao khoảng 3 mét.'
+      },
+      {
+        speaker: 'ガイド（大田）',
+        start: 51.1,
+        end: 62.0,
+        cloze: '鯱とは、体は魚で、頭が虎の{{姿をしている|すがたをしている|mang hình dáng của|2}}動物で、雨を{{降らせる|ふらせる|làm cho mưa rơi|2}}力があるそうです。',
+        vi: 'Shachihoko là loài linh thú mang hình dáng thân cá đầu hổ, được truyền thuyết kể rằng có sức mạnh hô mưa gọi gió làm mưa rơi xuống.'
+      },
+      {
+        speaker: 'ガイド（大田）',
+        start: 62.1,
+        end: 68.0,
+        cloze: 'そのため、名古屋の町を{{火事|かじ|hỏa hoạn, cháy nhà|1}}などの{{災害|さいがい|thảm họa, thiên tai|1}}から{{守る|まもる|bảo vệ|1}}と{{言われています|いわれています|được tương truyền là|2}}。',
+        vi: 'Chính vì thế, tượng linh thú này được tương truyền là bảo vệ thành phố Nagoya khỏi những thảm họa như hỏa hoạn.'
+      },
+      {
+        speaker: 'ガイド（大田）',
+        start: 68.1,
+        end: 72.0,
+        cloze: 'では、あちらから{{お入りください|おはいりください|xin mời bước vào|2}}。',
+        vi: 'Bây giờ, xin kính mời quý khách cùng bước vào từ phía đằng kia.'
+      }
+    ],
+    vocabulary: [
+      { word: '観光ガイド', kana: 'かんこうガイド', meaning: 'hướng dẫn viên du lịch' },
+      { word: 'ボランティア', kana: 'ボランティア', meaning: 'tình nguyện viên' },
+      { word: '～（さ）せていただく', kana: '～（さ）せていただく', meaning: 'xin phép được làm (khiêm nhường ngữ)' },
+      { word: '代表する', kana: 'だいひょうする', meaning: 'đại diện, tiêu biểu cho' },
+      { word: '誇りにする', kana: 'ほこりにする', meaning: 'lấy làm tự hào, hãnh diện' },
+      { word: '天守閣', kana: 'てんしゅかく', meaning: 'tháp canh chính của lâu đài Nhật cổ' },
+      { word: '金の鯱', kana: 'きんのしゃちほこ', meaning: 'tượng cá kình vàng mình cá đầu hổ trên mái lâu đài' },
+      { word: '姿をしている', kana: 'すがたをしている', meaning: 'mang hình dáng, diện mạo của...' },
+      { word: '～と言われている', kana: '～といわれている', meaning: 'được tương truyền rằng, người ta bảo rằng...' },
+      { word: '災害', kana: 'さいがい', meaning: 'thảm họa, thiên tai' }
+    ]
+  },
+  {
+    id: 'listen_10_5',
+    lesson: '第 10 課',
+    code: 'Bài 10 - Nghe 5',
+    title: 'Khám phá thiên nhiên Shiretoko: Thác nước Furepe & Lưu ý an toàn',
+    jp_title: '知床自然ガイド：フレペの滝散策コース',
+    audio: 'audio/listening/bai_10_5.mp3',
+    duration_label: '01:18',
+    type: 'monologue',
+    summary: 'Hướng dẫn viên tự nhiên Yamakawa phổ biến về lộ trình tản bộ 2 tiếng khám phá thác Furepe (dòng nước ngầm tuôn từ vách đá như giọt nước mắt) tại bán đảo Shiretoko, kèm các lưu ý quan trọng về thời tiết, gấu hoang và vệ sinh.',
+    lines: [
+      {
+        speaker: '自然ガイド（山川）',
+        start: 4.0,
+        end: 11.5,
+        cloze: '皆さん、こんにちは。{{フレペの滝|フレペのたき|thác Furepe|1}}{{散策コース|さんさくコース|lộ trình đi dạo, tản bộ|1}}にご{{参加いただき|さんかいただき|tham gia (kính ngữ)|2}}、ありがとうございます。',
+        vi: 'Xin chào tất cả mọi người. Cảm ơn quý khách đã tham gia lộ trình tản bộ khám phá thác Furepe.'
+      },
+      {
+        speaker: '自然ガイド（山川）',
+        start: 11.6,
+        end: 17.0,
+        cloze: '私、{{知床|しれとこ|bán đảo Shiretoko (Hokkaido)|1}}{{自然ガイド|しぜんガイド|hướng dẫn viên thiên nhiên|1}}の山川と{{申します|もうします|tên là (khiêm nhường)|2}}。',
+        vi: 'Tôi là Yamakawa, hướng dẫn viên tự nhiên khu vực bán đảo Shiretoko.'
+      },
+      {
+        speaker: '自然ガイド（山川）',
+        start: 17.1,
+        end: 20.5,
+        cloze: 'これからコースの{{ご説明をさせていただきます|ごせつめいをさせていただきます|xin phép được thuyết minh giải thích|2}}。',
+        vi: 'Sau đây tôi xin phép được phổ biến thông tin về cung đường dạo này.'
+      },
+      {
+        speaker: '自然ガイド（山川）',
+        start: 20.6,
+        end: 26.0,
+        cloze: 'このコースでは、約2時間の散策をお{{楽しみいただけます|たのしみいただけます|có thể thưởng thức, tận hưởng|2}}。',
+        vi: 'Trong lộ trình này, quý khách sẽ được tận hưởng chuyến tản bộ kéo dài khoảng 2 giờ đồng hồ.'
+      },
+      {
+        speaker: '自然ガイド（山川）',
+        start: 26.1,
+        end: 33.0,
+        cloze: '{{見どころ|みどころ|điểm nhấn đáng xem nhất|1}}は何と言っても、川がないのに{{滝が流れる|たきがながれる|thác nước chảy tuôn|1}}フレペの滝です。',
+        vi: 'Điểm nhấn đáng xem nhất ở đây không gì khác chính là thác Furepe – dù không hề có dòng sông nào nhưng dòng thác vẫn ngày đêm tuôn chảy.'
+      },
+      {
+        speaker: '自然ガイド（山川）',
+        start: 33.1,
+        end: 42.0,
+        cloze: '{{崖|がけ|vách núi, vách đá dốc|1}}を流れる水は、まるで{{涙のように見えます|なみだのようにみえます|trông như những giọt nước mắt|2}}。そして、動物との{{出会い|であい|gặp gỡ, chạm trán|1}}もあるかもしれません。',
+        vi: 'Dòng nước ngầm rỉ chảy dọc theo vách đá trông hệt như những dòng nước mắt rơi. Ngoài ra, biết đâu quý khách còn có cơ hội bắt gặp những loài động vật hoang dã nữa.'
+      },
+      {
+        speaker: '自然ガイド（山川）',
+        start: 42.1,
+        end: 45.0,
+        cloze: 'いくつかの{{ご注意|ごちゅうい|lưu ý, nhắc nhở|1}}を申し上げます。',
+        vi: 'Sau đây tôi xin nêu ra một vài điều quý khách cần hết sức lưu ý.'
+      },
+      {
+        speaker: '自然ガイド（山川）',
+        start: 45.1,
+        end: 53.0,
+        cloze: 'この辺りは{{急に|きゅうに|đột ngột, bất thình lình|1}}天気が変わる場合があります。皆さん、{{レインコート|レインコート|áo mưa|1}}などはお持ちでしょうか。',
+        vi: 'Khu vực này thời tiết có lúc thay đổi rất đột ngột. Quý khách đã mang theo sẵn áo mưa hoặc đồ che mưa chưa ạ?'
+      },
+      {
+        speaker: '自然ガイド（山川）',
+        start: 53.1,
+        end: 58.0,
+        cloze: '{{歩道|ほどう|đường đi bộ, lối đi dạo|1}}は{{滑りやすい|すべりやすい|dễ trơn trượt|1}}ので、{{足元|あしもと|bước chân, dưới chân|1}}にお気をつけください。',
+        vi: 'Lối đi bộ rất dễ trơn trượt, vì vậy xin quý khách hãy cẩn thận từng bước chân của mình.'
+      },
+      {
+        speaker: '自然ガイド（山川）',
+        start: 58.1,
+        end: 64.0,
+        cloze: 'また、{{熊|くま|gấu hoang dã|1}}が出る{{ことがあります|ことがあります|có khi, thỉnh thoảng xảy ra|2}}ので、お一人にならないようにお気をつけください。',
+        vi: 'Đặc biệt, nơi đây thỉnh thoảng có gấu xuất hiện, vì vậy quý khách hãy chú ý không bao giờ đi tách lẻ một mình.'
+      },
+      {
+        speaker: '自然ガイド（山川）',
+        start: 64.1,
+        end: 70.0,
+        cloze: '途中に{{トイレ|トイレ|nhà vệ sinh|1}}はございませんので、こちらで{{お済ませください|おすませください|xin hãy giải quyết xong trước|2}}。',
+        vi: 'Dọc đường đi sẽ không có nhà vệ sinh nào, vì vậy xin quý khách hãy đi vệ sinh xong xuôi ngay tại đây.'
+      },
+      {
+        speaker: '自然ガイド（山川）',
+        start: 70.1,
+        end: 74.0,
+        cloze: 'では、10分後に{{お集まりください|おあつまりください|tập trung lại (kính ngữ)|2}}。',
+        vi: 'Bây giờ xin hẹn quý khách tập trung lại sau 10 phút nữa nhé.'
+      }
+    ],
+    vocabulary: [
+      { word: '散策コース', kana: 'さんさくコース', meaning: 'cung đường dạo bộ, lộ trình ngắm cảnh' },
+      { word: '見どころ', kana: 'みどころ', meaning: 'điểm nhấn nổi bật, cảnh quan đáng xem nhất' },
+      { word: '何と言っても', kana: 'なんといっても', meaning: 'dù sao đi nữa thì điểm số 1 vẫn là...' },
+      { word: '崖', kana: 'がけ', meaning: 'vách núi, vách đá dựng đứng' },
+      { word: 'まるで～のように', kana: 'まるで～のように', meaning: 'cứ như thể là..., hệt như là...' },
+      { word: '滑りやすい', kana: 'すべりやすい', meaning: 'dễ trơn trượt' },
+      { word: '足元にお気をつけください', kana: 'あしもとにおきをつけください', meaning: 'xin hãy cẩn thận bước chân' },
+      { word: 'お済ませください', kana: 'おすませください', meaning: 'xin hãy hoàn tất / giải quyết xong trước' }
+    ]
   }
 ];
