@@ -54,6 +54,9 @@ class App {
     if (typeof OralExamEngine !== 'undefined') {
       window.oralExamEngine = new OralExamEngine();
     }
+    if (typeof ListeningEngine !== 'undefined') {
+      window.listeningEngine = new ListeningEngine();
+    }
     window.omniSearch = new OmniSearch();
 
     // Đồng bộ bài học cho các subsystem
@@ -119,6 +122,11 @@ class App {
     // Synchronize Oral Exam Engine
     if (window.oralExamEngine) {
       window.oralExamEngine.setLessonScope(this.currentLesson);
+    }
+
+    // Synchronize Listening Engine
+    if (window.listeningEngine) {
+      window.listeningEngine.setLessonScope(this.currentLesson);
     }
 
     // Synchronize Vocab tab
@@ -326,7 +334,7 @@ class App {
     let group = 'dashboard';
     if (['vocab', 'kanji', 'grammar', 'flashcards'].includes(tabId)) {
       group = 'knowledge';
-    } else if (['final-exam', 'speaking', 'oral', 'quiz', 'typing'].includes(tabId)) {
+    } else if (['final-exam', 'speaking', 'oral', 'listening', 'quiz', 'typing'].includes(tabId)) {
       group = 'exam';
     }
 
@@ -360,6 +368,7 @@ class App {
         'final-exam': 'Final',
         'speaking': 'Speaking',
         'oral': 'Vấn đáp',
+        'listening': 'Listening',
         'quiz': 'Speed Quiz',
         'typing': 'Đánh Chữ'
       };
@@ -442,6 +451,9 @@ class App {
           </button>
           <button class="subbar-pill nav-tab-btn ${currentTab === 'oral' ? 'active' : ''}" data-tab="oral">
             Ôn Vấn Đáp
+          </button>
+          <button class="subbar-pill nav-tab-btn ${currentTab === 'listening' ? 'active' : ''}" data-tab="listening">
+            Luyện Listening
           </button>
           <button class="subbar-pill nav-tab-btn ${currentTab === 'quiz' ? 'active' : ''}" data-tab="quiz">
             Speed Quiz

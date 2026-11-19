@@ -8,10 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Noto+Sans+JP:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=3.3">
-  <link rel="stylesheet" href="css/components.css?v=3.3">
-  <link rel="stylesheet" href="css/focus_room.css?v=3.3">
-  <link rel="stylesheet" href="css/responsive.css?v=3.3">
+  <link rel="stylesheet" href="css/main.css?v=3.4">
+  <link rel="stylesheet" href="css/components.css?v=3.4">
+  <link rel="stylesheet" href="css/focus_room.css?v=3.4">
+  <link rel="stylesheet" href="css/listening.css?v=3.4">
+  <link rel="stylesheet" href="css/responsive.css?v=3.4">
 </head>
 <body>
   <div class="app-container">
@@ -104,6 +105,13 @@
                 <span class="dropdown-item-desc">10 câu hỏi phỏng vấn JPD326, dàn ý cấu trúc & bốc thăm thi thử</span>
               </div>
               <span class="dropdown-item-tag">10 Câu hỏi</span>
+            </button>
+            <button class="dropdown-item nav-tab-btn" data-tab="listening">
+              <div class="dropdown-item-main">
+                <span class="dropdown-item-title">Luyện Thi Listening</span>
+                <span class="dropdown-item-desc">Nghe audio chuẩn, đục lỗ script kéo thả từ vựng và xem lại lời thoại</span>
+              </div>
+              <span class="dropdown-item-tag">Đục lỗ</span>
             </button>
             <div class="dropdown-divider"></div>
             <button class="dropdown-item nav-tab-btn" data-tab="quiz">
@@ -1115,6 +1123,95 @@
         </div>
       </section>
 
+      <!-- ==================================================================
+           TAB 8: LISTENING COMPREHENSION & CLOZE (Luyện Nghe & Đục Lỗ Kéo Thả)
+           ================================================================== -->
+      <section class="tab-panel" id="tab-listening">
+        <div class="listening-container">
+          <!-- Header & Lesson Filter + Track Selector -->
+          <div class="listening-header-box">
+            <div>
+              <span class="listening-tag">LUYỆN NGHE HIỂU & ĐỤC LỖ KÉO THẢ</span>
+              <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-heading);">Luyện Nghe JPD326 — Đục Lỗ Script & Xem Lại Lời Thoại</h3>
+              <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+                Nghe file âm thanh từng bài, kéo thả (hoặc bấm chọn) các từ vựng vào chỗ trống bị đục lỗ trong script, kiểm tra đáp án tức thì và xem lại toàn bộ lời thoại kèm dịch nghĩa tiếng Việt.
+              </p>
+            </div>
+
+            <div class="listening-lesson-chips" id="listening-lesson-chips">
+              <button type="button" class="filter-chip active" data-listen-lesson="all">Tất cả bài</button>
+              <button type="button" class="filter-chip" data-listen-lesson="第 6 課">Bài 6 (4 bài nghe)</button>
+              <button type="button" class="filter-chip" data-listen-lesson="第 7 課">Bài 7</button>
+              <button type="button" class="filter-chip" data-listen-lesson="第 8 課">Bài 8</button>
+              <button type="button" class="filter-chip" data-listen-lesson="第 9 課">Bài 9</button>
+              <button type="button" class="filter-chip" data-listen-lesson="第 10 課">Bài 10</button>
+            </div>
+
+            <!-- Track Cards Grid -->
+            <div class="listening-track-list" id="listening-track-list">
+              <!-- Populated by ListeningEngine -->
+            </div>
+          </div>
+
+          <!-- Empty State for lessons without audio tracks yet -->
+          <div class="quiz-config-card" id="listening-empty-state" style="display: none; text-align: center;">
+            <h4 style="margin: 0 0 0.5rem 0; color: var(--text-heading);">Chưa có bài nghe cho bài học này</h4>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+              Hiện tại hệ thống đã cập nhật trọn bộ 4 bài nghe của <strong>Bài 6 (第 6 課)</strong>. Hãy chọn <strong>Bài 6</strong> hoặc <strong>Tất cả bài</strong> để bắt đầu luyện nghe!
+            </p>
+          </div>
+
+          <!-- Active Track Workspace -->
+          <div class="listening-main-workspace" id="listening-main-workspace">
+            <!-- Sticky Audio Player & Mode Switcher Card -->
+            <div class="listen-player-card">
+              <div class="listen-player-top">
+                <div class="listen-player-info">
+                  <div><span class="badge" id="listen-active-badge">第 6 課 • Bài 6 - Nghe 1</span></div>
+                  <h4 class="listen-player-title" id="listen-active-title">Nhà cửa ở Hokkaido & Tuyết mùa đông</h4>
+                  <p class="listen-player-summary" id="listen-active-summary"></p>
+                </div>
+
+                <!-- 3 Mode Tabs -->
+                <div class="listen-mode-tabs" role="tablist">
+                  <button type="button" class="listen-mode-btn active" data-listen-mode="cloze">Đục lỗ Kéo thả</button>
+                  <button type="button" class="listen-mode-btn" data-listen-mode="script">Xem Script & Dịch nghĩa</button>
+                  <button type="button" class="listen-mode-btn" data-listen-mode="blind">Nghe chay</button>
+                </div>
+              </div>
+
+              <!-- Audio Controls Bar -->
+              <div class="listen-audio-bar">
+                <div class="listen-transport-btns">
+                  <button type="button" class="btn btn-primary btn-sm" id="btn-listen-play">Phát bài nghe</button>
+                  <button type="button" class="btn btn-secondary btn-sm" id="btn-listen-back5" title="Tua lùi 5 giây">-5s</button>
+                  <button type="button" class="btn btn-secondary btn-sm" id="btn-listen-fwd5" title="Tua tới 5 giây">+5s</button>
+                  <button type="button" class="btn btn-secondary btn-sm" id="btn-listen-restart" title="Phát lại từ đầu">Từ đầu</button>
+                </div>
+
+                <div class="listen-seek-wrap">
+                  <span class="listen-time" id="listen-time-current">00:00</span>
+                  <input type="range" class="listen-seek-range" id="listen-seek-range" min="0" max="100" step="0.2" value="0">
+                  <span class="listen-time" id="listen-time-total">00:46</span>
+                </div>
+
+                <div class="listen-speed-box">
+                  <button type="button" class="listen-speed-btn" data-speed="0.75">0.75x</button>
+                  <button type="button" class="listen-speed-btn active" data-speed="1">1.0x</button>
+                  <button type="button" class="listen-speed-btn" data-speed="1.25">1.25x</button>
+                  <button type="button" class="btn btn-secondary btn-sm" id="btn-listen-loop" title="Tự động phát lặp lại">Lặp lại</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Mode Content Area (Cloze / Script / Blind) -->
+            <div id="listening-content-area">
+              <!-- Rendered by ListeningEngine -->
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <!-- ====================================================================
@@ -1352,6 +1449,13 @@
                   </div>
                   <p class="nav-map-item-desc">10 câu hỏi phỏng vấn JPD326, dàn ý cấu trúc điểm và mô phỏng bốc thăm thi thử.</p>
                 </div>
+                <div class="nav-map-item nav-tab-btn" data-tab="listening">
+                  <div class="nav-map-item-header">
+                    <span class="nav-map-item-title">Luyện Thi Listening</span>
+                    <span class="badge">Đục lỗ Kéo thả</span>
+                  </div>
+                  <p class="nav-map-item-desc">Nghe audio theo bài, kéo thả từ vựng vào script đục lỗ và xem lại toàn bộ lời thoại.</p>
+                </div>
                 <div class="nav-map-item nav-tab-btn" data-tab="quiz">
                   <div class="nav-map-item-header">
                     <span class="nav-map-item-title">Speed Quiz</span>
@@ -1421,20 +1525,22 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/app_data.js?v=3.3"></script>
-  <script src="data/speaking_data.js?v=3.3"></script>
-  <script src="data/oral_exam_data.js?v=3.3"></script>
-  <script src="js/audio.js?v=3.3"></script>
-  <script src="js/fx.js?v=3.3"></script>
-  <script src="js/storage.js?v=3.3"></script>
-  <script src="js/flashcard.js?v=3.3"></script>
-  <script src="js/quiz.js?v=3.3"></script>
-  <script src="js/typing.js?v=3.3"></script>
-  <script src="js/focus_room.js?v=3.3"></script>
-  <script src="js/final_exam.js?v=3.3"></script>
-  <script src="js/speaking.js?v=3.3"></script>
-  <script src="js/oral_exam.js?v=3.3"></script>
-  <script src="js/search.js?v=3.3"></script>
-  <script src="js/app.js?v=3.3"></script>
+  <script src="data/app_data.js?v=3.4"></script>
+  <script src="data/speaking_data.js?v=3.4"></script>
+  <script src="data/oral_exam_data.js?v=3.4"></script>
+  <script src="data/listening_data.js?v=3.4"></script>
+  <script src="js/audio.js?v=3.4"></script>
+  <script src="js/fx.js?v=3.4"></script>
+  <script src="js/storage.js?v=3.4"></script>
+  <script src="js/flashcard.js?v=3.4"></script>
+  <script src="js/quiz.js?v=3.4"></script>
+  <script src="js/typing.js?v=3.4"></script>
+  <script src="js/focus_room.js?v=3.4"></script>
+  <script src="js/final_exam.js?v=3.4"></script>
+  <script src="js/speaking.js?v=3.4"></script>
+  <script src="js/oral_exam.js?v=3.4"></script>
+  <script src="js/listening.js?v=3.4"></script>
+  <script src="js/search.js?v=3.4"></script>
+  <script src="js/app.js?v=3.4"></script>
 </body>
 </html>
