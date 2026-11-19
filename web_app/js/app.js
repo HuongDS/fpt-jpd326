@@ -44,7 +44,7 @@ class App {
       window.focusRoom = new FocusRoom();
       document.addEventListener('click', (e) => {
         const btn = e.target.closest('.btn-focus-open');
-        if (btn) window.focusRoom.open(btn.dataset.focusOrigin || 'oral');
+        if (btn) window.focusRoom.open(btn.dataset.focusOrigin || 'oral', { onlyCurrent: btn.dataset.focusOnlyCurrent === '1' });
       });
     }
     window.finalExamEngine = new FinalExamEngine();

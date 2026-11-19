@@ -8,10 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Noto+Sans+JP:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=3.2">
-  <link rel="stylesheet" href="css/components.css?v=3.2">
-  <link rel="stylesheet" href="css/focus_room.css?v=3.2">
-  <link rel="stylesheet" href="css/responsive.css?v=3.2">
+  <link rel="stylesheet" href="css/main.css?v=3.3">
+  <link rel="stylesheet" href="css/components.css?v=3.3">
+  <link rel="stylesheet" href="css/focus_room.css?v=3.3">
+  <link rel="stylesheet" href="css/responsive.css?v=3.3">
 </head>
 <body>
   <div class="app-container">
@@ -398,6 +398,19 @@
               </p>
             </div>
 
+            <div class="speaking-header-toolbar">
+              <div class="speaking-lesson-chips" id="speaking-lesson-chips">
+                <button class="filter-chip active" data-speaking-lesson="all">Tất cả bài</button>
+                <button class="filter-chip" data-speaking-lesson="第 6 課">Bài 6</button>
+                <button class="filter-chip" data-speaking-lesson="第 7 課">Bài 7</button>
+                <button class="filter-chip" data-speaking-lesson="第 8 課">Bài 8</button>
+                <button class="filter-chip" data-speaking-lesson="第 10 課">Bài 10</button>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm btn-focus-open" data-focus-origin="speaking" title="Vào phòng thi mô phỏng có giám thị">
+                Chế độ Focus (Phòng thi)
+              </button>
+            </div>
+
             <!-- Situation Selection Chips (Bài 6.1, Bài 6.2, Bài 7.1, Bài 7.2, Bài 8.1, Bài 10.1) -->
             <div class="speaking-situation-chips" id="speaking-situation-chips">
               <!-- Dynamically populated chips -->
@@ -411,16 +424,21 @@
                 <span class="badge" id="speaking-sit-badge">第 6 課</span>
                 <h4 id="speaking-sit-title" style="margin: 0; font-size: 1.05rem; color: var(--text-heading);">Bài 6.1: Tư vấn ăn uống bồi bổ</h4>
               </div>
-              <div class="speaking-header-order-box">
-                <span class="order-box-label">Ai nói trước:</span>
-                <div class="speaker-order-toggle" role="group" aria-label="Chọn người mở lời trước">
-                  <button type="button" class="speaker-order-btn active" data-first-speaker="a" title="Người A là người mở lời trước">
-                    <span class="speaker-pill-dot a"></span> Người A nói trước
-                  </button>
-                  <button type="button" class="speaker-order-btn" data-first-speaker="b" title="Người B là người mở lời trước">
-                    <span class="speaker-pill-dot b"></span> Người B nói trước
-                  </button>
+              <div class="speaking-card-controls">
+                <div class="speaking-header-order-box">
+                  <span class="order-box-label">Ai nói trước:</span>
+                  <div class="speaker-order-toggle" role="group" aria-label="Chọn người mở lời trước">
+                    <button type="button" class="speaker-order-btn active" data-first-speaker="a" title="Người A là người mở lời trước">
+                      <span class="speaker-pill-dot a"></span> Người A nói trước
+                    </button>
+                    <button type="button" class="speaker-order-btn" data-first-speaker="b" title="Người B là người mở lời trước">
+                      <span class="speaker-pill-dot b"></span> Người B nói trước
+                    </button>
+                  </div>
                 </div>
+                <button type="button" class="btn btn-primary btn-sm btn-focus-open" data-focus-origin="speaking" data-focus-only-current="1" title="Thi Focus ngay tình huống đang chọn">
+                  Focus tình huống này
+                </button>
               </div>
             </div>
             <div class="speaking-roles-grid">
@@ -518,7 +536,7 @@
             </div>
 
             <div class="toolbar-right">
-              <button class="btn btn-primary btn-sm btn-focus-open" data-focus-origin="speaking" title="Vào phòng thi mô phỏng có giám thị">Focus</button>
+              <button type="button" class="btn btn-primary btn-sm btn-focus-open" data-focus-origin="speaking" title="Vào phòng thi mô phỏng có giám thị">Chế độ Focus (Phòng thi)</button>
               <button class="btn btn-secondary btn-sm" id="btn-speaking-play-all">Nghe toàn bộ hội thoại</button>
               <button class="btn btn-secondary btn-sm" id="btn-speaking-reset-sample" title="Khôi phục mẫu hội thoại chuẩn">Mẫu chuẩn</button>
               <button class="btn btn-secondary btn-sm" id="btn-speaking-export-txt" title="Tải file .txt toàn bộ kịch bản">Xuất file .txt</button>
@@ -562,8 +580,8 @@
                 <div class="oral-search-box">
                   <input type="text" id="oral-search-input" placeholder="Tìm theo câu hỏi, từ vựng hoặc ngữ pháp..." autocomplete="off">
                 </div>
-                <button class="btn btn-secondary btn-sm btn-focus-open" data-focus-origin="oral" title="Vào phòng thi mô phỏng có giám thị">
-                  Focus
+                <button type="button" class="btn btn-secondary btn-sm btn-focus-open" data-focus-origin="oral" title="Vào phòng thi mô phỏng có giám thị">
+                  Chế độ Focus (Phòng thi)
                 </button>
                 <button class="btn btn-primary btn-sm" id="btn-oral-mock-interview">
                   Bốc thăm thi thử
@@ -1403,20 +1421,20 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/app_data.js?v=3.2"></script>
-  <script src="data/speaking_data.js?v=3.2"></script>
-  <script src="data/oral_exam_data.js?v=3.2"></script>
-  <script src="js/audio.js?v=3.2"></script>
-  <script src="js/fx.js?v=3.2"></script>
-  <script src="js/storage.js?v=3.2"></script>
-  <script src="js/flashcard.js?v=3.2"></script>
-  <script src="js/quiz.js?v=3.2"></script>
-  <script src="js/typing.js?v=3.2"></script>
-  <script src="js/focus_room.js?v=3.2"></script>
-  <script src="js/final_exam.js?v=3.2"></script>
-  <script src="js/speaking.js?v=3.2"></script>
-  <script src="js/oral_exam.js?v=3.2"></script>
-  <script src="js/search.js?v=3.2"></script>
-  <script src="js/app.js?v=3.2"></script>
+  <script src="data/app_data.js?v=3.3"></script>
+  <script src="data/speaking_data.js?v=3.3"></script>
+  <script src="data/oral_exam_data.js?v=3.3"></script>
+  <script src="js/audio.js?v=3.3"></script>
+  <script src="js/fx.js?v=3.3"></script>
+  <script src="js/storage.js?v=3.3"></script>
+  <script src="js/flashcard.js?v=3.3"></script>
+  <script src="js/quiz.js?v=3.3"></script>
+  <script src="js/typing.js?v=3.3"></script>
+  <script src="js/focus_room.js?v=3.3"></script>
+  <script src="js/final_exam.js?v=3.3"></script>
+  <script src="js/speaking.js?v=3.3"></script>
+  <script src="js/oral_exam.js?v=3.3"></script>
+  <script src="js/search.js?v=3.3"></script>
+  <script src="js/app.js?v=3.3"></script>
 </body>
 </html>

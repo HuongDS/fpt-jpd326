@@ -19,8 +19,14 @@ class FocusRoom {
 
   // ------------------------------------------------------------------ config
   loadCfg() {
-    const def = { mode: 'both', lessons: ['all'], role: 'a', followups: true, showVi: false, hideMine: false, speak: true, shuffle: false };
-    try { return Object.assign(def, JSON.parse(localStorage.getItem('jpd326_focus_cfg') || '{}')); } catch (e) { return def; }
+    const def = { mode: 'both', lessons: ['all'], oralIds: null, sitIds: null, role: 'a', followups: true, showVi: false, hideMine: false, speak: true, shuffle: false };
+    try {
+      const cfg = Object.assign(def, JSON.parse(localStorage.getItem('jpd326_focus_cfg') || '{}'));
+      if (!Array.isArray(cfg.lessons) || cfg.lessons.length === 0) cfg.lessons = ['all'];
+      if (cfg.oralIds !== null && !Array.isArray(cfg.oralIds)) cfg.oralIds = null;
+      if (cfg.sitIds !== null && !Array.isArray(cfg.sitIds)) cfg.sitIds = null;
+      return cfg;
+    } catch (e) { return def; }
   }
   saveCfg() { try { localStorage.setItem('jpd326_focus_cfg', JSON.stringify(this.cfg)); } catch (e) { /* ignore */ } }
 
@@ -33,14 +39,24 @@ class FocusRoom {
     return this.cfg.lessons.includes('all') ? this.lessonList() : this.cfg.lessons;
   }
 
-  getQuestions() {
+  getLessonQuestions() {
     const ls = this.selectedLessons();
     return (window.ORAL_EXAM_DATA || []).filter(q => ls.includes(q.lesson));
   }
 
-  getSituations() {
+  getLessonSituations() {
     const ls = this.selectedLessons();
     return (window.SPEAKING_DATA || []).filter(s => ls.includes(s.lesson));
+  }
+
+  getQuestions() {
+    const list = this.getLessonQuestions();
+    return Array.isArray(this.cfg.oralIds) ? list.filter(q => this.cfg.oralIds.includes(q.id)) : list;
+  }
+
+  getSituations() {
+    const list = this.getLessonSituations();
+    return Array.isArray(this.cfg.sitIds) ? list.filter(s => this.cfg.sitIds.includes(s.id)) : list;
   }
 
   getSubQuestions(id) {
@@ -145,6 +161,14 @@ class FocusRoom {
               <button data-lesson="第 9 課">Bài 9</button>
               <button data-lesson="第 10 課">Bài 10</button>
             </div>
+          </div>
+
+          <div class="fs-group" id="fs-items-group">
+            <div class="fs-label-row">
+              <div class="fs-label">Chọn câu hỏi / tình huống cụ thể</div>
+              <button type="button" class="fs-reset-items" id="fs-items-all" style="display:none;">Chọn tất cả</button>
+            </div>
+            <div class="fs-chips fs-items" id="fs-items"></div>
           </div>
 
           <div class="fs-group" id="fs-role-group">
@@ -371,10 +395,39 @@ class FocusRoom {
         this.cfg.lessons = ['all'];
       } else {
         let cur = this.cfg.lessons.filter(x => x !== 'all');
-        cur = cur.includes(l) ? cur.filter(x => x !== l) : [...cur, l];
-        this.cfg.lessons = cur.length ? cur : ['all'];
-        if (cur.length === this.lessonList().length) this.cfg.lessons = ['all'];
+        if (cur.includes(l)) {
+          if (cur.length > 1) cur = cur.filter(x => x !== l);
+        } else {
+          cur = [...cur, l];
+        }
+        this.cfg.lessons = (cur.length === this.lessonList().length) ? ['all'] : cur;
       }
+      this.cfg.oralIds = null;
+      this.cfg.sitIds = null;
+      this.saveCfg(); this.syncSetup();
+    });
+    q('#fs-items-all').addEventListener('click', () => {
+      this.cfg.oralIds = null;
+      this.cfg.sitIds = null;
+      this.saveCfg(); this.syncSetup();
+    });
+    q('#fs-items').addEventListener('click', (e) => {
+      const b = e.target.closest('button'); if (!b) return;
+      const kind = b.dataset.kind;
+      const id = b.dataset.id;
+      const isOral = kind === 'oral';
+      const allIds = (isOral ? this.getLessonQuestions() : this.getLessonSituations()).map(x => x.id);
+      const key = isOral ? 'oralIds' : 'sitIds';
+      let cur = Array.isArray(this.cfg[key]) ? [...this.cfg[key]] : [...allIds];
+      const otherCount = this.cfg.mode === 'both'
+        ? (isOral ? this.getSituations().length : this.getQuestions().length)
+        : 0;
+      if (cur.includes(id)) {
+        if (cur.length > 1 || otherCount > 0) cur = cur.filter(x => x !== id);
+      } else {
+        cur.push(id);
+      }
+      this.cfg[key] = cur.length >= allIds.length ? null : cur;
       this.saveCfg(); this.syncSetup();
     });
     const opt = (id, key) => q(id).addEventListener('change', (e) => { this.cfg[key] = e.target.checked; this.saveCfg(); this.syncSetup(); });
@@ -394,12 +447,40 @@ class FocusRoom {
     q('#fs-opt-followups').checked = c.followups; q('#fs-opt-vi').checked = c.showVi;
     q('#fs-opt-hide').checked = c.hideMine; q('#fs-opt-speak').checked = c.speak; q('#fs-opt-shuffle').checked = c.shuffle;
 
-    const oralQ = (c.mode !== 'dialogue') ? this.getQuestions().length : 0;
-    const sits = (c.mode !== 'oral') ? this.getSituations().length : 0;
+    const lessonQs = (c.mode !== 'dialogue') ? this.getLessonQuestions() : [];
+    const lessonSits = (c.mode !== 'oral') ? this.getLessonSituations() : [];
+    const itemChips = [
+      ...lessonQs.map(item => {
+        const on = !Array.isArray(c.oralIds) || c.oralIds.includes(item.id);
+        return `<button type="button" class="${on ? 'on' : ''}" data-kind="oral" data-id="${this.esc(item.id)}" title="${this.esc(item.title)}">Vấn đáp ${this.esc(item.code)}</button>`;
+      }),
+      ...lessonSits.map(sit => {
+        const on = !Array.isArray(c.sitIds) || c.sitIds.includes(sit.id);
+        return `<button type="button" class="${on ? 'on' : ''}" data-kind="sit" data-id="${this.esc(sit.id)}" title="${this.esc(sit.title)}">Hội thoại ${this.esc(sit.code)}</button>`;
+      })
+    ];
+    const itemsGroup = q('#fs-items-group');
+    const itemsBox = q('#fs-items');
+    const resetItemsBtn = q('#fs-items-all');
+    if (itemsGroup && itemsBox) {
+      itemsGroup.style.display = itemChips.length ? '' : 'none';
+      itemsBox.innerHTML = itemChips.join('');
+    }
+    if (resetItemsBtn) {
+      const partial = (c.mode !== 'dialogue' && Array.isArray(c.oralIds)) || (c.mode !== 'oral' && Array.isArray(c.sitIds));
+      resetItemsBtn.style.display = partial ? '' : 'none';
+    }
+
+    const oralList = (c.mode !== 'dialogue') ? this.getQuestions() : [];
+    const sitList = (c.mode !== 'oral') ? this.getSituations() : [];
     const parts = [];
-    if (c.mode !== 'dialogue') parts.push(`${oralQ} câu vấn đáp`);
-    if (c.mode !== 'oral') parts.push(`${sits} tình huống hội thoại`);
-    const empty = (oralQ + sits) === 0;
+    if (c.mode !== 'dialogue' && oralList.length > 0) {
+      parts.push(`${oralList.length} câu vấn đáp (${oralList.map(x => x.code).join(', ')})`);
+    }
+    if (c.mode !== 'oral' && sitList.length > 0) {
+      parts.push(`${sitList.length} tình huống hội thoại (${sitList.map(x => x.code).join(', ')})`);
+    }
+    const empty = (oralList.length + sitList.length) === 0;
     q('#fs-summary').textContent = empty ? 'Các bài đã chọn chưa có nội dung cho chế độ này.' : `Sẽ thi: ${parts.join(' + ')}.`;
     q('#fs-summary').classList.toggle('warn', empty);
     q('#fs-start').disabled = empty;
@@ -411,13 +492,43 @@ class FocusRoom {
   }
 
   // ------------------------------------------------------------ open / close
-  open(originTab = 'oral') {
+  open(originTab = 'oral', opts = {}) {
     this.build();
     this.originTab = originTab;
-    // Preselect content by where Focus was opened from, and lesson from the global lesson bar
-    this.cfg.mode = originTab === 'speaking' ? 'dialogue' : (originTab === 'oral' ? 'oral' : this.cfg.mode);
-    const cur = window.app?.currentLesson;
-    if (cur && cur !== 'all') this.cfg.lessons = [cur];
+    const onlyCurrent = !!opts.onlyCurrent;
+
+    if (originTab === 'speaking') {
+      this.cfg.mode = 'dialogue';
+      const curSit = window.speakingEngine?.situations?.[window.speakingEngine.currentSitIndex];
+      if (onlyCurrent && curSit) {
+        this.cfg.lessons = [curSit.lesson];
+        this.cfg.sitIds = [curSit.id];
+      } else {
+        const spkLesson = window.speakingEngine?.currentLessonFilter;
+        const appLesson = window.app?.currentLesson;
+        const chosen = (spkLesson && spkLesson !== 'all')
+          ? spkLesson
+          : (appLesson && appLesson !== 'all' ? appLesson : 'all');
+        this.cfg.lessons = chosen === 'all' ? ['all'] : [chosen];
+        this.cfg.sitIds = null;
+      }
+      this.cfg.oralIds = null;
+    } else if (originTab === 'oral') {
+      this.cfg.mode = 'oral';
+      const oralLesson = window.oralExamEngine?.currentLessonFilter;
+      const appLesson = window.app?.currentLesson;
+      const chosen = (oralLesson && oralLesson !== 'all')
+        ? oralLesson
+        : (appLesson && appLesson !== 'all' ? appLesson : 'all');
+      this.cfg.lessons = chosen === 'all' ? ['all'] : [chosen];
+      this.cfg.oralIds = null;
+      this.cfg.sitIds = null;
+    } else {
+      const appLesson = window.app?.currentLesson;
+      if (appLesson && appLesson !== 'all') this.cfg.lessons = [appLesson];
+    }
+
+    this.saveCfg();
     this.root.classList.add('active');
     document.body.classList.add('focus-open');
     this.root.querySelector('#focus-setup').style.display = 'flex';

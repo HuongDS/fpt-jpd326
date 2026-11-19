@@ -7,6 +7,7 @@
 class SpeakingEngine {
   constructor() {
     this.situations = window.SPEAKING_DATA || [];
+    this.currentLessonFilter = 'all';
     this.currentSitIndex = 0;
     this.turns = []; // [{ a: '', b: '', vi_a: '', vi_b: '' }]
     this.currentTurnIdxA = 0;
@@ -20,24 +21,18 @@ class SpeakingEngine {
   }
 
   init() {
-    // 1. Situation selector chips
-    const sitChipsContainer = document.getElementById('speaking-situation-chips');
-    if (sitChipsContainer) {
-      sitChipsContainer.innerHTML = this.situations.map((sit, idx) => `
-        <button class="filter-chip ${idx === 0 ? 'active' : ''}" data-sit-idx="${idx}">
-          ${sit.code}
-        </button>
-      `).join('');
-
-      sitChipsContainer.querySelectorAll('.filter-chip').forEach(btn => {
-        btn.addEventListener('click', () => {
-          sitChipsContainer.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const idx = parseInt(btn.dataset.sitIdx, 10);
-          this.selectSituation(idx);
+    // 1. Lesson filter chips & Situation selector chips
+    const lessonContainer = document.getElementById('speaking-lesson-chips');
+    if (lessonContainer) {
+      lessonContainer.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          this.filterByLesson(chip.dataset.speakingLesson || 'all');
+          window.soundEngine?.playChip();
         });
       });
     }
+
+    this.renderSituationChips();
 
     // 2. Role B File Upload (.txt)
     const bFileInput = document.getElementById('speaking-b-file-input');
@@ -217,20 +212,61 @@ class SpeakingEngine {
   }
 
   /**
-   * Filters / selects first situation matching selected lesson
+   * Renders situation chips filtered by currentLessonFilter
+   */
+  renderSituationChips() {
+    const sitChipsContainer = document.getElementById('speaking-situation-chips');
+    if (!sitChipsContainer) return;
+
+    const items = this.situations
+      .map((sit, idx) => ({ sit, idx }))
+      .filter(({ sit }) => this.currentLessonFilter === 'all' || sit.lesson === this.currentLessonFilter);
+
+    if (items.length === 0) {
+      sitChipsContainer.innerHTML = '<span style="font-size: 0.85rem; color: var(--text-muted);">Chưa có tình huống hội thoại cho bài này.</span>';
+      return;
+    }
+
+    sitChipsContainer.innerHTML = items.map(({ sit, idx }) => `
+      <button class="filter-chip ${idx === this.currentSitIndex ? 'active' : ''}" data-sit-idx="${idx}">
+        ${sit.code}
+      </button>
+    `).join('');
+
+    sitChipsContainer.querySelectorAll('.filter-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        sitChipsContainer.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const idx = parseInt(btn.dataset.sitIdx, 10);
+        this.selectSituation(idx);
+      });
+    });
+  }
+
+  /**
+   * Filters situations by selected lesson and switches to first matching situation if needed
    */
   filterByLesson(lesson) {
-    if (!lesson || lesson === 'all') return;
-    const matchIdx = this.situations.findIndex(s => s.lesson === lesson);
-    if (matchIdx !== -1 && matchIdx !== this.currentSitIndex) {
-      const sitChipsContainer = document.getElementById('speaking-situation-chips');
-      if (sitChipsContainer) {
-        sitChipsContainer.querySelectorAll('.filter-chip').forEach(b => {
-          b.classList.toggle('active', parseInt(b.dataset.sitIdx, 10) === matchIdx);
-        });
-      }
-      this.selectSituation(matchIdx);
+    this.currentLessonFilter = lesson || 'all';
+
+    const lessonContainer = document.getElementById('speaking-lesson-chips');
+    if (lessonContainer) {
+      lessonContainer.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.classList.toggle('active', chip.dataset.speakingLesson === this.currentLessonFilter);
+      });
     }
+
+    if (this.currentLessonFilter !== 'all') {
+      const currentSit = this.situations[this.currentSitIndex];
+      if (!currentSit || currentSit.lesson !== this.currentLessonFilter) {
+        const matchIdx = this.situations.findIndex(s => s.lesson === this.currentLessonFilter);
+        if (matchIdx !== -1) {
+          this.selectSituation(matchIdx);
+        }
+      }
+    }
+
+    this.renderSituationChips();
   }
 
   /**
