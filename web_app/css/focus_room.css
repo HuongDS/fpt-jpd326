@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Focus Room (phòng thi mô phỏng)
+   Focus Room (phÃ²ng thi mÃ´ phá»ng)
    ========================================================================== */
 .focus-overlay { position: fixed; inset: 0; z-index: 8000; display: none; background: #FFF4E8; color: #1F2937; font-family: var(--font-body, inherit); }
 .focus-overlay.active { display: block; animation: frFade .3s ease-out; }
@@ -37,64 +37,79 @@ body.focus-open { overflow: hidden; }
 .fr-icon-btn:hover { border-color: #F27024; }
 .fr-icon-btn.danger:hover { background: #FEECEC; border-color: #EF4444; color: #B91C1C; }
 
-.fr-stage { position: relative; flex: 0 0 auto; height: min(46vh, 48vw); background: #FFE0C0; overflow: hidden; }
+.fr-stage { position: relative; flex: 0 0 auto; width: min(100%, calc(50vh * 16 / 9)); aspect-ratio: 16 / 9; margin: 0 auto; border-radius: 0 0 18px 18px; box-shadow: 0 10px 30px rgba(194, 80, 14, .18); background: #FFE9D2; overflow: hidden; }
 .fr-svg { width: 100%; height: 100%; display: block; }
-.fr-stage.happy::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 78% 40%, rgba(255, 217, 61, .35), transparent 55%); animation: frGlow 1.4s ease-in-out infinite alternate; pointer-events: none; }
+.fr-stage.happy::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 40%, rgba(255, 217, 61, .35), transparent 55%); animation: frGlow 1.4s ease-in-out infinite alternate; pointer-events: none; }
 @keyframes frGlow { from { opacity: .4; } to { opacity: 1; } }
 
-/* Scene animation */
+/* Scene animation (first-person view) */
 .fr-cloud { animation: frCloud 22s linear infinite; }
 .fr-cloud.slow { animation-duration: 34s; animation-delay: -10s; }
 @keyframes frCloud { from { transform: translateX(-90px); } to { transform: translateX(190px); } }
-.fr-hand-m { transform-origin: 330px 100px; animation: frSpin 60s linear infinite; }
-.fr-hand-h { transform-origin: 330px 100px; animation: frSpin 720s linear infinite; }
+.fr-hand-m { transform-origin: 810px 120px; animation: frSpin 60s linear infinite; }
+.fr-hand-h { transform-origin: 810px 120px; animation: frSpin 720s linear infinite; }
 @keyframes frSpin { to { transform: rotate(360deg); } }
 
-.fr-door rect:first-child { transform-origin: 22px 0; }
-.fr-door { transform-origin: 22px 158px; transition: transform .8s cubic-bezier(.4,0,.2,1); transform-box: view-box; }
-.fr-door.open { transform: scaleX(.16); }
+.fr-svg.notrans * { transition: none !important; }
 
-/* Student */
-.fr-student { transform-origin: 0 0; }
-.fr-student .leg .thigh, .fr-student .leg .shin, .fr-student .upper, .fr-student .arm, .fr-student .bob { transition: transform .4s ease; }
-.fr-student .thigh { transform-origin: 0 -72px; }
-.fr-student .shin { transform-origin: 0 -38px; }
-.fr-student .upper { transform-origin: 0 -66px; }
-.fr-student .arm { transform-origin: 0 0; transform: rotate(4deg); }
-.fr-student.walking .leg-b .thigh { animation: frLegA .55s ease-in-out infinite alternate; }
-.fr-student.walking .leg-f .thigh { animation: frLegB .55s ease-in-out infinite alternate; }
-.fr-student.walking .arm-f { animation: frLegB .55s ease-in-out infinite alternate; }
-.fr-student.walking .arm-b { animation: frLegA .55s ease-in-out infinite alternate; }
-.fr-student.walking .bob { animation: frBob .275s ease-in-out infinite alternate; }
-@keyframes frLegA { from { transform: rotate(-26deg); } to { transform: rotate(26deg); } }
-@keyframes frLegB { from { transform: rotate(26deg); } to { transform: rotate(-26deg); } }
-@keyframes frBob { from { transform: translateY(0); } to { transform: translateY(-5px); } }
-.fr-student.bowing .upper { transform: rotate(38deg); }
-.fr-student.sitting .thigh { transform: rotate(-90deg); }
-.fr-student.sitting .shin { transform: rotate(90deg); }
-.fr-student.sitting .arm { transform: rotate(-55deg); }
-.fr-student .s-mouth-open { opacity: 0; transform-origin: 16px -159px; }
-.fr-student.talking .s-mouth-open { opacity: 1; animation: frTalk .2s ease-in-out infinite alternate; }
-.fr-student.talking .s-mouth-closed { opacity: 0; }
-.fr-student.talking .head { animation: frNod .45s ease-in-out infinite alternate; }
-@keyframes frTalk { from { transform: scaleY(.3); } to { transform: scaleY(1.1); } }
-@keyframes frNod { from { transform: translateY(0); } to { transform: translateY(-2px); } }
+/* Camera: starts far from the door (small room seen through the doorway), then walks in */
+#fr-cam { transform-origin: 480px 300px; transform: scale(.6); transition: transform 2.9s cubic-bezier(.45,.05,.35,1); }
+.fr-svg.walk #fr-cam { transform: scale(1); }
+#fr-hall { transform-origin: 480px 300px; transition: transform 2.2s ease-in, opacity 1.4s ease-in .2s; }
+.fr-svg.walk #fr-hall { transform: scale(2.8); opacity: 0; pointer-events: none; }
+#fr-door { transform-origin: 330px 300px; transition: transform .9s cubic-bezier(.4,0,.2,1); }
+.fr-svg.door-open #fr-door { transform: scaleX(.1); }
+
+/* Head bob while walking, slow breathing while seated */
+#fr-bob, #fr-pitch, #fr-hands { transform-origin: 480px 540px; }
+.fr-svg.walking #fr-bob { animation: frHeadBob .62s ease-in-out infinite alternate; }
+@keyframes frHeadBob { from { transform: translateY(0) rotate(-.4deg); } to { transform: translateY(9px) rotate(.4deg); } }
+.fr-svg.sitting #fr-bob { animation: frBreath 4.2s ease-in-out infinite alternate; }
+@keyframes frBreath { from { transform: translateY(0); } to { transform: translateY(3px); } }
+
+/* Looking down when I bow, a little lower once seated */
+#fr-pitch { transition: transform .55s cubic-bezier(.3,.8,.3,1); }
+.fr-svg.bowing #fr-pitch { transform: translateY(-80px) scale(1.12); }
+.fr-svg.sitting #fr-pitch { transform: translateY(-14px) scale(1.04); }
+.fr-svg.sitting.bowing #fr-pitch { transform: translateY(-80px) scale(1.12); }
+
+/* My own arms */
+#fr-hands { opacity: 0; transform: translateY(160px); transition: transform .7s cubic-bezier(.3,.9,.3,1), opacity .5s; }
+.fr-svg.sitting #fr-hands { opacity: 1; transform: none; }
+.fr-svg.sitting.bowing #fr-hands { transform: translateY(120px); }
+.my-hand { transition: transform .3s; }
+.fr-svg.me-talking .my-hand-l { animation: frGestL .5s ease-in-out infinite alternate; }
+.fr-svg.me-talking .my-hand-r { animation: frGestR .5s .15s ease-in-out infinite alternate; }
+@keyframes frGestL { from { transform: translate(345px, 560px); } to { transform: translate(335px, 538px); } }
+@keyframes frGestR { from { transform: translate(615px, 560px); } to { transform: translate(625px, 538px); } }
+
+/* Knocking fist (before entering) */
+#fr-fist { opacity: 0; transition: opacity .25s; pointer-events: none; }
+.fr-svg.knocking #fr-fist { opacity: 1; }
+#fr-fist .fist-inner { transform-origin: 0 0; }
+.fr-svg.knocking #fr-fist .fist-inner { animation: frKnock .3s ease-in-out 2 alternate; }
+@keyframes frKnock { from { transform: translate(0, 0) scale(1); } to { transform: translate(-16px, -26px) scale(.93); } }
+.fr-svg.walk #fr-fist { opacity: 0; }
 
 /* Examiner */
 .fr-examiner .ex-mouth-open, .fr-examiner .ex-mouth-smile, .fr-examiner .ex-eyes-happy, .fr-examiner .ex-blush { opacity: 0; }
-.fr-examiner .ex-mouth-open { transform-origin: 0 191px; }
+.fr-examiner .ex-mouth-open { transform-origin: 480px 237px; }
+.fr-examiner .ex-head { transform-origin: 480px 262px; }
 .fr-examiner.talking .ex-mouth-open { opacity: 1; animation: frTalk .22s ease-in-out infinite alternate; }
 .fr-examiner.talking .ex-mouth-closed { opacity: 0; }
 .fr-examiner.talking .ex-head { animation: frNod .5s ease-in-out infinite alternate; }
+@keyframes frTalk { from { transform: scaleY(.3); } to { transform: scaleY(1.1); } }
+@keyframes frNod { from { transform: translateY(0); } to { transform: translateY(-3px); } }
 .fr-examiner.smile .ex-mouth-closed, .fr-examiner.smile .ex-mouth-open, .fr-examiner.smile .ex-eyes { opacity: 0; }
 .fr-examiner.smile .ex-mouth-smile, .fr-examiner.smile .ex-eyes-happy, .fr-examiner.smile .ex-blush { opacity: 1; }
 .fr-examiner.smile .ex-head { animation: frNod .7s ease-in-out infinite alternate; }
-.fr-examiner .ex-arm-l .ex-arm-inner { transform-origin: 0 0; transform: rotate(18deg); transition: transform .4s; }
-.fr-examiner .ex-arm-r .ex-arm-inner { transform-origin: 0 0; transform: rotate(-18deg); }
-.fr-examiner.wave .ex-arm-l .ex-arm-inner { animation: frWave .5s ease-in-out infinite alternate; }
-@keyframes frWave { from { transform: rotate(150deg); } to { transform: rotate(200deg); } }
+.ex-arm-l .ex-arm-inner { transform-origin: 0 0; transform: rotate(-9deg); }
+.ex-arm-r .ex-arm-inner { transform-origin: 0 0; transform: rotate(9deg); }
+.ex-arm .ex-arm-inner { transition: transform .4s; }
+.fr-examiner.wave ~ .ex-arm-l .ex-arm-inner { animation: frWave .5s ease-in-out infinite alternate; }
+@keyframes frWave { from { transform: rotate(140deg); } to { transform: rotate(185deg); } }
 
-.fr-sparkles { opacity: 0; transform-origin: 740px 180px; }
+.fr-sparkles { opacity: 0; }
 .fr-sparkles.on { opacity: 1; animation: frTwinkle 1.2s ease-in-out infinite alternate; }
 .fr-sparkles polygon { transform-box: fill-box; transform-origin: center; }
 .fr-sparkles.on polygon { animation: frStar 1s ease-in-out infinite alternate; }
@@ -133,7 +148,7 @@ body.focus-open { overflow: hidden; }
 
 @media (max-width: 720px) {
   .fr-dialogue { grid-template-columns: 1fr; gap: .6rem; overflow: auto; }
-  .fr-stage { height: 30vh; }
+  .fr-stage { width: 100%; }
   .fr-bubble { overflow: visible; }
   .fr-bubble.student::before, .fr-bubble.exam::before { display: none; }
 }
