@@ -1131,6 +1131,458 @@ window.LISTENING_DATA = [
       { word: '～代わりに', kana: '～かわりに', meaning: 'thay cho, thay vì...' },
       { word: '迷惑をかける', kana: 'めいわくをかける', meaning: 'làm phiền, gây phiền toái cho người khác' }
     ]
+  },
+// ==========================================================================
+  // BÀI 9 (第 9 課) - NGHE HIỂU (5 BÀI NGHE)
+  // ==========================================================================
+  {
+    id: 'listen_9_1',
+    lesson: '第 9 課',
+    code: 'Bài 9 - Nghe 1',
+    title: 'Chơi chữ số Goroawase: Ngày của thịt (29日 = 肉の日)',
+    jp_title: '語呂合わせ：29日の「肉の日」と「焼肉の日」',
+    audio: 'audio/listening/bai_9_1.mp3',
+    duration_label: '01:23',
+    type: 'dialogue',
+    summary: 'Thông báo siêu thị nhân ngày 29 (Ngày của thịt) và cuộc trò chuyện của hai bạn nữ về nguồn gốc cách chơi chữ số (語呂合わせ Goroawase) trong tiếng Nhật.',
+    lines: [
+      {
+        speaker: '店内のアナウンス',
+        start: 0.0,
+        end: 18.5,
+        cloze: '皆様、{{毎度|まいど|mỗi lần, thường lệ|1}}ご{{来店|らいてん|đến cửa hàng|1}}ありがとうございます。本日は29日、{{肉の日|にくのひ|ngày của thịt|1}}でございます。{{豚肉|ぶたにく|thịt lợn|1}}、{{牛肉|ぎゅうにく|thịt bò|1}}、{{鶏肉|とりにく|thịt gà|1}}、すべての肉が大変{{お安くなっております|おやすくなっております|được bán rất rẻ|2}}。皆様、どうぞご利用くださいませ。',
+        vi: 'Kính thưa quý khách, xin chân thành cảm ơn quý khách đã luôn ghé thăm cửa hàng. Hôm nay là ngày 29, Ngày của thịt. Thịt lợn, thịt bò, thịt gà, tất cả các loại thịt đều được giảm giá vô cùng rẻ. Kính mời quý khách mua sắm.'
+      },
+      {
+        speaker: '女性A',
+        start: 18.6,
+        end: 25.5,
+        cloze: 'わあ、今日は肉の日だから、肉が安いんだ。今日のご飯は{{焼肉|やきにく|thịt nướng|1}}にしない？',
+        vi: 'Oa, hôm nay là ngày của thịt nên thịt rẻ ghê. Bữa cơm tối nay tụi mình ăn thịt nướng đi?'
+      },
+      {
+        speaker: '女性B',
+        start: 25.6,
+        end: 34.0,
+        cloze: 'いいねー！じゃあ、たくさん{{買って帰ろう|かってかえろう|mua mang về nào|2}}！ねえ、でも何で今日は肉の日なの？',
+        vi: 'Được đấy! Vậy mua thật nhiều mang về đi! Nè, mà sao hôm nay lại là Ngày của thịt thế?'
+      },
+      {
+        speaker: '女性A',
+        start: 34.1,
+        end: 38.5,
+        cloze: 'あ、それはね、29日だからだよ。',
+        vi: 'A, cái đó là vì hôm nay là ngày 29 đấy.'
+      },
+      {
+        speaker: '女性B',
+        start: 38.6,
+        end: 41.5,
+        cloze: 'え？',
+        vi: 'Hả?'
+      },
+      {
+        speaker: '女性A',
+        start: 41.6,
+        end: 48.0,
+        cloze: 'ほら、「2」と「9」で「肉」って{{読める|よめる|có thể đọc|1}}でしょ？',
+        vi: 'Này nhé, số 2 và số 9 có thể đọc ghép lại thành "Niku" (thịt) đúng không nào?'
+      },
+      {
+        speaker: '女性B',
+        start: 48.1,
+        end: 57.0,
+        cloze: 'へえー、それで肉の日になったっていう{{わけ|わけ|lý do, hóa ra là|1}}？面白いねー！',
+        vi: 'Ồ, hóa ra vì thế mà thành Ngày của thịt à? Thú vị ghê ha!'
+      },
+      {
+        speaker: '女性A',
+        start: 57.1,
+        end: 68.0,
+        cloze: 'そうそう。あ、そうだ！8月29日は「{{焼肉の日|やきにくのひ|ngày thịt nướng|1}}」っていうポスターを{{見たこともある|みたこともある|cũng từng thấy|2}}よ。',
+        vi: 'Đúng rồi. A, phải rồi! Mình còn từng thấy áp phích ghi ngày 29 tháng 8 là "Ngày thịt nướng" nữa cơ.'
+      },
+      {
+        speaker: '女性B',
+        start: 68.1,
+        end: 73.5,
+        cloze: 'あ、わかった！「8」は「{{8つ|やっつ|tám cái|1}}」だから……',
+        vi: 'A, mình hiểu rồi! Số 8 đọc là "Yattsu" nên...'
+      },
+      {
+        speaker: '女性A',
+        start: 73.6,
+        end: 78.5,
+        cloze: 'ピンポーン！{{正解|せいかい|chính xác|1}}！8つの「や」と「肉」で……',
+        vi: 'Bing-bong! Chuẩn luôn! Số 8 là "Ya" kết hợp với "Niku" (29) thành...'
+      },
+      {
+        speaker: '二人',
+        start: 78.6,
+        end: 83.0,
+        cloze: '焼肉！面白ーい！',
+        vi: 'Yakiniku (Thịt nướng)! Thú vị thật đấy!'
+      }
+    ],
+    vocabulary: [
+      { word: '語呂合わせ', kana: 'ごろあわせ', meaning: 'lối chơi chữ ghép âm từ các con số hoặc từ đồng âm' },
+      { word: '肉の日', kana: 'にくのひ', meaning: 'ngày của thịt (ngày 29 hàng tháng)' },
+      { word: '焼肉の日', kana: 'やきにくのひ', meaning: 'ngày thịt nướng (ngày 29 tháng 8)' },
+      { word: '毎度', kana: 'まいど', meaning: 'mỗi lần, thường lệ' },
+      { word: '来店', kana: 'らいてん', meaning: 'đến cửa hàng, ghé quán' },
+      { word: '正解', kana: 'せいかい', meaning: 'câu trả lời chính xác, chuẩn xác' },
+      { word: '～っていうわけ', kana: '～っていうわけ', meaning: 'thì ra là vì lý do...' }
+    ]
+  },
+  {
+    id: 'listen_9_2',
+    lesson: '第 9 課',
+    code: 'Bài 9 - Nghe 2',
+    title: 'Nhầm lẫn thành ngữ: 顔が広い (quen rộng) & 顔が大きい (mặt to)',
+    jp_title: '慣用句の誤用：顔が広いと顔が大きい',
+    audio: 'audio/listening/bai_9_2.mp3',
+    duration_label: '01:14',
+    type: 'monologue',
+    summary: 'Đoạn văn kể về sự cố dở khóc dở cười khi bạn học tiếng Nhật dùng nhầm thành ngữ "mặt to" thay vì "quen biết rộng", khiến người nghe ngỡ ngàng suýt giận.',
+    lines: [
+      {
+        speaker: '話し手',
+        start: 0.0,
+        end: 11.5,
+        cloze: '私は学校で{{習った|ならった|đã học|1}}表現をすぐに使ってみたくなります。でも、よく使い方を{{間違えて|まちがえて|nhầm lẫn|1}}失敗します。',
+        vi: 'Tôi cứ hễ học được cách diễn đạt nào ở trường là lại muốn dùng thử ngay. Nhưng tôi hay dùng nhầm cách nên thất bại.'
+      },
+      {
+        speaker: '話し手',
+        start: 11.6,
+        end: 24.5,
+        cloze: '実は昨日も、学校で習った「{{顔が広い|かおがひろい|quen biết rộng|1}}」と「{{顔が大きい|かおがおおきい|mặt to|1}}」を間違えて、{{顔から火が出る|かおからひがでる|xấu hổ bốc hỏa|2}}ほど恥ずかしい経験をしました。',
+        vi: 'Thực ra hôm qua cũng vậy, tôi đã nhầm giữa "mặt rộng" (quen biết rộng) và "mặt to", tạo nên một trải nghiệm ngượng chín cả mặt.'
+      },
+      {
+        speaker: '話し手',
+        start: 24.6,
+        end: 37.0,
+        cloze: '日本では「顔が大きい」は{{失礼|しつれい|thất lễ, bất lịch sự|1}}な表現です。それなのに昨日、いつも{{お世話になっている|おせわになっている|được giúp đỡ, chăm sóc|1}}方に、「お顔が大きいですね」と言ってしまいました。',
+        vi: 'Ở Nhật, "mặt to" là một cách nói rất thất lễ. Ấy thế mà hôm qua, với người luôn chăm sóc giúp đỡ tôi, tôi lại lỡ miệng bảo: "Bác có khuôn mặt to thật đấy ạ".'
+      },
+      {
+        speaker: '話し手',
+        start: 37.1,
+        end: 47.0,
+        cloze: '私の言葉を聞いて、その方は{{驚いた|おどろいた|kinh ngạc, giật mình|1}}顔をして黙ってしまいました。私はすぐに気がついて、{{必死|ひっし|hết sức, cuống cuồng|1}}で説明しました。',
+        vi: 'Nghe câu nói của tôi, người ấy lộ vẻ kinh ngạc rồi im bặt. Tôi lập tức nhận ra và cuống cuồng giải thích.'
+      },
+      {
+        speaker: '話し手',
+        start: 47.1,
+        end: 59.5,
+        cloze: 'その方はすぐに、あははと笑ってくれましたが、{{もう少しで|もうすこしで|suýt chút nữa|1}}{{怒らせてしまう|おこらせてしまう|khiến người khác tức giận|2}}ところでした。本当に恥ずかしくて{{たまりませんでした|たまりませんでした|không chịu nổi|1}}。',
+        vi: 'Người ấy liền cười xòa "Ahaha", nhưng suýt chút nữa là tôi đã làm bác ấy nổi giận rồi. Thật sự xấu hổ không để đâu cho hết.'
+      },
+      {
+        speaker: '話し手',
+        start: 59.6,
+        end: 74.0,
+        cloze: 'これからは{{気をつけなければ|きをつけなければ|phải cẩn thận|2}}と思いました。日本語を使うのは難しいですが、これからもいろいろな表現を使ってみたいと思っています。',
+        vi: 'Tôi nghĩ từ nay mình phải cẩn thận hơn. Sử dụng tiếng Nhật tuy khó, nhưng từ giờ tôi vẫn muốn tiếp tục vận dụng nhiều cách diễn đạt phong phú.'
+      }
+    ],
+    vocabulary: [
+      { word: '顔が広い', kana: 'かおがひろい', meaning: 'quen biết rộng, giao thiệp rộng rãi' },
+      { word: '顔から火が出る', kana: 'かおからひがでる', meaning: 'ngượng chín cả mặt, xấu hổ bốc hỏa' },
+      { word: '失礼な', kana: 'しつれいな', meaning: 'thất lễ, bất lịch sự' },
+      { word: 'お世話になる', kana: 'おせわになる', meaning: 'được nhận sự giúp đỡ, chăm sóc' },
+      { word: '必死で', kana: 'ひっしで', meaning: 'liều mạng, cuống cuồng, dốc hết sức' },
+      { word: '怒らせる', kana: 'おこらせる', meaning: 'khiến cho ai đó tức giận (sai khiến)' },
+      { word: '～てたまらない', kana: '～てたまらない', meaning: 'vô cùng... không chịu nổi' },
+      { word: 'もう少しで～ところだった', kana: 'もうすこしで～ところだった', meaning: 'suýt chút nữa thì...' }
+    ]
+  },
+  {
+    id: 'listen_9_3',
+    lesson: '第 9 課',
+    code: 'Bài 9 - Nghe 3',
+    title: 'Ngôn ngữ giới tính (男言葉・女言葉) & Cách xưng hô nơi làm thêm',
+    jp_title: '男言葉と女言葉・アルバイト先での言葉遣い',
+    audio: 'audio/listening/bai_9_3.mp3',
+    duration_label: '01:42',
+    type: 'dialogue',
+    summary: 'Cuộc thảo luận giữa học viên và thầy giáo về ngôn ngữ nam nữ, cách nói chuyện của nữ sinh cấp ba, và việc xưng hô "watashi" hay "boku" với tiền bối khi đi làm thêm.',
+    lines: [
+      {
+        speaker: '留学生（女）',
+        start: 0.0,
+        end: 18.0,
+        cloze: '先生、日本語には{{男言葉|おとこことば|ngôn ngữ nam giới|1}}と{{女言葉|おんなことば|ngôn ngữ nữ giới|1}}がありますよね。私は日本の女の人の話し方が{{優しくて|やさしくて|dịu dàng, hiền từ|1}}好きなんですけど、電車の中とかで聞く{{女子高生|じょしこうせい|nữ sinh cấp ba|1}}の言葉って、ちょっと男の子みたいですね。',
+        vi: 'Thầy ơi, trong tiếng Nhật có ngôn ngữ nam và ngôn ngữ nữ đúng không ạ. Em rất thích cách nói chuyện dịu dàng của phụ nữ Nhật, thế nhưng lời ăn tiếng nói của các bạn nữ sinh cấp ba nghe trên tàu điện lại hơi giống con trai ấy ạ.'
+      },
+      {
+        speaker: '先生',
+        start: 18.1,
+        end: 31.0,
+        cloze: 'そうですね。最近は男女の{{言葉遣い|ことばづかい|cách dùng từ, cách ăn nói|1}}の{{違いがなくなってきています|ちがいがなくなってきています|sự khác biệt đang dần biến mất|2}}ね。でも、その高校生たちも、いつも男の子みたいな話し方をしているわけではないと思いますよ。',
+        vi: 'Đúng vậy nhỉ. Gần đây sự khác biệt về cách ăn nói giữa nam và nữ đang dần biến mất. Nhưng tôi nghĩ những học sinh cấp ba đó không phải lúc nào cũng nói chuyện giống con trai đâu.'
+      },
+      {
+        speaker: '留学生（女）',
+        start: 31.1,
+        end: 33.5,
+        cloze: 'そうなんですか。',
+        vi: 'Thế ạ?'
+      },
+      {
+        speaker: '先生',
+        start: 33.6,
+        end: 40.5,
+        cloze: '{{目上の人|めうえのひと|người trên, bậc bề trên|1}}や、あまり親しくない人には、{{丁寧に|ていねいに|lịch sự|1}}話していると思いますよ。',
+        vi: 'Với người bề trên hoặc người không thân thiết lắm, tôi nghĩ các bạn ấy vẫn nói chuyện rất lịch sự đấy.'
+      },
+      {
+        speaker: '留学生（男）',
+        start: 40.6,
+        end: 64.5,
+        cloze: 'ああ、私の{{バイト先|バイトさき|chỗ làm thêm|1}}でも、みんな店長には丁寧な言葉で話してますね。私も、店長や先輩には丁寧に話そうと思って、自分のことを「{{私|わたし|tôi (lịch sự)|1}}」って言ってたんです。でも、この間先輩から、「僕たちと話す時には、自分のことを私って言わなくていいよ」って言われたんです。',
+        vi: 'A, ở chỗ làm thêm của em cũng vậy, mọi người đều nói chuyện với cửa hàng trưởng bằng lời lẽ lịch sự. Em cũng nghĩ phải nói lịch sự với cửa hàng trưởng và các tiền bối nên xưng bản thân là "Watashi". Thế nhưng dạo trước tiền bối lại bảo em: "Khi nói chuyện với bọn anh thì không cần phải xưng là watashi đâu".'
+      },
+      {
+        speaker: '先生',
+        start: 64.6,
+        end: 81.0,
+        cloze: '確かに、会社なんかでは「私」を使ったほうがいいですけど、アルバイト先の先輩がそう言うんだったら、「私」は使わないほうがもっと{{親しくなれる|したしくなれる|trở nên thân thiết hơn|1}}かもしれませんね。',
+        vi: 'Đúng là ở công ty thì nên dùng "Watashi", nhưng nếu tiền bối ở chỗ làm thêm đã nói như vậy thì có lẽ không dùng "Watashi" sẽ giúp các em trở nên thân thiết hơn đấy.'
+      },
+      {
+        speaker: '留学生（男）',
+        start: 81.1,
+        end: 84.5,
+        cloze: 'へえー、難しいですね。',
+        vi: 'Oa, khó thật đấy thầy nhỉ.'
+      },
+      {
+        speaker: '先生',
+        start: 84.6,
+        end: 102.0,
+        cloze: 'そうですね。意味の違いぐらいはすぐに覚えられても、{{状況に合わせて|じょうきょうにあわせて|phù hợp với hoàn cảnh|2}}その言葉を{{使い分ける|つかいわける|dùng phân biệt đúng ngữ cảnh|2}}のは難しいかもしれませんね。でも、それがまた日本語の面白いところだと思いますよ。',
+        vi: 'Đúng vậy. Dù phân biệt ý nghĩa thì có thể nhớ ngay, nhưng để dùng linh hoạt đúng hoàn cảnh thì có lẽ khá khó. Thế nhưng tôi nghĩ đó cũng chính là điểm thú vị của tiếng Nhật đấy.'
+      }
+    ],
+    vocabulary: [
+      { word: '男言葉', kana: 'おとこことば', meaning: 'từ ngữ/cách nói của nam giới' },
+      { word: '女言葉', kana: 'おんなことば', meaning: 'từ ngữ/cách nói của nữ giới' },
+      { word: '言葉遣い', kana: 'ことばづかい', meaning: 'cách ăn nói, cách dùng từ ngữ' },
+      { word: '目上の人', kana: 'めうえのひと', meaning: 'người bề trên, cấp trên' },
+      { word: 'バイト先', kana: 'バイトさき', meaning: 'nơi làm thêm, chỗ làm thêm' },
+      { word: '親しくなる', kana: 'したしくなる', meaning: 'trở nên thân thiết, gần gũi' },
+      { word: '使い分ける', kana: 'つかいわける', meaning: 'dùng phân biệt linh hoạt tùy hoàn cảnh' },
+      { word: '状況に合わせて', kana: 'じょうきょうにあわせて', meaning: 'phù hợp với tình huống/ngữ cảnh' }
+    ]
+  },
+  {
+    id: 'listen_9_4',
+    lesson: '第 9 課',
+    code: 'Bài 9 - Nghe 4',
+    title: 'Sự biến đổi ngữ nghĩa: Từ lóng ヤバい & Phó từ 全然',
+    jp_title: '言葉の意味変化：「ヤバい」と「全然」',
+    audio: 'audio/listening/bai_9_4.mp3',
+    duration_label: '01:27',
+    type: 'dialogue',
+    summary: 'Thầy giáo giảng giải về hiện tượng biến đổi ngữ nghĩa của từ lóng "ヤバい" từ tiêu cực sang khen ngợi ngon/ngầu, và cách dùng từ "全然" kèm ý nghĩa khẳng định.',
+    lines: [
+      {
+        speaker: '学生（男）',
+        start: 0.0,
+        end: 11.5,
+        cloze: '先生、昨日テレビで女の人が{{美味しそうに|おいしそうに|trông có vẻ rất ngon|2}}何か食べながら「{{ヤバい|ヤバい|nguy hiểm / quá đỉnh|1}}」って言ったんですけど、どういう意味ですか？',
+        vi: 'Thầy ơi, hôm qua trên TV em thấy một người phụ nữ vừa ăn cái gì đó trông ngon lành vừa thốt lên "Yabai!", từ đó có nghĩa là gì vậy ạ?'
+      },
+      {
+        speaker: 'パーク',
+        start: 11.6,
+        end: 16.5,
+        cloze: 'あ、それ知ってる！すごく美味しいって意味ですよね。',
+        vi: 'A, cái đó em biết nè! Nghĩa là cực kỳ ngon đúng không thầy?'
+      },
+      {
+        speaker: '先生',
+        start: 16.6,
+        end: 19.5,
+        cloze: 'パークさん、よく知ってますね。',
+        vi: 'Park biết rõ ghê nhỉ.'
+      },
+      {
+        speaker: 'パーク',
+        start: 19.6,
+        end: 24.5,
+        cloze: 'バイト先のお客さんが時々言ってますから。',
+        vi: 'Dạ tại vì khách ở chỗ làm thêm của em thỉnh thoảng hay nói vậy ạ.'
+      },
+      {
+        speaker: '先生',
+        start: 24.6,
+        end: 47.0,
+        cloze: '「ヤバい」というのは、元は「{{危ない|あぶない|nguy hiểm|1}}」という意味だったんですよ。それが「{{都合が悪い|つごうがわるい|bất lợi, không tiện|1}}」というような時にも使うようになったんですね。最初は{{マイナスのイメージ|マイナスのイメージ|ấn tượng tiêu cực|1}}だったのが、最近ではいい意味でも使われるようになってきたんです。すごく美味しいとか、{{かっこいい|かっこいい|ngầu, bảnh bao|1}}とか。',
+        vi: '"Yabai" vốn dĩ ban đầu có nghĩa là "nguy hiểm". Sau đó người ta bắt đầu dùng nó trong những lúc "bất lợi, phiền phức". Ban đầu mang ấn tượng tiêu cực, nhưng gần đây nó còn được dùng với ý khen ngợi tích cực nữa. Chẳng hạn như cực kỳ ngon, hay là rất ngầu.'
+      },
+      {
+        speaker: '学生（男）',
+        start: 47.1,
+        end: 50.5,
+        cloze: '{{若い人|わかいひと|người trẻ|1}}が使う言葉ですか？',
+        vi: 'Đó là từ mà giới trẻ hay dùng ạ?'
+      },
+      {
+        speaker: '先生',
+        start: 50.6,
+        end: 61.5,
+        cloze: '今はそうですが、だんだん多くの人が使うようになるかもしれませんね。言葉は{{使われている間に|つかわれているあいだに|trong quá trình được sử dụng|2}}{{変わっていくもの|かわっていくもの|thứ sẽ biến đổi theo thời gian|2}}ですから。',
+        vi: 'Bây giờ thì là vậy, nhưng có lẽ dần dà sẽ có nhiều người dùng hơn. Bởi vì ngôn ngữ vốn biến đổi trong quá trình được sử dụng mà.'
+      },
+      {
+        speaker: '学生（男）',
+        start: 61.6,
+        end: 64.0,
+        cloze: 'ふーん。',
+        vi: 'Ồ ra vậy.'
+      },
+      {
+        speaker: '先生',
+        start: 64.1,
+        end: 79.5,
+        cloze: '例えば、「{{全然|ぜんぜん|hoàn toàn|1}}」という言葉は、「全然美味しくない」というように、後ろに{{否定|ひてい|phủ định|1}}の言葉がつくのが{{一般的|いっぱんてき|phổ biến, thông thường|1}}ですね。でも最近は、「全然いい」とか「全然美味しい」とか言う人も多くなりましたね。',
+        vi: 'Chẳng hạn như từ "Zenzen", thông thường đằng sau nó sẽ đi kèm từ mang tính phủ định như "hoàn toàn không ngon". Thế nhưng gần đây người nói "hoàn toàn ổn / cực kỳ ngon" cũng trở nên nhiều hơn rồi.'
+      },
+      {
+        speaker: '学生（男）',
+        start: 79.6,
+        end: 82.5,
+        cloze: 'へえー、そうなんですか。',
+        vi: 'Chà, ra là thế ạ.'
+      },
+      {
+        speaker: 'パーク',
+        start: 82.6,
+        end: 87.0,
+        cloze: '面白いですね。',
+        vi: 'Thú vị thật đấy thầy ạ.'
+      }
+    ],
+    vocabulary: [
+      { word: 'ヤバい', kana: 'ヤバい', meaning: 'từ lóng: nguy hiểm, gay go; nghĩa mới: siêu ngon, cực ngầu, quá đỉnh' },
+      { word: '都合が悪い', kana: 'つごうがわるい', meaning: 'bất tiện, bất lợi, không thuận tiện' },
+      { word: 'マイナスのイメージ', kana: 'マイナスのイメージ', meaning: 'ấn tượng tiêu cực' },
+      { word: 'かっこいい', kana: 'かっこいい', meaning: 'ngầu, bảnh bao, đẹp mắt' },
+      { word: '全然', kana: 'ぜんぜん', meaning: 'hoàn toàn (truyền thống đi với phủ định; hiện đại dùng cả khẳng định)' },
+      { word: '否定', kana: 'ひてい', meaning: 'phủ định' },
+      { word: '一般的', kana: 'いっぱんてき', meaning: 'phổ biến, thông thường' },
+      { word: '～ていくものだ', kana: '～ていくものだ', meaning: 'vốn dĩ tự nhiên sẽ biến chuyển...' }
+    ]
+  },
+  {
+    id: 'listen_9_5',
+    lesson: '第 9 課',
+    code: 'Bài 9 - Nghe 5',
+    title: 'Mẹo nhớ số điện thoại qua chơi chữ (0120-508-315: これは最高)',
+    jp_title: '電話番号の語呂合わせ「これは最高」',
+    audio: 'audio/listening/bai_9_5.mp3',
+    duration_label: '01:46',
+    type: 'dialogue',
+    summary: 'Đoạn quảng cáo và cuộc trao đổi vui về cách nhớ dãy số điện thoại đường dây nóng miễn phí (フリーダイヤル 0120-508-315) bằng cách ghép các chữ cái đầu thành câu "Đây là tuyệt nhất".',
+    lines: [
+      {
+        speaker: 'TVコマーシャル',
+        start: 0.0,
+        end: 18.0,
+        cloze: '軽くて{{便利|べんり|tiện lợi|2}}な{{革製|かわせい|làm bằng da|1}}のバッグです。ご注文は{{フリーダイヤル|フリーダイヤル|số điện thoại gọi miễn phí|1}} 0120-508-315。0120の「{{これは最高|これはさいこう|đây là tuyệt nhất|1}}」まで！お{{掛け間違い|かけまちがい|gọi nhầm số|1}}に{{ご注意ください|ごちゅういください|xin hãy chú ý|2}}。',
+        vi: 'Túi xách da cao cấp vừa nhẹ vừa tiện lợi. Đặt hàng xin vui lòng gọi đến tổng đài miễn phí 0120-508-315. Đến số 0120 "Đây là tuyệt nhất"! Xin quý khách lưu ý tránh gọi nhầm số.'
+      },
+      {
+        speaker: '男性',
+        start: 18.1,
+        end: 25.0,
+        cloze: 'え？0120の「これは最高」？{{一体|いったい|rốt cuộc, rốt cục là|1}}何のこと？',
+        vi: 'Hả? 0120 "Đây là tuyệt nhất"? Rốt cuộc là ý gì thế nhỉ?'
+      },
+      {
+        speaker: '女性A',
+        start: 25.1,
+        end: 31.0,
+        cloze: 'ああ、電話番号の「508の315」のことを言ってるんだよ。',
+        vi: 'À, đang nói đến cụm 508-315 trong số điện thoại đấy.'
+      },
+      {
+        speaker: '男性',
+        start: 31.1,
+        end: 33.5,
+        cloze: 'え？どうして？',
+        vi: 'Ơ? Sao lại thế?'
+      },
+      {
+        speaker: '女性A',
+        start: 33.6,
+        end: 58.5,
+        cloze: 'さっき、フリーダイヤルの番号を言ってたでしょ？0120の後の508の315の{{覚え方|おぼえかた|cách nhớ|1}}のことだよ。ここに{{数字|すうじ|chữ số|1}}を書くね。ほら、見て。この数字の508の「0」は「レイ」とも読むから、初めの文字を読むと「ご・れ・わ」になるでしょ？そこから「これは」になるんだよ。',
+        vi: 'Lúc nãy vừa đọc số tổng đài miễn phí đấy thôi? Là mẹo nhớ cụm 508-315 sau đầu số 0120 đấy. Mình viết số ra đây nhé. Này xem đi, số 0 trong 508 này còn có thể đọc là "Rei", nên nếu đọc các ký tự đầu sẽ là "Go - Re - Wa" đúng không? Từ đó biến thành "Kore wa" (cái này) đấy.'
+      },
+      {
+        speaker: '女性B',
+        start: 58.6,
+        end: 62.0,
+        cloze: 'へえ、そうなんだ。',
+        vi: 'Chà, ra là thế.'
+      },
+      {
+        speaker: '男性',
+        start: 62.1,
+        end: 65.5,
+        cloze: 'それで、後ろの数字何だっけ？',
+        vi: 'Thế còn dãy số đằng sau là gì ấy nhỉ?'
+      },
+      {
+        speaker: '女性A',
+        start: 65.6,
+        end: 68.0,
+        cloze: '315だよ。',
+        vi: 'Là 315.'
+      },
+      {
+        speaker: '男性',
+        start: 68.1,
+        end: 71.0,
+        cloze: 'さ・い・ご？',
+        vi: 'Sa - i - go (Cuối cùng) à?'
+      },
+      {
+        speaker: '女性A',
+        start: 71.1,
+        end: 89.0,
+        cloze: '違う違う！「{{最後|さいご|cuối cùng|1}}」なんてイメージ悪くない？{{コマーシャル|コマーシャル|quảng cáo|1}}だから{{イメージ良くしないと|イメージよくしないと|phải làm cho hình ảnh đẹp|2}}。だから、「5」を「こ」って読んで、つまり「{{最高|さいこう|tuyệt vời nhất|1}}」になるっていうわけだよ。',
+        vi: 'Không phải, không phải! Nghĩ ra "Saigo" (cuối cùng) chẳng phải ấn tượng xấu sao? Quảng cáo thì hình ảnh phải đẹp chứ. Cho nên số 5 đọc thành "Ko", tức là thành "Saikou" (tuyệt nhất) đấy.'
+      },
+      {
+        speaker: '女性B',
+        start: 89.1,
+        end: 93.0,
+        cloze: 'そっかー、面白いね！',
+        vi: 'A ra vậy, thú vị thật đấy!'
+      },
+      {
+        speaker: '女性A',
+        start: 93.1,
+        end: 106.0,
+        cloze: '高校の時、いろんな数字を覚えることが多かったけど、数字を言葉にして覚えたら楽しかったし、{{覚えやすかった|おぼえやすかった|dễ nhớ|1}}よ。',
+        vi: 'Hồi cấp ba mình phải học thuộc nhiều con số lắm, nhưng cứ biến các con số thành từ ngữ rồi nhớ thì vừa vui mà lại vừa dễ nhớ nữa.'
+      }
+    ],
+    vocabulary: [
+      { word: 'フリーダイヤル', kana: 'フリーダイヤル', meaning: 'đường dây nóng gọi miễn phí (toll-free)' },
+      { word: '掛け間違い', kana: 'かけまちがい', meaning: 'gọi nhầm số điện thoại' },
+      { word: '語呂合わせ', kana: 'ごろあわせ', meaning: 'nghệ thuật chơi chữ bằng cách ghép âm các con số' },
+      { word: '一体', kana: 'いったい', meaning: 'rốt cuộc là, rốt cục là' },
+      { word: 'コマーシャル', kana: 'コマーシャル', meaning: 'quảng cáo thương mại truyền hình (CM)' },
+      { word: '最後', kana: 'さいご', meaning: 'cuối cùng' },
+      { word: '最高', kana: 'さいこう', meaning: 'tuyệt vời nhất, đỉnh cao nhất' },
+      { word: '覚えやすい', kana: 'おぼえやすい', meaning: 'dễ nhớ, dễ thuộc' }
+    ]
   }
 ];
-
