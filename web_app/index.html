@@ -8,9 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Noto+Sans+JP:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=2.8">
-  <link rel="stylesheet" href="css/components.css?v=2.8">
-  <link rel="stylesheet" href="css/responsive.css?v=2.8">
+  <link rel="stylesheet" href="css/main.css?v=3.0">
+  <link rel="stylesheet" href="css/components.css?v=3.0">
+  <link rel="stylesheet" href="css/focus_room.css?v=3.0">
+  <link rel="stylesheet" href="css/responsive.css?v=3.0">
 </head>
 <body>
   <div class="app-container">
@@ -517,6 +518,7 @@
             </div>
 
             <div class="toolbar-right">
+              <button class="btn btn-primary btn-sm btn-focus-open" data-focus-origin="speaking" title="Vào phòng thi mô phỏng có giám thị">Focus</button>
               <button class="btn btn-secondary btn-sm" id="btn-speaking-play-all">Nghe toàn bộ hội thoại</button>
               <button class="btn btn-secondary btn-sm" id="btn-speaking-reset-sample" title="Khôi phục mẫu hội thoại chuẩn">Mẫu chuẩn</button>
               <button class="btn btn-secondary btn-sm" id="btn-speaking-export-txt" title="Tải file .txt toàn bộ kịch bản">Xuất file .txt</button>
@@ -560,6 +562,9 @@
                 <div class="oral-search-box">
                   <input type="text" id="oral-search-input" placeholder="Tìm theo câu hỏi, từ vựng hoặc ngữ pháp..." autocomplete="off">
                 </div>
+                <button class="btn btn-secondary btn-sm btn-focus-open" data-focus-origin="oral" title="Vào phòng thi mô phỏng có giám thị">
+                  Focus
+                </button>
                 <button class="btn btn-primary btn-sm" id="btn-oral-mock-interview">
                   Bốc thăm thi thử
                 </button>
@@ -1398,19 +1403,20 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/app_data.js?v=2.8"></script>
-  <script src="data/speaking_data.js?v=2.8"></script>
-  <script src="data/oral_exam_data.js?v=2.8"></script>
-  <script src="js/audio.js?v=2.8"></script>
-  <script src="js/fx.js?v=2.8"></script>
-  <script src="js/storage.js?v=2.8"></script>
-  <script src="js/flashcard.js?v=2.8"></script>
-  <script src="js/quiz.js?v=2.8"></script>
-  <script src="js/typing.js?v=2.8"></script>
-  <script src="js/final_exam.js?v=2.8"></script>
-  <script src="js/speaking.js?v=2.8"></script>
-  <script src="js/oral_exam.js?v=2.8"></script>
-  <script src="js/search.js?v=2.8"></script>
-  <script src="js/app.js?v=2.8"></script>
+  <script src="data/app_data.js?v=3.0"></script>
+  <script src="data/speaking_data.js?v=3.0"></script>
+  <script src="data/oral_exam_data.js?v=3.0"></script>
+  <script src="js/audio.js?v=3.0"></script>
+  <script src="js/fx.js?v=3.0"></script>
+  <script src="js/storage.js?v=3.0"></script>
+  <script src="js/flashcard.js?v=3.0"></script>
+  <script src="js/quiz.js?v=3.0"></script>
+  <script src="js/typing.js?v=3.0"></script>
+  <script src="js/focus_room.js?v=3.0"></script>
+  <script src="js/final_exam.js?v=3.0"></script>
+  <script src="js/speaking.js?v=3.0"></script>
+  <script src="js/oral_exam.js?v=3.0"></script>
+  <script src="js/search.js?v=3.0"></script>
+  <script src="js/app.js?v=3.0"></script>
 </body>
 </html>

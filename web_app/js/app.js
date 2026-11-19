@@ -40,6 +40,13 @@ class App {
     if (typeof TypingGame !== 'undefined') {
       window.typingGame = new TypingGame();
     }
+    if (typeof FocusRoom !== 'undefined') {
+      window.focusRoom = new FocusRoom();
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-focus-open');
+        if (btn) window.focusRoom.open(btn.dataset.focusOrigin || 'oral');
+      });
+    }
     window.finalExamEngine = new FinalExamEngine();
     if (typeof SpeakingEngine !== 'undefined') {
       window.speakingEngine = new SpeakingEngine();

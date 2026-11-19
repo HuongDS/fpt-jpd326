@@ -458,6 +458,62 @@ class SoundEngine {
     });
   }
 
+  /** Wooden knock on a door (focus room) */
+  playKnock() {
+    if (!this.soundEnabled || !this.audioCtx) return;
+    this.ensureContext();
+    const now = this.audioCtx.currentTime;
+    const osc = this.audioCtx.createOscillator();
+    const gain = this.audioCtx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(260, now);
+    osc.frequency.exponentialRampToValueAtTime(90, now + 0.09);
+    gain.gain.setValueAtTime(0.35, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
+    osc.connect(gain);
+    gain.connect(this.audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + 0.13);
+  }
+
+  /** Soft footstep thud */
+  playFootstep() {
+    if (!this.soundEnabled || !this.audioCtx) return;
+    this.ensureContext();
+    const now = this.audioCtx.currentTime;
+    const osc = this.audioCtx.createOscillator();
+    const gain = this.audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(110 + Math.random() * 30, now);
+    osc.frequency.exponentialRampToValueAtTime(50, now + 0.08);
+    gain.gain.setValueAtTime(0.16, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.09);
+    osc.connect(gain);
+    gain.connect(this.audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + 0.1);
+  }
+
+  /** Door creak */
+  playDoor() {
+    if (!this.soundEnabled || !this.audioCtx) return;
+    this.ensureContext();
+    const now = this.audioCtx.currentTime;
+    const osc = this.audioCtx.createOscillator();
+    const gain = this.audioCtx.createGain();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(120, now);
+    osc.frequency.linearRampToValueAtTime(210, now + 0.5);
+    osc.frequency.linearRampToValueAtTime(150, now + 0.7);
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.linearRampToValueAtTime(0.05, now + 0.1);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.75);
+    osc.connect(gain);
+    gain.connect(this.audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + 0.8);
+  }
+
   /** Celebratory 4-note victory chord on quiz completion */
   playFanfare() {
     if (!this.soundEnabled || !this.audioCtx) return;
