@@ -770,6 +770,367 @@ window.LISTENING_DATA = [
       { word: '思い出', kana: 'おもいで', meaning: 'kỷ niệm, ký ức đẹp' },
       { word: '孫', kana: 'まご', meaning: 'cháu (nội / ngoại)' }
     ]
+  },
+
+// ===============================================================
+// BÀI 8 (第 8 課): 職場の人間関係・気持ちの伝え方 (Quan hệ nơi làm việc & Cách truyền đạt cảm xúc)
+// ===============================================================
+  {
+    id: 'listen_8_1',
+    lesson: '第 8 課',
+    code: 'Bài 8 - Nghe 1',
+    title: 'Khách gọi thêm bia sau Last order & Bị quản lý nhắc nhở',
+    jp_title: 'ラストオーダーと追加注文',
+    audio: 'audio/listening/bai_8_1.mp3',
+    duration_label: '01:06',
+    type: 'dialogue',
+    summary: 'Nhân viên quán ăn tâm sự về tình huống khó xử khi khách đã bảo không gọi nữa nhưng sau Last order lại đòi gọi thêm bia, khiến bản thân bị quản lý nhắc nhở.',
+    lines: [
+      {
+        speaker: '店員A',
+        start: 0.0,
+        end: 9.5,
+        cloze: 'あーあ、今日は{{大変|たいへん|vất vả, mệt mỏi|2}}だったんだよ。{{ラストオーダー|ラストオーダー|lượt gọi món cuối cùng|1}}のあとで、{{追加|ついか|thêm vào, bổ sung|1}}の{{注文|ちゅうもん|gọi món, đặt hàng|1}}をするお客さんがいて。',
+        vi: 'Haizz, hôm nay thật là mệt mỏi quá đi. Sau giờ gọi món cuối cùng mà lại có khách cứ đòi gọi thêm.'
+      },
+      {
+        speaker: '店員B',
+        start: 9.6,
+        end: 13.0,
+        cloze: 'へえー、そうだったんだ。それで、どうしたの？',
+        vi: 'Thế á? Vậy rồi cậu xử lý sao?'
+      },
+      {
+        speaker: '店員A',
+        start: 13.1,
+        end: 25.0,
+        cloze: 'ラストオーダーだって僕が言いに行った時には、そのお客さん、「はーい、もう注文ないよー」って{{言ったくせに|いったくせに|nói thế mà lại...|1}}、そんなこと言ってないって、{{生ビール|なまビール|bia tươi|1}}を追加で注文したんだよ。',
+        vi: 'Lúc mình đến báo hết giờ gọi món, khách rõ ràng bảo "Được rồi, không gọi gì nữa đâu", thế mà sau đấy lại bảo chưa từng nói thế rồi gọi thêm bia tươi.'
+      },
+      {
+        speaker: '店員B',
+        start: 25.1,
+        end: 27.5,
+        cloze: 'へえー、大変だったね。',
+        vi: 'Chà, đúng là vất vả thật đấy.'
+      },
+      {
+        speaker: '店員A',
+        start: 27.6,
+        end: 31.0,
+        cloze: '注文を{{受けたせいで|うけたせいで|chỉ vì đã nhận... nên|1}}、{{店長|てんちょう|cửa hàng trưởng, quản lý|2}}にも{{注意されちゃった|ちゅういされちゃった|bị nhắc nhở|1}}んだ。',
+        vi: 'Chỉ tại nhận đơn ấy mà mình còn bị quản lý nhắc nhở nữa chứ.'
+      },
+      {
+        speaker: '店員B',
+        start: 31.1,
+        end: 33.0,
+        cloze: '{{断らなかった|ことわらなかった|đã không từ chối|1}}の？',
+        vi: 'Cậu không từ chối à?'
+      },
+      {
+        speaker: '店員A',
+        start: 33.1,
+        end: 35.0,
+        cloze: 'そりゃあ、{{断れない|ことわれない|không thể từ chối|1}}よ。',
+        vi: 'Thế thì làm sao mà từ chối được cơ chứ.'
+      },
+      {
+        speaker: '店員C',
+        start: 35.1,
+        end: 37.0,
+        cloze: 'そうですよねー。',
+        vi: 'Đúng vậy thật đấy ạ.'
+      },
+      {
+        speaker: '店員A',
+        start: 37.1,
+        end: 44.0,
+        cloze: '{{無理に決まってる|むりにきまってる|chắc chắn là không thể nào rồi|1}}よ。お客さんを{{怒らせたら|おこらせたら|làm cho tức giận|1}}大変だからね。ま、お客さんは{{喜んで|よろこんで|vui vẻ, hài lòng|2}}帰ってくれたけど。',
+        vi: 'Chắc chắn là không từ chối được rồi. Nếu làm khách phật ý nổi giận thì to chuyện lắm. Cơ mà ít ra khách cũng hài lòng ra về.'
+      },
+      {
+        speaker: '店員B',
+        start: 44.1,
+        end: 49.0,
+        cloze: 'うーん、でも、受ける前に店長に{{聞けばよかった|きけばよかった|giá mà đã hỏi... thì tốt|1}}かもね。',
+        vi: 'Ừm, nhưng trước khi nhận có lẽ cậu cứ hỏi ý kiến quản lý trước thì tốt hơn.'
+      },
+      {
+        speaker: '店員A',
+        start: 49.1,
+        end: 51.0,
+        cloze: 'うーん。',
+        vi: 'Ừm...'
+      }
+    ],
+    vocab: [
+      { word: 'ラストオーダー', kana: 'ラストオーダー', meaning: 'lượt gọi món cuối cùng (last order)' },
+      { word: '追加', kana: 'ついか', meaning: 'thêm vào, bổ sung' },
+      { word: '～くせに', kana: '～くせに', meaning: 'mặc dù... thế mà (thái độ trách móc, bất mãn)' },
+      { word: '～せいで', kana: '～せいで', meaning: 'chỉ tại vì, do... (kết quả xấu)' },
+      { word: '注意する', kana: 'ちゅういする', meaning: 'nhắc nhở, cảnh cáo' },
+      { word: '断る', kana: 'ことわる', meaning: 'từ chối' },
+      { word: '～に決まっている', kana: '～にきまっている', meaning: 'chắc chắn là..., nhất định là...' },
+      { word: '～ばよかった', kana: '～ばよかった', meaning: 'giá mà... thì tốt biết mấy (hối tiếc)' }
+    ]
+  },
+  {
+    id: 'listen_8_2',
+    lesson: '第 8 課',
+    code: 'Bài 8 - Nghe 2',
+    title: 'Phàn nàn về quán trưởng & Nỗi vất vả dọn dẹp sảnh',
+    jp_title: 'ホールの掃除と店長の小言',
+    audio: 'audio/listening/bai_8_2.mp3',
+    duration_label: '00:56',
+    type: 'dialogue',
+    summary: 'Anh Kobayashi tâm sự về việc bị quán trưởng mắng oan vì chưa kịp dọn dẹp sảnh giữa lúc quán đang quá đông khách.',
+    lines: [
+      {
+        speaker: '小林',
+        start: 0.0,
+        end: 8.5,
+        cloze: 'うーん。でも、{{この間|このあいだ|dạo gần đây, hôm nọ|2}}は僕も店長に{{怒られた|おこられた|bị mắng, bị tức giận|1}}よ。',
+        vi: 'Ừm. Nhưng hôm nọ tôi cũng bị quản lý mắng té tát đấy.'
+      },
+      {
+        speaker: '店員A',
+        start: 8.6,
+        end: 10.0,
+        cloze: 'え、なんで？',
+        vi: 'Ủa, sao vậy anh?'
+      },
+      {
+        speaker: '小林',
+        start: 10.1,
+        end: 16.0,
+        cloze: 'この間の金曜日、店が{{忙しくて|いそがしくて|bận rộn|2}}、いつもの時間に{{ホール|ホール|sảnh ăn, khu vực bàn ăn|1}}の{{掃除|そうじ|dọn dẹp vệ sinh|1}}ができなかったんだけど、',
+        vi: 'Thứ Sáu vừa rồi quán bận quá, nên đến giờ thường lệ tôi không thể dọn dẹp sảnh ăn được,'
+      },
+      {
+        speaker: '店員C',
+        start: 16.1,
+        end: 18.5,
+        cloze: 'あー、忙しかったですよねー。',
+        vi: 'A, hôm đó đông khách thật sự luôn ấy ạ.'
+      },
+      {
+        speaker: '小林',
+        start: 18.6,
+        end: 27.0,
+        cloze: 'そしたら店長に、「なんで掃除してないんだ」って怒られたんだ。こっちはこれから掃除しようって{{思ってたのに|おもってたのに|đang định... thế mà|1}}。',
+        vi: 'Thế là quản lý mắng tôi: "Sao giờ này còn chưa dọn dẹp?". Mình đang định bụng đi dọn thì đã bị mắng rồi.'
+      },
+      {
+        speaker: '店員A',
+        start: 27.1,
+        end: 30.0,
+        cloze: 'ああ、それは小林さんの{{せいじゃない|せいじゃない|không phải lỗi do...|1}}よね。',
+        vi: 'Ôi, thế thì đâu phải lỗi tại anh Kobayashi đâu.'
+      },
+      {
+        speaker: '小林',
+        start: 30.1,
+        end: 41.0,
+        cloze: 'だろう？注文を取りに行くのが遅くなれば、お客を{{イライラさせる|イライラさせる|làm cho bực mình, sốt ruột|1}}し、ホールの掃除が{{遅れれば|おくれれば|nếu bị muộn, chậm trễ|1}}、店長に怒られるし。たく、もう。',
+        vi: 'Đúng không? Đi lấy đơn chậm thì khách bực dọc, mà dọn sảnh trễ thì lại bị quản lý mắng. Thiệt tình chứ.'
+      },
+      {
+        speaker: '店員A',
+        start: 41.1,
+        end: 43.5,
+        cloze: 'ほんと、大変だよね。',
+        vi: 'Thật sự vất vả quá nhỉ.'
+      },
+      {
+        speaker: '小林',
+        start: 43.6,
+        end: 52.5,
+        cloze: 'いつも店が{{空いたら|すいたら|khi vắng khách|1}}ちゃんと掃除してるのに、店長、見てないんじゃないかなあ。{{見てないくせに|みてないくせに|đã không nhìn thấy mà lại...|1}}{{文句ばっかり|もんくばっかり|toàn cằn nhằn, kêu ca|1}}言って。',
+        vi: 'Bình thường hễ quán vắng là mình dọn dẹp đàng hoàng ngay, chắc quản lý chẳng để mắt tới rồi. Đã không nhìn ngó gì mà lúc nào cũng chỉ biết cằn nhằn.'
+      },
+      {
+        speaker: '店員A',
+        start: 52.6,
+        end: 56.0,
+        cloze: 'まあ、{{飲もう|のもう|uống thôi|2}}！',
+        vi: 'Thôi nào, cạn ly uống đi anh!'
+      }
+    ],
+    vocab: [
+      { word: 'ホール', kana: 'ホール', meaning: 'sảnh, khu vực bàn ăn trong nhà hàng' },
+      { word: '掃除', kana: 'そうじ', meaning: 'dọn dẹp, vệ sinh' },
+      { word: '怒る', kana: 'おこる', meaning: 'tức giận, mắng mỏ' },
+      { word: 'イライラする', kana: 'イライラする', meaning: 'sốt ruột, bực mình' },
+      { word: '遅れる', kana: 'おくれる', meaning: 'chậm trễ, muộn' },
+      { word: '文句', kana: 'もんく', meaning: 'cằn nhằn, phàn nàn, kêu ca' },
+      { word: '～ばっかり', kana: '～ばっかり', meaning: 'toàn là..., suốt ngày chỉ...' },
+      { word: '空く', kana: 'すく', meaning: 'trống, vắng người' }
+    ]
+  },
+  {
+    id: 'listen_8_3',
+    lesson: '第 8 課',
+    code: 'Bài 8 - Nghe 3',
+    title: 'Lý do nên bày tỏ tình cảm trực tiếp thay vì qua tin nhắn',
+    jp_title: '気持ちを直接伝える理由',
+    audio: 'audio/listening/bai_8_3.mp3',
+    duration_label: '01:00',
+    type: 'monologue',
+    summary: 'Bài chia sẻ về lý do vì sao khi thổ lộ tình cảm nên gặp mặt trực tiếp: để thấu hiểu cảm xúc đối phương và tránh hối hận nếu để lại tin nhắn hay dấu vết.',
+    lines: [
+      {
+        start: 0.0,
+        end: 7.0,
+        cloze: '私は、人に好きだという気持ちを{{伝えるときには|つたえるときには|khi bày tỏ, truyền đạt|1}}、その人に会って{{直接|ちょくせつ|trực tiếp|1}}言います。',
+        vi: 'Khi muốn thổ lộ tình cảm thích một người nào đó, tôi luôn gặp mặt người ấy và nói trực tiếp.'
+      },
+      {
+        start: 7.1,
+        end: 12.0,
+        cloze: '顔を見て伝えると、相手の{{様子|ようす|nét mặt, dáng vẻ, tình trạng|1}}がよくわかるからです。',
+        vi: 'Bởi vì khi nhìn thẳng vào khuôn mặt để bày tỏ, mình sẽ thấu hiểu rất rõ nét mặt và cảm xúc của đối phương.'
+      },
+      {
+        start: 12.1,
+        end: 26.0,
+        cloze: '確かに、直接言うのはとても{{緊張|きんちょう|căng thẳng, hồi hộp|1}}しますが、電話では顔が見えないし、メールや{{手紙|てがみ|thư tay|2}}では{{声|こえ|giọng nói|2}}も聞こえないので、相手の{{本当の気持ち|ほんとうのきもち|cảm xúc thật sự|1}}が{{わかりにくい|わかりにくい|khó hiểu, khó nhận ra|1}}と思います。',
+        vi: 'Đúng là nói trực tiếp thì vô cùng hồi hộp căng thẳng, nhưng qua điện thoại thì không thấy được gương mặt, còn qua tin nhắn hay thư từ thì chẳng nghe được giọng nói, nên rất khó để nhận biết được cảm xúc thật của đối phương.'
+      },
+      {
+        start: 26.1,
+        end: 31.0,
+        cloze: 'それから、もう一つの理由は、{{記録|きろく|ghi chép, dấu vết lưu lại|1}}に{{残したくない|のこしたくない|không muốn để lại|1}}からです。',
+        vi: 'Ngoài ra, một lý do nữa là vì tôi không muốn để lại dấu vết bằng chữ.'
+      },
+      {
+        start: 31.1,
+        end: 37.5,
+        cloze: 'もし、メールや手紙で伝えたら、相手のところに記録が{{残ってしまいます|のこってしまいます|bị lưu lại mất|1}}。',
+        vi: 'Nếu bày tỏ qua email hay thư tay thì dấu vết ấy sẽ lưu lại bên phía người ta.'
+      },
+      {
+        start: 37.6,
+        end: 46.5,
+        cloze: '返事がノーの場合には、相手のことを{{思い出すたびに|おもいだすたびに|cứ mỗi lần nhớ lại...|1}}、その記録が{{消えたかどうか|きえたかどうか|liệu đã bị xóa chưa|1}}{{気になる|きになる|bận tâm, lo lắng|1}}と思います。',
+        vi: 'Trong trường hợp bị từ chối, cứ mỗi lần nhớ đến người đó, ta sẽ lại bận tâm lo lắng không biết tin nhắn ấy đã bị xóa đi hay chưa.'
+      },
+      {
+        start: 46.6,
+        end: 60.0,
+        cloze: '会って{{伝えればよかったのに|つたえればよかったのに|giá mà gặp trực tiếp nói thì tốt thế mà...|1}}、どうしてメールにしちゃったんだろうと、{{後悔しないために|こうかいしないために|để không phải hối hận|1}}、直接言うのがいいと思います。',
+        vi: 'Để không phải tự dằn vặt hối tiếc rằng "Giá mà mình gặp mặt nói cho xong, cớ sao lại gửi tin nhắn làm gì", tôi nghĩ gặp nói trực tiếp vẫn là tốt nhất.'
+      }
+    ],
+    vocab: [
+      { word: '直接', kana: 'ちょくせつ', meaning: 'trực tiếp' },
+      { word: '伝える', kana: 'つたえる', meaning: 'truyền đạt, thổ lộ, bày tỏ' },
+      { word: '様子', kana: 'ようす', meaning: 'dáng vẻ, tình trạng, sắc thái' },
+      { word: '記録', kana: 'きろく', meaning: 'ghi chép, hồ sơ, dấu vết lưu lại' },
+      { word: '残る', kana: 'のこる', meaning: 'còn lại, lưu lại' },
+      { word: '～たびに', kana: '～たびに', meaning: 'mỗi lần... lại...' },
+      { word: '後悔する', kana: 'こうかいする', meaning: 'hối hận, tiếc nuối' },
+      { word: '気になる', kana: 'きになる', meaning: 'bận tâm, bồn chồn lo nghĩ' }
+    ]
+  },
+  {
+    id: 'listen_8_4',
+    lesson: '第 8 課',
+    code: 'Bài 8 - Nghe 4',
+    title: 'Xin phép quản lý nghỉ làm thêm một tuần vì gia đình sang thăm',
+    jp_title: 'アルバイトの休暇願いとシフト',
+    audio: 'audio/listening/bai_8_4.mp3',
+    duration_label: '01:01',
+    type: 'dialogue',
+    summary: 'Bạn du học sinh Rohan lịch sự xin phép quản lý cửa hàng cho nghỉ làm 1 tuần vào cuối tháng để đón tiếp gia đình từ quê nhà sang thăm và đã chủ động nhờ người làm thay.',
+    lines: [
+      {
+        speaker: 'ローハン',
+        start: 0.0,
+        end: 7.0,
+        cloze: 'あのー、店長、今{{よろしいですか|よろしいですか|có tiện không ạ (kính ngữ)|1}}。',
+        vi: 'Dạ quản lý ơi, bây giờ anh có tiện không ạ?'
+      },
+      {
+        speaker: '店長',
+        start: 7.1,
+        end: 10.0,
+        cloze: 'ああ、ローハンさん。どうしたの？',
+        vi: 'À, Rohan đấy à. Có chuyện gì thế em?'
+      },
+      {
+        speaker: 'ローハン',
+        start: 10.1,
+        end: 12.0,
+        cloze: '来月の{{シフト|シフト|ca làm việc, lịch làm|1}}のことなんですが。',
+        vi: 'Dạ về lịch làm việc (shift) tháng sau của em ấy ạ.'
+      },
+      {
+        speaker: '店長',
+        start: 12.1,
+        end: 14.0,
+        cloze: '来月のシフト？',
+        vi: 'Ca làm tháng sau à?'
+      },
+      {
+        speaker: 'ローハン',
+        start: 14.1,
+        end: 23.0,
+        cloze: 'はい。すみませんが、来月1週間、アルバイトを{{休ませていただけませんか|やすませていただけませんか|cho phép em được xin nghỉ có được không ạ|1}}。実は国から{{家族|かぞく|gia đình|2}}が来るんです。',
+        vi: 'Dạ vâng. Xin lỗi anh nhưng tháng sau cho phép em xin nghỉ làm thêm 1 tuần được không ạ? Thực ra gia đình em từ bên nước sang chơi ạ.'
+      },
+      {
+        speaker: '店長',
+        start: 23.1,
+        end: 27.0,
+        cloze: 'ああ、そう。それで、いつからいつまで？',
+        vi: 'À ra vậy. Thế từ ngày nào đến ngày nào thế em?'
+      },
+      {
+        speaker: 'ローハン',
+        start: 27.1,
+        end: 31.0,
+        cloze: '23日から30日までなんですが。',
+        vi: 'Dạ từ ngày 23 đến ngày 30 ạ.'
+      },
+      {
+        speaker: '店長',
+        start: 31.1,
+        end: 37.5,
+        cloze: 'え？{{月末|げつまつ|cuối tháng|1}}？うーん、{{忙しいとき|いそがしいとき|thời điểm bận rộn|2}}だねえ。',
+        vi: 'Hả? Cuối tháng á? Ừm... tầm đấy bận lắm đấy em ơi.'
+      },
+      {
+        speaker: 'ローハン',
+        start: 37.6,
+        end: 53.0,
+        cloze: 'ああー、すみません。でも、みんな日本語がわからない{{ものですから|ものですから|vì là, do là (lý do khách quan)|1}}、私が{{案内しなければならなくて|あんないしなければならなくて|phải hướng dẫn, dẫn đường|1}}。その間、私の{{代わりに|かわりに|thay cho, thay thế|1}}田中さんが入るって言ってくださっているんですが。',
+        vi: 'Dạ em thật sự xin lỗi anh. Cơ mà cả nhà em chẳng ai biết tiếng Nhật cả, nên em buộc phải đi cùng hướng dẫn. Trong khoảng thời gian đó, chị Tanaka đã đồng ý đi làm thay ca cho em rồi ạ.'
+      },
+      {
+        speaker: '店長',
+        start: 53.1,
+        end: 57.0,
+        cloze: 'ああ、そうか。じゃあ{{大丈夫|だいじょうぶ|ổn thỏa, không sao|2}}だね。わかった。',
+        vi: 'À ra thế à! Vậy thì ổn rồi, không sao đâu. Anh đồng ý nhé.'
+      },
+      {
+        speaker: 'ローハン',
+        start: 57.1,
+        end: 61.0,
+        cloze: 'ありがとうございます。{{ご迷惑をかけて|ごめいわくをかけて|làm phiền, gây bất tiện|1}}すみません。',
+        vi: 'Em cảm ơn anh nhiều lắm ạ. Em xin lỗi vì đã làm phiền và gây bất tiện cho quán.'
+      }
+    ],
+    vocab: [
+      { word: 'シフト', kana: 'シフト', meaning: 'ca làm việc (shift)' },
+      { word: '休ませていただけませんか', kana: 'やすませていただけませんか', meaning: 'cho phép tôi xin nghỉ có được không ạ' },
+      { word: '月末', kana: 'げつまつ', meaning: 'cuối tháng' },
+      { word: '～ものですから', kana: '～ものですから', meaning: 'bởi vì là... (giải thích lý do bất khả kháng, lịch sự)' },
+      { word: '案内する', kana: 'あんないする', meaning: 'hướng dẫn, dẫn đường' },
+      { word: '～代わりに', kana: '～かわりに', meaning: 'thay cho, thay vì...' },
+      { word: '迷惑をかける', kana: 'めいわくをかける', meaning: 'làm phiền, gây phiền toái cho người khác' }
+    ]
   }
 ];
 
