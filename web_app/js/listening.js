@@ -352,6 +352,7 @@ class ListeningEngine {
     this.viewMode = mode;
     window.soundEngine?.playTab?.();
     this.renderWorkspace();
+    this.updateFloatingAudioBar();
   }
 
   /**
@@ -409,6 +410,7 @@ class ListeningEngine {
     this.activeBlankId = blankId;
     window.soundEngine?.playClick?.();
     this.renderWorkspace();
+    this.updateFloatingAudioBar();
   }
 
   checkAllBlanks() {
@@ -488,6 +490,7 @@ class ListeningEngine {
     this.selectedChipId = null;
     window.soundEngine?.playFlip?.();
     this.renderWorkspace();
+    this.updateFloatingAudioBar();
   }
 
   resetCloze() {
@@ -496,6 +499,7 @@ class ListeningEngine {
     this.setupClozeState(track);
     window.soundEngine?.playChip?.();
     this.renderWorkspace();
+    this.updateFloatingAudioBar();
   }
 
   checkIfAllCompleted(forceCelebrate = false) {
@@ -582,6 +586,59 @@ class ListeningEngine {
         this.setViewMode(btn.dataset.listenMode);
       });
     });
+
+    // 4. Scroll & resize listener to morph audio bar into floating pill
+    const onScrollOrResize = () => this.updateFloatingAudioBar();
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize, { passive: true });
+  }
+
+  /**
+   * Morphs `#listen-audio-bar` into a floating pill when scrolled past its slot
+   */
+  updateFloatingAudioBar() {
+    const slot = document.getElementById('listen-audio-bar-slot');
+    const bar = document.getElementById('listen-audio-bar');
+    const panel = document.getElementById('tab-listening');
+    if (!slot || !bar) return;
+
+    if (!panel || !panel.classList.contains('active')) {
+      if (bar.classList.contains('is-floating-pill')) {
+        bar.classList.remove('is-floating-pill');
+        bar.style.removeProperty('--listen-float-top');
+        slot.style.minHeight = '';
+        document.documentElement.style.removeProperty('--listen-pill-offset');
+      }
+      return;
+    }
+
+    const subbar = document.getElementById('app-subbar');
+    const header = document.querySelector('.app-header');
+    const subRect = subbar ? subbar.getBoundingClientRect() : null;
+    const headRect = header ? header.getBoundingClientRect() : null;
+    const stickyBottom = Math.max(
+      subRect && subRect.height > 0 ? subRect.bottom : 0,
+      headRect && headRect.height > 0 ? headRect.bottom : 0,
+      0
+    );
+    const triggerTop = stickyBottom + 8;
+
+    const slotRect = slot.getBoundingClientRect();
+    const shouldFloat = slotRect.top <= triggerTop && slotRect.width > 0;
+
+    if (shouldFloat) {
+      if (!bar.classList.contains('is-floating-pill')) {
+        slot.style.minHeight = `${bar.offsetHeight}px`;
+        bar.classList.add('is-floating-pill');
+      }
+      bar.style.setProperty('--listen-float-top', `${Math.round(triggerTop)}px`);
+      document.documentElement.style.setProperty('--listen-pill-offset', `${Math.round(triggerTop + bar.offsetHeight + 10)}px`);
+    } else if (bar.classList.contains('is-floating-pill')) {
+      bar.classList.remove('is-floating-pill');
+      bar.style.removeProperty('--listen-float-top');
+      slot.style.minHeight = '';
+      document.documentElement.style.removeProperty('--listen-pill-offset');
+    }
   }
 
   // ------------------------------------------------------------------- render
@@ -616,6 +673,7 @@ class ListeningEngine {
     if (subEl) subEl.textContent = track.summary || '';
 
     this.renderWorkspace();
+    this.updateFloatingAudioBar();
   }
 
   renderTrackList() {

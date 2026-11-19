@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Noto+Sans+JP:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=3.4">
-  <link rel="stylesheet" href="css/components.css?v=3.4">
-  <link rel="stylesheet" href="css/focus_room.css?v=3.4">
-  <link rel="stylesheet" href="css/listening.css?v=3.4">
-  <link rel="stylesheet" href="css/responsive.css?v=3.4">
+  <link rel="stylesheet" href="css/main.css?v=3.5">
+  <link rel="stylesheet" href="css/components.css?v=3.5">
+  <link rel="stylesheet" href="css/focus_room.css?v=3.5">
+  <link rel="stylesheet" href="css/listening.css?v=3.5">
+  <link rel="stylesheet" href="css/responsive.css?v=3.5">
 </head>
 <body>
   <div class="app-container">
@@ -1180,26 +1180,28 @@
                 </div>
               </div>
 
-              <!-- Audio Controls Bar -->
-              <div class="listen-audio-bar">
-                <div class="listen-transport-btns">
-                  <button type="button" class="btn btn-primary btn-sm" id="btn-listen-play">Phát bài nghe</button>
-                  <button type="button" class="btn btn-secondary btn-sm" id="btn-listen-back5" title="Tua lùi 5 giây">-5s</button>
-                  <button type="button" class="btn btn-secondary btn-sm" id="btn-listen-fwd5" title="Tua tới 5 giây">+5s</button>
-                  <button type="button" class="btn btn-secondary btn-sm" id="btn-listen-restart" title="Phát lại từ đầu">Từ đầu</button>
-                </div>
+              <!-- Audio Controls Bar (turns into a floating pill when scrolled past) -->
+              <div class="listen-audio-bar-slot" id="listen-audio-bar-slot">
+                <div class="listen-audio-bar" id="listen-audio-bar">
+                  <div class="listen-transport-btns">
+                    <button type="button" class="btn btn-primary btn-sm" id="btn-listen-play">Phát bài nghe</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-listen-back5" title="Tua lùi 5 giây">-5s</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-listen-fwd5" title="Tua tới 5 giây">+5s</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-listen-restart" title="Phát lại từ đầu">Từ đầu</button>
+                  </div>
 
-                <div class="listen-seek-wrap">
-                  <span class="listen-time" id="listen-time-current">00:00</span>
-                  <input type="range" class="listen-seek-range" id="listen-seek-range" min="0" max="100" step="0.2" value="0">
-                  <span class="listen-time" id="listen-time-total">00:46</span>
-                </div>
+                  <div class="listen-seek-wrap">
+                    <span class="listen-time" id="listen-time-current">00:00</span>
+                    <input type="range" class="listen-seek-range" id="listen-seek-range" min="0" max="100" step="0.2" value="0">
+                    <span class="listen-time" id="listen-time-total">00:46</span>
+                  </div>
 
-                <div class="listen-speed-box">
-                  <button type="button" class="listen-speed-btn" data-speed="0.75">0.75x</button>
-                  <button type="button" class="listen-speed-btn active" data-speed="1">1.0x</button>
-                  <button type="button" class="listen-speed-btn" data-speed="1.25">1.25x</button>
-                  <button type="button" class="btn btn-secondary btn-sm" id="btn-listen-loop" title="Tự động phát lặp lại">Lặp lại</button>
+                  <div class="listen-speed-box">
+                    <button type="button" class="listen-speed-btn" data-speed="0.75">0.75x</button>
+                    <button type="button" class="listen-speed-btn active" data-speed="1">1.0x</button>
+                    <button type="button" class="listen-speed-btn" data-speed="1.25">1.25x</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-listen-loop" title="Tự động phát lặp lại">Lặp lại</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1525,22 +1527,22 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/app_data.js?v=3.4"></script>
-  <script src="data/speaking_data.js?v=3.4"></script>
-  <script src="data/oral_exam_data.js?v=3.4"></script>
-  <script src="data/listening_data.js?v=3.4"></script>
-  <script src="js/audio.js?v=3.4"></script>
-  <script src="js/fx.js?v=3.4"></script>
-  <script src="js/storage.js?v=3.4"></script>
-  <script src="js/flashcard.js?v=3.4"></script>
-  <script src="js/quiz.js?v=3.4"></script>
-  <script src="js/typing.js?v=3.4"></script>
-  <script src="js/focus_room.js?v=3.4"></script>
-  <script src="js/final_exam.js?v=3.4"></script>
-  <script src="js/speaking.js?v=3.4"></script>
-  <script src="js/oral_exam.js?v=3.4"></script>
-  <script src="js/listening.js?v=3.4"></script>
-  <script src="js/search.js?v=3.4"></script>
-  <script src="js/app.js?v=3.4"></script>
+  <script src="data/app_data.js?v=3.5"></script>
+  <script src="data/speaking_data.js?v=3.5"></script>
+  <script src="data/oral_exam_data.js?v=3.5"></script>
+  <script src="data/listening_data.js?v=3.5"></script>
+  <script src="js/audio.js?v=3.5"></script>
+  <script src="js/fx.js?v=3.5"></script>
+  <script src="js/storage.js?v=3.5"></script>
+  <script src="js/flashcard.js?v=3.5"></script>
+  <script src="js/quiz.js?v=3.5"></script>
+  <script src="js/typing.js?v=3.5"></script>
+  <script src="js/focus_room.js?v=3.5"></script>
+  <script src="js/final_exam.js?v=3.5"></script>
+  <script src="js/speaking.js?v=3.5"></script>
+  <script src="js/oral_exam.js?v=3.5"></script>
+  <script src="js/listening.js?v=3.5"></script>
+  <script src="js/search.js?v=3.5"></script>
+  <script src="js/app.js?v=3.5"></script>
 </body>
 </html>

@@ -203,7 +203,11 @@ class App {
       const tabBtn = e.target.closest('.nav-tab-btn');
       if (tabBtn && tabBtn.dataset.tab) {
         this.switchTab(tabBtn.dataset.tab);
-        this.closeAllDropdowns();
+        if (window.listeningEngine) {
+      window.listeningEngine.updateFloatingAudioBar();
+    }
+
+    this.closeAllDropdowns();
         this.closeNavMap();
       }
     });
@@ -217,7 +221,11 @@ class App {
       trigger.addEventListener('click', (e) => {
         e.stopPropagation();
         const isOpen = dropdown.classList.contains('open');
-        this.closeAllDropdowns();
+        if (window.listeningEngine) {
+      window.listeningEngine.updateFloatingAudioBar();
+    }
+
+    this.closeAllDropdowns();
         if (!isOpen) {
           dropdown.classList.add('open');
           trigger.setAttribute('aria-expanded', 'true');
@@ -231,14 +239,22 @@ class App {
     // Close dropdowns when clicking outside
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.nav-dropdown')) {
-        this.closeAllDropdowns();
+        if (window.listeningEngine) {
+      window.listeningEngine.updateFloatingAudioBar();
+    }
+
+    this.closeAllDropdowns();
       }
     });
 
     // Close on Escape or Toggle on Ctrl+M
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        this.closeAllDropdowns();
+        if (window.listeningEngine) {
+      window.listeningEngine.updateFloatingAudioBar();
+    }
+
+    this.closeAllDropdowns();
         this.closeNavMap();
       }
       if ((e.ctrlKey || e.metaKey) && (e.key === 'm' || e.key === 'M')) {
@@ -407,6 +423,10 @@ class App {
     } else if (tabId === 'kanji') {
       this.renderKanjiFilters();
       this.updateKanjiView();
+    }
+
+    if (window.listeningEngine) {
+      window.listeningEngine.updateFloatingAudioBar();
     }
 
     this.closeAllDropdowns();
