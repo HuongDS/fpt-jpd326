@@ -761,6 +761,7 @@ class ListeningEngine {
 
   renderScriptModeHtml(track) {
     const lines = this.parsedLines || this.parseTrackCloze(track).parsedLines;
+    const vocabList = Array.isArray(track.vocab) ? track.vocab : (Array.isArray(track.vocabulary) ? track.vocabulary : []);
     return `
       <div class="listen-script-header">
         <div>
@@ -794,11 +795,11 @@ class ListeningEngine {
         `).join('')}
       </div>
 
-      ${Array.isArray(track.vocab) && track.vocab.length ? `
+      ${vocabList.length ? `
         <div class="listen-vocab-box">
           <div class="listen-section-label" style="margin-bottom: 0.75rem;">TỪ VỰNG & CẤU TRÚC TRỌNG TÂM TRONG BÀI NGHE</div>
           <div class="listen-vocab-grid">
-            ${track.vocab.map(v => `
+            ${vocabList.map(v => `
               <div class="listen-vocab-item">
                 <div>
                   <div class="listen-vocab-word jp-font">${this.esc(v.word)} <span class="listen-vocab-kana">(${this.esc(v.kana)})</span></div>

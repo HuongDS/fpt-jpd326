@@ -605,87 +605,171 @@ window.LISTENING_DATA = [
     audio: 'audio/listening/bai_7_3.mp3',
     duration_label: '01:33',
     type: 'dialogue',
-    summary: 'Natapon cùng cậu bạn học sinh cấp ba Taku (Kondo) cùng nhau vẽ poster cây lớn cho sự kiện, chia sẻ về tuổi tác và thỏa thuận cách xưng hô thân mật.',
+    summary: 'Mọi người phân công Natapon và cậu học sinh cấp ba Kondou (Taku) cùng vẽ một cái cây lớn lên poster sự kiện. Bác Oono ghé khen rồi hai anh em làm quen, hỏi tuổi và cách xưng hô thân mật.',
     lines: [
       {
-        speaker: 'ナタポン',
+        speaker: '石井',
         start: 0.0,
-        end: 11.5,
-        cloze: 'さて、ポスターの{{作成|さくせい|tạo, làm, vẽ|1}}だけど、どんなデザインにしようか。',
-        vi: 'Nào, về phần vẽ poster thì tụi mình nên chọn thiết kế thế nào đây nhỉ?'
+        end: 7.0,
+        cloze: 'じゃあ、今日はイベントの{{ポスター|ポスター|áp phích, poster|1}}を{{描いていきましょう|かいていきましょう|cùng nhau vẽ nào|2}}。',
+        vi: 'Nào, hôm nay chúng ta hãy cùng nhau bắt tay vào vẽ áp phích (poster) cho sự kiện nhé.'
       },
       {
-        speaker: 'タク',
-        start: 11.6,
+        speaker: '川村',
+        start: 7.1,
+        end: 10.5,
+        cloze: '{{絵が上手|えがじょうず|vẽ tranh giỏi, khéo vẽ|1}}な人、いますか？',
+        vi: 'Ở đây có ai vẽ tranh đẹp không nhỉ?'
+      },
+      {
+        speaker: 'マリヤム',
+        start: 10.6,
+        end: 13.5,
+        cloze: 'あ、ナタポンさんが{{上手|じょうず|giỏi, khéo tay|1}}ですよ。',
+        vi: 'A, bạn Natapon vẽ đẹp lắm đấy ạ.'
+      },
+      {
+        speaker: '川村',
+        start: 13.6,
+        end: 16.0,
+        cloze: 'じゃあ、{{描いてもらえますか|かいてもらえますか|nhờ bạn vẽ giúp có được không|1}}？',
+        vi: 'Vậy thì nhờ bạn vẽ giúp mọi người được không?'
+      },
+      {
+        speaker: 'ナタポン',
+        start: 16.1,
+        end: 18.0,
+        cloze: 'あ、はい。',
+        vi: 'À, dạ vâng ạ.'
+      },
+      {
+        speaker: '川村',
+        start: 18.1,
+        end: 22.0,
+        cloze: 'じゃ、よろしくね。近藤くん、{{手伝ってあげて|てつだってあげて|phụ giúp bạn ấy nhé|1}}。',
+        vi: 'Vậy nhờ bạn nhé. Kondou ơi, em phụ giúp bạn ấy nha.'
+      },
+      {
+        speaker: '近藤（タク）',
+        start: 22.1,
         end: 23.5,
-        cloze: 'イベントのテーマが「世代を超えた交流」だから、{{真ん中|まんなか|chính giữa|1}}に大きな木を描くのはどうっすか？',
-        vi: 'Chủ đề sự kiện là "Giao lưu qua các thế hệ", hay là mình vẽ một cái cây to tướng ở chính giữa đi anh?'
+        cloze: 'はい。',
+        vi: 'Vâng ạ.'
       },
       {
-        speaker: 'ナタポン',
+        speaker: '川村',
         start: 23.6,
-        end: 35.0,
-        cloze: 'いいね！木の{{枝|えだ|cành cây|2}}にいろんな年代の人たちの{{笑顔|えがお|khuôn mặt cười|1}}を描いていくんだね。',
-        vi: 'Hay đấy! Trên các cành cây mình sẽ vẽ khuôn mặt rạng rỡ của mọi người ở nhiều lứa tuổi khác nhau nhỉ.'
+        end: 29.0,
+        cloze: 'じゃあ、2人でこの{{紙|かみ|tờ giấy|2}}に{{大きな木|おおきなき|cái cây lớn|1}}を描いてね。はい、ペン。',
+        vi: 'Vậy hai đứa cùng vẽ một cái cây thật lớn lên tờ giấy này nhé. Đây, bút đây.'
       },
       {
-        speaker: 'タク',
-        start: 35.1,
-        end: 45.0,
-        cloze: 'そうそう！でも自分、絵を描くのは{{からっきし|からっきし|hoàn toàn không, dốt đặc|1}}苦手なんすよ……。',
-        vi: 'Chuẩn luôn ạ! Cơ mà khoản vẽ vời thì em dốt đặc cán mai luôn ấy...'
+        speaker: '近藤（タク）',
+        start: 29.1,
+        end: 31.0,
+        cloze: 'はい。',
+        vi: 'Vâng.'
       },
       {
-        speaker: 'ナタポン',
-        start: 45.1,
-        end: 55.0,
-        cloze: '大丈夫、僕もそんなに{{得意|とくい|giỏi, đắc ý|2}}じゃないから、一緒に{{手伝い|てつだい|giúp đỡ|1}}ながらやろう。',
-        vi: 'Không sao đâu, anh cũng chẳng khéo tay gì cho cam, tụi mình cùng đỡ đần nhau làm nhé.'
-      },
-      {
-        speaker: 'タク',
-        start: 55.1,
-        end: 63.5,
-        cloze: 'ありがとうございます！ナタポンさんは今、おいくつなんですか？',
-        vi: 'Cảm ơn anh! Mà anh Natapon năm nay bao nhiêu tuổi rồi ạ?'
+        speaker: '大野',
+        start: 34.0,
+        end: 43.0,
+        cloze: 'おお、{{上手なもんだ|じょうずなもんだ|khéo tay thật đấy (cảm thán)|1}}。僕は絵は{{からっきしダメ|からっきしダメ|hoàn toàn không được, dốt đặc|1}}でね。簡単な{{花さえ|はなさえ|ngay cả bông hoa|1}}うまく{{描けない|かけない|không thể vẽ được|2}}んだよ。',
+        vi: 'Ồ, vẽ khéo thật đấy! Bác thì khoản vẽ vời là dốt đặc cán mai. Ngay cả một bông hoa đơn giản bác cũng chẳng vẽ nổi cho ra hồn.'
       },
       {
         speaker: 'ナタポン',
-        start: 63.6,
-        end: 71.0,
-        cloze: '僕は23歳だよ。{{大学院|だいがくいん|cao học|1}}で勉強してるんだ。',
-        vi: 'Anh 23 tuổi rồi. Đang học cao học ở đây.'
+        start: 43.1,
+        end: 46.0,
+        cloze: 'ええ、そうなんですか？',
+        vi: 'Ồ, thật thế sao bác?'
       },
       {
-        speaker: 'タク',
-        start: 71.1,
-        end: 80.5,
-        cloze: 'へえ、23歳ですか！じゃあ僕より6歳{{年上|としうえ|lớn tuổi hơn|1}}ですね。自分は今17歳、高校2年生です。',
-        vi: 'Ô, 23 tuổi ạ! Vậy là lớn hơn em tận 6 tuổi rồi. Em năm nay mới 17, học lớp 11.'
+        speaker: '川村',
+        start: 46.1,
+        end: 50.0,
+        cloze: '大野さーん！こっちを{{手伝ってください|てつだってください|hãy giúp bên này với|2}}！',
+        vi: 'Bác Oono ơi! Qua phụ giúp bên này với ạ!'
+      },
+      {
+        speaker: '大野',
+        start: 50.1,
+        end: 52.5,
+        cloze: 'はいはーい。',
+        vi: 'Vâng vâng, tới ngay đây!'
       },
       {
         speaker: 'ナタポン',
-        start: 80.6,
-        end: 88.0,
-        cloze: 'そうなんだ。でもそんなに{{敬語|けいご|kính ngữ|1}}を使わなくてもいいよ。遠慮しないで。',
-        vi: 'Ra vậy. Nhưng em không cần phải dùng kính ngữ khách sáo thế đâu. Đừng ngại nhé.'
+        start: 54.0,
+        end: 58.5,
+        cloze: 'あの、すみません。お名前、何て{{呼べばいい|よべばいい|nên gọi như thế nào|1}}ですか？',
+        vi: 'À, xin lỗi, mình nên gọi tên bạn như thế nào thì được nhỉ?'
       },
       {
-        speaker: 'タク',
-        start: 88.1,
-        end: 93.2,
-        cloze: 'じゃあ……「ナタポンさん」って呼んでもいいですか？僕のことは「タク」って呼んでください！',
-        vi: 'Thế thì... em gọi anh là anh Natapon nha? Còn anh cứ gọi em là Taku nhé!'
+        speaker: '近藤（タク）',
+        start: 58.6,
+        end: 61.0,
+        cloze: 'ああ、タクで{{いいっすよ|いいっすよ|được rồi ạ (khẩu ngữ giới trẻ)|2}}。',
+        vi: 'À, cứ gọi em là Taku là được rồi ạ.'
+      },
+      {
+        speaker: 'ナタポン',
+        start: 61.1,
+        end: 63.0,
+        cloze: 'タクさん？',
+        vi: 'Bạn Taku à?'
+      },
+      {
+        speaker: '近藤（タク）',
+        start: 63.1,
+        end: 72.0,
+        cloze: 'いや、本当は{{拓也|たくや|Takuya (tên thật)|2}}って言うんすけど、みんな{{自分のこと|じぶんのこと|bản thân mình|1}}をタクって呼ぶんで。で、{{そちら|そちら|đằng ấy, phía bạn|2}}は？',
+        vi: 'Không, thật ra tên em là Takuya, cơ mà mọi người toàn gọi em là Taku thôi. Thế còn anh thì sao?'
+      },
+      {
+        speaker: 'ナタポン',
+        start: 72.1,
+        end: 75.5,
+        cloze: '私？ナタポンと{{呼んでください|よんでください|hãy gọi là|1}}。',
+        vi: 'Mình á? Cứ gọi mình là Natapon nhé.'
+      },
+      {
+        speaker: '近藤（タク）',
+        start: 75.6,
+        end: 78.5,
+        cloze: 'ナタポンさん、{{何歳っすか|なんさいっすか|bao nhiêu tuổi vậy ạ|1}}？',
+        vi: 'Anh Natapon bao nhiêu tuổi rồi ạ?'
+      },
+      {
+        speaker: 'ナタポン',
+        start: 78.6,
+        end: 81.0,
+        cloze: 'え？あ、23です。',
+        vi: 'Hả? À, mình 23 tuổi.'
+      },
+      {
+        speaker: '近藤（タク）',
+        start: 81.1,
+        end: 86.0,
+        cloze: 'えっ、自分より{{6個上|ろっこうえ|lớn hơn 6 tuổi|1}}っすね！{{よろしくお願いします|よろしくおねがいします|rất mong được giúp đỡ|1}}！',
+        vi: 'Ồ, vậy là lớn hơn em tận 6 tuổi lận! Rất mong được anh chỉ bảo ạ!'
+      },
+      {
+        speaker: 'ナタポン',
+        start: 86.1,
+        end: 89.0,
+        cloze: 'あ、{{こちらこそ|こちらこそ|chính tôi mới là người phải nói câu đó|1}}。',
+        vi: 'À, mình cũng rất vui được làm quen với em.'
       }
     ],
     vocab: [
-      { word: 'からっきし', kana: 'からっきし', meaning: 'hoàn toàn không, dốt đặc (tiêu cực)' },
-      { word: '年上', kana: 'としうえ', meaning: 'lớn tuổi hơn' },
-      { word: '作成', kana: 'さくせい', meaning: 'tạo ra, làm, sáng tác' },
-      { word: '手伝う', kana: 'てつだう', meaning: 'giúp đỡ' },
-      { word: '真ん中', kana: 'まんなか', meaning: 'ở chính giữa' },
-      { word: '大学院', kana: 'だいがくいん', meaning: 'cao học' },
-      { word: '敬語', kana: 'けいご', meaning: 'kính ngữ' }
+      { word: 'からっきしダメ', kana: 'からっきしだめ', meaning: 'hoàn toàn không được, dốt đặc (đi với phủ định/tiêu cực)' },
+      { word: '～なもんだ', kana: '～なもんだ', meaning: 'thật là... đấy nhỉ (cảm thán, thán phục)' },
+      { word: '～さえ', kana: '～さえ', meaning: 'ngay cả... cũng...' },
+      { word: '手伝う', kana: 'てつだう', meaning: 'phụ giúp, giúp đỡ' },
+      { word: '6個上', kana: 'ろっこうえ', meaning: 'hơn 6 tuổi (cách nói thân mật trong hội thoại)' },
+      { word: '～っす', kana: '～っす', meaning: 'cách nói rút gọn thân mật của です trong giới trẻ' },
+      { word: 'こちらこそ', kana: 'こちらこそ', meaning: 'chính tôi mới là người phải nói câu đó' }
     ]
   },
   {
@@ -779,10 +863,109 @@ window.LISTENING_DATA = [
     id: 'listen_8_1',
     lesson: '第 8 課',
     code: 'Bài 8 - Nghe 1',
-    title: 'Khách gọi thêm bia sau Last order & Bị quản lý nhắc nhở',
-    jp_title: 'ラストオーダーと追加注文',
+    title: 'Xin phép quản lý nghỉ làm thêm một tuần vì gia đình sang thăm',
+    jp_title: 'アルバイトの休暇願いとシフト',
     audio: 'audio/listening/bai_8_1.mp3',
     duration_label: '01:06',
+    type: 'dialogue',
+    summary: 'Bạn du học sinh Rohan lịch sự xin phép quản lý cửa hàng cho nghỉ làm 1 tuần vào cuối tháng để đón tiếp gia đình từ quê nhà sang thăm và đã chủ động nhờ người làm thay.',
+    lines: [
+      {
+        speaker: 'ローハン',
+        start: 0.0,
+        end: 7.0,
+        cloze: 'あのー、店長、今{{よろしいですか|よろしいですか|có tiện không ạ (kính ngữ)|1}}。',
+        vi: 'Dạ quản lý ơi, bây giờ anh có tiện không ạ?'
+      },
+      {
+        speaker: '店長',
+        start: 7.1,
+        end: 10.0,
+        cloze: 'ああ、ローハンさん。どうしたの？',
+        vi: 'À, Rohan đấy à. Có chuyện gì thế em?'
+      },
+      {
+        speaker: 'ローハン',
+        start: 10.1,
+        end: 12.0,
+        cloze: '来月の{{シフト|シフト|ca làm việc, lịch làm|1}}のことなんですが。',
+        vi: 'Dạ về lịch làm việc (shift) tháng sau của em ấy ạ.'
+      },
+      {
+        speaker: '店長',
+        start: 12.1,
+        end: 14.0,
+        cloze: '来月のシフト？',
+        vi: 'Ca làm tháng sau à?'
+      },
+      {
+        speaker: 'ローハン',
+        start: 14.1,
+        end: 23.0,
+        cloze: 'はい。すみませんが、来月1週間、アルバイトを{{休ませていただけませんか|やすませていただけませんか|cho phép em được xin nghỉ có được không ạ|1}}。実は国から{{家族|かぞく|gia đình|2}}が来るんです。',
+        vi: 'Dạ vâng. Xin lỗi anh nhưng tháng sau cho phép em xin nghỉ làm thêm 1 tuần được không ạ? Thực ra gia đình em từ bên nước sang chơi ạ.'
+      },
+      {
+        speaker: '店長',
+        start: 23.1,
+        end: 27.0,
+        cloze: 'ああ、そう。それで、いつからいつまで？',
+        vi: 'À ra vậy. Thế từ ngày nào đến ngày nào thế em?'
+      },
+      {
+        speaker: 'ローハン',
+        start: 27.1,
+        end: 31.0,
+        cloze: '23日から30日までなんですが。',
+        vi: 'Dạ từ ngày 23 đến ngày 30 ạ.'
+      },
+      {
+        speaker: '店長',
+        start: 31.1,
+        end: 37.5,
+        cloze: 'え？{{月末|げつまつ|cuối tháng|1}}？うーん、{{忙しいとき|いそがしいとき|thời điểm bận rộn|2}}だねえ。',
+        vi: 'Hả? Cuối tháng á? Ừm... tầm đấy bận lắm đấy em ơi.'
+      },
+      {
+        speaker: 'ローハン',
+        start: 37.6,
+        end: 53.0,
+        cloze: 'ああー、すみません。でも、みんな日本語がわからない{{ものですから|ものですから|vì là, do là (lý do khách quan)|1}}、私が{{案内しなければならなくて|あんないしなければならなくて|phải hướng dẫn, dẫn đường|1}}。その間、私の{{代わりに|かわりに|thay cho, thay thế|1}}田中さんが入るって言ってくださっているんですが。',
+        vi: 'Dạ em thật sự xin lỗi anh. Cơ mà cả nhà em chẳng ai biết tiếng Nhật cả, nên em buộc phải đi cùng hướng dẫn. Trong khoảng thời gian đó, chị Tanaka đã đồng ý đi làm thay ca cho em rồi ạ.'
+      },
+      {
+        speaker: '店長',
+        start: 53.1,
+        end: 57.0,
+        cloze: 'ああ、そうか。じゃあ{{大丈夫|だいじょうぶ|ổn thỏa, không sao|2}}だね。わかった。',
+        vi: 'À ra thế à! Vậy thì ổn rồi, không sao đâu. Anh đồng ý nhé.'
+      },
+      {
+        speaker: 'ローハン',
+        start: 57.1,
+        end: 61.0,
+        cloze: 'ありがとうございます。{{ご迷惑をかけて|ごめいわくをかけて|làm phiền, gây bất tiện|1}}すみません。',
+        vi: 'Em cảm ơn anh nhiều lắm ạ. Em xin lỗi vì đã làm phiền và gây bất tiện cho quán.'
+      }
+    ],
+    vocab: [
+      { word: 'シフト', kana: 'シフト', meaning: 'ca làm việc (shift)' },
+      { word: '休ませていただけませんか', kana: 'やすませていただけませんか', meaning: 'cho phép tôi xin nghỉ có được không ạ' },
+      { word: '月末', kana: 'げつまつ', meaning: 'cuối tháng' },
+      { word: '～ものですから', kana: '～ものですから', meaning: 'bởi vì là... (giải thích lý do bất khả kháng, lịch sự)' },
+      { word: '案内する', kana: 'あんないする', meaning: 'hướng dẫn, dẫn đường' },
+      { word: '～代わりに', kana: '～かわりに', meaning: 'thay cho, thay vì...' },
+      { word: '迷惑をかける', kana: 'めいわくをかける', meaning: 'làm phiền, gây phiền toái cho người khác' }
+    ]
+  },
+  {
+    id: 'listen_8_2',
+    lesson: '第 8 課',
+    code: 'Bài 8 - Nghe 2',
+    title: 'Khách gọi thêm bia sau Last order & Bị quản lý nhắc nhở',
+    jp_title: 'ラストオーダーと追加注文',
+    audio: 'audio/listening/bai_8_2.mp3',
+    duration_label: '00:56',
     type: 'dialogue',
     summary: 'Nhân viên quán ăn tâm sự về tình huống khó xử khi khách đã bảo không gọi nữa nhưng sau Last order lại đòi gọi thêm bia, khiến bản thân bị quản lý nhắc nhở.',
     lines: [
@@ -876,13 +1059,13 @@ window.LISTENING_DATA = [
     ]
   },
   {
-    id: 'listen_8_2',
+    id: 'listen_8_3',
     lesson: '第 8 課',
-    code: 'Bài 8 - Nghe 2',
+    code: 'Bài 8 - Nghe 3',
     title: 'Phàn nàn về quán trưởng & Nỗi vất vả dọn dẹp sảnh',
     jp_title: 'ホールの掃除と店長の小言',
-    audio: 'audio/listening/bai_8_2.mp3',
-    duration_label: '00:56',
+    audio: 'audio/listening/bai_8_3.mp3',
+    duration_label: '01:00',
     type: 'dialogue',
     summary: 'Anh Kobayashi tâm sự về việc bị quán trưởng mắng oan vì chưa kịp dọn dẹp sảnh giữa lúc quán đang quá đông khách.',
     lines: [
@@ -969,13 +1152,13 @@ window.LISTENING_DATA = [
     ]
   },
   {
-    id: 'listen_8_3',
+    id: 'listen_8_4',
     lesson: '第 8 課',
-    code: 'Bài 8 - Nghe 3',
+    code: 'Bài 8 - Nghe 4',
     title: 'Lý do nên bày tỏ tình cảm trực tiếp thay vì qua tin nhắn',
     jp_title: '気持ちを直接伝える理由',
-    audio: 'audio/listening/bai_8_3.mp3',
-    duration_label: '01:00',
+    audio: 'audio/listening/bai_8_4.mp3',
+    duration_label: '01:01',
     type: 'monologue',
     summary: 'Bài chia sẻ về lý do vì sao khi thổ lộ tình cảm nên gặp mặt trực tiếp: để thấu hiểu cảm xúc đối phương và tránh hối hận nếu để lại tin nhắn hay dấu vết.',
     lines: [
@@ -1031,105 +1214,6 @@ window.LISTENING_DATA = [
       { word: '～たびに', kana: '～たびに', meaning: 'mỗi lần... lại...' },
       { word: '後悔する', kana: 'こうかいする', meaning: 'hối hận, tiếc nuối' },
       { word: '気になる', kana: 'きになる', meaning: 'bận tâm, bồn chồn lo nghĩ' }
-    ]
-  },
-  {
-    id: 'listen_8_4',
-    lesson: '第 8 課',
-    code: 'Bài 8 - Nghe 4',
-    title: 'Xin phép quản lý nghỉ làm thêm một tuần vì gia đình sang thăm',
-    jp_title: 'アルバイトの休暇願いとシフト',
-    audio: 'audio/listening/bai_8_4.mp3',
-    duration_label: '01:01',
-    type: 'dialogue',
-    summary: 'Bạn du học sinh Rohan lịch sự xin phép quản lý cửa hàng cho nghỉ làm 1 tuần vào cuối tháng để đón tiếp gia đình từ quê nhà sang thăm và đã chủ động nhờ người làm thay.',
-    lines: [
-      {
-        speaker: 'ローハン',
-        start: 0.0,
-        end: 7.0,
-        cloze: 'あのー、店長、今{{よろしいですか|よろしいですか|có tiện không ạ (kính ngữ)|1}}。',
-        vi: 'Dạ quản lý ơi, bây giờ anh có tiện không ạ?'
-      },
-      {
-        speaker: '店長',
-        start: 7.1,
-        end: 10.0,
-        cloze: 'ああ、ローハンさん。どうしたの？',
-        vi: 'À, Rohan đấy à. Có chuyện gì thế em?'
-      },
-      {
-        speaker: 'ローハン',
-        start: 10.1,
-        end: 12.0,
-        cloze: '来月の{{シフト|シフト|ca làm việc, lịch làm|1}}のことなんですが。',
-        vi: 'Dạ về lịch làm việc (shift) tháng sau của em ấy ạ.'
-      },
-      {
-        speaker: '店長',
-        start: 12.1,
-        end: 14.0,
-        cloze: '来月のシフト？',
-        vi: 'Ca làm tháng sau à?'
-      },
-      {
-        speaker: 'ローハン',
-        start: 14.1,
-        end: 23.0,
-        cloze: 'はい。すみませんが、来月1週間、アルバイトを{{休ませていただけませんか|やすませていただけませんか|cho phép em được xin nghỉ có được không ạ|1}}。実は国から{{家族|かぞく|gia đình|2}}が来るんです。',
-        vi: 'Dạ vâng. Xin lỗi anh nhưng tháng sau cho phép em xin nghỉ làm thêm 1 tuần được không ạ? Thực ra gia đình em từ bên nước sang chơi ạ.'
-      },
-      {
-        speaker: '店長',
-        start: 23.1,
-        end: 27.0,
-        cloze: 'ああ、そう。それで、いつからいつまで？',
-        vi: 'À ra vậy. Thế từ ngày nào đến ngày nào thế em?'
-      },
-      {
-        speaker: 'ローハン',
-        start: 27.1,
-        end: 31.0,
-        cloze: '23日から30日までなんですが。',
-        vi: 'Dạ từ ngày 23 đến ngày 30 ạ.'
-      },
-      {
-        speaker: '店長',
-        start: 31.1,
-        end: 37.5,
-        cloze: 'え？{{月末|げつまつ|cuối tháng|1}}？うーん、{{忙しいとき|いそがしいとき|thời điểm bận rộn|2}}だねえ。',
-        vi: 'Hả? Cuối tháng á? Ừm... tầm đấy bận lắm đấy em ơi.'
-      },
-      {
-        speaker: 'ローハン',
-        start: 37.6,
-        end: 53.0,
-        cloze: 'ああー、すみません。でも、みんな日本語がわからない{{ものですから|ものですから|vì là, do là (lý do khách quan)|1}}、私が{{案内しなければならなくて|あんないしなければならなくて|phải hướng dẫn, dẫn đường|1}}。その間、私の{{代わりに|かわりに|thay cho, thay thế|1}}田中さんが入るって言ってくださっているんですが。',
-        vi: 'Dạ em thật sự xin lỗi anh. Cơ mà cả nhà em chẳng ai biết tiếng Nhật cả, nên em buộc phải đi cùng hướng dẫn. Trong khoảng thời gian đó, chị Tanaka đã đồng ý đi làm thay ca cho em rồi ạ.'
-      },
-      {
-        speaker: '店長',
-        start: 53.1,
-        end: 57.0,
-        cloze: 'ああ、そうか。じゃあ{{大丈夫|だいじょうぶ|ổn thỏa, không sao|2}}だね。わかった。',
-        vi: 'À ra thế à! Vậy thì ổn rồi, không sao đâu. Anh đồng ý nhé.'
-      },
-      {
-        speaker: 'ローハン',
-        start: 57.1,
-        end: 61.0,
-        cloze: 'ありがとうございます。{{ご迷惑をかけて|ごめいわくをかけて|làm phiền, gây bất tiện|1}}すみません。',
-        vi: 'Em cảm ơn anh nhiều lắm ạ. Em xin lỗi vì đã làm phiền và gây bất tiện cho quán.'
-      }
-    ],
-    vocab: [
-      { word: 'シフト', kana: 'シフト', meaning: 'ca làm việc (shift)' },
-      { word: '休ませていただけませんか', kana: 'やすませていただけませんか', meaning: 'cho phép tôi xin nghỉ có được không ạ' },
-      { word: '月末', kana: 'げつまつ', meaning: 'cuối tháng' },
-      { word: '～ものですから', kana: '～ものですから', meaning: 'bởi vì là... (giải thích lý do bất khả kháng, lịch sự)' },
-      { word: '案内する', kana: 'あんないする', meaning: 'hướng dẫn, dẫn đường' },
-      { word: '～代わりに', kana: '～かわりに', meaning: 'thay cho, thay vì...' },
-      { word: '迷惑をかける', kana: 'めいわくをかける', meaning: 'làm phiền, gây phiền toái cho người khác' }
     ]
   },
 // ==========================================================================
