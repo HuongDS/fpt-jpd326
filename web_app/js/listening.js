@@ -25,6 +25,8 @@ class ListeningEngine {
     this.selectedChipId = null;
     this.streak = 0;
     this.completedBannerShown = false;
+    this.isBankFloating = false;
+    this.isBankCollapsed = false;
 
     // Audio runtime state
     this.audio = new Audio();
@@ -331,6 +333,8 @@ class ListeningEngine {
     this.selectedChipId = null;
     this.streak = 0;
     this.completedBannerShown = false;
+    this.isBankFloating = false;
+    this.isBankCollapsed = false;
   }
 
   // --------------------------------------------------------------- operations
@@ -594,13 +598,30 @@ class ListeningEngine {
   }
 
   /**
-   * Morphs `#listen-audio-bar` into a floating pill when scrolled past its slot
+   * Morphs `#listen-audio-bar` into a floating pill and `#listening-word-bank`
+   * into a floating word bank dock when scrolled past their slots.
    */
   updateFloatingAudioBar() {
     const slot = document.getElementById('listen-audio-bar-slot');
     const bar = document.getElementById('listen-audio-bar');
     const panel = document.getElementById('tab-listening');
-    if (!slot || !bar) return;
+    const bankSlot = document.getElementById('listening-word-bank-slot');
+    const bank = document.getElementById('listening-word-bank');
+
+    const resetBankFloat = () => {
+      this.isBankFloating = false;
+      if (bank && bank.classList.contains('is-floating-bank')) {
+        bank.classList.remove('is-floating-bank', 'no-float-anim');
+        bank.style.removeProperty('--listen-bank-top');
+        bank.style.removeProperty('--listen-bank-width');
+      }
+      if (bankSlot) bankSlot.style.minHeight = '';
+    };
+
+    if (!slot || !bar) {
+      resetBankFloat();
+      return;
+    }
 
     if (!panel || !panel.classList.contains('active')) {
       if (bar.classList.contains('is-floating-pill')) {
@@ -609,6 +630,7 @@ class ListeningEngine {
         slot.style.minHeight = '';
         document.documentElement.style.removeProperty('--listen-pill-offset');
       }
+      resetBankFloat();
       return;
     }
 
@@ -626,18 +648,46 @@ class ListeningEngine {
     const slotRect = slot.getBoundingClientRect();
     const shouldFloat = slotRect.top <= triggerTop && slotRect.width > 0;
 
+    let pillBottom = triggerTop;
     if (shouldFloat) {
       if (!bar.classList.contains('is-floating-pill')) {
         slot.style.minHeight = `${bar.offsetHeight}px`;
         bar.classList.add('is-floating-pill');
       }
       bar.style.setProperty('--listen-float-top', `${Math.round(triggerTop)}px`);
-      document.documentElement.style.setProperty('--listen-pill-offset', `${Math.round(triggerTop + bar.offsetHeight + 10)}px`);
-    } else if (bar.classList.contains('is-floating-pill')) {
-      bar.classList.remove('is-floating-pill');
-      bar.style.removeProperty('--listen-float-top');
-      slot.style.minHeight = '';
-      document.documentElement.style.removeProperty('--listen-pill-offset');
+      pillBottom = Math.round(triggerTop + bar.offsetHeight + 8);
+      document.documentElement.style.setProperty('--listen-pill-offset', `${pillBottom}px`);
+    } else {
+      if (bar.classList.contains('is-floating-pill')) {
+        bar.classList.remove('is-floating-pill');
+        bar.style.removeProperty('--listen-float-top');
+        slot.style.minHeight = '';
+        document.documentElement.style.removeProperty('--listen-pill-offset');
+      }
+      pillBottom = Math.round(Math.max(triggerTop, slotRect.bottom + 8));
+    }
+
+    // Floating Cloze Word Bank
+    if (this.viewMode === 'cloze' && bankSlot && bank) {
+      const bankSlotRect = bankSlot.getBoundingClientRect();
+      const scriptList = document.querySelector('#listening-content-area .cloze-script-list');
+      const scriptRect = scriptList ? scriptList.getBoundingClientRect() : null;
+      const withinScript = !scriptRect || scriptRect.bottom > pillBottom + 90;
+      const shouldFloatBank = bankSlotRect.top <= pillBottom && bankSlotRect.width > 0 && withinScript;
+
+      if (shouldFloatBank) {
+        if (!bank.classList.contains('is-floating-bank')) {
+          bankSlot.style.minHeight = `${bank.offsetHeight}px`;
+          bank.classList.add('is-floating-bank');
+        }
+        this.isBankFloating = true;
+        bank.style.setProperty('--listen-bank-top', `${pillBottom}px`);
+        bank.style.setProperty('--listen-bank-width', `${Math.round(bankSlotRect.width)}px`);
+      } else {
+        resetBankFloat();
+      }
+    } else {
+      resetBankFloat();
     }
   }
 
@@ -736,6 +786,7 @@ class ListeningEngine {
     }
 
     this.highlightLineDOM(this.activeLineIdx);
+    this.updateFloatingAudioBar();
   }
 
   renderBlindModeHtml(track) {
@@ -894,25 +945,32 @@ class ListeningEngine {
         </div>
       ` : ''}
 
-      <!-- Draggable Word Bank -->
-      <div class="cloze-word-bank" id="listening-word-bank">
-        <div class="cloze-bank-header">
-          <span class="listen-section-label">KHO TỪ ĐỂ KÉO THẢ (${availableChips.length} từ còn lại)</span>
-          <span class="listen-section-hint">Kéo từ thả vào ô trống bên dưới, hoặc bấm vào từ để điền nhanh vào ô đang chọn</span>
-        </div>
-        <div class="cloze-bank-chips">
-          ${availableChips.length === 0
-            ? '<span class="cloze-bank-empty">Đã đặt hết các từ vào chỗ trống. Hãy bấm "Kiểm tra đáp án" hoặc bấm vào ô bất kỳ để đổi lại từ.</span>'
-            : availableChips.map(c => `
-                <div class="cloze-word-chip jp-font ${this.selectedChipId === c.chipId ? 'selected' : ''}"
-                     draggable="true"
-                     data-chip-id="${this.esc(c.chipId)}"
-                     title="${this.esc(c.reading)} — ${this.esc(c.meaning)}">
-                  <span class="chip-main-word">${this.esc(c.word)}</span>
-                  ${this.showChipHint ? `<span class="chip-sub-hint">${this.esc(c.reading)} • ${this.esc(c.meaning)}</span>` : ''}
-                </div>
-              `).join('')
-          }
+      <!-- Draggable Word Bank (morphs into floating dock when scrolled past) -->
+      <div class="cloze-word-bank-slot" id="listening-word-bank-slot">
+        <div class="cloze-word-bank ${this.isBankFloating ? 'no-float-anim' : ''} ${this.isBankCollapsed ? 'is-collapsed' : ''}" id="listening-word-bank">
+          <div class="cloze-bank-header">
+            <span class="listen-section-label">KHO TỪ ĐỂ KÉO THẢ (${availableChips.length} từ còn lại)</span>
+            <div class="cloze-bank-header-right">
+              <span class="listen-section-hint">Kéo từ thả vào ô trống bên dưới, hoặc bấm vào từ để điền nhanh vào ô đang chọn</span>
+              <button type="button" class="btn btn-secondary btn-sm btn-bank-collapse" id="btn-toggle-bank-collapse" title="Thu gọn hoặc mở rộng kho từ">
+                ${this.isBankCollapsed ? 'Mở kho từ' : 'Thu gọn'}
+              </button>
+            </div>
+          </div>
+          <div class="cloze-bank-chips">
+            ${availableChips.length === 0
+              ? '<span class="cloze-bank-empty">Đã đặt hết các từ vào chỗ trống. Hãy bấm "Kiểm tra đáp án" hoặc bấm vào ô bất kỳ để đổi lại từ.</span>'
+              : availableChips.map(c => `
+                  <div class="cloze-word-chip jp-font ${this.selectedChipId === c.chipId ? 'selected' : ''}"
+                       draggable="true"
+                       data-chip-id="${this.esc(c.chipId)}"
+                       title="${this.esc(c.reading)} — ${this.esc(c.meaning)}">
+                    <span class="chip-main-word">${this.esc(c.word)}</span>
+                    ${this.showChipHint ? `<span class="chip-sub-hint">${this.esc(c.reading)} • ${this.esc(c.meaning)}</span>` : ''}
+                  </div>
+                `).join('')
+            }
+          </div>
         </div>
       </div>
 
@@ -994,6 +1052,11 @@ class ListeningEngine {
     area.querySelector('#btn-cloze-reveal')?.addEventListener('click', () => this.revealAllBlanks());
     area.querySelector('#btn-cloze-reset')?.addEventListener('click', () => this.resetCloze());
     area.querySelector('#btn-cloze-view-script')?.addEventListener('click', () => this.setViewMode('script'));
+    area.querySelector('#btn-toggle-bank-collapse')?.addEventListener('click', () => {
+      this.isBankCollapsed = !this.isBankCollapsed;
+      window.soundEngine?.playToggle?.(!this.isBankCollapsed);
+      this.renderWorkspace();
+    });
 
     // Play single line
     area.querySelectorAll('.btn-play-line').forEach(btn => {

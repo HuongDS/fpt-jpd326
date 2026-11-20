@@ -458,17 +458,82 @@
   margin-bottom: 1rem;
 }
 
+.cloze-word-bank-slot {
+  width: 100%;
+  margin-bottom: 1.15rem;
+}
+
 .cloze-word-bank {
   background: var(--bg-card);
   border: 2px dashed var(--border-subtle);
   border-radius: 14px;
   padding: 1.1rem 1.25rem;
-  margin-bottom: 1.15rem;
-  transition: border-color 0.2s, background 0.2s;
-  position: sticky;
-  top: var(--listen-pill-offset, 6.2rem);
-  z-index: 15;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.22s, padding 0.22s, border-radius 0.22s;
   box-shadow: var(--shadow-sm);
+}
+
+.cloze-word-bank.is-floating-bank {
+  position: fixed !important;
+  top: var(--listen-bank-top, 148px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 44;
+  width: var(--listen-bank-width, min(calc(100vw - 1.5rem), 960px));
+  max-width: min(calc(100vw - 1rem), 980px);
+  padding: 0.65rem 1rem;
+  border-radius: 18px;
+  border: 1.5px solid rgba(242, 112, 36, 0.45);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 32px rgba(242, 112, 36, 0.2), 0 4px 14px rgba(15, 23, 42, 0.08);
+  margin-bottom: 0;
+  box-sizing: border-box;
+  animation: listenPillIn 0.22s cubic-bezier(0.2, 1.2, 0.4, 1);
+}
+
+.cloze-word-bank.is-floating-bank.no-float-anim {
+  animation: none !important;
+}
+
+[data-theme="dark"] .cloze-word-bank.is-floating-bank {
+  background: rgba(24, 24, 27, 0.95);
+  border-color: rgba(251, 146, 60, 0.55);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.52), 0 0 0 1px rgba(251, 146, 60, 0.22);
+}
+
+.cloze-word-bank.is-floating-bank .cloze-bank-header {
+  margin-bottom: 0.45rem;
+}
+
+.cloze-word-bank.is-floating-bank .listen-section-hint {
+  font-size: 0.74rem;
+}
+
+.cloze-word-bank.is-floating-bank .cloze-bank-chips {
+  gap: 0.42rem;
+  min-height: 34px;
+  max-height: 128px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.cloze-word-bank.is-floating-bank .cloze-word-chip {
+  padding: 0.32rem 0.72rem;
+  border-radius: 9px;
+}
+
+.cloze-word-bank.is-floating-bank .chip-main-word {
+  font-size: 0.95rem;
+}
+
+.cloze-word-bank.is-collapsed .cloze-bank-chips,
+.cloze-word-bank.is-collapsed .listen-section-hint {
+  display: none !important;
+}
+
+.cloze-word-bank.is-collapsed .cloze-bank-header {
+  margin-bottom: 0 !important;
 }
 
 .cloze-word-bank.drag-over {
@@ -483,6 +548,21 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 0.75rem;
+}
+
+.cloze-bank-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn-bank-collapse {
+  border-radius: 999px;
+  padding: 0.22rem 0.65rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .listen-section-label {
@@ -850,8 +930,15 @@
 }
 
 @media (max-width: 720px) {
-  .cloze-word-bank {
-    position: static;
+  .cloze-word-bank.is-floating-bank {
+    max-width: calc(100vw - 0.75rem);
+    padding: 0.5rem 0.75rem;
+  }
+  .cloze-word-bank.is-floating-bank .listen-section-hint {
+    display: none;
+  }
+  .cloze-word-bank.is-floating-bank .cloze-bank-chips {
+    max-height: 98px;
   }
   .listen-audio-bar,
   .listen-audio-bar.is-floating-pill {
